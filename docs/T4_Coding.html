@@ -50,14 +50,13 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="" href="Help.html">HELP!</a></li>
-<li><a class="" href="Lab_1.html">Lab 1</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -124,7 +123,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h2>
 <p>Most commands need some information from you, which you put inside the parentheses <code>( )</code>. These are called arguments. You separate them with a comma and you can find out whats available using the help file.</p>
 <p>For example, the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function tells R to round numbers to a pre-specified number of decimal places.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">1.6722615</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.672</code></pre>
 <p>Here we have told R to round the number 1.6722615 to three decimal places:</p>
@@ -134,9 +133,9 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p><code>digits = 3</code> is the second argument; we want to round to three decimal places</p></li>
 </ul>
 <p>As a second example</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1] 12.661633  9.445922  7.514600 10.683293 11.439240</code></pre>
+<pre><code>## [1] 10.198402 11.741009 11.708219 10.313859  9.637222</code></pre>
 <p>Here we have told R: to randomly select <code>5</code> values from a normal distribution that has a mean of <code>10</code>, and a standard deviation of <code>2</code>.</p>
 <ul>
 <li><p>The command/function is <code>rnorm</code>()`</p></li>
@@ -149,7 +148,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>All R commands have a help file, some more complex than others! This always tells you the name and purpose of the command, then has a list of variables (and the default value if you choose to not type anything). Sometimes it also adds in several related commands into one help file.</p>
 <p>For example, take a look at the rnorm help file by typing its name into the console with a ? in front.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">rnorm</span></span></code></pre></div>
 <p>You should see this. Exactly what the commands do is often hidden in the description! In this case you can see that</p>
 <ul>
@@ -172,7 +171,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>Some functions don’t need any extra information from you. These are a special case where the parentheses can be left empty. Even though there is nothing inside the parentheses, <strong>you still need the <code>( )</code></strong> because these are functions.</p>
 <p>For example, try typing these exactly into your console</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/file.choose.html">file.choose</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -193,9 +192,9 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p>This FIRST generates 5 numbers from a normal distribution with mean=10 and sd=2.</p></li>
 <li><p>THEN it rounds each of those 5 numbers to 3 decimal places</p></li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1]  8.313 10.853 10.879  8.673 11.509</code></pre>
+<pre><code>## [1] 10.224 10.448 10.404  8.258 14.055</code></pre>
 <p><br></p>
 </div>
 <div id="referring-to-a-column-using" class="section level2" number="4.5">

@@ -2,11 +2,6 @@ tab:tab-main-rubric
 fig:Tut-Fig1
 fig:Tut-Fig2
 fig:Setup-Fig7
-fig:L1-Projectcheck
-fig:L1-Loadpackages
-fig:L1-ViewData
-fig:L1-Submit
-fig:L1-CloudDownload
 fig:im-T1-ProjectCloud
 fig:im-T1-Projectcheck
 fig:im-T2-friendlytext

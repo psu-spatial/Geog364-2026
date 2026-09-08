@@ -10,13 +10,11 @@ rmd_files:
   [
     "index.Rmd",
     "in_01-CourseFAQ.Rmd",
+     "in_01-HELP.Rmd",
     "in_01-WhatIsR.Rmd",
     "in_03-Setup1_desktop.Rmd",
     "in_03-Setup2_updatedesktop.Rmd",
     "in_03-Setup3_RCloud.Rmd",
-
-    "in_01-HELP.Rmd",
-    "in_02-Lab1.Rmd",
 
     "in_04-Tutorial01_Projects.Rmd",
     "in_04-Tutorial02_Libraries.Rmd",

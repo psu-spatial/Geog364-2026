@@ -50,14 +50,13 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="" href="Help.html">HELP!</a></li>
-<li><a class="" href="Lab_1.html">Lab 1</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -134,7 +133,7 @@
 <span class="header-section-number">10.2.1</span> Help file<a class="anchor" aria-label="anchor" href="#help-file"><i class="fas fa-link"></i></a>
 </h3>
 <p>To see the help file for all normal related functions:</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">Normal</span></span></code></pre></div>
 <p><br></p>
 </div>
@@ -143,7 +142,7 @@
 <span class="header-section-number">10.2.2</span> Generate a random sample<a class="anchor" aria-label="anchor" href="#generate-a-random-sample"><i class="fas fa-link"></i></a>
 </h3>
 <p>To generate a random sample from a normal distribution we use rnorm:</p>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># random sample of size 100</span></span>
 <span><span class="va">sample.normal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">100</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
@@ -154,15 +153,15 @@
 </h3>
 <p>To calculate a z score from your sample/population, you can use R as a calculator.</p>
 <p>To calculate the probability of greater/lesser than a value in a given normal distribution (e.g. you can use this as an interactive table)</p>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># probability of less than 1.7 in a normal distribution with mean 4 and standard deviation = 2 </span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1.7</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.1250719</code></pre>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># probability of GREATER than 1.8 in a normal distribution with mean 4 and VARIANCE = 9</span></span>
 <span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">3</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.8413447</code></pre>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># or</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.9331928</code></pre>
@@ -173,11 +172,11 @@
 <span class="header-section-number">10.2.4</span> Calculate z-score when given a probability<a class="anchor" aria-label="anchor" href="#calculate-z-score-when-given-a-probability"><i class="fas fa-link"></i></a>
 </h3>
 <p>Inversely, to calculate the z-score for a given probability</p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># what value is less than 60% of the data?</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.6</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 4.506694</code></pre>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># what value is greater than 80% of the data?</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.8</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 2.316758</code></pre>
@@ -193,7 +192,7 @@
 </h4>
 <p>To test for normality:</p>
 <p>First, have a look at the histogram! Here is the code for the Shapiro-Wilk test.</p>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
@@ -208,7 +207,7 @@
 <span class="header-section-number">10.2.5.2</span> QQ-Norm plot<a class="anchor" aria-label="anchor" href="#qq-norm-plot"><i class="fas fa-link"></i></a>
 </h4>
 <p>You can also make a QQ-Norm plot. Instal the ggpubr package, add it to your library code chunk and run.</p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
 <span><span class="fu">ggqqplot</span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span>,col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 <p>YOU CAN INTERPRET IT HERE: <a href="https://www.learnbyexample.org/r-quantile-quantile-qq-plot-base-graph/" class="uri">https://www.learnbyexample.org/r-quantile-quantile-qq-plot-base-graph/</a></p>
@@ -222,14 +221,14 @@
 </h2>
 <p>What even is this? See this nice resource: <a href="https://365datascience.com/tutorials/statistics-tutorials/students-t-distribution/" class="uri">https://365datascience.com/tutorials/statistics-tutorials/students-t-distribution/</a></p>
 <p>To see the help file for all these:</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">TDist</span></span></code></pre></div>
 <div id="calculate-a-probability-given-a-t-statistic" class="section level3" number="10.3.1">
 <h3>
 <span class="header-section-number">10.3.1</span> Calculate a probability given a T-Statistic<a class="anchor" aria-label="anchor" href="#calculate-a-probability-given-a-t-statistic"><i class="fas fa-link"></i></a>
 </h3>
 <p>To calculate a t-statistic from your sample/population, you can use R as a calculator. To calculate the probability of greater/lesser than a value in a given t-distribution (e.f. you can use this as an interactive t-table)</p>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># probability of seeing less than 1.7 in a  t-distribution </span></span>
 <span><span class="co"># with 20 degrees of freedom</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">pt</a></span><span class="op">(</span><span class="fl">1.55</span>,df<span class="op">=</span><span class="fl">20</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
@@ -241,7 +240,7 @@
 <span class="header-section-number">10.3.2</span> Calculate a T-Statistic for a given probability<a class="anchor" aria-label="anchor" href="#calculate-a-t-statistic-for-a-given-probability"><i class="fas fa-link"></i></a>
 </h3>
 <p>To calculate the value for a given probability</p>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># what value is greater than 90% of the data in a t-distribution with df=25</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="fl">0.9</span>,df<span class="op">=</span><span class="fl">25</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.316345</code></pre>
@@ -252,7 +251,7 @@
 <span class="header-section-number">10.3.3</span> One sided T-test<a class="anchor" aria-label="anchor" href="#one-sided-t-test"><i class="fas fa-link"></i></a>
 </h3>
 <p>To conduct a full t-test on some data:</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Conduct a two-sided t-test where we think that the data comes from a T-distribution with mean 100.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span>,mu<span class="op">=</span><span class="fl">100</span>,alternative<span class="op">=</span><span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
