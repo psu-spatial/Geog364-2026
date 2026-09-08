@@ -1,0 +1,33 @@
+book_filename: "GEOG-364_SP26 Lab Book"
+output_dir: "docs"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+new_session: true
+
+rmd_files:
+  [
+    "index.Rmd",
+    "in_01-CourseFAQ.Rmd",
+    "in_01-WhatIsR.Rmd",
+    "in_03-Setup1_desktop.Rmd",
+    "in_03-Setup2_updatedesktop.Rmd",
+    "in_03-Setup3_RCloud.Rmd",
+
+    "in_01-HELP.Rmd",
+    "in_02-Lab1.Rmd",
+
+    "in_04-Tutorial01_Projects.Rmd",
+    "in_04-Tutorial02_Libraries.Rmd",
+    "in_04-Tutorial03_Markdown.Rmd",
+    "in_04-Tutorial04_CodingBasics.Rmd",
+    "in_04-Tutorial05_ReadingInData.Rmd",
+    "in_04-Tutorial06_Summary.Rmd",
+    "in_04-Tutorial06B_MissingData.Rmd",
+    "in_04-Tutorial07_Plots.Rmd",
+    "in_04-Tutorial08_Wrangling.Rmd",
+    "in_04-Tutorial09_DistributionsHypTests.Rmd",
+    "in_04-Tutorial10_Correlation.Rmd",
+    "in_04-Tutorial11_SLR.Rmd"
+  ]

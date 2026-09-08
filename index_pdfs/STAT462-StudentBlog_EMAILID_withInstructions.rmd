@@ -1,0 +1,224 @@
+---
+title: "YOUR TITLE HERE"
+description: |
+  One sentence summary of your project and key findings.
+author:
+  - name: Your email ID e.g. hlg5155
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: true
+    code_folding: true
+---
+
+```{r setup,message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+# Load ALL your libraries here. 
+# You will have to install distill from the app store before it will knit
+library(distill)
+library(tidyverse)
+library(olsrr)
+
+# READ IN YOUR DATASET HERE
+
+
+```
+
+::: callout
+***DELETE THESE INSTRUCTIONS WHEN YOU ARE READY TO SUBMIT USING SOURCE MODE***
+
+*Use visual view to read/work on output, but then use source view to DELETE each set of instructions before you knit.*
+
+**Imagine you are writing a case-report for STAT-462 Consulting. In general:**
+
+-   [**STYLE**]{.underline}
+    -   Remember to adjust the YAML code at the top. Your title and one sentence description should reflect the question your client is trying to answer.
+
+    -   Please add more headings/subheadings! Your structure should be easy for the reader to use the table of contents to to 'skim read'.
+
+    -   You are welcome to include pictures, but remember they need to be in your project folder or they will disappear when they knit.
+
+    -   The blog will auto "fold" your code e.g. when you knit, e.g. the code will look hidden until you click a button. So do not hide any code using include=FALSE
+
+    -   Make sure that things like library commands are together near the top with warnings & messages set to FALSE. This also works for the GGally /ggpairs code chunks\
+        .
+-   [**TONE & CONTENT**]{.underline}
+    -   You are writing a summary for your client and any casual online readers. These want to see the statistics, but ALSO have an explanation of what they mean in clear language
+    -   There's a spell check button next to the save and knit buttons.
+    -   Only include plots/code output that you talk about in the text.
+    -   Please mainly use the code/commands/plots that we used in the lab instructions, tutorials and previous labs. I'm testing you on what you learned during this class. You're allowed to do extra work, but the basics must refer back to our class material.
+    -   **Your writing/grammar is allowed to be poor!! I guarantee your unfiltered thoughts will get you a higher grade than meaningless chatgpt gloss.**
+:::
+
+------------------------------------------------------------------------
+
+## Background
+
+::: callout
+> ***DELETE THESE INSTRUCTIONS WHEN YOU ARE DONE WITH THIS SECTION USING SOURCE MODE***
+>
+> *(200+ words, no upper limit)*
+>
+> Explain the background of your project and introduce your client and the statistical question(s) they want to answer.
+>
+> Summarise everything the client needs to know about the study design and the origins of your dataset. You're allowed to use photos or anything else that explains the problem to a casual reader.
+:::
+
+ADD YOUR SUB-HEADINGS AND TEXT HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+<br>
+
+## Exploratory Data Analysis
+
+::: callout
+> ***DELETE THESE INSTRUCTIONS WHEN YOU ARE DONE WITH THIS SECTION USING SOURCE MODE***
+>
+> *(200+ words, no upper limit)*
+>
+> You conduct any necessary quality-control/filtering/removing missing data that you found you needed from your lab-book and summarised what you did in the text so someone else could directly reproduce your work.
+>
+> Summarise/Showcase the data for the client, so they understand the details of your dataset. This might include summary statistics, any potential issues (outliers, missing values you had to remove etc, or potential multicollinearity/confounding/spurious variables)
+:::
+
+ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Initial Model (SLR)
+
+::: callout
+> ***DELETE THESE INSTRUCTIONS WHEN YOU ARE FINISHED WITH THIS SECTION USING SOURCE MODE***
+>
+> *(200+ words, no upper limit)*
+>
+> You conduct a Simple Linear Regression analysis, which includes
+>
+> -   the equation written in LateX (use tutorial 12 not chatgpt!),
+>
+> -   an interpretation of results in context of the problem
+>
+> -   an exploration of model effect size, goodness of fit, model validity and outliers.
+>
+> -   At least one relevant hypothesis test.
+>
+> You should include all relevant code, plots, LateX equations AND write everything up for your client to understand in full sentences. Fully write up any hypothesis tests as described in previous labs/classes.
+>
+> If your LINE assumptions needed to transform the data, also add a second follow up model, showing how it improved the results and validity.
+:::
+
+ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Final Model Selection Process
+
+::: callout
+> ***DELETE THESE INSTRUCTIONS WHEN YOU ARE FINISHED WITH THIS SECTION USING SOURCE MODE***
+>
+> *(200+ words, no upper limit)*
+>
+> For MLR below, you do [**not**]{.underline} have to include every model you used in your log book. In fact you are only writing up your final model.
+>
+> So here, explain the process of HOW you came up with your final model. E.g. what steps did you take to ensure that you have the best possible model to explain the variation in their response?
+>
+> -   Refer to your lab book for this! e.g. you might have transformed variables, you made your initial table of predictor selection characteristics, you did best-subsets. E.g. talk the client through what you did.
+>
+> -   Remember there will be no perfect model. In fact there might be some variables you are torn over. Write about this to your client and why you are unsure (the recommendation here to the client no matter what your final choice will be "you need more data"). But at the end, you must still state and justify your final choice even if you are unsure.
+>
+> **Note from Dr G**: you are welcome to run and include code & output from things like best-subsets, correlation matrices or other model outputs to explain your point, but you don't **have** to run/analyse every model in your lab book. I'm grading you here based on your arguments and the evidence you use to convince me that your final model is "best", especially based on what you learned in class.
+:::
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Final Model
+
+::: callout
+> ***DELETE THESE INSTRUCTIONS WHEN YOU ARE FINISHED WITH THIS SECTION USING SOURCE MODE***
+>
+> *(200+ words, no upper limit)*
+>
+> Conduct a Multiple Linear Regression analysis on your FINAL MODEL, which includes
+>
+> -   The model code and summary
+>
+> -   the equation written in LateX (use tutorial 12 not chatgpt!),
+>
+> -   an interpretation of results and "how good" the model is,
+>
+> -   an exploration of goodness of fit,
+>
+> -   an exploration of model validity, multicollinearity and influential outliers.
+>
+> -   You must include at least one partial F-test
+>
+> You should include all relevant code, plots, LaTeX equations (see the SLR tutorial) AND write everything up for your client to understand in full sentences. Fully write up any hypothesis tests as described in previous labs/classes.
+:::
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Client questions
+
+::: callout
+> ***DELETE THESE INSTRUCTIONS WHEN YOU ARE FINISHED WITH THIS SECTION USING SOURCE MODE***
+>
+> *(100+ words per question, no upper limit)*
+>
+> In this section, imagine your client has handed you some FAQ questions. You need to write out their full question adding details as necessary (e.g. use your prediction questions from your lab book), your code/calculations and your answer.
+:::
+
+------------------------------------------------------------------------
+
+### FAQ 1, Prediction part 1
+
+**Your client has asked you to use your final model to make a prediction of a new object (use the one from your lab book)**
+
+REPLACE THE SENTENCE ABOVE WITH YOUR CLIENT'S SPECIFIC QUESTION. THEN ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+### FAQ 2, Prediction part 2
+
+**Your client has asked you to use your final model to make a prediction of the AVERAGE RESPONSE for a given combination of predictors, and asked why this value looks different to point 1.**
+
+REPLACE THE SENTENCE ABOVE WITH YOUR CLIENT'S SPECIFIC QUESTION. THEN ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+### FAQ 3, Multicollinearity
+
+**Your client has asked you what "multicollinearity" and "confounding variables" are and whether you are worried about them in your model.**
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+### FAQ 4, Limitations
+
+**Your client has asked you what the potential biases in your results are (e.g. if you could collect data on new predictors, what would you find data on).**
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Summary
+
+::: callout
+> ***DELETE THESE INSTRUCTIONS WHEN YOU ARE DONE WITH THIS SECTION:***
+>
+> *(200+ words, no upper limit)*
+>
+> Refer back to the client's request. What have you found out to help them answer their request? Generally summarise what your results show, what predictors explain the variation in their response, how that relates to your understanding of the problem (e.g. does this make sense causally?) and what do you recommend as the next steps.
+:::
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+*Full analysis and reproducible code available in my lab book appendix.*

@@ -1,0 +1,92 @@
+# (PART\*) [.]{style="color: white;"} {.unnumbered}
+# (PART\*) **PROJECT 1** {.unnumbered}
+
+
+```{r setup, include=FALSE}
+# OPTIONS -----------------------------------------------
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning=FALSE, 
+                      message = FALSE)
+```
+
+```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+```{=html}
+<style>
+details > *:not(summary){
+  margin-left: 10em;
+}
+</style>
+```
+
+# Project 1 {#Project1 .unnumbered}
+
+
+Welcome to your semester long project, where you are going to conduct a regression analysis on your own data.
+
+## Step 1: Set-up {.unnumbered}
+
+-  First make a new project folder in your STAT462 folder.  
+-  Then download this file into the folder: [LAB SCRIPT](https://psu.instructure.com/courses/2450096/files/188696529/download?download_frd=1). If this doesn't work you can get it from our canvas page.
+-  Make a new Project in R studio, open this file and check it knits.
+
+<br>
+
+## Step 1: Choose some data {.unnumbered}
+
+Choose a topic and dataset.  Use tools like ChatGPT to help and I will add some data.   The data can be on a topic of your choice, but it MUST follow these parameters
+
+-  At least 50 rows/objects. (> 40 is just about OK)
+-  At least 3 numeric variables
+-  At least 1 categorical variable (ideally TRUE/FALSE)
+-  You can download it or save it as an excel spreadsheet
+-  You must also be able to cite the actual source of your data.  Even if you get the spreadsheet from Kaggle, you need to include the Kaggle link AND the original source link, If some method like web-scraping was used to get the data then you will also need to describe that.
+
+<br>
+
+**You are not allowed** to use datasets already built into R or ones that are commonly used for teaching regression online (e.g. if you type regression and the dataset name into google, do you get many examples). If in doubt, talk to Dr G!
+
+<br>
+
+## Step 3: Follow the lab script {.unnumbered}
+
+
+Follow the instructions in the file you downloaded to write about and explore your data. Here's a brief explanation of what I want you to do:
+
+### Introduction & Background {.unnumbered}
+This is your scene-setting section. Introduce your topic in plain English and describe your imaginary client — who they are, what they want to know, and why they've come to you with this data. You're done when a stranger could read this and understand the problem you're trying to solve.
+
+
+### Dataset Introduction {.unnumbered}
+Describe the data itself: what each row represents, what the variables are (with units!), where the data came from, and who it could reasonably represent. You're done when someone could pick up your dataset and know exactly what they're looking at.
+
+
+### Load the data {.unnumbered}
+Just get the data into R and confirm it looks right. You're done when you can see the rows and columns and nothing looks broken.
+
+
+###  Summarise the data (Quality Control) {.unnumbered}
+This is quality control, not analysis. You're checking the data arrived correctly — spotting missing values, weird ranges, and anything that looks like an error. Describe each variable to your client as if they've never seen the spreadsheet, and flag anything suspicious. You're not looking for relationships yet, just making sure the data is trustworthy. You're done when you've commented on every variable.
+
+
+### Exploratory Analysis > Explore relationships (EDA) {.unnumbered}
+Now the quality control is done, this is where EDA begins. You're switching from "is the data ok?" to "what is the data telling me?" Look across variables — are any of them related to each other? Use plots. You're not doing formal analysis yet, just looking for patterns worth investigating. You're done when you've noted which relationships look strong, weak, or surprising.
+
+### Identify your response variable {.unnumbered}
+Based on what you found in EDA, pick the variable you want to predict or explain and justify your choice. You're done when you've named it and described how it relates to your other variables.
+
+<br><br> 
+
+## Step 4: Submit {.unnumbered}
+
+Knit and submit the html file AND the .RmD AND THE DATASET on canvas
+
+<br><br> 
+
+## Step 5: Check your grade {.unnumbered}
+
+You get 35 points if you can show me that your data follows the format I requested, that you have read it into R and got it ready for modelling.  We might have a few iterations to make sure you are there with this process. 

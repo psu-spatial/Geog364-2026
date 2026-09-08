@@ -1,0 +1,5 @@
+bookdown::bs4_book:
+  theme:
+    preset: "minty"
+    primary: "#1e407c"
+  repo: NULL

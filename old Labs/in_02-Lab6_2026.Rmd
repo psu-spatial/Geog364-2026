@@ -1,0 +1,531 @@
+```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(palmerpenguins)
+library(ggstatsplot)
+library(olsrr)
+```
+
+# Lab 6 {#Lab_6 .unnumbered}
+
+### Aim {.unnumbered}
+
+Welcome to Lab 6. This is worth 8% (480 points) and you can drop your lowest lab.
+
+By the end of this lab, you will be able to:
+
+1.  Understand & use regression diagnostics to assess LINE
+2.  Apply this knowledge to a real case study on pollution in Florida Lakes
+
+This is a ONE WEEK LAB. You need to finish writing up by next Tuesday (23:59pm) e.g. just before Lab 6 starts.
+
+<br>
+
+### Need help? {.unnumbered}
+
+REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN **ALL** YOUR CODE CHUNKS. The easiest way to do this is to press the "Run All" button (see the Run menu at the top right of your script)
+
+The maximum time this lab should take is about 4-5 hrs of your time.
+
+<br>
+
+------------------------------------------------------------------------
+
+## LAB SET-UP (Important!) {.unnumbered}
+
+### STEP 1: Create your Lab 6 project {.unnumbered}
+
+-   **[1A]** Create a new R project called **Lab6** ([Projects tutorial](#T1_Projects))
+-   **[1B]** Open your Lab 6 project in R-Studio and confirm it says **Lab 6** at the top right of the screen.
+
+<br>
+
+------------------------------------------------------------------------
+
+### STEP 2: Create your lab report structure {.unnumbered}
+
+-   **[2A]** Make a new RMarkdown file inside your Lab 6 project ([Tutorial here](#T31_Basics)) and save it as `STAT-462_Lab6_EMAILID.Rmd` (e.g. `STAT-462_Lab6_hlg5155.Rmd`).
+-   **[2B]** Using the [YAML tutorial](#Tut4E_YAML), edit the YAML code at the top of your file to include:
+    -   A title (e.g. "Lab 6: Multiple Regression")
+    -   Your author name
+    -   Automatically today's date
+    -   A floating table of contents
+    -   Numbered sections
+    -   A theme of your choice
+-   **[2C]** Delete all the "friendly welcome text", leaving just the YAML code and an empty document body.
+
+<br>
+
+------------------------------------------------------------------------
+
+### STEP 3: Adjust your knit options {.unnumbered}
+
+Many students lose marks because library-loading messages appear in the knitted report, making it hard to find answers.
+
+-   **[3A]** In the first code chunk below your YAML, make sure you have this line:
+
+```{r, eval=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+-   **[3B]** Add `warning = FALSE` and `message = FALSE` to this command so it reads:
+
+```{r, eval=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+This suppresses all library welcome text throughout the report. You can also add these options to individual code chunks if needed.
+
+<br>
+
+------------------------------------------------------------------------
+
+### STEP 4: Load your libraries {.unnumbered}
+
+-   **[4A]** Create a new code chunk near the top of your report and load the following libraries. If any are missing, install them first (never put `install.packages()` inside a code chunk — run it in the Console instead).
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(tidyverse)   # Data processing
+library(knitr)       # Output formatting
+library(ggplot2)     # Plots
+library(skimr)       # Summary statistics
+library(GGally)      # Correlation plots
+library(ggpubr)      # QQ plots
+library(olsrr)       # Regression tools
+library(readxl)      # Read Excel files
+library(car)         # VIF for multicollinearity
+library(MASS)        # Studentised residuals
+```
+
+-   **[4B]** Run the code chunk **twice**. The second time, all welcome text should disappear. If you see errors, install the missing packages and try again.
+
+<br>
+
+------------------------------------------------------------------------
+
+### STEP 5: Check your progress {.unnumbered}
+
+Before moving on, confirm:
+
+-   **[5A]** R-Studio shows **Lab 6** in the top-right corner (you are running the correct project)
+-   **[5B]** Your YAML code knits correctly — press **Knit** now to check
+-   **[5C]** Your libraries load with no errors
+
+If any of these fail, stop and fix them before continuing — everything below depends on this working.
+
+<br>
+
+------------------------------------------------------------------------
+
+## STUDY BACKGROUND & DATA WRANGLING {.unnumbered}
+
+You are a data analyst working with two penguin colonies in central Pennsylvania.
+Unknown to most people, State College is home to two large research penguin populations:
+
+- **Penn State Wildlife Reserve** — a natural outdoor reserve on the edge of campus
+- **State College City Zoo** — an indoor zoo facility in downtown State College
+
+The two facilities have been tracking their penguin populations for several years. You have been given a dataset of **200 penguins** containing physical measurements and some additional information collected by the zookeepers.
+
+Your goal is to build a model to **predict beak length** from a penguin's other characteristics.
+
+<br>
+
+------------------------------------------------------------------------
+
+### STEP 6: Load the data {.unnumbered}
+
+-   **[6A]** Download `Lab6_PenguinSubset.xlsx` from Canvas and place it in your Lab 6 project folder. 
+
+<br>
+-   **[6B]** Read the data into R and save it as a variable called `mydata`:
+
+```{r, eval=FALSE}
+mydata <- read_excel("Lab6_PenguinSubset.xlsx")
+```
+
+<br>
+
+-   **[6C]** Using the study description, identify the object of analysis, the response variable and make a list of predictor variables with units and data type.
+
+<br>
+
+-   **[6D]** Use `summary(mydata)` and `head(mydata)` to take a first look at the data. In your report, describe:
+    -   The variables in the dataset and their units (there is a data dictionary on Canvas)
+    -   The response variable (`beak_length_mm`) and any potential predictors
+    -   How many observations are in the dataset
+    -   Identify which penguins contain missing data 
+    
+
+-   **[6E]** Identify which rows contain missing (`NA`) values. How many are there and which variables are affected? Which penguins are don't have all their data?
+
+Hint, to identify rows with missing data you can use
+
+```{r,eval=FALSE}
+# Identify rows with missing data
+# REPLACE BOTH df WITH THE NAME OF YOUR DATASET (mydata)
+# The ! means "not/without" e.g. print all the rows without complete cases
+df[!complete.cases(df), ]
+```
+
+
+<br><br>
+
+------------------------------------------------------------------------
+
+### STEP 7: Data wrangling {.unnumbered}
+
+Before we can model the data, we need to do some cleaning.
+
+<br>
+
+-   **[7B]** Remove all rows with missing values and save the cleaned data back to `mydata` [Tutorial 6B](https://psu-spatial.github.io/Stat462-2026/T6B_MissingData.html#T6B_naomit).  How many observations remain?
+
+<br>
+
+-   **[7C]** Convert `species` and `zoo` to factors [Tutorial 5](https://psu-spatial.github.io/Stat462-2026/T5_Summarising.html?q=factor#T5_asfactor). 
+
+<br>
+
+-   **[7D]** Google and explain what the "reference level" is for a factor in R and why that matters in regression interpretation. Identify the reference level for species and zoo using the `levels()` command 
+
+<br>
+
+-   **[7E]** **Admiral Frostbottom** is a Chinstrap penguin at Penn State Wildlife Reserve. Comment on whether Admiral's measurements appear typical for a Chinstrap penguin and explain what evidence you used to come to that conclusion. 
+
+
+<br><br>
+
+
+
+------------------------------------------------------------------------
+
+## EXPLORATORY DATA ANALYSIS {.unnumbered}
+
+<br>
+
+### STEP 8: Explore the data visually {.unnumbered}
+
+-   **[8A]** Create a GGally pairs plot of the data, **excluding the name column**. The `name` column is column 1, so you can exclude it like this:
+
+```{r, eval=FALSE}
+ggpairs(mydata[, -1])
+```
+
+-   **[8B]** In your report, comment on the following — write/explain in full sentences:
+    -   Why did we exclude the name column?
+    -   Which numeric variables appear most strongly correlated with `beak_length_mm`?
+    -   What do you notice about the relationship between `flipper_length_mm` and `bodymass_kg`? Report the correlation value and describe what you see.
+    -   Write your best guess of the combination of predictors that might predict `beak_length_mm` and explain your reasoning. 
+
+
+<br>
+
+------------------------------------------------------------------------
+
+## PART 3: "Model 1" {.unnumbered}
+
+As your teacher, I decided that you should first run MY favourite model. 
+
+We will model `beak_length_mm` as a function of `bodymass_kg`, `flipper_length_mm`, `socialmedia_followers`, and `species`. 
+
+<br><br>
+
+### STEP 9: Fit/Interpret Model 1  {.unnumbered}
+
+-   **[9A]** Fit the following multiple regression model and save it as `model1`:
+
+```{r, eval=FALSE}
+model1 <- lm(beak_length_mm ~ bodymass_kg + flipper_length_mm + socialmedia_followers + species,
+             data = mydata)
+```
+
+<br>
+
+-   **[9B]** Look at the model summary using ols_regress() or summary()
+
+<br>
+
+-   **[9B]** Write out the full estimated regression equation with all coefficients as numbers. Ideally do this using LateX terminology (Tutorial 11)[https://psu-spatial.github.io/Stat462-2026/T11_SLR.html#T11_EquationCode]
+
+<br>
+
+
+-   **[9C]** Interpret the following coefficients in the context of the problem. For each one, write a sentence explaining what it means in plain English. Make sure to address:
+    -   The intercept — is it a meaningful value here?
+    -   The slope for `bodymass_kg`
+    -   The slope for `socialmedia_followers`
+    -   The coefficients for `Species`.  HINT, this is just like the lecture notes, but instead of TRUE/FALSE for "East of Fifth Ave" where FALSE is the reference level, we now have species=Chinstrap or species=Gentoo or Species=Adelie.  
+    
+    <br>
+
+-   **[9D]** What does the model predict as the average beak length for the penguin called Ella? I suggest typing out the equation in a code chunk?  Make sure to show your code/working.  (EITHER ELLA IS FINE)
+
+<br>
+
+-   **[9E]** Imagine Ella was actually a Chinstrap penguin (e.g. we had typed the wrong species), but all her other measurements were the same.  What would be her predicted beak-length then?  
+
+<br>
+
+-  **[9F]** Scroll to the top and add the broom library to your library code chunk. (install if needed from the app store.).  Then scroll back down and add this code to visualise the coefficients (it should just run). 
+
+
+```{r, eval=FALSE}
+coef_data <- tidy(model1, conf.int = TRUE, conf.level = 0.95) %>%
+    dplyr::filter(term != "(Intercept)")  # optional: remove intercept
+
+ggplot(coef_data, aes(x = estimate, y = term)) +
+    geom_vline(xintercept = 0, linetype = "dashed") +
+    geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.15, size = 1) +
+    geom_point(size = 3) +
+    labs(
+        x = "Partial slope estimate (95% CI)",
+        y = "",
+        title = "Partial slopes with 95% confidence intervals"
+    ) +
+    theme_minimal(base_size = 16)
+```
+
+<br>
+
+-   **[9G]** Look at the plot above and the standard errors and p-values for `flipper_length_mm` and `socialmedia_followers`.
+    -   Write why you think EACH of them might not be useful predictors in this model. 
+    -   Make a note of your suspicion — we will return to this formally in Step 12.
+    
+<br>
+
+-   **[9H]** Report the **Adjusted R²** value for this model.
+    -   What does it tell you about the model's explanatory power?
+    -   In your own words, explain why we use Adjusted R² instead of regular R² in multiple regression.
+
+<br><br>
+
+------------------------------------------------------------------------
+
+## VALIDITY {.unnumbered}
+
+<br>
+
+### STEP 10: Check LINE assumptions {.unnumbered}
+
+Use the plots below to assess whether your model meets the LINE assumptions. For each assumption, state clearly whether you think it is met or not, and refer to specific features of the plots.
+
+-   **[10A]** **Linearity** — plot residuals vs fitted values. Is there any systematic pattern?
+
+```{r, eval=FALSE}
+ols_plot_resid_fit(model1)
+```
+
+<br>
+
+-   **[10B]** **Independence** — think about the study design. Are there any reasons why observations might not be independent of each other? Hint there are!
+
+<br>
+
+-   **[10C]** **Normality** — assess the residuals using a QQ plot and histogram.
+
+```{r, eval=FALSE}
+ols_plot_resid_qq(model1)
+ols_plot_resid_hist(model1)
+ols_test_normality(model1)
+```
+
+<br>
+
+-   **[10D]** **Equal variance** — use the studentised residual plot to assess whether spread is consistent across fitted values.
+
+```{r, eval=FALSE}
+ols_plot_resid_stud(model1)
+```
+
+<br>
+
+-   **[10E]** Overall: are you comfortable using this model? Would you be more or less comfortable using it for *predicting* an individual penguin's beak length vs *describing* the average relationship?
+
+<br><br>
+
+------------------------------------------------------------------------
+
+### STEP 11: OUTLIERS {.unnumbered}
+
+-   **[11A]** Use the leverage-residual plot and Cook's distance to identify any potentially influential observations.  From the lecture notes or google, explain what the cooks' distance is showing
+
+```{r, eval=FALSE}
+ols_plot_resid_lev(model1)
+ols_plot_cooksd_bar(model1, type = 3)
+```
+
+<br>
+
+-   **[11B]** If any penguin appears to be an influential outlier, name them and explain why you think they are influential (hint the numbers relate. to row numbers). Do not remove them from the dataset — just comment on your findings.  
+
+<br><br>
+
+------------------------------------------------------------------------
+
+### STEP 12: Check for multicollinearity {.unnumbered}
+
+In Step 9D, you noted something suspicious about two of the predictors.
+
+-   **[12A]** Use the Variance Inflation Factor (VIF) to formally test for multicollinearity:
+
+```{r, eval=FALSE}
+vif(model1)
+```
+
+<br>
+
+-   **[12B]** In your report:
+    -   Which predictor(s) have high VIF values? (A common rule of thumb: VIF > 5 is concerning, VIF > 10 is severe.)
+    -   Does this confirm your suspicion from Step 9D?
+    -   What does high multicollinearity mean for the interpretation of individual slopes in the model — even if the overall model fit is good?
+
+<br><br>
+
+------------------------------------------------------------------------
+
+## PART 5: Goodness of Fit {.unnumbered}
+
+<br>
+
+### STEP 13: F-test on the full model {.unnumbered}
+
+-   **[13A]** Using the output from `summary(model1)`, locate the F-statistic and its p-value.
+-   **[13B]** Write out the null and alternative hypotheses for this test formally.
+-   **[13C]** State the conclusion in plain English at a 5% significance level. Does the model as a whole contain at least one predictor useful for predicting beak length?
+
+<br><br>
+
+------------------------------------------------------------------------
+
+### STEP 14: Nested F-test comparing two models {.unnumbered}
+
+-   **[14A]** We want to assess if flipper_length and social_media followers together add anything useful to the model.  Create this simplrer model.
+
+```{r, eval=FALSE}
+model2 <- lm(beak_length_mm ~ bodymass_kg + species,
+             data = mydata)
+```
+
+<br>
+
+-   **[14A]** Write out what hypotheses this nested F-test is actually testing. What is the null model and what is the alternative?
+
+<br>
+-   **[14B]** Run the nested F-test:
+
+```{r, eval=FALSE}
+anova(model2, model1)
+```
+
+<br>
+-   **[14C]** Interpret the result. Does dropping `flipper_length_mm` and `socialmedia_followers` significantly worsen the model?
+<br>
+
+-   **[14D]** Given what you found about multicollinearity in Step 12, does this result make sense? Explain your reasoning.
+
+<br><br>
+
+------------------------------------------------------------------------
+
+## PART 6: Choosing the Best Model {.unnumbered}
+
+So far we have only compared two models. In fact, we can systematically compare all possible combinations of predictors to find the best one.
+
+<br>
+
+### STEP 15: Best subsets regression {.unnumbered}
+
+We will now expand our candidate predictors to also include `zoo` — to test whether the two Penn State facilities have systematically different beak lengths after accounting for other variables.
+
+-   **[15A]** Fit an expanded full model that includes `zoo` as an additional predictor:
+
+```{r, eval=FALSE}
+model_full <- lm(beak_length_mm ~ bodymass_kg + flipper_length_mm +
+                   socialmedia_followers + species + zoo,
+                 data = mydata)
+```
+
+-   **[15B]** Run best subsets regression on this expanded model:
+
+```{r, eval=FALSE}
+best_subsets <- ols_step_best_subset(model_full)
+best_subsets
+```
+
+-   **[15C]** In your own words, explain what the best subsets method is doing. Why is this more useful than manually comparing models one at a time?
+
+-   **[15D]** Using **at least two goodness-of-fit measures** (Adjusted R², AIC), identify which model you consider the "best". Present your reasoning clearly — it is fine if different measures point to slightly different models, this is just your opinion!
+
+<br>
+
+------------------------------------------------------------------------
+
+## PART 7: Prediction {.unnumbered}
+
+<br>
+
+### STEP 16: Predict a new penguin's beak length {.unnumbered}
+
+**Nittany Ice** is a male Chinstrap penguin who has just arrived at Penn State Wildlife Reserve. His measurements on arrival were:
+
+| Variable | Value |
+|---|---|
+| Species | Chinstrap |
+| Zoo | Penn State Wildlife Reserve |
+| Body mass | 5.1 kg |
+| Flipper length | 220 mm |
+| Social media followers | 15 |
+
+-   **[16A]** Using your best model from Step 15, predict Nittany Ice's beak length. Show your R code.
+
+-   **[16B]** Report the predicted value and the 95% prediction interval. Interpret the interval in plain English — what does it mean?
+
+<br>
+
+------------------------------------------------------------------------
+Complete!
+
+------------------------------------------------------------------------
+
+## Submitting your Lab {.unnumbered}
+
+-   Save your work and spell-check your report (button next to Save).
+-   Press **Knit** one final time.
+-   Check the resulting HTML file looks correct by opening it in your browser.
+-   Submit **both** your `.Rmd` file and your `.html` file to Canvas.
+
+<br>
+
+------------------------------------------------------------------------
+
+## Grading Rubric {.unnumbered}
+
+| Section | Marks |
+|---|---|
+| HTML file submission | 5 |
+| Rmd code submission | 5 |
+| Professional report (formatting, sentences, headings, spell check) | 10 |
+| Steps 6–8: Data wrangling and EDA | 10 |
+| Steps 9: Full model — equation, coefficients, Adj R² | 10 |
+| Steps 10–12: LINE, outliers, multicollinearity | 10 |
+| Steps 13–14: F-tests (overall and nested) | 10 |
+| Steps 15: Best subsets and model selection | 10 |
+| Step 16: Prediction | 10 |
+| **Total** | **80** |
+<br>
+
+### Grade meaning {.unnumbered}
+
+Overall, here is what your lab should correspond to:
+
+```{r, echo=FALSE}
+library(kableExtra)
+rubric <- readxl::read_excel("index_data/in_G364_Lab0Rubric.xlsx")
+knitr::kable(rubric) %>%   
+  kable_classic_2() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"))
+
+
+```

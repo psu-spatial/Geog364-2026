@@ -1,0 +1,102 @@
+---
+title: "YOUR TITLE HERE"
+description: |
+  One sentence summary of your project and key findings.
+author:
+  - name: Your email ID e.g. hlg5155
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: true
+    code_folding: true
+---
+
+```{r setup,message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+# Load ALL your libraries here. 
+# You will have to install distill from the app store before it will knit
+library(distill)
+library(tidyverse)
+library(olsrr)
+
+# READ IN YOUR DATASET HERE
+
+```
+
+## Background
+
+
+ADD YOUR SUB-HEADINGS AND TEXT HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+<br>
+
+## Exploratory Data Analysis
+
+
+ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Initial Model (SLR)
+
+
+ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Final Model Selection Process
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Final Model
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Client questions
+
+### FAQ 1, Prediction part 1
+
+**Your client has asked you to use your final model to make a prediction of a new object (use the one from your lab book)**
+
+REPLACE THE SENTENCE ABOVE WITH YOUR CLIENT'S SPECIFIC QUESTION. THEN ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+### FAQ 2, Prediction part 2
+
+**Your client has asked you to use your final model to make a prediction of the AVERAGE RESPONSE for a given combination of predictors, and asked why this value looks different to point 1.**
+
+REPLACE THE SENTENCE ABOVE WITH YOUR CLIENT'S SPECIFIC QUESTION. THEN ADD YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+### FAQ 3, Multicollinearity
+
+**Your client has asked you what "multicollinearity" and "confounding variables" are and whether you are worried about them in your model.**
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+### FAQ 4, Limitations
+
+**Your client has asked you what the potential biases in your results are (e.g. if you could collect data on new predictors, what would you find data on).**
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+## Summary
+
+YOUR SUB-HEADINGS, TEXT AND CODE HERE — DELETE THIS LINE WHEN YOU START WRITING
+
+------------------------------------------------------------------------
+
+*Full analysis and reproducible code available in my lab book appendix.*

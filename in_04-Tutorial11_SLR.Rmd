@@ -1,0 +1,941 @@
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+# OPTIONS -----------------------------------------------
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning=FALSE, 
+                      message = FALSE)
+
+# PACKAGES-----------------------------------------------
+library(vembedr)
+library(skimr)
+library(yarrr)
+library(RColorBrewer)
+library(GGally) 
+library(tidyverse)
+library(plotly)
+library(readxl)
+library(rvest)
+library(biscale)
+library(tidycensus)
+library(cowplot)
+library(units)
+library(olsrr)
+
+# DATA --------------------------------------------------
+data("HousesNY", package = "Stat2Data")
+```
+
+# Simple Linear Regression {#T11_SLR}
+
+<br>
+
+By this point your data should be ready: categorical columns converted to factors, missing data dealt with, and a QC check done. Now we fit the model.
+
+We will use the `HousesNY` dataset throughout. Our question: **can lot size predict house sale price?**
+
+<br>
+
+------------------------------------------------------------------------
+
+## Running the model {#T11_RunModel}
+
+The command for linear regression in R is `lm()` — short for **linear model**.
+
+```{r, eval=FALSE}
+output <- lm(y_column ~ x_column, data = tablename)
+```
+
+The `~` symbol means *"is modelled by"* or *"depends on"*. Think of it as the equals sign in your regression equation: y is on the left, x is on the right. So this line of code is saying
+
+*Get the "tablename" spreadsheet. Then run a simple linear regression model (lm) where were use the the data in the column called "x_column" to predict the data in the column called "y_column". Rather than print out the results on the screen, save the model to an object called "output".*
+
+### Example
+
+For the `HousesNY` data, predicting `Price` from `Lot` and saving the result to an object called Model1.lm
+
+```{r}
+Model1.lm <- lm(Price ~ Lot, data = HousesNY)
+```
+
+> **Note:** Always save your model to an object with `<-`. You will need it for every subsequent step — summaries, plots, diagnostics. If you just run `lm(...)` without saving it, the output is lost.
+
+<br>
+
+### Important
+
+**DO NOT USE \$ WHEN YOU RUN THIS COMMAND! Always put the name of the table under data. It will run if you use \$ but later things break.**
+
+<br>
+
+------------------------------------------------------------------------
+
+## Model Outputs {#T11_Output}
+
+#### Quick look {#T11_OLSregress}
+
+Typing the name of your model and running the code chunk will show the formula and coefficients, but not much else
+
+```{r}
+Model1.lm
+```
+
+<br>
+
+There are also some more detailed summaries. Both summaries contain the same information — use whichever is easier to read. In practice it is useful to have both available, which is why we saved the model as `Model1.lm` and can pass it to either function.
+
+#### Standard summary
+
+For the full output, use `summary()` on your model.
+
+```{r}
+summary(Model1.lm)
+```
+
+and the ANOVA table
+
+```{r}
+anova(Model1.lm)
+```
+
+<br>
+
+#### The `ols_regress()` summary
+
+The `olsrr` package provides an alternative summary with a cleaner layout. Remember to first install the olsrr package and to add library(olsrr) to your library code chunk at the top of your script.
+
+```{r}
+
+## you apply this command to the MODEL
+ols_regress(Model1.lm)
+
+```
+
+> **Important:** `ols_regress()` only works if you used `lm(y ~ x, data = tablename)`. If you used the `$` operator (e.g. `lm(data$y ~ data$x)`), it will break. This is one reason to always use the `data =` argument.
+
+<br>
+
+------------------------------------------------------------------------
+
+## Writing the regression equation {#T11_Equation}
+
+<br>
+
+#### Population vs sample notation {#T11_Notation}
+
+There are two versions of the regression equation, and it matters which one you write.
+
+The **population equation** describes the true underlying relationship we are trying to estimate. We rarely if ever know these values — they are population parameters. Here's the equation and here's how to write it yourself.
+
+For an individual value in your population, you have the model output plus some error/residual.
+
+$$
+y_i = model_i + \varepsilon_i
+$$
+
+$$
+y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+$$
+
+Under the linear regression model, we assume that the population mean of y, $\mu_y$, changes linearly as you increase x:
+
+$$
+\mu_y = \beta_0 + \beta_1 x
+$$
+
+
+
+The **sample equation** describes our estimated line from the data. The hats (\^) indicate these are estimates:
+
+$$
+\hat{y} = b_0 + b_1 x
+$$
+
+You don't need to use x and y if it's clearer to use the variable names e.g.
+
+$$
+\mu_{price} = \beta_0 + \beta_1 LotSize
+$$
+
+$$
+\hat{\text{Price}} = b_0 + b_1 \times \text{LotSize}
+$$
+
+Where price is in $1000USD and LotSize is in metres squared.
+
+
+
+#### Filling in the numbers {#T11_FillIn}
+
+From the model output, the intercept ($b_0$) is `114.0911` and the slope ($b_1$) is `-0.5749`. So the fitted SAMPLE equation is:
+
+$$
+\hat{\text{Price}} = 114.09 - 0.5749 \times \text{LotSize}
+$$
+
+Where price is in $1000USD and LotSize is in metres squared.
+
+<br>
+
+
+#### Writing these equations yourself {#T11_EquationCode}
+
+To write equations in R Markdown, put `$$` and bottom for a centred display equation. The \$$ at the top and bottom tells R that this is an equation
+
+**You should NOT do this in a code chunk**.  This is part of your word processing/report writing, so you WRITE THEM IN THE TEXT.  
+
+
+Here are the symbols you will need most often:
+
+| What you want          | What to type  |
+|------------------------|---------------|
+| $\hat{y}$              | `\hat{y}`     |
+| $\beta_0$              | `\beta_0`     |
+| $\beta_1$              | `\beta_1`     |
+| $\varepsilon$          | `\varepsilon` |
+| $\times$               | `\times`      |
+| Subscript e.g. $x_i$   | `x_i`         |
+| Superscript e.g. $R^2$ | `R^2`         |
+
+
+Below I have written out all the equations above for you to have a look at how I did it (with some notes).  First...
+
+-  \$$ means start/end equation
+-  \_ means "subscript
+
+```
+$$
+y_i = model_i + \varepsilon_i
+$$
+```
+
+-  `\` means "special symbol" for example greek letters e.g. \beta makes the curly B. We are using LateX, so you can look them up.
+
+```
+$$
+y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+$$
+```
+
+-  You can combine these commands, so `\mu_y` means special symbol $\mu$, with a subscript y.
+
+```
+$$
+\mu_y = \beta_0 + \beta_1 x
+$$
+```
+
+
+-  `{ }` means "do something" to the stuff inside. e.g. \hat{y} means "put a little hat on y"
+
+```
+$$
+\hat{y} = b_0 + b_1 x
+$$
+```
+
+
+-  In this case, I needed the { } to make the computer realise I wanted the entire word price as subscript
+
+```
+$$
+\mu_{price} = \beta_0 + \beta_1 LotSize
+$$
+```
+
+
+-   `\text` makes the font look different
+
+```
+$$
+\hat{\text{Price}} = b_0 + b_1 \times \text{LotSize}
+$$
+```
+
+-   Finally, when you write out your own coefficients, remember you are typing the numbers, so check for typos!
+
+````
+$$
+\hat{\text{Price}} = 114.2TYPO - 0.5749 \times \text{Lot}
+$$
+````
+
+<br><br>
+
+------------------------------------------------------------------------
+
+## Interpreting slope and intercept {#T11_Interpret}
+
+<br>
+
+#### The sample intercept ($b_0 = 114.09$) {#T11_Intercept}
+
+The intercept is the average value of $y$ when $x = 0$. In this case: a house with a lot size of zero metres squared would be predicted to sell for $114,090 on average
+
+Whether this is meaningful depends on context. A lot size of zero is not realistic for a house, so here the intercept is a mathematical anchor for the line rather than a practically useful estimate. Always ask: *is x = 0 a sensible value in this context?*. See the lab 2 worked answers for more!
+
+<br>
+
+#### The sample slope ($b_1 = -0.5749$) {#T11_Slope}
+
+The sample slope is the predicted change in the average $y$ for each one-unit increase in $x$. Here: for each additional metre-squared of lot size, the predicted average sale price **decreases by \$575**.
+
+The negative slope is worth thinking about — it is counterintuitive. This might reflect confounding variables not in the model (e.g. larger lots may be in more rural, lower-value areas). This is why we check assumptions and consider multiple predictors.
+
+<br>
+
+------------------------------------------------------------------------
+
+## Significance tests {#T11_Significance}
+
+<br>
+
+### Is the slope or intercept significantly different from zero? {#T11_SigZero}
+
+The `summary()` output includes a t-test for each coefficient. The hypotheses are:
+
+-   For the slope: $H_0: \beta_1 = 0$ (lot size has no linear relationship with price)
+-   For the intercept: $H_0: \beta_0 = 0$ (the line passes through the origin)
+
+The test statistic is:
+
+$$
+t = \frac{b_1 - 0}{SE(b_1)}
+$$
+
+R calculates this automatically. In the `summary()` output, look at the `Coefficients` table:
+
+-   `Estimate` — the value of $b_0$ or $b_1$
+-   `Std. Error` — the standard error of the estimate
+-   `t value` — the test statistic
+-   `Pr(>|t|)` — the two-sided p-value
+
+```{r}
+summary(Model1.lm)
+```
+
+If the p-value is below your significance threshold (typically 0.05), you reject $H_0$ and conclude the coefficient is significantly different from zero.
+
+<br>
+
+### Confidence intervals on slope and intercept {#T11_CI}
+
+To get 95% confidence intervals for both coefficients:
+
+```{r}
+confint(Model1.lm)
+```
+
+To change the confidence level (e.g. 99%):
+
+```{r}
+confint(Model1.lm, level = 0.99)
+```
+
+The confidence interval gives a range of plausible values for the true population parameter. If the interval for $\beta_1$ does not include zero, this is consistent with rejecting $H_0: \beta_1 = 0$ at the corresponding significance level.
+
+<br>
+
+### Testing against a non-zero value {#T11_SigOther}
+
+Sometimes the hypothesis of interest is not whether the slope equals zero, but whether it equals some other specific value. 
+
+
+How likely is it that the real price decreases by exactly \$2000 per square m of lot size).
+
+$H_0: \beta_1 = -2$ 
+$H_1: \beta_1 != -2$ 
+
+R does not do this automatically, so you calculate the t-statistic manually:
+
+$$
+t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
+$$
+
+where $\beta_{1}$ is the hypothesised value of the population slope from our experiment, $b_1$ is the sample slope that we actually see and se is the standard error on our sample slope. Step by step:
+
+```{r}
+
+# First, extract the coefficients and standard errors from the model. the easiest way is to use olsrr 
+
+Model1.summary <- ols_regress(Model1.lm)
+Model1.Coefficients <- Model1.summary$betas
+Model1.StandardError <- Model1.summary$std_errors
+
+# we're looking at the slope - and our x predictor is called Lot, so
+b1    <- Model1.Coefficients["Lot"]
+se_b1 <- Model1.StandardError["Lot"]
+
+# in case you need to test the intercept
+b0 <- Model1.Coefficients["(Intercept)"]
+se_b0  <- Model1.StandardError["(Intercept)"]
+
+# In our test, we asked if the slope was different to -2
+# Hypothesised value
+beta1_H0 <- -2
+
+# Calculate t statistic
+t_stat <- (b1 - beta1_H0) / se_b1
+t_stat
+```
+
+Then calculate the two-sided p-value, using the residual degrees of freedom from the model:
+
+We also need the residual degrees of freedom from the model (n-2). Many ways you can calculate this!
+
+```{r}
+df <- df.residual(Model1.lm)
+```
+
+and calcualte the probablity
+
+```{r}
+p_value <- 2 * pt(abs(t_stat), df = df, lower.tail = FALSE)
+p_value
+```
+
+**Confidence interval reframe:** an equivalent approach is to check whether your hypothesised value falls inside the confidence interval from `confint()`. If $\beta_{1,0} = -1$ lies outside the 95% CI, you reject $H_0$ at $\alpha = 0.05$. This gives the same conclusion as the t-test and is often easier to communicate.
+
+<br>
+
+------------------------------------------------------------------------
+
+## The F-test and ANOVA table {#T11_Ftest}
+
+The F-test asks a broader question than the individual t-tests: **does the model as a whole explain a significant amount of variance in y?** For simple linear regression with one predictor, the F-test and the t-test for the slope are equivalent — but this will matter more when you move to multiple regression.
+
+The ANOVA table breaks the total variance in $y$ into:
+
+-   **Regression SS** — variance explained by the model
+-   **Residual SS** — variance left unexplained
+
+To get the ANOVA table, look at the olsrr output or type
+
+```{r}
+anova(Model1.lm)
+```
+
+The F-statistic is the ratio of the mean regression SS to the mean residual SS. A large F (small p-value) means the model explains significantly more variance than would be expected by chance.
+
+The F-statistic and its p-value also appear at the bottom of `summary(Model1.lm)` output — both routes give the same result.
+
+<br>
+
+------------------------------------------------------------------------
+
+## $R^2$ and $r$ {#T11_Rsquared}
+
+<br>
+
+#### $R^2$ — coefficient of determination {#T11_R2}
+
+$R^2$ tells you the **proportion of variance in** $y$ explained by the model. It ranges from 0 (model explains nothing) to 1 (model explains everything).
+
+```{r}
+summary(Model1.lm)$r.squared
+```
+
+For example, $R^2 = 0.08$ would mean that lot size explains 8% of the variation in house price.
+
+The **adjusted** $R^2$ penalises for adding extra predictors and is more appropriate when comparing models:
+
+```{r}
+summary(Model1.lm)$adj.r.squared
+```
+
+Both values appear in the `summary()` output under `Multiple R-squared` and `Adjusted R-squared`.  
+
+<br>
+
+#### $r$ — Pearson's correlation coefficient {#T11_r}
+
+For simple linear regression (one predictor), $r$ is simply the square root of $R^2$, with the sign taken from the slope:
+
+```{r}
+r <- sqrt(summary(Model1.lm)$r.squared) * sign(coef(Model1.lm)["Lot"])
+r
+```
+
+$r$ ranges from -1 to 1. It measures the strength and direction of the linear relationship between $x$ and $y$.
+
+You can also calculate $r$ directly using `cor()`:
+
+```{r}
+cor(HousesNY$Price, HousesNY$Lot)
+```
+
+Both should give the same value. Note that $r$ and $R^2$ are related by $R^2 = r^2$ — so if $r = -0.29$, then $R^2 = 0.084$.
+
+<br>
+
+------------------------------------------------------------------------
+
+## Plotting the regression line {#T11_Plot}
+
+<br>
+
+#### Quick plot — base R {#T11_BasePlot}
+
+For a fast check during analysis, base R is the quickest option:
+
+```{r}
+plot(Price ~ Lot, data = HousesNY,
+     xlab = "Lot size", ylab = "Price (x$1000)",
+     pch = 16, col = "grey50")
+abline(Model1.lm, col = "steelblue", lwd = 2)
+```
+
+<br>
+
+#### Publication plot — ggplot {#T11_GGPlot}
+
+For a report or presentation, use `ggplot2`:
+
+```{r}
+ggplot(HousesNY, aes(x = Lot, y = Price)) +
+  geom_point(colour = "grey50", alpha = 0.7) +
+  geom_smooth(method = "lm", colour = "steelblue", se = TRUE) +
+  labs(x = "Lot size",
+       y = "Price (x$1000)",
+       title = "House price vs lot size",
+       subtitle = "Shaded band = 95% confidence interval on the mean") +
+  theme_bw()
+```
+
+`se = TRUE` adds a shaded confidence band around the line. Set `se = FALSE` to remove it.
+
+> **Note:** `geom_smooth(method = "lm")` fits its own line internally — it is not using your saved `Model1.lm` object. For simple regression this makes no difference, but if your model includes transformations or additional terms, use `geom_abline()` with the coefficients from your model instead.
+
+<br>
+
+------------------------------------------------------------------------
+
+## Checking LINE assumptions {#T11_LINE}
+
+From lectures, linear regression relies on four assumptions — summarised as **LINE**:
+
+-   **L**inearity — the relationship between $x$ and $y$ is linear
+-   **I**ndependence — the errors are independent of each other
+-   **N**ormality — the errors are normally distributed
+-   **E**qual variance (homoscedasticity) — the errors have constant variance
+
+Independence is usually assessed from study design rather than plots. The other three can be checked using residual plots.
+
+<br>
+
+### Checking Linearity {#T11_Linearity}
+
+**What to look for:** a random cloud of points in the residuals vs fitted plot. A curve or systematic pattern means a straight line is not the right model.
+
+![](index_images/im_T10_linearity.png){width="90%"}
+
+```{r}
+ols_plot_resid_fit(Model1.lm)
+```
+
+<details>
+
+<summary>[Expand to see an example where linearity is broken]{style="color: #1388aa;"}</summary>
+
+This example uses treadwear data where the raw scatterplot looks approximately linear — but the residuals reveal a clear curve:
+
+```{r, fig.cap="The residuals show a clear parabolic pattern — a linear model is not appropriate here"}
+treadwear  <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/treadwear.csv")
+tread_model <- lm(mileage ~ groove, data = treadwear)
+ols_plot_resid_fit(tread_model)
+```
+
+The residuals are systematically positive at low and high fitted values, and negative in the middle. A non-linear model would be more appropriate.
+
+</details>
+
+<br>
+
+### Checking Equal Variance (Homoscedasticity) {#T11_Variance}
+
+**What to look for:** the spread of residuals should stay roughly constant across all fitted values. A fan shape or bow-tie means variance is unequal.
+
+![](index_images/im_T10_variance.png){width="90%"}
+
+```{r}
+ols_plot_resid_fit(Model1.lm)
+```
+
+You can also run a formal test. The F-test assumes residuals are independent and identically distributed:
+
+```{r}
+ols_test_f(Model1.lm)
+```
+
+A small p-value suggests the population may not have equal variance.
+
+<details>
+
+<summary>[Expand to see an example where equal variance is broken]{style="color: #1388aa;"}</summary>
+
+```{r, fig.cap="Clear fanning — variance increases with fitted values"}
+alphapluto  <- read.table("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/alphapluto.txt", sep = "\t", header = TRUE)
+alpha_model <- lm(alpha ~ pluto, data = alphapluto)
+ols_plot_resid_fit(alpha_model)
+ols_test_f(alpha_model)
+```
+
+</details>
+
+<br>
+
+### Checking Normality of Residuals {#T11_Normality}
+
+**What to look for:** residuals that follow a roughly normal distribution. Check with a Q-Q plot and histogram.
+
+![](index_images/im_T10_Normality.png){width="90%"}
+
+> **Note:** Normality matters mainly for p-values and confidence intervals in small samples. With $n > 200$, the Central Limit Theorem means mild non-normality has little practical effect. Never discard data just because this assumption is mildly broken.
+
+```{r}
+ols_plot_resid_qq(Model1.lm)    # Q-Q plot
+ols_plot_resid_hist(Model1.lm)  # histogram of residuals
+ols_test_normality(Model1.lm)   # formal normality tests
+```
+
+Points on the Q-Q plot should follow the diagonal line. The histogram should be approximately bell-shaped. For the Shapiro-Wilk test, a large p-value (fail to reject $H_0$) means no strong evidence against normality.
+
+<details>
+
+<summary>[Expand: what if normality is broken?]{style="color: #1388aa;"}</summary>
+
+If you have a large sample ($n > 200$), mild departures from normality are generally not a concern. For smaller samples, options include:
+
+-   Transforming the response variable (e.g. log transformation)
+-   Using a generalised linear model (GLM) with an appropriate distribution
+-   Using bootstrap confidence intervals
+
+These are covered in later tutorials.
+
+</details>
+
+<br>
+
+### Checking Independence {#T11_Independence}
+
+Independence of errors cannot be checked with a residual plot — it depends on how the data were collected. Ask yourself:
+
+-   Are observations from the same subject, location, or time point repeated? (→ not independent)
+-   Is there a time or spatial order to the data that could cause nearby values to be related?
+
+For cross-sectional data collected independently (like the `HousesNY` sample), independence is usually a reasonable assumption. If you have time series, spatial, or clustered data, independence needs to be explicitly modelled.
+
+<br><br>
+
+
+------------------------------------------------------------------------
+
+## Troubleshooting {#T11_TroubleshootingB}
+
+<br>
+
+# Outliers, high leverage & influential points
+
+## What are they
+
+There are three key things to know when it comes to outliers:
+
+### An "outlier" {.unnumbered}
+
+We use the word **outlier** to describe an observation (point on the scatterplot) that has a very different response from the predicted response from the model. E.g. it has a large residual.  
+
+<br>
+
+### A high leverage point {.unnumbered}
+
+If a data point has an x-value that is extremely different (either too high or too low) from the rest of the data points, we call this a **high leverage** point. It might, or might not be an outlier.
+
+<br>
+
+### An influential point {.unnumbered}
+
+We call a data point an **influential point** if that data point has a considerable impact on the regression model. It likely has an unusual X AND an unusual residual. For instance, if the model fit changes considerably by removing a point, such data point is called an influential point. Influential points tend to be further from the mean.
+
+<br><br>
+
+<details>
+
+## How to find them
+
+We can identify residuals via "residual vs leverage plots" and by looking at the 'cooks distance' for influential points. 
+
+### Residual vs leverage plots
+
+```{r, include=FALSE}
+data <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/neither.csv")
+model <- lm(y~x,data=data)
+```
+
+
+```{r}
+ols_plot_resid_lev(model)
+```
+
+This takes all 
+
+
+
+
+
+
+## Examples
+
+### No outliers, influential or high leverage points {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="No outliers, influential values or high leverage points"}
+data <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/neither.csv")
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A")
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A"); abline(lm(y~x,data=data))
+
+```
+
+
+</details>
+
+
+
+## How to find them
+
+### Assessing outliers via visual inspection
+
+The first way we can check for simple linear regression is to plot the data and take a look. Here are some examples that we can assess by eye which show the different effects.
+
+<br>
+
+### No outliers, influential or high leverage points {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="No outliers, influential values or high leverage points"}
+data <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/neither.csv")
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A")
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A"); abline(lm(y~x,data=data))
+
+```
+
+In the figure above, all of the data points follow the general trend of the rest of the data, so there are no outliers (in the y direction). And, none of the data points are extreme with respect to x, so there are no high leverage points. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g. if we removed any one point, the line would probably be the same.
+
+<br>
+
+### An outlier with no leverage {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="One outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed "}
+data1 <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/outlier.csv")
+data1b <- data1[-21,]
+
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data1$x,data1$y,pch=16,xlab="x",ylab="y",main="Dataset B",col="red")
+lines(data1b$x,data1b$y,pch=16,xlab="x" ,ylab="y",main="Dataset B",type="p")
+plot(data1$x,data1$y,pch=16,xlab="x",ylab="y",main="Dataset B",col="red")
+lines(data1b$x,data1b$y,pch=16,xlab="x",ylab="y",main="DatasetB",type="p")
+abline(lm(y~x,data=data1b))
+abline(lm(y~x,data=data1),col="red",lty="dashed")
+
+```
+
+In the figure above, most of the data points follow the general trend of the rest of the data, but there is one clear outlier (one point that is unusual in the y direction). However, no point has an extreme x value, so there are no high leverage points. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g.when we removed the red point,the line of best fit remains relatively stable.
+
+<br>
+
+### A high leverage point that isn't an outlier {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="No outliers,but one high leverage point. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed"}
+data2 <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/leverage.csv")
+data2b <- data2[-25,]
+
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset C",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x" ,ylab="y",main="Dataset C",type="p")
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset C",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x",ylab="y",main="DatasetC",type="p")
+abline(lm(y~x,data=data2b))
+abline(lm(y~x,data=data2),col="red",lty="dashed")
+
+```
+
+In the figure above, most of the data points follow the general trend of the rest of the data, so there are no outliers (in the y direction). But one data points is extreme with respect to x. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g.when we removed the red point,the line of best fit remained relatively stable.
+
+<br>
+
+### An influential high leverage outlier {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="One influential high leverage outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed" }
+data2 <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/influential.csv")
+data2b <- data2[-25,]
+
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset D",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x" ,ylab="y",main="Dataset D",type="p")
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset D",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x",ylab="y",main="Dataset D",type="p")
+abline(lm(y~x,data=data2b))
+abline(lm(y~x,data=data2),col="red",lty="dashed")
+
+```
+
+In the figure above, most of the data points follow the general trend of the rest of the data, with one clear outlier. This point also has high leverage abd appears to be very influential. e.g.when we removed the red point,the line of best fit changes hugely,
+
+Here with a simple regression, we can easily see outliers. This is much harder when we have many predictors. So as well as examining the data by eye, we can use diagnostic plots.
+
+### Detecting outliers via plots
+
+In lab 5, we mentioned two measures that we use to help identify outliers. They are:
+
+-   Residuals
+-   Studentized residuals (or internally studentized residuals) (often called standardized residuals)
+
+First, briefly review these measures using this page: <https://online.stat.psu.edu/stat501/lesson/11/11.3>
+
+OLSRR also offers several more plots and tests including :
+
+-   Cook's D Bar Plot
+-   Cook's D Chart
+-   DFBETAs Panel
+-   DFFITs Plot
+-   Studentized Residual Plot
+-   Standardized Residual Chart
+-   Studentized Residuals vs Leverage Plot
+-   Deleted Studentized Residual vs Fitted Values Plot
+-   Hadi Plot
+-   Potential Residual Plot
+
+For now, we will focus on one of the most effective ways to assess residuals, the studentized residual/fits plot.
+
+For example for our test data:
+
+```{r,message=FALSE}
+# read the data
+data <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/neither.csv")
+
+#calculate the model
+model <- lm(y~x,data=data)
+leverage <- ols_leverage(model) 
+
+# plot 1 (left hand side)
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset C"); 
+abline(model)
+
+# plot 2 (right hand side). Remember to choose your own ylim
+ols_plot_resid_stud(model)
+
+```
+
+There should be no absolute cut-off here (around 2-3 is a warning sign). Instead, take these as an opportunity to explore those points further. For example here is our plot with the residual:
+
+```{r,message=FALSE}
+# read the data
+data1 <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/outlier.csv")
+
+#calculate the model
+model1 <- lm(y~x,data=data1)
+
+# plot 1 (left hand side)
+plot(data1$x,data1$y,pch=16,xlab="x",ylab="y",main="Dataset B"); 
+abline(model1)
+
+# plot 2 (right hand side). Remember to choose your own ylim
+ols_plot_resid_stand(model1)
+
+```
+
+Here the plot is telling me that it thinks row 21 of the dataset might be an outlier
+
+```{r}
+data1[21,]
+```
+
+<br><br>
+
+### Detecting influential points
+
+If a point is both an outlier AND has leverage, chances are it will be influential over the fit. OLSRR has a nice way of summarising both statistics.
+
+For example here are our four plots together:
+
+```{r,message=FALSE,fig.cap="Our four examples"}
+# read the data
+data <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/neither.csv")
+data2 <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/outlier.csv")
+data2b <- data2[-21,]
+data3 <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/leverage.csv")
+data3b <- data3[-25,]
+data4 <- read.csv("/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/influential.csv")
+data4b <- data4[-25,]
+
+#calculate the model
+model <- lm(y~x,data=data)
+model2 <- lm(y~x,data=data2)
+model3 <- lm(y~x,data=data3)
+model4 <- lm(y~x,data=data4)
+
+# Set up 4 sub-plots one next to each other
+layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
+
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A",col="black") 
+abline(model)
+
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset B",col="red") 
+lines(data2b$x,data2b$y,pch=16,type="p")
+abline(model2)
+
+plot(data3$x,data3$y,pch=16,xlab="x",ylab="y",main="Dataset C",col="red") 
+lines(data3b$x,data3b$y,pch=16,type="p")
+abline(model3)
+
+plot(data4$x,data4$y,pch=16,xlab="x",ylab="y",main="Dataset D",col="red",ylim=c(0,100)) 
+lines(data4b$x,data4b$y,pch=16,type="p")
+abline(model4)
+
+```
+
+and here are the OLSRR summary plots for each.
+
+-   On the x-axis, you can see how high the leverage is. E.g. if it's on the left it's close to the mean x, if it's on the right it's far from the mean AKA it's high leverage
+
+-   On the y-axis, you can see the normalised residual value AKA how big is the residual, but plotted in terms of standard deviations away from the mean of y.
+
+Compare plots 1,2,3 and 4 with the scatterplots above. See if you can identify which is which.
+
+```{r}
+# model A
+ols_plot_resid_lev(model)
+# model B
+ols_plot_resid_lev(model2)
+# model C
+ols_plot_resid_lev(model3)
+# model D
+ols_plot_resid_lev(model4)
+```
+
+
+
+------------------------------------------------------------------------
+
+## Troubleshooting {#T11_Troubleshooting}
+
+<br>
+
+**`ols_regress()` throws an error** You probably used `$` in your `lm()` call. Refit using `lm(y ~ x, data = tablename)` with the `data =` argument, then pass that model object to `ols_regress()`.
+
+<br>
+
+**`confint()` gives very wide intervals** Wide confidence intervals mean high uncertainty in the coefficient estimates — usually because the sample is small, the predictor has low variance, or the model fit is poor. Check your $R^2$ and sample size.
+
+<br>
+
+**The slope is significant but** $R^2$ is very small This is common with large samples. A statistically significant slope just means the relationship is unlikely to be exactly zero — it says nothing about practical importance. Always report and interpret $R^2$ alongside p-values.
+
+<br>
+
+**`ols_plot_resid_fit()` not found** The `olsrr` package is not loaded. Add `library(olsrr)` to your library code chunk.
+
+<br>
+
+**My residual plot shows a clear curve** Your data is not well described by a straight line — the linearity assumption is violated. Consider transforming $x$ or $y$ (e.g. `log(x)`), or fitting a polynomial term. This is covered in later tutorials.
+
+<br>
+
+**My residual plot fans out** Equal variance (homoscedasticity) is violated. A log transformation of $y$ often helps. Alternatively, weighted least squares or robust standard errors can be used — covered in later tutorials.
