@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Libraries/Packages | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="2.1 IMPORTANT TAKE AWAY ‘Packages’ are like apps for R. They add new functions and datasets that R can make use of. Read more about what they are here: What are packages There are two things you...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="Chapter 2 Libraries/Packages | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T2_Libraries.html">
+<meta property="og:description" content="2.1 IMPORTANT TAKE AWAY ‘Packages’ are like apps for R. They add new functions and datasets that R can make use of. Read more about what they are here: What are packages There are two things you...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 Libraries/Packages | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="2.1 IMPORTANT TAKE AWAY ‘Packages’ are like apps for R. They add new functions and datasets that R can make use of. Read more about what they are here: What are packages There are two things you...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="active" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T2_Libraries" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Libraries/Packages<a class="anchor" aria-label="anchor" href="#T2_Libraries"><i class="fas fa-link"></i></a>
+</h1>
+<div id="important-take-away" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> IMPORTANT TAKE AWAY<a class="anchor" aria-label="anchor" href="#important-take-away"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>‘Packages’ are like apps for R.</strong> They add new functions and datasets that R can make use of. Read more about what they are here: <a href="T2_Libraries.html#T2_Libraries_about">What are packages</a></p>
+<p><strong>There are two things you need to know:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p><strong>INSTALL ONCE:</strong> Just like a phone app, you only need to go to the app-store <em>once</em> to install the package onto your computer. There are several ways of doing this - see the <a href="T2_Libraries.html#T2_Libraries_install">installing package tutorial</a> for details.</p></li>
+<li>
+<p><strong>LOAD EACH R SESSION USING <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>:</strong> Like a phone app, even if you’ve downloaded a package from the app store, you can’t access the commands inside a package before you open it! The <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command loads/opens packages. See the <a href="T2_Libraries.html#T2_Libraries_load">loading packages tutorial</a> for more.</p>
+<p>Just like you need to reopen apps after you restart your phone (but you don’t need to go to app store), <strong>you need to run your <u>library</u> commands EVERY TIME YOU RESTART R or your code won’t work, but you don’t need to re-install the packages.</strong></p>
+</li>
+</ol>
+<p><strong>Stuck?</strong> See here for some common problems and solutions: <a href="T2_Libraries.html#T2_packageproblems">Package problem</a></p>
+<p><br></p>
+<hr>
+<p><br></p>
+</div>
+<div id="T2_Libraries_about" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> What are packages?<a class="anchor" aria-label="anchor" href="#T2_Libraries_about"><i class="fas fa-link"></i></a>
+</h2>
+<p>Base-R comes with many pre-built commands (functions) and datasets. These are grouped together into collections called <code>packages</code> (sometimes informally called libraries). <strong>You can think of them as apps for R.</strong></p>
+<p>For example:</p>
+<ul>
+<li><p><code>ggplot2</code> contains functions (commands) for making plots.</p></li>
+<li><p><code>sf</code> contains functions (commands) for working with spatial data.</p></li>
+<li><p><code>bardr</code> contains the complete works of Shakespeare!</p></li>
+</ul>
+<p><br></p>
+<p><strong>Just as your phone comes with the flashlight and calculator pre-installed, R comes with several basic packages.</strong> But… most people also download additional phone apps from the app store. There are millions of phone apps now available, from banking, to social media, to calendars and games.</p>
+<ul>
+<li><p><em>It would be impossible to have every app in the world installed on your phone. Instead, you download the apps that you think you will need from the app-store (occasionally downloading a new one on the fly).</em></p></li>
+<li><p><em>I’m guessing you also don’t have every app on your phone running at the same time. When you need to use an app, you click on the button to open and use it.</em></p></li>
+</ul>
+<p><br></p>
+<p>R is exactly the same. <strong>There are thousands of packages available online, but we only install the ones we want, then open/use them when needed.</strong></p>
+<ul>
+<li><p><em>You have access to tens of thousands of packages in R.</em> Here’s the full list of packages available through the official R package repository, CRAN: <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" class="uri">https://cran.r-project.org/web/packages/available_packages_by_name.html</a>. From doing Bayesian analyses to making interactive maps, there’s a package available for you.</p></li>
+<li><p>This is far too many to store on your computer, so most live on the internet in an online (free) “Package Store”. You can install the ones you want, ready for use at a later date.</p></li>
+<li><p>You also don’t need to open every package when you use R. Instead, you only load the ones you need in that particular session/lab.</p></li>
+</ul>
+<p><br></p>
+<p><strong>So, to access the commands in a package we need two steps:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p><strong>ONCE ONLY: Download and install the package from the online package-store</strong></p></li>
+<li><p><strong>EVERY TIME YOU RESTART R: Load the packages you want</strong></p></li>
+</ol>
+<p>This tutorial takes you through these steps and a few other more advanced features of packages.</p>
+<p><br></p>
+<hr>
+<p><br></p>
+</div>
+<div id="T2_Libraries_install" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Installing new packages<a class="anchor" aria-label="anchor" href="#T2_Libraries_install"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are a few different ways you can install a new package (see below)</p>
+<p><strong>How will you know it’s worked?</strong> You will see something like this appear in your console. In this output, cran.rstudio is the web address of the app store and it gets stored in the R folder on your computer.</p>
+<div class="inline-figure"><img src="index_images/im_T2_installtext.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<div id="ways-to-install-packages" class="section level3" number="2.3.1">
+<h3>
+<span class="header-section-number">2.3.1</span> Ways to install packages<a class="anchor" aria-label="anchor" href="#ways-to-install-packages"><i class="fas fa-link"></i></a>
+</h3>
+<div id="click-the-install-app-store-button-in-the-packages-menu" class="section level4" number="2.3.1.1">
+<h4>
+<span class="header-section-number">2.3.1.1</span> 1. Click the “Install” (app-store) button in the Packages menu<a class="anchor" aria-label="anchor" href="#click-the-install-app-store-button-in-the-packages-menu"><i class="fas fa-link"></i></a>
+</h4>
+<p>Look for the quadrant with the packages tab in it.</p>
+<ul>
+<li>You will see a list of packages/apps that have already been installed.</li>
+<li>Click the INSTALL button in the Packages tab menu (on the left - see figure above)</li>
+<li>Start typing the package name and it will show up (check the include dependencies box). Install the package.</li>
+</ul>
+<div class="inline-figure"><img src="index_images/im_T2_Packages.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p><br></p>
+</div>
+<div id="look-for-the-little-yellow-bannerribbon" class="section level4" number="2.3.1.2">
+<h4>
+<span class="header-section-number">2.3.1.2</span> 2. Look for the little yellow banner/ribbon<a class="anchor" aria-label="anchor" href="#look-for-the-little-yellow-bannerribbon"><i class="fas fa-link"></i></a>
+</h4>
+<p>R will sometimes tell you that you are missing a package (sometimes a little yellow ribbon), normally when you save your code.</p>
+<p>This is the easiest way to get the packages you need! Click install to get them!</p>
+<div class="inline-figure"><img src="index_images/im_T2_yellowbanner.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p><br></p>
+</div>
+<div id="type-the-install-command-into-the-console" class="section level4" number="2.3.1.3">
+<h4>
+<span class="header-section-number">2.3.1.3</span> 3. Type the install command into the CONSOLE<a class="anchor" aria-label="anchor" href="#type-the-install-command-into-the-console"><i class="fas fa-link"></i></a>
+</h4>
+<p>You can also install a package by typing the “app-store” command into the console.</p>
+<p>This is <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>, where you put the name of the package you want to install in quotes. For example, this command will install the <code>palmerpenguins</code> package (a teaching dataset on penguins).</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"palmerpenguins"</span><span class="op">)</span></span></code></pre></div>
+<p><u><strong>IMPORTANT!</strong></u> <strong>NEVER put the install.packages() command into your script or markdown report</strong>. Otherwise you force the computer to revisit the app store, which sometimes crashes R and is generally bad form. Instead, always go to the app-store manually or type this command into R.</p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="T2_Libraries_load" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Loading/using packages<a class="anchor" aria-label="anchor" href="#T2_Libraries_load"><i class="fas fa-link"></i></a>
+</h2>
+<p>Just as going to the app store doesn’t check your credit-card balance or make an Instagram post, simply <em>downloading</em> a package from the app-store doesn’t make the commands available. For that you need to load it (just as you click on a phone app to open it).</p>
+<p><strong>I will tell you which packages you need for each lab, but if R tells you it wants a package at any point, please install it AND load it.</strong></p>
+<p>This can be done with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command.</p>
+<p>For example, here’s how to load the <code>palmerpenguins</code> package (which contains the Palmer Penguins teaching dataset (<a href="https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1" class="uri">https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1</a>).<br></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span></code></pre></div>
+<p><em>Remember, if you want to try this yourself, you first install the palmerpenguins package using the instructions above.</em></p>
+<p><br></p>
+<hr>
+<p><br></p>
+</div>
+<div id="T2_singlecommand" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> Advanced: Forcing R to use a package (::)<a class="anchor" aria-label="anchor" href="#T2_singlecommand"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes several packages name a command the same word and you want to specify which package you want to use.</p>
+<p>You can do this using the :: symbol. For example, many different packages have a command called filter and R can get confused about which one to use.</p>
+<p>This command <em>forces</em> the computer to use the ‘dplyr package’ version of the filter command.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+<hr>
+<p><br></p>
+</div>
+<div id="seeing-what-packages-you-already-have" class="section level2" number="2.6">
+<h2>
+<span class="header-section-number">2.6</span> Seeing what packages you already have<a class="anchor" aria-label="anchor" href="#seeing-what-packages-you-already-have"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some packages are downloaded on your computer by default (just like the flashlight or calculator app on your phone). You can see your current list of downloaded packages in the Package tab.</p>
+<div class="inline-figure"><img src="index_images/im_T2_Packages.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p><br></p>
+<hr>
+<p><br></p>
+</div>
+<div id="T2_packageproblems" class="section level2" number="2.7">
+<h2>
+<span class="header-section-number">2.7</span> Package Problem Solving<a class="anchor" aria-label="anchor" href="#T2_packageproblems"><i class="fas fa-link"></i></a>
+</h2>
+<div id="installation" class="section level3" number="2.7.1">
+<h3>
+<span class="header-section-number">2.7.1</span> Installation<a class="anchor" aria-label="anchor" href="#installation"><i class="fas fa-link"></i></a>
+</h3>
+<div id="why-isnt-my-package-downloading-r-is-frozen" class="section level4" number="2.7.1.1">
+<h4>
+<span class="header-section-number">2.7.1.1</span> Why isn’t my package downloading? R is frozen<a class="anchor" aria-label="anchor" href="#why-isnt-my-package-downloading-r-is-frozen"><i class="fas fa-link"></i></a>
+</h4>
+<p>Sometimes R will ask you if you want to install binaries or other things. IT WILL ASK YOU THIS QUESTION THROUGH “SPEAKING” IN THE CONSOLE. It expects you to type yes or no, and to press enter to continue. Try yes, if it doesn’t work (esp xfun), try no.</p>
+<p><br></p>
+</div>
+<div id="r-keeps-asking-to-restart." class="section level4" number="2.7.1.2">
+<h4>
+<span class="header-section-number">2.7.1.2</span> R keeps asking to restart.<a class="anchor" aria-label="anchor" href="#r-keeps-asking-to-restart."><i class="fas fa-link"></i></a>
+</h4>
+<p>Sometimes R-Studio might want to restart when downloading packages and occasionally gets confused. If it keeps asking, press cancel, then go to the Session menu at the VERY top, click Restart R and Clear output, reopen and try again.</p>
+<p><br></p>
+</div>
+</div>
+<div id="loading-packages" class="section level3" number="2.7.2">
+<h3>
+<span class="header-section-number">2.7.2</span> Loading packages<a class="anchor" aria-label="anchor" href="#loading-packages"><i class="fas fa-link"></i></a>
+</h3>
+<div id="nothing-happened-when-i-ran-the-library-command" class="section level4" number="2.7.2.1">
+<h4>
+<span class="header-section-number">2.7.2.1</span> Nothing happened when I ran the library command!<a class="anchor" aria-label="anchor" href="#nothing-happened-when-i-ran-the-library-command"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you have managed to load a package successfully, often nothing happens - this is great! It means it loaded the package without errors.</p>
+</div>
+<div id="there-was-a-load-of-text-output---an-error" class="section level4" number="2.7.2.2">
+<h4>
+<span class="header-section-number">2.7.2.2</span> There was a load of text output - an error?<a class="anchor" aria-label="anchor" href="#there-was-a-load-of-text-output---an-error"><i class="fas fa-link"></i></a>
+</h4>
+<p>Hard to tell. So I suggest running the library command TWICE! This is because many packages will print “friendly messages” or “welcome text” the first time you load them.</p>
+<p>For example, this is what shows up when you install the tidyverse package. The welcome text is indicating the sub-packages that tidyverse downloaded and also that some commands now have a different meaning.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:im-T2-friendlytext"></span>
+<img src="index_images/im_T2_friendlytext.png" alt="Tidyverse install messages" width="100%"><p class="caption">
+Figure 2.1: Tidyverse install messages
+</p>
+</div>
+<p><strong>To find out if what you are seeing is a friendly message or an error, run the command again. If you run it a second time and and nothing happens then you’re fine.</strong></p>
+<p><br></p>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
+<div class="next"><a href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T2_Libraries"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="nav-link" href="#important-take-away"><span class="header-section-number">2.1</span> IMPORTANT TAKE AWAY</a></li>
+<li><a class="nav-link" href="#T2_Libraries_about"><span class="header-section-number">2.2</span> What are packages?</a></li>
+<li>
+<a class="nav-link" href="#T2_Libraries_install"><span class="header-section-number">2.3</span> Installing new packages</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ways-to-install-packages"><span class="header-section-number">2.3.1</span> Ways to install packages</a></li></ul>
+</li>
+<li><a class="nav-link" href="#T2_Libraries_load"><span class="header-section-number">2.4</span> Loading/using packages</a></li>
+<li><a class="nav-link" href="#T2_singlecommand"><span class="header-section-number">2.5</span> Advanced: Forcing R to use a package (::)</a></li>
+<li><a class="nav-link" href="#seeing-what-packages-you-already-have"><span class="header-section-number">2.6</span> Seeing what packages you already have</a></li>
+<li>
+<a class="nav-link" href="#T2_packageproblems"><span class="header-section-number">2.7</span> Package Problem Solving</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#installation"><span class="header-section-number">2.7.1</span> Installation</a></li>
+<li><a class="nav-link" href="#loading-packages"><span class="header-section-number">2.7.2</span> Loading packages</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

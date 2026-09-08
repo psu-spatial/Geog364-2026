@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 Missing Data In Depth | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="This tutorial goes deeper on missing data than the QC steps covered in Tutorial 5. It covers how to identify why data is missing, how to visualise it, and how to handle it appropriately depending...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="Chapter 7 Missing Data In Depth | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T6B_MissingData.html">
+<meta property="og:description" content="This tutorial goes deeper on missing data than the QC steps covered in Tutorial 5. It covers how to identify why data is missing, how to visualise it, and how to handle it appropriately depending...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 Missing Data In Depth | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="This tutorial goes deeper on missing data than the QC steps covered in Tutorial 5. It covers how to identify why data is missing, how to visualise it, and how to handle it appropriately depending...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="active" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T6B_MissingData" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> Missing Data In Depth<a class="anchor" aria-label="anchor" href="#T6B_MissingData"><i class="fas fa-link"></i></a>
+</h1>
+<p><br></p>
+<p>This tutorial goes deeper on missing data than the QC steps covered in Tutorial 5. It covers how to identify <em>why</em> data is missing, how to visualise it, and how to handle it appropriately depending on your situation — including how missing data interacts with regression models.</p>
+<blockquote>
+<p><strong>Before you start:</strong> Make sure you have the following packages installed and loaded in your library code chunk: <code>skimr</code>, <code>dplyr</code>, <code>naniar</code>, <code>tidyr</code>, and <code>tidyverse</code>.</p>
+</blockquote>
+<p>We will use a small example dataset throughout so you can see exactly what each command does:</p>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">testdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span>,</span>
+<span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>  z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="cn">NA</span>, <span class="fl">20</span>, <span class="fl">25</span><span class="op">)</span>,</span>
+<span>  randomnotes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">"hello"</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##    x    y  z randomnotes
+## 1  1    A 10        &lt;NA&gt;
+## 2  2    B 15        &lt;NA&gt;
+## 3  3    C NA        &lt;NA&gt;
+## 4 NA    D 20       hello
+## 5  5 &lt;NA&gt; 25        &lt;NA&gt;</code></pre>
+<p><br></p>
+<hr>
+<div id="T6B_WhatIsMissing" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> What is missing data?<a class="anchor" aria-label="anchor" href="#T6B_WhatIsMissing"><i class="fas fa-link"></i></a>
+</h2>
+<p>In R, missing values are stored as <code>NA</code>. You may also encounter <code>NaN</code> (Not a Number), which appears when a calculation produces an undefined result (e.g. dividing zero by zero).</p>
+<p><br></p>
+<div id="T6B_ExternalMissing" class="section level4" number="7.1.0.1">
+<h4>
+<span class="header-section-number">7.1.0.1</span> Missing values in external datasets<a class="anchor" aria-label="anchor" href="#T6B_ExternalMissing"><i class="fas fa-link"></i></a>
+</h4>
+<p>When reading in data from outside R, missing values are not always stored as <code>NA</code>. Common placeholders include:</p>
+<ul>
+<li>
+<code>-1</code> (common in government datasets)</li>
+<li>
+<code>99</code>, <code>-99</code>, <code>9999</code>, <code>999</code> (arbitrary placeholders)</li>
+<li>Blank cells in spreadsheets</li>
+</ul>
+<p>If you know your dataset uses non-standard codes for missing values, you can tell R what to look for when reading in the file. Always check your data carefully afterwards to make sure it worked correctly.</p>
+<p>For CSV files:</p>
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data.csv"</span>, na.strings <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"-1"</span>, <span class="st">"99"</span>, <span class="st">"9999"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>For Excel files:</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data.xlsx"</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"-1"</span>, <span class="st">"999"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><code>na.strings</code> (CSV) and <code>na</code> (Excel) both tell R which values to treat as <code>NA</code> on import.</p>
+<p><br></p>
+</div>
+<div id="T6B_ForceNA" class="section level4" number="7.1.0.2">
+<h4>
+<span class="header-section-number">7.1.0.2</span> Turning existing values into NA<a class="anchor" aria-label="anchor" href="#T6B_ForceNA"><i class="fas fa-link"></i></a>
+</h4>
+<p>Sometimes you only notice a missing data code after reading the data in. You can overwrite specific values with <code>NA</code> directly. For example, to replace any impossible negative prices in a house price dataset:</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">[</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+<p><br></p>
+<hr>
+</div>
+</div>
+<div id="T6B_WhyMissing" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Why is data missing?<a class="anchor" aria-label="anchor" href="#T6B_WhyMissing"><i class="fas fa-link"></i></a>
+</h2>
+<p>Understanding <em>why</em> data is missing matters — it affects which approach to handling it is appropriate.</p>
+<p><strong>Missing Completely at Random (MCAR)</strong>
+The probability of missingness is unrelated to any variable in the dataset. Example: a sensor randomly fails. If data is MCAR, removing missing cases is usually unbiased.</p>
+<p><strong>Missing at Random (MAR)</strong>
+Missingness is related to other observed variables, but not to the missing value itself. Example: younger participants are less likely to report their income, but within each age group, missingness is random. Multiple imputation methods can help here.</p>
+<p><strong>Missing Not at Random (MNAR)</strong>
+Missingness depends on the value of the missing data itself. Example: people with higher incomes are less likely to report their income. This is the most problematic — the missingness mechanism itself needs to be modelled.</p>
+<blockquote>
+<p><strong>Key takeaway:</strong> Only remove missing data casually when you have good reason to believe it is MCAR. For MAR or MNAR, seek specialist statistical advice.</p>
+</blockquote>
+<p><br></p>
+<hr>
+</div>
+<div id="T6B_Identifying" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Identifying missing data<a class="anchor" aria-label="anchor" href="#T6B_Identifying"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<div id="T6B_Counting" class="section level4" number="7.3.0.1">
+<h4>
+<span class="header-section-number">7.3.0.1</span> Counting NAs<a class="anchor" aria-label="anchor" href="#T6B_Counting"><i class="fas fa-link"></i></a>
+</h4>
+<p>To count missing values per column:</p>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##           x           y           z randomnotes 
+##           1           1           1           4</code></pre>
+<p>To count missing values per row:</p>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 1 1 2 1 2</code></pre>
+<p>To count NAs in a single column:</p>
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>To include missing values in a frequency table:</p>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">y</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##    A    B    C    D &lt;NA&gt; 
+##    1    1    1    1    1</code></pre>
+<p><br></p>
+</div>
+<div id="T6B_SummaryFunctions" class="section level4" number="7.3.0.2">
+<h4>
+<span class="header-section-number">7.3.0.2</span> Summary functions<a class="anchor" aria-label="anchor" href="#T6B_SummaryFunctions"><i class="fas fa-link"></i></a>
+</h4>
+<p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> and <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> both report missing value counts automatically:</p>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##        x                y           z            randomnotes
+##  Min.   :1.00   Length   :5   Min.   :10.00   Length   :5   
+##  1st Qu.:1.75   N.unique :4   1st Qu.:13.75   N.unique :1   
+##  Median :2.50   N.blank  :0   Median :17.50   N.blank  :0   
+##  Mean   :2.75   Min.nchar:1   Mean   :17.50   Min.nchar:5   
+##  3rd Qu.:3.50   Max.nchar:1   3rd Qu.:21.25   Max.nchar:5   
+##  Max.   :5.00   NAs      :1   Max.   :25.00   NAs      :4   
+##  NAs    :1                    NAs    :1</code></pre>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:unnamed-chunk-10">Table 7.1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">testdata</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Variable type: character</strong></p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="19%">
+<col width="13%">
+<col width="19%">
+<col width="5%">
+<col width="5%">
+<col width="8%">
+<col width="12%">
+<col width="15%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">y</td>
+<td align="right">1</td>
+<td align="right">0.8</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">randomnotes</td>
+<td align="right">4</td>
+<td align="right">0.2</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Variable type: numeric</strong></p>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="17%">
+<col width="12%">
+<col width="17%">
+<col width="7%">
+<col width="6%">
+<col width="3%">
+<col width="7%">
+<col width="6%">
+<col width="7%">
+<col width="6%">
+<col width="7%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">x</td>
+<td align="right">1</td>
+<td align="right">0.8</td>
+<td align="right">2.75</td>
+<td align="right">1.71</td>
+<td align="right">1</td>
+<td align="right">1.75</td>
+<td align="right">2.5</td>
+<td align="right">3.50</td>
+<td align="right">5</td>
+<td align="left">▇▇▇▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">z</td>
+<td align="right">1</td>
+<td align="right">0.8</td>
+<td align="right">17.50</td>
+<td align="right">6.45</td>
+<td align="right">10</td>
+<td align="right">13.75</td>
+<td align="right">17.5</td>
+<td align="right">21.25</td>
+<td align="right">25</td>
+<td align="left">▇▇▁▇▇</td>
+</tr>
+</tbody>
+</table></div>
+<p><br></p>
+</div>
+<div id="T6B_Visualising" class="section level4" number="7.3.0.3">
+<h4>
+<span class="header-section-number">7.3.0.3</span> Visualising missing data — <code>naniar</code><a class="anchor" aria-label="anchor" href="#T6B_Visualising"><i class="fas fa-link"></i></a>
+</h4>
+<p>The <code>naniar</code> package provides helpful visualisations for understanding the pattern of missing data across your dataset.</p>
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">gg_miss_var</span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>   <span class="co"># count of missing values per variable</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial06B_MissingData_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672"></div>
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">vis_miss</span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>      <span class="co"># heatmap showing where NAs are across the whole dataset</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial06B_MissingData_files/figure-html/unnamed-chunk-11-2.png" alt="" width="672"></div>
+<p><code>vis_miss()</code> is particularly useful for spotting whether missingness clusters in particular rows or columns — which can give clues about whether data is MCAR, MAR, or MNAR.</p>
+<p><br></p>
+<hr>
+</div>
+</div>
+<div id="T6B_Handling" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Handling missing data<a class="anchor" aria-label="anchor" href="#T6B_Handling"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<div id="T6B_naomit" class="section level3" number="7.4.1">
+<h3>
+<span class="header-section-number">7.4.1</span> Remove rows with any NA — <code>na.omit()</code><a class="anchor" aria-label="anchor" href="#T6B_naomit"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Listwise deletion</strong> removes any row that contains an NA in <em>any</em> column:</p>
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_complete</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span>
+<span><span class="va">data_complete</span></span></code></pre></div>
+<pre><code>## [1] x           y           z           randomnotes
+## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<blockquote>
+<p><strong>Warning:</strong> If your dataset has columns with lots of NAs that are irrelevant to your analysis (like a free-text notes column), <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> will still remove rows because of them. Always check how many rows you lose:</p>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>       <span class="co"># before</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_complete</span><span class="op">)</span>  <span class="co"># after</span></span></code></pre></div>
+<p>If you’ve lost more than expected, use the targeted approach below instead.</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="T6B_FilterNA" class="section level3" number="7.4.2">
+<h3>
+<span class="header-section-number">7.4.2</span> Remove rows where specific columns are NA<a class="anchor" aria-label="anchor" href="#T6B_FilterNA"><i class="fas fa-link"></i></a>
+</h3>
+<p>To remove rows only where particular columns are missing, use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>:</p>
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data_filtered</span></span></code></pre></div>
+<pre><code>##   x    y  z randomnotes
+## 1 1    A 10        &lt;NA&gt;
+## 2 2    B 15        &lt;NA&gt;
+## 3 5 &lt;NA&gt; 25        &lt;NA&gt;</code></pre>
+<p><code>!is.na(x)</code> means <em>“keep rows where x is NOT missing”</em>. This is more precise than <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> and is usually the better choice.</p>
+<p>You can also use <code><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases()</a></code> for the same result:</p>
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
+<p>Or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na()</a></code> from <code>tidyr</code>:</p>
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">z</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+</div>
+<div id="T6B_Replace" class="section level3" number="7.4.3">
+<h3>
+<span class="header-section-number">7.4.3</span> Replace NAs with a value<a class="anchor" aria-label="anchor" href="#T6B_Replace"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sometimes you want to keep the row but fill in a specific value — for example, replacing <code>NA</code> with <code>0</code> or <code>"Unknown"</code>.</p>
+<p>Using <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>:</p>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>, <span class="fl">99</span>, <span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="va">testdata</span></span></code></pre></div>
+<pre><code>##    x    y  z randomnotes
+## 1  1    A 10        &lt;NA&gt;
+## 2  2    B 15        &lt;NA&gt;
+## 3  3    C NA        &lt;NA&gt;
+## 4 99    D 20       hello
+## 5  5 &lt;NA&gt; 25        &lt;NA&gt;</code></pre>
+<p>Using <code><a href="https://tidyr.tidyverse.org/reference/replace_na.html">replace_na()</a></code> from <code>tidyr</code> (cleaner for multiple columns at once):</p>
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">testdata</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/replace_na.html">replace_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="st">"Unknown"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">testdata</span></span></code></pre></div>
+<pre><code>##    x       y  z randomnotes
+## 1  1       A 10        &lt;NA&gt;
+## 2  2       B 15        &lt;NA&gt;
+## 3  3       C NA        &lt;NA&gt;
+## 4 99       D 20       hello
+## 5  5 Unknown 25        &lt;NA&gt;</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Replacing NAs with a fixed value is a form of imputation. Only do this if you have a principled reason — for example, replacing <code>NA</code> counts with <code>0</code> when you know the true value is zero, not unknown.</p>
+</blockquote>
+<p><br></p>
+<hr>
+</div>
+</div>
+<div id="T6B_Functions" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Missing data in common functions<a class="anchor" aria-label="anchor" href="#T6B_Functions"><i class="fas fa-link"></i></a>
+</h2>
+<p>You don’t always need to remove missing data in advance. Many R functions have a built-in option to ignore NAs.</p>
+<p><br></p>
+<div id="T6B_naRM" class="section level4" number="7.5.0.1">
+<h4>
+<span class="header-section-number">7.5.0.1</span> <code>na.rm = TRUE</code><a class="anchor" aria-label="anchor" href="#T6B_naRM"><i class="fas fa-link"></i></a>
+</h4>
+<p>By default, most summary functions return <code>NA</code> if any values are missing:</p>
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Add <code>na.rm = TRUE</code> to ignore missing values:</p>
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">z</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 17.5</code></pre>
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">z</span>,   na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 6.454972</code></pre>
+<p><code>na.rm = TRUE</code> works in <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, and most other summary functions.</p>
+<p><br></p>
+</div>
+<div id="T6B_Correlation" class="section level4" number="7.5.0.2">
+<h4>
+<span class="header-section-number">7.5.0.2</span> Correlation and missing data<a class="anchor" aria-label="anchor" href="#T6B_Correlation"><i class="fas fa-link"></i></a>
+</h4>
+<p>The <code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> function doesn’t use <code>na.rm</code> — it has its own argument:</p>
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span>, <span class="va">testdata</span><span class="op">$</span><span class="va">z</span>, use <span class="op">=</span> <span class="st">"complete.obs"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.2919672</code></pre>
+<p>For a full correlation matrix, <strong>pairwise deletion</strong> uses all available data for each pair of variables, rather than removing entire rows:</p>
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">testdata</span>, use <span class="op">=</span> <span class="st">"pairwise.complete.obs"</span><span class="op">)</span></span></code></pre></div>
+<p>Pairwise deletion retains more data than listwise deletion, but can result in different sample sizes per correlation — worth noting when interpreting results.</p>
+<p><br></p>
+<hr>
+</div>
+</div>
+<div id="T6B_Regression" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> Missing data in regression models<a class="anchor" aria-label="anchor" href="#T6B_Regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most modelling functions in R remove rows with missing values automatically. The question is <em>how</em> they do it — and this matters when you look at predictions.</p>
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model_omit</span>    <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">z</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">testdata</span>, na.action <span class="op">=</span> <span class="va">na.omit</span><span class="op">)</span></span>
+<span><span class="va">model_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">z</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">testdata</span>, na.action <span class="op">=</span> <span class="va">na.exclude</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th>Method</th>
+<th>What it does</th>
+<th>When to use</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>na.omit</code></td>
+<td>Removes rows with missing data; drops them from predictions</td>
+<td>When you don’t need predictions for missing rows</td>
+</tr>
+<tr class="even">
+<td><code>na.exclude</code></td>
+<td>Removes rows with missing data; keeps <code>NA</code> in predictions at the original row positions</td>
+<td>When you need predictions to align with your original dataset</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>I recommend <code>na.exclude</code> unless you have a specific reason not to.</strong></p>
+<p>The difference becomes clear when you look at predictions:</p>
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model_omit</span><span class="op">)</span>     <span class="co"># predictions only for complete cases — shorter vector</span></span></code></pre></div>
+<pre><code>##        1        2        4        5 
+## 16.49309 16.53220 20.32520 16.64951</code></pre>
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model_exclude</span><span class="op">)</span>  <span class="co"># predictions with NA preserved at missing rows — same length as original data</span></span></code></pre></div>
+<pre><code>##        1        2        3        4        5 
+## 16.49309 16.53220       NA 20.32520 16.64951</code></pre>
+<p><code>na.exclude</code> keeps the structure of your dataset intact, which matters in time series or longitudinal analyses where the position of missing values is meaningful.</p>
+<p><br></p>
+<hr>
+</div>
+<div id="T6B_Commands" class="section level2" number="7.7">
+<h2>
+<span class="header-section-number">7.7</span> Command reference<a class="anchor" aria-label="anchor" href="#T6B_Commands"><i class="fas fa-link"></i></a>
+</h2>
+<p>A quick-copy summary of all commands covered in this tutorial. Replace <code>testdata</code> with your dataset name.</p>
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># -------------------------------------------</span></span>
+<span><span class="co"># Reading in data with non-standard NA codes</span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data.csv"</span>, na.strings <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"-1"</span>, <span class="st">"99"</span>, <span class="st">"9999"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data.xlsx"</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"-1"</span>, <span class="st">"999"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Force specific values to NA after reading in</span></span>
+<span><span class="va">mydata</span><span class="op">$</span><span class="va">column</span><span class="op">[</span><span class="va">mydata</span><span class="op">$</span><span class="va">column</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="co"># Identifying missing data</span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span><span class="op">)</span>          <span class="co"># NAs per column</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span><span class="op">)</span>          <span class="co"># NAs per row</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>            <span class="co"># NAs in one column</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">y</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span> <span class="co"># frequency table including NAs</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>                  <span class="co"># summary with NA counts</span></span>
+<span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>                     <span class="co"># detailed summary with NA counts</span></span>
+<span><span class="fu">gg_miss_var</span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>              <span class="co"># naniar: NAs per variable (plot)</span></span>
+<span><span class="fu">vis_miss</span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>                 <span class="co"># naniar: NA heatmap (plot)</span></span>
+<span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="co"># Removing rows with missing data</span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="va">data_complete</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>                          <span class="co"># remove any row with any NA</span></span>
+<span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span> <span class="co"># targeted: specific columns only</span></span>
+<span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">z</span><span class="op">)</span>                  <span class="co"># tidyr equivalent</span></span>
+<span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="co"># Replacing NAs with a value</span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>, <span class="fl">99</span>, <span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>         <span class="co"># replace with 99</span></span>
+<span><span class="va">testdata</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/replace_na.html">replace_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="st">"Unknown"</span><span class="op">)</span><span class="op">)</span>   <span class="co"># replace multiple columns</span></span>
+<span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="co"># Handling NAs inside functions</span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span>,   na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span>, <span class="va">testdata</span><span class="op">$</span><span class="va">z</span>, use <span class="op">=</span> <span class="st">"complete.obs"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">testdata</span>, use <span class="op">=</span> <span class="st">"pairwise.complete.obs"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="co"># Regression with missing data</span></span>
+<span><span class="co"># -------------------------------------------</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">z</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">testdata</span>, na.action <span class="op">=</span> <span class="va">na.omit</span><span class="op">)</span>    <span class="co"># drops missing rows from predictions</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">z</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">testdata</span>, na.action <span class="op">=</span> <span class="va">na.exclude</span><span class="op">)</span> <span class="co"># preserves NA positions in predictions (recommended)</span></span></code></pre></div>
+<p><br></p>
+<hr>
+</div>
+<div id="T6B_Troubleshooting" class="section level2" number="7.8">
+<h2>
+<span class="header-section-number">7.8</span> Troubleshooting<a class="anchor" aria-label="anchor" href="#T6B_Troubleshooting"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<p><strong>Function returned <code>NA</code> instead of a number</strong>
+Your column contains missing values. Add <code>na.rm = TRUE</code>:</p>
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+<p><strong><code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> removed far more rows than expected</strong>
+You probably have a column with many NAs that isn’t relevant to your analysis (e.g. a notes column). Use <code>filter(!is.na(columnname))</code> or <code>drop_na(col1, col2)</code> to target only the columns that matter.</p>
+<p><br></p>
+<p><strong><code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> returned <code>NA</code> even with <code>na.rm = TRUE</code></strong>
+<code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> doesn’t use <code>na.rm</code>. Use <code>use = "complete.obs"</code> or <code>use = "pairwise.complete.obs"</code> instead.</p>
+<p><br></p>
+<p><strong>Predictions from <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> are a different length to my dataset</strong>
+You used <code>na.action = na.omit</code> (the default). Switch to <code>na.action = na.exclude</code> to preserve NA positions in the prediction vector so it matches your original data length.</p>
+<p><br></p>
+<p><strong><code>vis_miss()</code> or <code>gg_miss_var()</code> not found</strong>
+The <code>naniar</code> package isn’t loaded. Add <code><a href="https://github.com/njtierney/naniar">library(naniar)</a></code> to your library code chunk.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></div>
+<div class="next"><a href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T6B_MissingData"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="nav-link" href="#T6B_WhatIsMissing"><span class="header-section-number">7.1</span> What is missing data?</a></li>
+<li><a class="nav-link" href="#T6B_WhyMissing"><span class="header-section-number">7.2</span> Why is data missing?</a></li>
+<li><a class="nav-link" href="#T6B_Identifying"><span class="header-section-number">7.3</span> Identifying missing data</a></li>
+<li>
+<a class="nav-link" href="#T6B_Handling"><span class="header-section-number">7.4</span> Handling missing data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T6B_naomit"><span class="header-section-number">7.4.1</span> Remove rows with any NA — na.omit()</a></li>
+<li><a class="nav-link" href="#T6B_FilterNA"><span class="header-section-number">7.4.2</span> Remove rows where specific columns are NA</a></li>
+<li><a class="nav-link" href="#T6B_Replace"><span class="header-section-number">7.4.3</span> Replace NAs with a value</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#T6B_Functions"><span class="header-section-number">7.5</span> Missing data in common functions</a></li>
+<li><a class="nav-link" href="#T6B_Regression"><span class="header-section-number">7.6</span> Missing data in regression models</a></li>
+<li><a class="nav-link" href="#T6B_Commands"><span class="header-section-number">7.7</span> Command reference</a></li>
+<li><a class="nav-link" href="#T6B_Troubleshooting"><span class="header-section-number">7.8</span> Troubleshooting</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Lab 1 | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="LAB AIM Welcome to Lab 1. This is worth 8% (80 points) and you can drop your lowest lab out of six. This is a ONE WEEK LAB. You only have one lab session (today) working on this during class, then...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="Lab 1 | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/Lab_1.html">
+<meta property="og:description" content="LAB AIM Welcome to Lab 1. This is worth 8% (80 points) and you can drop your lowest lab out of six. This is a ONE WEEK LAB. You only have one lab session (today) working on this during class, then...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lab 1 | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="LAB AIM Welcome to Lab 1. This is worth 8% (80 points) and you can drop your lowest lab out of six. This is a ONE WEEK LAB. You only have one lab session (today) working on this during class, then...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="active" href="Lab_1.html">Lab 1</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Lab_1" class="section level1 unnumbered">
+<h1>Lab 1<a class="anchor" aria-label="anchor" href="#Lab_1"><i class="fas fa-link"></i></a>
+</h1>
+<div id="lab-aim" class="section level2 unnumbered">
+<h2>LAB AIM<a class="anchor" aria-label="anchor" href="#lab-aim"><i class="fas fa-link"></i></a>
+</h2>
+<p>Welcome to Lab 1. This is worth 8% (80 points) and you can drop your lowest lab out of six.</p>
+<p>This is a ONE WEEK LAB. You only have one lab session (today) working on this during class, then until next Friday to finish up and write up. The maximum time it should take is about 4-5 hrs of your time.</p>
+<p>The aim of this lab is to get comfortable creating your lab reports, and how to edit both text and code. Finally you will get to apply some knowledge from the course so far.</p>
+<p><br></p>
+<hr>
+</div>
+<div id="lab-set-up-important" class="section level2 unnumbered">
+<h2>LAB SET-UP (Important!)<a class="anchor" aria-label="anchor" href="#lab-set-up-important"><i class="fas fa-link"></i></a>
+</h2>
+<p>This might take a while during week 1, but I promise that after a few labs, this will be very easy.</p>
+<div id="step-1-installupdate-r-and-r-studio" class="section level3 unnumbered">
+<h3>STEP 1: Install/update R and R-Studio<a class="anchor" aria-label="anchor" href="#step-1-installupdate-r-and-r-studio"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you are using R on your computer, you should be running R version “4.5.2 [Not] Part in a Rumble” (look at the top of the console), and R-Studio version 2026.01.0. (apple blossom).</p>
+<p>If you’ve already completed Homework 1 &amp; installed/updated R, then, move to STEP 2. If you’re using PositCloud, move to STEP 2.</p>
+<ul>
+<li><p><strong>[1A]</strong> First click here to learn more about R, R-Studio and R-Markdown: <a href="WhatIsR.html#WhatIsR">What are R and R-Studio</a></p></li>
+<li><p><strong>[1B a]</strong> If you’re not planning to use your own computer, go here to make an account and log into Posit Cloud, which will let you use R online. <a href="Setup_Online.html#Setup_Online">Tutorial on Posit Cloud</a></p></li>
+<li><p><strong>[1B b]</strong> If you are planning to use your own laptop but don’t yet have R and R studio, go here to learn how to install them. <a href="Setup_Desktop.html#Setup_Desktop">Tutorial on Installing R</a></p></li>
+<li><p><strong>[1B c]</strong> if you already have R on your laptop, you probably need to update it! You should be running R version “4.5.2 [Not] Part in a Rumble” (look at the top of the console), and R-Studio version 2026.01.0. (apple blossom). If not, click here to learn more - <a href="Setup_UpdateDesktop.html#Setup_UpdateDesktop">Tutorial on Updating R</a></p></li>
+</ul>
+<p>And finally,</p>
+<ul>
+<li>
+<strong>[1C]</strong> Especially if you are new to R, use the tutorials to take a look around! Or take this opportunity to complete the Data Camp section of Homework 1. [NEED TUTORIAL LINK]</li>
+</ul>
+<p><br></p>
+</div>
+<div id="step-2-creating-a-project.." class="section level3 unnumbered">
+<h3>STEP 2: Creating a project..<a class="anchor" aria-label="anchor" href="#step-2-creating-a-project.."><i class="fas fa-link"></i></a>
+</h3>
+<p>It’s likely that past R users did not have to use projects, but they are WONDERFUL.</p>
+<ul>
+<li><p><strong>[2A]</strong> Go here to read more about projects and to make a project for Lab 1: <a href="T1_Projects.html#T1_Projects">Projects</a></p></li>
+<li><p><strong>[2B]</strong> If you haven’t already, open your project in R-Studio. It should look like this.</p></li>
+</ul>
+<div class="figure">
+<span style="display:block;" id="fig:L1-Projectcheck"></span>
+<img src="index_images/im_T1_Projectcheck.png" alt="How to check you are in a project" width="100%"><p class="caption">
+Figure 0.4: How to check you are in a project
+</p>
+</div>
+<p><br></p>
+<hr>
+</div>
+<div id="step-3-download-code-packages-from-the-app-store.." class="section level3 unnumbered">
+<h3>STEP 3: Download code-Packages from the app store..<a class="anchor" aria-label="anchor" href="#step-3-download-code-packages-from-the-app-store.."><i class="fas fa-link"></i></a>
+</h3>
+<p>Just like there are millions of apps for your phone, there are about 20,000 ‘packages’ or ‘libraries’ that you can download and use in R. Just like phone apps can do wildly different things, some of the Packages will contain data, others might help you make beautiful graphics, others might do complex statistics, or speed up performance.. The options are endless.</p>
+<p>BUT! Just like phone apps, you don’t want to have every package in existence downloaded from the app-store onto your computer. Instead, we select and install the ones we need from the R “app store”.</p>
+<ul>
+<li><p><strong>[3A]</strong> Read <a href="T2_Libraries.html#T2_Libraries_about">About Packages</a>, and <a href="T2_Libraries.html#T2_Libraries_install">Installing Packages</a></p></li>
+<li>
+<p><strong>[3B]</strong> Follow the instructions to go to the ‘install/app store’ and install these three packages:</p>
+<ul>
+<li><p><code>rmdformats</code></p></li>
+<li><p><code>tidyverse</code></p></li>
+<li><p><code>ggstatsplot</code></p></li>
+</ul>
+</li>
+</ul>
+<p>We will load and use them later in the lab.</p>
+<hr>
+</div>
+<div id="step-4-create-your-lab-report" class="section level3 unnumbered">
+<h3>STEP 4: Create your lab report<a class="anchor" aria-label="anchor" href="#step-4-create-your-lab-report"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p><strong>[4A]</strong> Watch the quick video overview of R Markdown. <a href="T3_Markdown.html#T31_Basics">Markdown Tutorial</a></p></li>
+<li><p><strong>[4B]</strong> Using the tutorial instructions, make a new RMarkdown Report ( <a href="T3_Markdown.html#T31_Basics">Markdown Tutorial</a>)</p></li>
+<li><p><strong>[4C]</strong> Open your RmD report file (click on its name in the files tab, as long as you are running your project). Click visual mode and see if you can identify the code chunks, space for text and yaml files.</p></li>
+<li><p><strong>[4D]</strong> Using the <a href="T3_Markdown.html#Tut4E_YAML">YAML tutorial</a>, edit the YAML code to include, A title, your author name, automatically created today’s date, a floating table of contents, numbered sections (this won’t appear until you start typing section headings) and the lumen theme.</p></li>
+<li><p><strong>[4E]</strong> Click knit. This should work and create a html file in your lab 1 folder AND show you it on your screen. IF YOU HAVE PROBLEMS ASK FOR HELP (as long as you have first installed <code>rmdformats</code>)</p></li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+</div>
+<div id="questions" class="section level2 unnumbered">
+<h2>QUESTIONS<a class="anchor" aria-label="anchor" href="#questions"><i class="fas fa-link"></i></a>
+</h2>
+<div id="step-5-r-markdown" class="section level3 unnumbered">
+<h3>STEP 5: R-Markdown<a class="anchor" aria-label="anchor" href="#step-5-r-markdown"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p><strong>[5A]</strong> Close down the html file so that you are back in your lab report again.</p></li>
+<li><p><strong>[5B]</strong> Now you are going to delete all “the friendly welcome text” (leaving the code at the top), so you have space to write your answers.</p></li>
+</ul>
+<div class="inline-figure"><img src="index_images/T3_DeleteText.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<ul>
+<li>
+<strong>[5B]</strong> Create a level 1 heading called “Questions”</li>
+</ul>
+<div class="inline-figure"><img src="index_images/L3B_Questions1.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p>The result should look like this</p>
+<div class="inline-figure"><img src="index_images/L3B_Questions2.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<ul>
+<li>
+<p><strong>[5C]</strong> Below this, using bullet points and clearly marking what your answer refers to, answer these questions:</p>
+<ul>
+<li><p><u><strong>5C.Q1:</strong></u> Using a bullet point list (hint visual mode, then click the bullet button), in your own words, state the difference between viewing your lab script using the Source Button vs the Visual Button (try it!) <a href="T3_Markdown.html#T32A_visualmode">Tutorial</a></p></li>
+<li><p><u><strong>5C.Q2:</strong></u> In your own words and based on what you learned from Monday’s lecture notes (lecture 3D), describe the central limit theorem.</p></li>
+</ul>
+</li>
+</ul>
+<p>Press knit and check it still works.</p>
+<p><br></p>
+<hr>
+</div>
+<div id="step-6-r-coding" class="section level3 unnumbered">
+<h3>STEP 6: R-Coding<a class="anchor" aria-label="anchor" href="#step-6-r-coding"><i class="fas fa-link"></i></a>
+</h3>
+<p>The following questions link to your homework and datacamp. For those who have programmed in R, they are trivial, but use it to get used to the markdown format. If you are struggling, try the datacamp homework first.</p>
+<p>Now make a new heading/sub heading and make a new code chunk.<a href="T3_Markdown.html#T32Da_Adding">see here for what to click</a></p>
+<p>Inside the code chunk, answer the following questions using R. I have already completed question 1 for you to give you a worked example.</p>
+<ul>
+<li>
+<strong>[6A]</strong> Calculate the sum of 1+1 and assign/save it to the variable ‘a’ (e.g. a &lt;- 1+1)</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">+</span><span class="fl">1</span></span></code></pre></div>
+<ul>
+<li><p><strong>[6B]</strong> Calculate the sum of 1+3 and assign it to the variable ‘b’</p></li>
+<li><p><strong>[6C]</strong> Calculate your age to the power 4 and assign it to a variable called your name (e.g. mine would be <code>helen &lt;-</code> )</p></li>
+<li><p><strong>[6D]</strong> Calculate the sum of a/b and assign it to the variable ans</p></li>
+<li><p><strong>[6E]</strong> Calculate the number of characters in the word “Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch” using the nchar command (hint <a href="https://www.educative.io/answers/how-to-calculate-the-size-of-a-string-using-nchar-in-r" class="uri">https://www.educative.io/answers/how-to-calculate-the-size-of-a-string-using-nchar-in-r</a>, and USE QUOTES)</p></li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div id="step-7-mpg-data" class="section level3 unnumbered">
+<h3>STEP 7: MPG Data<a class="anchor" aria-label="anchor" href="#step-7-mpg-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>In class we discussed about both numerical and graphical summaries to describe the data.You will be using the <code>mpg</code> dataset available in R to make some numerical and graphical summaries. <strong>Hint - press knit after every question to check there are no coding errors before you move on.</strong></p>
+<p>The mpg dataset contains a subset of the fuel economy data that the EPA makes available on <a href="https://fueleconomy.gov/" class="uri">https://fueleconomy.gov/</a>. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.</p>
+<ul>
+<li><p><strong>[7A]</strong> Make a new heading called Car Analysis</p></li>
+<li><p><strong>[7B]</strong> We need one more library/package. Just as you did in Step 3, go to the packages tab, click install to go to the app store and install the <code>datasets</code> package.</p></li>
+</ul>
+<p>Just like downloading a phone app from the app-store doesn’t mean that it’s automatically open on your phone, we need to load the datasets library every time we want to use it. To do this, we include a line of code in your report which loads the app:</p>
+<ul>
+<li>
+<strong>[7C]</strong> Create a new code chunk, and add this command exactly, including the options at the top.<br>
+</li>
+</ul>
+<div class="figure">
+<span style="display:block;" id="fig:L1-Loadpackages"></span>
+<img src="index_images/im_L1_LoadPackages.png" alt="Type this exactly then run the code chunk. It will only work if you have first installed the packages from the appstore" width="100%"><p class="caption">
+Figure 0.5: Type this exactly then run the code chunk. It will only work if you have first installed the packages from the appstore
+</p>
+</div>
+<ul>
+<li>This will load the <code>datasets</code> and <code>tidyverse</code> packages which will allow us to use their commands in our analysis.<br><ul>
+<li>The options mean that it won’t show any error messages or warnings when you press knit.<br>
+</li>
+<li>Run the code chunk by pressing the green arrow. The first time you run it, you might see a load of “friendly loading text”. Press the green arrow a second time and it should go away.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7D]</strong> One by one, type the three lines below into the CONSOLE (not into a code chunk).
+<ul>
+<li>The <code>?</code> will bring up the help file for mpg, which contains valuable information about the dataset. You can type <code>?</code> before any command and built in dataset and it will bring up the help file.<br>
+</li>
+<li>The <code>head</code> command prints the first 5 lines and</li>
+<li>The <code>View</code> command opens the data in a new tab (close it to go back to your report)</li>
+</ul>
+</li>
+</ul>
+<div class="figure">
+<span style="display:block;" id="fig:L1-ViewData"></span>
+<img src="index_images/im_L1_ViewData.png" alt="Type each line into the CONSOLE" width="100%"><p class="caption">
+Figure 0.6: Type each line into the CONSOLE
+</p>
+</div>
+<p><br></p>
+<ul>
+<li>
+<strong>[7E]</strong> Using the help file and your analysis of the data, in your report, write as clearly and accurately as you can: <em>(note, chatGPT often gets these wrong! rely on the lecture notes and write up in your own writing)</em>
+<ul>
+<li>The object of analysis</li>
+<li>The specific sampling frame the data came from</li>
+<li>A reasonable target population, stating who or what the results are meant to apply to beyond the data you sampled from. Justify why you chose that population.</li>
+<li>List each variable using a bullet point list, explaining what each one is, including units as available and stating what type of data each one is (e.g. nominal, ordinal etc). Justify your decision!</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7F]</strong> Calculate the mean year of manufacture of the mpg car models. To do this you apply the <code>mean</code> command to the <code>year</code> column of the mpg data. If you’re unsure, try the datacamp homework or see here <a href="https://www.statology.org/r-mean-of-column/" class="uri">https://www.statology.org/r-mean-of-column/</a>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7G]</strong> Make a new code chunk. Use the <code>str</code> command to look at the structure of your data e.g. make a new code chunk and type <code>str(mpg)</code>. From this, write down how many variables there are and how many objects are in the data.frame.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[7H]</strong> Make a new code chunk. In the same way as 7F, use the <code>summary</code> command to look at the summary statistics of your data</p>
+<ul>
+<li><p>You should see that R thinks many of your categorical variables are either descriptive text or numeric. To fix this, you are going to convert each categorical column to a factor, using the <code>factor</code> command. The two commands below will teach R that the <code>trans</code> and <code>model</code> columns are categorical data (called ‘factors in R’). <br></p></li>
+<li><p>Make a new code chunk , copy these across and add more lines for every column that should be categorical. Run the code chunk (nothing will seem to happen on the outside).</p></li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mpg</span><span class="op">$</span><span class="va">trans</span>        <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">trans</span><span class="op">)</span></span>
+<span><span class="va">mpg</span><span class="op">$</span><span class="va">model</span>        <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+<ul>
+<li>
+<strong>[7I]</strong> Now make another new code chunk and run the summary command again on the mpg data. You should see a lot more information. Use this information and your previous code to tell me <em>what percentage</em> of the care models are the civic model.</li>
+</ul>
+<p>Congrats! Finished!</p>
+<hr>
+<p><br></p>
+</div>
+</div>
+<div id="what-to-submit" class="section level2 unnumbered">
+<h2>WHAT TO SUBMIT<a class="anchor" aria-label="anchor" href="#what-to-submit"><i class="fas fa-link"></i></a>
+</h2>
+<div id="if-you-are-using-your-own-laptop" class="section level3 unnumbered">
+<h3>If you are using your own laptop<a class="anchor" aria-label="anchor" href="#if-you-are-using-your-own-laptop"><i class="fas fa-link"></i></a>
+</h3>
+<p>Press knit one final time. You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p>
+<p>Find the html and RmD files in your Lab 1 folder on your computer. Double click the html file to open it in your browser and check it’s the one you want to submit.</p>
+<p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p>
+<p>You can also add comments to your submission as needed on the canvas page, or you can message Dr G.</p>
+<div class="figure">
+<span style="display:block;" id="fig:L1-Submit"></span>
+<img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your STAT462 folder on your computer" width="100%"><p class="caption">
+Figure 0.7: Find them in your STAT462 folder on your computer
+</p>
+</div>
+</div>
+<div id="if-you-are-using-posit-cloud-online" class="section level3 unnumbered">
+<h3>If you are using Posit Cloud online<a class="anchor" aria-label="anchor" href="#if-you-are-using-posit-cloud-online"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>Press knit one final time. You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
+<li><p>Go to the files tab an click on the little check-box by the RmD file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:L1-CloudDownload"></span>
+<img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%"><p class="caption">
+Figure 0.8: How do download the files from PositCloud
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Uncheck the .RmD box and click the box by the html file. Then click the blue “more button” and press export. Save onto your computer.</li>
+</ol>
+<p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p>
+<p>You can also add comments to your submission as needed on the canvas page, or you can message Dr G.</p>
+<p><br></p>
+</div>
+</div>
+<div id="CheckGradeL1" class="section level2 unnumbered">
+<h2>CHECK YOUR GRADE!<a class="anchor" aria-label="anchor" href="#CheckGradeL1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="rubric" class="section level3 unnumbered">
+<h3>RUBRIC<a class="anchor" aria-label="anchor" href="#rubric"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is how you will be graded (percent)</p>
+<ul>
+<li><p><strong>HTML FILE SUBMISSION - 10 marks</strong></p></li>
+<li><p><strong>RMD CODE SUBMISSION - 10 marks</strong></p></li>
+<li>
+<p><strong>MARKDOWN/CODE STYLE - 15 MARKS</strong> <br> How to get full marks for this:</p>
+<ul>
+<li><p>Your YAML code is working e.g. when you press knit, you see your author name, a table of contents etc etc (see step 4)</p></li>
+<li>
+<p>Your code and document is neat and easy to read. LOOK AT YOUR HTML FILE IN YOUR WEB-BROWSER BEFORE YOU SUBMIT. For example:</p>
+<ul>
+<li><p>There is a spell check next to the save button.</p></li>
+<li><p>You have written in full sentences and it is clear what question your answers are referring to.</p></li>
+<li><p>You have included units!</p></li>
+<li><p>You have included formatting like headings/subheadings and bullets. Many people make typos with the headings. The easiest way to do it is to use visual mode, then highlight the text and click Header 1, Header 2 etc.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>WRITTEN QUESTIONS/R-MARKDOWN: 15 MARKS</strong> <br> You have answered the questions in Step 5 clearly and thoughtfully in a way I could use as a class example.</p></li>
+<li><p><strong>R-CODING: 15 MARKS</strong> <br> You have managed to successfully complete all the code challenges</p></li>
+<li><p><strong>MPG ANALYSIS: 15 MARKS</strong> <br> You included all the code and successfully answered the questions, providing reasoning where appropriate</p></li>
+</ul>
+<p>[80 marks total]</p>
+<p>Overall, here is what your lab should correspond to:</p>
+<div class="inline-table"><table class=" lightable-classic-2 table table-striped table-hover table-responsive" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
+<thead><tr>
+<th style="text-align:left;">
+POINTS
+</th>
+<th style="text-align:left;">
+Approx grade
+</th>
+<th style="text-align:left;">
+What it means
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+98-100
+</td>
+<td style="text-align:left;">
+A*
+</td>
+<td style="text-align:left;">
+Exceptional.  Above and beyond.  THIS IS HARD TO GET.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93-98
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Everything asked for with high quality.   Class example
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+85-93
+</td>
+<td style="text-align:left;">
+B+/A-
+</td>
+<td style="text-align:left;">
+Solid work but the odd mistake or missing answer in either the code or interpretation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+70-85
+</td>
+<td style="text-align:left;">
+B-/B
+</td>
+<td style="text-align:left;">
+Starting to miss entire/questions sections, or multiple larger mistakes. Still a solid attempt. 
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+60-70
+</td>
+<td style="text-align:left;">
+C/C+
+</td>
+<td style="text-align:left;">
+It’s clear you tried and learned something.  Just attending labs will get you this much as we can help you get to this stage
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+40-60
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+You submit a single word AND have reached out to Dr G or Aish for help before the deadline (make sure to comment you did this so we can check)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+30-40
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+You submit a single word……. ANYTHING.. Think, that’s 30-40 marks towards your total….
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+0+
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+Didn’t submit, or incredibly limited attempt. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="Help.html">HELP!</a></div>
+<div class="next"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#Lab_1">Lab 1</a></li>
+<li><a class="nav-link" href="#lab-aim">LAB AIM</a></li>
+<li>
+<a class="nav-link" href="#lab-set-up-important">LAB SET-UP (Important!)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1-installupdate-r-and-r-studio">STEP 1: Install/update R and R-Studio</a></li>
+<li><a class="nav-link" href="#step-2-creating-a-project..">STEP 2: Creating a project..</a></li>
+<li><a class="nav-link" href="#step-3-download-code-packages-from-the-app-store..">STEP 3: Download code-Packages from the app store..</a></li>
+<li><a class="nav-link" href="#step-4-create-your-lab-report">STEP 4: Create your lab report</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#questions">QUESTIONS</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-5-r-markdown">STEP 5: R-Markdown</a></li>
+<li><a class="nav-link" href="#step-6-r-coding">STEP 6: R-Coding</a></li>
+<li><a class="nav-link" href="#step-7-mpg-data">STEP 7: MPG Data</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#what-to-submit">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#if-you-are-using-your-own-laptop">If you are using your own laptop</a></li>
+<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online">If you are using Posit Cloud online</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#CheckGradeL1">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric">RUBRIC</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

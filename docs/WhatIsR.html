@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>What are R and R-Studio? | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="1. What is R?  R IS A LANGUAGE SPOKEN BY YOUR COMPUTER R is a free, open source statistical programming language. It contains millions of words/commands that are useful for dataset cleaning,...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="What are R and R-Studio? | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/WhatIsR.html">
+<meta property="og:description" content="1. What is R?  R IS A LANGUAGE SPOKEN BY YOUR COMPUTER R is a free, open source statistical programming language. It contains millions of words/commands that are useful for dataset cleaning,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What are R and R-Studio? | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="1. What is R?  R IS A LANGUAGE SPOKEN BY YOUR COMPUTER R is a free, open source statistical programming language. It contains millions of words/commands that are useful for dataset cleaning,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="active" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="WhatIsR" class="section level1 unnumbered">
+<h1>What are R and R-Studio?<a class="anchor" aria-label="anchor" href="#WhatIsR"><i class="fas fa-link"></i></a>
+</h1>
+<p><br></p>
+<div id="WhatisRitself" class="section level2 unnumbered">
+<h2>1. What is R?<a class="anchor" aria-label="anchor" href="#WhatisRitself"><i class="fas fa-link"></i></a>
+</h2>
+<div id="r-is-a-language-spoken-by-your-computer" class="section level4 unnumbered">
+<h4>
+<strong>R IS A LANGUAGE SPOKEN BY YOUR COMPUTER</strong><a class="anchor" aria-label="anchor" href="#r-is-a-language-spoken-by-your-computer"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>R</strong> is a free, open source statistical programming language. It contains millions of words/commands that are useful for dataset cleaning, analysis, and visualization.</p>
+<p>By a “programming language”, I mean it is a collection of commands that you can type into the computer in order to analyse and visualize data. The easiest way I find to think about R is that it is literally a language, like Spanish, English or Hindi. Or like a set of magic commands in a fantasy novel.</p>
+<p>Learning R means learning vocabulary and grammar in order to communicate. It also means it gets easier with experience and practice..</p>
+<p>If you open “R” on your computer (DON’T DO THIS), you will see a simple window with a cursor ready to hear commands. There is no help or support. This is how I learned to programme in R and I don’t recommend it!</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Tut-Fig1"></span>
+<img src="index_images/im_02Setup_1RConsole.png" alt="Basic R" width="100%"><p class="caption">
+Figure 0.1: Basic R
+</p>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="WhatisRstudio" class="section level2 unnumbered">
+<h2>2. What is R-Studio/POSIT?<a class="anchor" aria-label="anchor" href="#WhatisRstudio"><i class="fas fa-link"></i></a>
+</h2>
+<div id="r-studioposit-is-a-software-application-like-word-chrome-or-spotify" class="section level4 unnumbered">
+<h4>
+<strong>R-STUDIO/POSIT is a Software Application like Word, Chrome or Spotify</strong><a class="anchor" aria-label="anchor" href="#r-studioposit-is-a-software-application-like-word-chrome-or-spotify"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>R-studio</strong> is a <em>software program/app</em>, like Microsoft Word, or the Chrome Web-browser. It’s has recently been re-branded to Posit because it can also now “speak” other computer languages. For programming folks, it’s a competitor to Google Colab or Jupiter Notebook.</p>
+<p>R-studio is a program that’s designed to make it easy to write R-commands. RStudio has many useful features. For example, you can easily see help files, run code, see your results and create professional graphics. R-Studio also allows us to make interactive documents called R-Markdown files.</p>
+<p>There is a version you can download onto your own computer called R-Studio/Posit Desktop, and a version that runs on a website called ‘R-Studio Cloud’.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Tut-Fig2"></span>
+<img src="index_images/im_02Setup_2RStudioIntro.png" alt="*R-studio is much more sophisticated*" width="766"><p class="caption">
+Figure 0.2: <em>R-studio is much more sophisticated</em>
+</p>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="WhatisMarkdown" class="section level2 unnumbered">
+<h2>3. What is R-Markdown?<a class="anchor" aria-label="anchor" href="#WhatisMarkdown"><i class="fas fa-link"></i></a>
+</h2>
+<div id="markdown-is-a-way-of-writing-documents-with-computer-code-embedded-into-them." class="section level4 unnumbered">
+<h4>Markdown is a way of writing documents with computer code embedded into them.<a class="anchor" aria-label="anchor" href="#markdown-is-a-way-of-writing-documents-with-computer-code-embedded-into-them."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="r-markdown-is-a-markdown-file-that-uses-r-code" class="section level4 unnumbered">
+<h4>R-Markdown is a markdown file that uses R code<a class="anchor" aria-label="anchor" href="#r-markdown-is-a-markdown-file-that-uses-r-code"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-figure"><img src="index_images/im_02Setup_3AboutMarkdown.png" alt="" width="1424" style="display: block; margin: auto;"></div>
+<p><br></p>
+<p>R Markdown is a document format that blends the capabilities of R (a programming language primarily used for statistical computing and data analysis) with the formatting and layout capabilities of Markdown (a lightweight markup language). It allows you to create dynamic documents that combine narrative text, code, and the output of that code (such as tables, plots, and figures) in a single document. <br></p>
+<p>Read more here: <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a> or watch this short video</p>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/178485416" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Here’s how R Markdown works:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Narrative Text</strong>: You can write your document using plain text, using Markdown syntax to format your text, add headings, lists, links, and more.</p></li>
+<li><p><strong>Code Chunks</strong>: You can embed R code chunks within your Markdown document. These chunks are demarcated by triple backticks or by the “```{r}” syntax, and they allow you to execute R code directly within your document.</p></li>
+<li><p><strong>Output Display</strong>: When you knit (compile) the R Markdown document, the R code within the code chunks is executed, and the output is dynamically displayed in the final document. This output can include tables, plots, statistical summaries, and more.</p></li>
+<li><p><strong>Knitting</strong>: The process of converting an R Markdown document into a final, formatted document is called “knitting.” When you knit an R Markdown document, R code is executed, the output is generated, and the Markdown text and the output are combined into a single document.</p></li>
+<li><p><strong>Flexibility</strong>: R Markdown supports various output formats, including HTML, PDF, Word, presentations, and more. This means you can easily create different types of documents from the same source.<br><br></p></li>
+</ol>
+<p>R Markdown is widely used for creating reports, documents, tutorials, and presentations that involve data analysis and visualization. It is a powerful tool for reproducible research because it allows you to document your analysis process, code, and results in a single document. Changes to the code or data can be easily updated and reflected in the final document without manually reformatting everything.</p>
+<p>To use R Markdown, you typically need to have R and a few additional packages installed. You write your document in a plain text file with the <strong><code>.Rmd</code></strong> extension, and then use an R Markdown “knitting” process to generate the final document in your desired format. We will cover this in the next tutorial.</p>
+<p><br></p>
+</div>
+<div id="some-examples" class="section level3 unnumbered">
+<h3>Some examples?<a class="anchor" aria-label="anchor" href="#some-examples"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>R Markdown Gallery</strong>: The official R Markdown Gallery showcases a variety of R Markdown examples, including interactive visualizations, reports, presentations, and more. You can find this gallery on the R Markdown website.</p>
+<p>Website: <a href="https://rmarkdown.rstudio.com/gallery.html"><strong>R Markdown Gallery</strong></a></p>
+</li>
+<li>
+<p><strong>R Bloggers</strong>: R Bloggers is a community-driven site that aggregates blog posts related to R programming. Many R bloggers share their R Markdown examples, tutorials, and creative outputs on this platform.</p>
+<p>Website: <a href="https://www.r-bloggers.com/"><strong>R Bloggers</strong></a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="FAQ.html">Course FAQ</a></div>
+<div class="next"><a href="Setup_Desktop.html">Installing R/R-Studio</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#WhatIsR">What are R and R-Studio?</a></li>
+<li><a class="nav-link" href="#WhatisRitself">1. What is R?</a></li>
+<li><a class="nav-link" href="#WhatisRstudio">2. What is R-Studio/POSIT?</a></li>
+<li>
+<a class="nav-link" href="#WhatisMarkdown">3. What is R-Markdown?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#some-examples">Some examples?</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 6 Summarising Data | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="6.1 Overall : Useful commands for looking at a dataset There are a few commands you will use constantly when working with data. View(mpg)    # open the dataset in a spreadsheet-style viewer...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="Chapter 6 Summarising Data | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T5_Summarising.html">
+<meta property="og:description" content="6.1 Overall : Useful commands for looking at a dataset There are a few commands you will use constantly when working with data. View(mpg)    # open the dataset in a spreadsheet-style viewer...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 6 Summarising Data | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="6.1 Overall : Useful commands for looking at a dataset There are a few commands you will use constantly when working with data. View(mpg)    # open the dataset in a spreadsheet-style viewer...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="active" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T5_Summarising" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> Summarising Data<a class="anchor" aria-label="anchor" href="#T5_Summarising"><i class="fas fa-link"></i></a>
+</h1>
+<div id="overall-useful-commands-for-looking-at-a-dataset" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> Overall : Useful commands for looking at a dataset<a class="anchor" aria-label="anchor" href="#overall-useful-commands-for-looking-at-a-dataset"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are a few commands you will use constantly when working with data.</p>
+<pre><code>View(mpg)       # open the dataset in a spreadsheet-style viewer
+glimpse(mpg)    # show the structure of the dataset
+names(mpg)      # show the column names
+summary(mpg)    # give a quick summary of the dataset</code></pre>
+<p><code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> is an interactive command, so I normally run it in the <strong>Console</strong> rather than putting it in a report that I need to knit.</p>
+<p><br></p>
+<p>In this tutorial we will use the <code>pirates</code> dataset from the <code>yarrr</code> package as our example. If you want to follow along, make sure <code><a href="https://bookdown.org/ndphillips/YaRrr/">library(yarrr)</a></code> is in your library code chunk, then run:</p>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"pirates"</span><span class="op">)</span></span></code></pre></div>
+<blockquote>
+<p><strong>Summarising vs EDA — what’s the difference?</strong>
+This tutorial is about <strong>quality control</strong> — checking your data arrived correctly, understanding its structure, fixing column types, and dealing with missing values. You’re making sure everything is sensible before any analysis begins.</p>
+<p>EDA (Exploratory Data Analysis) comes next — that’s about looking for patterns and relationships using plots and grouped summaries. The two overlap, but a useful rule of thumb is: summarising first (is my data clean?), EDA second (what’s interesting?).</p>
+</blockquote>
+<p><br></p>
+<hr>
+</div>
+<div id="T5_FirstLook" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> First look at your data<a class="anchor" aria-label="anchor" href="#T5_FirstLook"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<div id="T5_View" class="section level4" number="6.2.0.1">
+<h4>
+<span class="header-section-number">6.2.0.1</span> View your data — <code>View()</code><a class="anchor" aria-label="anchor" href="#T5_View"><i class="fas fa-link"></i></a>
+</h4>
+<p>The quickest way to look at your data is to click its name in the <strong>Environment pane</strong>, or type this directly into the <strong>console</strong> (not your code chunk):</p>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
+<p>This opens a spreadsheet-style viewer. Run this in the console rather than in a code chunk — it’s an interactive command that won’t work when you knit your document.</p>
+<p><br></p>
+</div>
+<div id="T5_str" class="section level4" number="6.2.0.2">
+<h4>
+<span class="header-section-number">6.2.0.2</span> Check structure — <code>str()</code> and <code>glimpse()</code><a class="anchor" aria-label="anchor" href="#T5_str"><i class="fas fa-link"></i></a>
+</h4>
+<p><code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> (structure) is usually the first command to run on any new dataset. It shows how many rows and columns you have, each column’s name, its data type, and the first few values.</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 'data.frame':    1000 obs. of  17 variables:
+##  $ id             : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ sex            : chr  "male" "male" "male" "female" ...
+##  $ age            : num  28 31 26 31 41 26 31 31 28 30 ...
+##  $ height         : num  173 209 170 144 158 ...
+##  $ weight         : num  70.5 105.6 77.1 58.5 58.4 ...
+##  $ headband       : chr  "yes" "yes" "yes" "no" ...
+##  $ college        : chr  "JSSFP" "JSSFP" "CCCC" "JSSFP" ...
+##  $ tattoos        : num  9 9 10 2 9 7 9 5 12 12 ...
+##  $ tchests        : num  0 11 10 0 6 19 1 13 37 69 ...
+##  $ parrots        : num  0 0 1 2 4 0 7 7 2 4 ...
+##  $ favorite.pirate: chr  "Jack Sparrow" "Jack Sparrow" "Jack Sparrow" "Jack Sparrow" ...
+##  $ sword.type     : chr  "cutlass" "cutlass" "cutlass" "scimitar" ...
+##  $ eyepatch       : num  1 0 1 1 1 1 0 1 0 1 ...
+##  $ sword.time     : num  0.58 1.11 1.44 36.11 0.11 ...
+##  $ beard.length   : num  16 21 19 2 0 17 1 1 1 25 ...
+##  $ fav.pixar      : chr  "Monsters, Inc." "WALL-E" "Inside Out" "Inside Out" ...
+##  $ grogg          : num  11 9 7 9 14 7 9 12 16 9 ...</code></pre>
+<p><code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> from the <code>tidyverse</code> gives the same information in a slightly cleaner layout:</p>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Rows: 1,000
+## Columns: 17
+## $ id              &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…
+## $ sex             &lt;chr&gt; "male", "male", "male", "female", "female", "male", "f…
+## $ age             &lt;dbl&gt; 28, 31, 26, 31, 41, 26, 31, 31, 28, 30, 25, 20, 24, 26…
+## $ height          &lt;dbl&gt; 173.11, 209.25, 169.95, 144.29, 157.85, 190.20, 158.05…
+## $ weight          &lt;dbl&gt; 70.5, 105.6, 77.1, 58.5, 58.4, 85.4, 59.6, 74.5, 68.7,…
+## $ headband        &lt;chr&gt; "yes", "yes", "yes", "no", "yes", "yes", "yes", "yes",…
+## $ college         &lt;chr&gt; "JSSFP", "JSSFP", "CCCC", "JSSFP", "JSSFP", "CCCC", "J…
+## $ tattoos         &lt;dbl&gt; 9, 9, 10, 2, 9, 7, 9, 5, 12, 12, 10, 14, 8, 9, 14, 8, …
+## $ tchests         &lt;dbl&gt; 0, 11, 10, 0, 6, 19, 1, 13, 37, 69, 1, 5, 6, 12, 70, 3…
+## $ parrots         &lt;dbl&gt; 0, 0, 1, 2, 4, 0, 7, 7, 2, 4, 3, 3, 0, 3, 0, 1, 0, 3, …
+## $ favorite.pirate &lt;chr&gt; "Jack Sparrow", "Jack Sparrow", "Jack Sparrow", "Jack …
+## $ sword.type      &lt;chr&gt; "cutlass", "cutlass", "cutlass", "scimitar", "cutlass"…
+## $ eyepatch        &lt;dbl&gt; 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, …
+## $ sword.time      &lt;dbl&gt; 0.58, 1.11, 1.44, 36.11, 0.11, 0.59, 3.01, 0.06, 0.74,…
+## $ beard.length    &lt;dbl&gt; 16, 21, 19, 2, 0, 17, 1, 1, 1, 25, 1, 27, 0, 19, 0, 1,…
+## $ fav.pixar       &lt;chr&gt; "Monsters, Inc.", "WALL-E", "Inside Out", "Inside Out"…
+## $ grogg           &lt;dbl&gt; 11, 9, 7, 9, 14, 7, 9, 12, 16, 9, 7, 8, 12, 7, 9, 10, …</code></pre>
+<p>Both are useful for spotting problems immediately — for example, a column of numbers that R has accidentally read in as text (<code>chr</code> instead of <code>num</code>), or a categorical column that should be a factor but isn’t.</p>
+<p><br></p>
+</div>
+<div id="T5_size" class="section level4" number="6.2.0.3">
+<h4>
+<span class="header-section-number">6.2.0.3</span> Check size — <code>nrow()</code>, <code>ncol()</code>, <code>dim()</code><a class="anchor" aria-label="anchor" href="#T5_size"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>   <span class="co"># number of rows</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>   <span class="co"># number of columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>    <span class="co"># both at once: rows then columns</span></span></code></pre></div>
+<p><br></p>
+<hr>
+</div>
+</div>
+<div id="T5_ColTypes" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Checking and fixing column types<a class="anchor" aria-label="anchor" href="#T5_ColTypes"><i class="fas fa-link"></i></a>
+</h2>
+<p>When R reads in data, it makes a guess at each column’s type. It usually gets this right, but not always. Before running any analysis, it’s worth checking that every column is the type you expect.</p>
+<p>The main data types you’ll encounter are:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th>Type</th>
+<th>What it means</th>
+<th>Example</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code>num</code> or <code>dbl</code>
+</td>
+<td>Numeric (continuous)</td>
+<td>height, weight, temperature</td>
+</tr>
+<tr class="even">
+<td><code>int</code></td>
+<td>Integer (whole numbers)</td>
+<td>count of tattoos, age in years</td>
+</tr>
+<tr class="odd">
+<td><code>chr</code></td>
+<td>Character (text)</td>
+<td>names, free-text responses</td>
+</tr>
+<tr class="even">
+<td><code>factor</code></td>
+<td>Categorical with defined levels</td>
+<td>sex, college, treatment group</td>
+</tr>
+<tr class="odd">
+<td><code>logi</code></td>
+<td>Logical (TRUE/FALSE)</td>
+<td>passed/failed, yes/no</td>
+</tr>
+</tbody>
+</table></div>
+<p><br></p>
+<div id="T5_class" class="section level4" number="6.3.0.1">
+<h4>
+<span class="header-section-number">6.3.0.1</span> Checking the type of a single column — <code>class()</code><a class="anchor" aria-label="anchor" href="#T5_class"><i class="fas fa-link"></i></a>
+</h4>
+<p>To check one column at a time, use <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> with the <code>$</code> operator (<code>datasetname$columnname</code>):</p>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "character"</code></pre>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "numeric"</code></pre>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">college</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "character"</code></pre>
+<p>If a column should be a factor but shows as <code>chr</code>, or should be numeric but shows as <code>chr</code>, you need to fix it before your analysis will work correctly.</p>
+<p><br></p>
+</div>
+<div id="T5_Factors" class="section level3" number="6.3.1">
+<h3>
+<span class="header-section-number">6.3.1</span> Factors<a class="anchor" aria-label="anchor" href="#T5_Factors"><i class="fas fa-link"></i></a>
+</h3>
+<p>A <strong>factor</strong> is R’s way of storing a categorical variable — one that takes a fixed set of values (called <strong>levels</strong>), like sex, treatment group, or college attended. Factors matter because:</p>
+<ul>
+<li>Many statistical functions (like <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>) treat factors differently from plain text — they automatically create the correct dummy variables for you</li>
+<li>Plots will group and order categories correctly</li>
+<li>R will warn you if you try to use a value that isn’t one of the defined levels</li>
+</ul>
+<p>If a categorical column is stored as <code>chr</code> (character/text) rather than a factor, R will often still produce output — but it may be wrong, or the output may not behave as expected.</p>
+<p><br></p>
+<div id="T5_asfactor" class="section level4" number="6.3.1.1">
+<h4>
+<span class="header-section-number">6.3.1.1</span> Converting a column to a factor — <code>as.factor()</code><a class="anchor" aria-label="anchor" href="#T5_asfactor"><i class="fas fa-link"></i></a>
+</h4>
+<p>Looking at <code>str(pirates)</code>, several columns are stored as <code>chr</code> (character/text) that would be better as factors for analysis: <code>sex</code>, <code>college</code>, <code>headband</code>, and <code>sword.type</code>. The <code>eyepatch</code> column is stored as <code>num</code> (0/1) but is also categorical — it should be a factor too.</p>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span>       <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span>
+<span><span class="va">pirates</span><span class="op">$</span><span class="va">college</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">college</span><span class="op">)</span></span>
+<span><span class="va">pirates</span><span class="op">$</span><span class="va">headband</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">headband</span><span class="op">)</span></span>
+<span><span class="va">pirates</span><span class="op">$</span><span class="va">sword.type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sword.type</span><span class="op">)</span></span>
+<span><span class="va">pirates</span><span class="op">$</span><span class="va">eyepatch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">eyepatch</span><span class="op">)</span></span></code></pre></div>
+<p>After converting, run <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> again to confirm the changes:</p>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 'data.frame':    1000 obs. of  17 variables:
+##  $ id             : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ sex            : Factor w/ 3 levels "female","male",..: 2 2 2 1 1 2 1 1 1 2 ...
+##  $ age            : num  28 31 26 31 41 26 31 31 28 30 ...
+##  $ height         : num  173 209 170 144 158 ...
+##  $ weight         : num  70.5 105.6 77.1 58.5 58.4 ...
+##  $ headband       : Factor w/ 2 levels "no","yes": 2 2 2 1 2 2 2 2 2 2 ...
+##  $ college        : Factor w/ 2 levels "CCCC","JSSFP": 2 2 1 2 2 1 2 2 2 2 ...
+##  $ tattoos        : num  9 9 10 2 9 7 9 5 12 12 ...
+##  $ tchests        : num  0 11 10 0 6 19 1 13 37 69 ...
+##  $ parrots        : num  0 0 1 2 4 0 7 7 2 4 ...
+##  $ favorite.pirate: chr  "Jack Sparrow" "Jack Sparrow" "Jack Sparrow" "Jack Sparrow" ...
+##  $ sword.type     : Factor w/ 4 levels "banana","cutlass",..: 2 2 2 4 2 2 2 2 2 2 ...
+##  $ eyepatch       : Factor w/ 2 levels "0","1": 2 1 2 2 2 2 1 2 1 2 ...
+##  $ sword.time     : num  0.58 1.11 1.44 36.11 0.11 ...
+##  $ beard.length   : num  16 21 19 2 0 17 1 1 1 25 ...
+##  $ fav.pixar      : chr  "Monsters, Inc." "WALL-E" "Inside Out" "Inside Out" ...
+##  $ grogg          : num  11 9 7 9 14 7 9 12 16 9 ...</code></pre>
+<p><br></p>
+</div>
+<div id="T5_levels" class="section level4" number="6.3.1.2">
+<h4>
+<span class="header-section-number">6.3.1.2</span> Checking factor levels — <code>levels()</code><a class="anchor" aria-label="anchor" href="#T5_levels"><i class="fas fa-link"></i></a>
+</h4>
+<p><code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> shows you all the categories R knows about, in the order it will use them:</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "female" "male"   "other"</code></pre>
+<p>The first level is always the <strong>reference category</strong> in regression models — R will compare all other levels against it. By default levels are ordered alphabetically, so <code>female</code> would come before <code>male</code>.</p>
+<p><br></p>
+</div>
+<div id="T5_relevel" class="section level4" number="6.3.1.3">
+<h4>
+<span class="header-section-number">6.3.1.3</span> Changing the reference level — <code>relevel()</code><a class="anchor" aria-label="anchor" href="#T5_relevel"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you want a different reference category (for example, you want <code>"male"</code> to be the baseline in a regression rather than <code>"female"</code>, which comes first alphabetically):</p>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>   <span class="co"># check current order first — female is the default reference</span></span></code></pre></div>
+<pre><code>## [1] "female" "male"   "other"</code></pre>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/relevel.html">relevel</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span>, ref <span class="op">=</span> <span class="st">"male"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>   <span class="co"># male is now first</span></span></code></pre></div>
+<pre><code>## [1] "male"   "female" "other"</code></pre>
+<p><br></p>
+</div>
+<div id="T5_relabel" class="section level4" number="6.3.1.4">
+<h4>
+<span class="header-section-number">6.3.1.4</span> Renaming factor levels — <code>levels()</code> assignment<a class="anchor" aria-label="anchor" href="#T5_relabel"><i class="fas fa-link"></i></a>
+</h4>
+<p>To rename the categories themselves (for example, to capitalise labels for a plot):</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>                                    <span class="co"># check current labels and order first</span></span></code></pre></div>
+<pre><code>## [1] "male"   "female" "other"</code></pre>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Other"</span><span class="op">)</span>   <span class="co"># rename in the same order</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "Male"   "Female" "Other"</code></pre>
+<blockquote>
+<p><strong>Warning:</strong> The new names must be listed in the <strong>same order</strong> as the existing levels. Always run <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> first to check the current order before renaming.</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="T5_ordered" class="section level4" number="6.3.1.5">
+<h4>
+<span class="header-section-number">6.3.1.5</span> Ordered factors<a class="anchor" aria-label="anchor" href="#T5_ordered"><i class="fas fa-link"></i></a>
+</h4>
+<p>Some categorical variables have a natural order — for example, education level (low, medium, high) or survey responses (never, sometimes, always). A plain <code>factor</code> treats all levels as equal; an <strong>ordered factor</strong> tells R that the categories have a meaningful sequence.</p>
+<p>The <code>pirates</code> dataset doesn’t have a natural ordinal column, but we can create one by grouping grogg consumption into low, medium, and high:</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create an ordinal grogg consumption variable</span></span>
+<span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg</span>, </span>
+<span>                           breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">7</span>, <span class="fl">12</span>, <span class="cn">Inf</span><span class="op">)</span>,</span>
+<span>                           labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Here’s the actual code you need to create an ordered factor where you control the order.</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span>,</span>
+<span>                              levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span><span class="op">)</span>,</span>
+<span>                              ordered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "low"    "medium" "high"</code></pre>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">is.ordered</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Ordered factors matter in regression — R fits them differently from unordered factors (using polynomial contrasts rather than dummy variables), so only use <code>ordered = TRUE</code> when the order genuinely reflects a meaningful progression.</p>
+<p><br></p>
+<hr>
+</div>
+</div>
+</div>
+<div id="T5_Missing" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Dealing with missing data<a class="anchor" aria-label="anchor" href="#T5_Missing"><i class="fas fa-link"></i></a>
+</h2>
+<p>Missing values in R are stored as <code>NA</code>. It’s important to understand where your missing data is and deal with it <em>before</em> running any analysis, because most statistical functions will either return <code>NA</code> or silently drop rows if you don’t.</p>
+<p><br></p>
+<div id="T5_checkNA" class="section level4" number="6.4.0.1">
+<h4>
+<span class="header-section-number">6.4.0.1</span> Checking for missing values<a class="anchor" aria-label="anchor" href="#T5_checkNA"><i class="fas fa-link"></i></a>
+</h4>
+<p>To count missing values in every column at once:</p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##              id             sex             age          height          weight 
+##               0               0               0               0               0 
+##        headband         college         tattoos         tchests         parrots 
+##               0               0               0               0               0 
+## favorite.pirate      sword.type        eyepatch      sword.time    beard.length 
+##               0               0               0               0               0 
+##       fav.pixar           grogg     grogg.level 
+##               0               0               2</code></pre>
+<p><code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> (covered in the next section) also shows missing value counts automatically, which is one reason it’s useful as a first QC step.</p>
+<p><br></p>
+</div>
+<div id="T5_naInCalcs" class="section level4" number="6.4.0.2">
+<h4>
+<span class="header-section-number">6.4.0.2</span> Ignoring NAs in calculations — <code>na.rm = TRUE</code><a class="anchor" aria-label="anchor" href="#T5_naInCalcs"><i class="fas fa-link"></i></a>
+</h4>
+<p>Most summary functions have a built-in argument to skip NAs rather than returning <code>NA</code>:</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><code>na.rm = TRUE</code> works in <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, and most other summary functions.</p>
+<p><br></p>
+</div>
+<div id="T5_naFilter" class="section level4" number="6.4.0.3">
+<h4>
+<span class="header-section-number">6.4.0.3</span> Removing rows where a specific column is NA — <code>filter()</code><a class="anchor" aria-label="anchor" href="#T5_naFilter"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you want to remove rows where a particular column is missing, use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. This is the most precise approach:</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pirates_clean</span> <span class="op">&lt;-</span> <span class="va">pirates</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><code>!is.na(age)</code> means <em>“keep rows where age is NOT missing”</em>. You can chain multiple columns:</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pirates_clean</span> <span class="op">&lt;-</span> <span class="va">pirates</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>,</span>
+<span>         <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+</div>
+<div id="T5_naomit" class="section level4" number="6.4.0.4">
+<h4>
+<span class="header-section-number">6.4.0.4</span> Removing all incomplete rows — <code>na.omit()</code><a class="anchor" aria-label="anchor" href="#T5_naomit"><i class="fas fa-link"></i></a>
+</h4>
+<p>To remove any row that has an NA in <em>any</em> column:</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pirates_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> can remove a lot of rows if your dataset has many columns. Always check how many rows you lose:</p>
+</blockquote>
+<blockquote>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>        <span class="co"># before</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pirates_clean</span><span class="op">)</span>  <span class="co"># after</span></span></code></pre></div>
+<p>If you’ve lost more than you expected, use <code>filter(!is.na(columnname))</code> instead to target only the columns that matter for your analysis.</p>
+</blockquote>
+<p>Once you’ve cleaned your data, USE THE CLEAN VERSION IN YOUR ANALYSIS</p>
+<p><br></p>
+<hr>
+</div>
+</div>
+<div id="T5_Summaries" class="section level2" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> Summarising your data<a class="anchor" aria-label="anchor" href="#T5_Summaries"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once you’re happy that column types are correct and missing data is handled, you’re ready to summarise.</p>
+<p><br></p>
+<div id="T5_WholeSummary" class="section level3" number="6.5.1">
+<h3>
+<span class="header-section-number">6.5.1</span> The whole dataset<a class="anchor" aria-label="anchor" href="#T5_WholeSummary"><i class="fas fa-link"></i></a>
+</h3>
+<p><br></p>
+<div id="T5_summary" class="section level4" number="6.5.1.1">
+<h4>
+<span class="header-section-number">6.5.1.1</span> <code>summary()</code><a class="anchor" aria-label="anchor" href="#T5_summary"><i class="fas fa-link"></i></a>
+</h4>
+<p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> gives a statistical overview of every column — min, max, mean, and quartiles for numeric columns, and level counts for factors.</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
+<blockquote>
+<p><strong>Tip:</strong> <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> output can wrap awkwardly in a knitted document. Run it in the <strong>console</strong> for easier reading.</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="T5_skim" class="section level4" number="6.5.1.2">
+<h4>
+<span class="header-section-number">6.5.1.2</span> <code>skim()</code><a class="anchor" aria-label="anchor" href="#T5_skim"><i class="fas fa-link"></i></a>
+</h4>
+<p><code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> from the <code>skimr</code> package gives a more detailed summary, including missing value counts and a small histogram for each numeric column. It’s the most useful single command for a thorough QC check.</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
+<p>Like <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>, <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> is often easier to read in the console than in a knitted document.</p>
+<p><br></p>
+</div>
+</div>
+<div id="T5_SingleCol" class="section level3" number="6.5.2">
+<h3>
+<span class="header-section-number">6.5.2</span> A single column<a class="anchor" aria-label="anchor" href="#T5_SingleCol"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <code>$</code> to refer to one column: <code>datasetname$columnname</code>.</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>      <span class="co"># mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>    <span class="co"># median</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>        <span class="co"># standard deviation</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>     <span class="co"># minimum and maximum</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>       <span class="co"># total</span></span></code></pre></div>
+</div>
+</div>
+<div id="T5_Tables" class="section level2" number="6.6">
+<h2>
+<span class="header-section-number">6.6</span> Frequency tables<a class="anchor" aria-label="anchor" href="#T5_Tables"><i class="fas fa-link"></i></a>
+</h2>
+<p>For categorical columns, <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> counts how many observations fall into each level:</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##   Male Female  Other 
+##    490    464     46</code></pre>
+<p>For proportions instead of counts:</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">proportions</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##   Male Female  Other 
+##  0.490  0.464  0.046</code></pre>
+<p><br></p>
+<hr>
+</div>
+<div id="T5_Troubleshooting" class="section level2" number="6.7">
+<h2>
+<span class="header-section-number">6.7</span> Troubleshooting<a class="anchor" aria-label="anchor" href="#T5_Troubleshooting"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<p><strong>Got <code>NA</code> as your answer?</strong>
+Your column probably contains missing values. Add <code>na.rm = TRUE</code>:</p>
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+<p><strong><code>Error: object 'columnname' not found</code></strong>
+You probably forgot the <code>$</code>. R doesn’t know which dataset to look in for a bare column name. Use <code>datasetname$columnname</code>.</p>
+<p><br></p>
+<p><strong>Factor conversion seems to have done nothing</strong>
+Make sure you saved the result back to the column with <code>&lt;-</code>:</p>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>   <span class="co"># correct — saves the result</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>                  <span class="co"># wrong — converts but doesn't save</span></span></code></pre></div>
+<p><br></p>
+<p><strong><code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> returns <code>NULL</code></strong>
+The column isn’t a factor yet. Convert it with <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code> first, then check levels.</p>
+<p><br></p>
+<p><strong>Relabelling levels changed the wrong categories</strong>
+<code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> assignment replaces labels in the current level order, not alphabetically. Always run <code>levels(columnname)</code> first to check the order before reassigning.</p>
+<p><br></p>
+<p><strong>Lost more rows than expected after <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code></strong>
+<code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> removes any row with <em>any</em> NA across all columns. Use <code>filter(!is.na(columnname))</code> to target only the columns you care about.</p>
+<p><br></p>
+<p><strong><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> or <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> output looks broken in my knitted document</strong>
+Run these in the console — they’re wide commands that don’t always render neatly in knitted HTML.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></div>
+<div class="next"><a href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T5_Summarising"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="nav-link" href="#overall-useful-commands-for-looking-at-a-dataset"><span class="header-section-number">6.1</span> Overall : Useful commands for looking at a dataset</a></li>
+<li><a class="nav-link" href="#T5_FirstLook"><span class="header-section-number">6.2</span> First look at your data</a></li>
+<li>
+<a class="nav-link" href="#T5_ColTypes"><span class="header-section-number">6.3</span> Checking and fixing column types</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#T5_Factors"><span class="header-section-number">6.3.1</span> Factors</a></li></ul>
+</li>
+<li><a class="nav-link" href="#T5_Missing"><span class="header-section-number">6.4</span> Dealing with missing data</a></li>
+<li>
+<a class="nav-link" href="#T5_Summaries"><span class="header-section-number">6.5</span> Summarising your data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T5_WholeSummary"><span class="header-section-number">6.5.1</span> The whole dataset</a></li>
+<li><a class="nav-link" href="#T5_SingleCol"><span class="header-section-number">6.5.2</span> A single column</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#T5_Tables"><span class="header-section-number">6.6</span> Frequency tables</a></li>
+<li><a class="nav-link" href="#T5_Troubleshooting"><span class="header-section-number">6.7</span> Troubleshooting</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

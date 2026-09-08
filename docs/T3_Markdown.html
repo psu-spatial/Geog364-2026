@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 R-Markdown | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="3.1 What is markdown Remind yourself of what Rmarkdown is here https://rmarkdown.rstudio.com via this short video   3.1.1 What are R-Scripts? Read more here: https://rmarkdown.rstudio.com Typing...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="Chapter 3 R-Markdown | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T3_Markdown.html">
+<meta property="og:description" content="3.1 What is markdown Remind yourself of what Rmarkdown is here https://rmarkdown.rstudio.com via this short video   3.1.1 What are R-Scripts? Read more here: https://rmarkdown.rstudio.com Typing...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 R-Markdown | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="3.1 What is markdown Remind yourself of what Rmarkdown is here https://rmarkdown.rstudio.com via this short video   3.1.1 What are R-Scripts? Read more here: https://rmarkdown.rstudio.com Typing...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="active" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T3_Markdown" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> R-Markdown<a class="anchor" aria-label="anchor" href="#T3_Markdown"><i class="fas fa-link"></i></a>
+</h1>
+<div id="T31_Basics" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> What is markdown<a class="anchor" aria-label="anchor" href="#T31_Basics"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remind yourself of what Rmarkdown is here <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a> via this short video</p>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/846773750?h=7cb3871e91" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen>
+</iframe>
+<div id="what-are-r-scripts" class="section level3" number="3.1.1">
+<h3>
+<span class="header-section-number">3.1.1</span> What are R-Scripts?<a class="anchor" aria-label="anchor" href="#what-are-r-scripts"><i class="fas fa-link"></i></a>
+</h3>
+<p>Read more here: <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a></p>
+<p>Typing in console is like a having phone call with the computer, you’re talking but you’re not keeping records of what you say. When you close R-studio you lose your analysis.</p>
+<p>What we need instead is a way to save the commands for future use - we can do this using scripts. There are several types of document, or script that you can create and save in R-Studio.</p>
+<ul>
+<li><p>A basic script (the file-type is .r). This is simply just a blank notepad where you can save code commands. When you “run” the commands in the script, R simply copy/pastes the commands over to the console. This is probably how you have done previous labs.</p></li>
+<li><p>An R-Notebook or R-Markdown document (the file type is .Rmd). These are much more interesting - and are how I wrote this lab book. This is what we will be using in our labs.<br>
+There is actually a more recent successor to these called a Quarto file. We will use markdown, but if you can use markdown, you can use quarto!</p></li>
+</ul>
+<p>In this course we are going to focus on the R-Markdown format and you are going to submit your labs as websites/html files along with your code.</p>
+<p><br></p>
+</div>
+<div id="what-is-r-markdown" class="section level3" number="3.1.2">
+<h3>
+<span class="header-section-number">3.1.2</span> What is R-Markdown?<a class="anchor" aria-label="anchor" href="#what-is-r-markdown"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is an R-Markdown Document? imagine a normal Microsoft Word document, but halfway through you can press a button and a mini R console appears…. You type your code inside the mini console, and click run. The computer runs the code and puts the plots/output directly into your report - then you leave the console and write about the results below the plot.</p>
+<p>As described in the video, Rmd files are also flexible. You can turn them into reports, websites, blogs, presentations or applications with a few short commands.</p>
+<p><br></p>
+</div>
+</div>
+<div id="T31_NewMarkdown" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Creating a markdown document<a class="anchor" aria-label="anchor" href="#T31_NewMarkdown"><i class="fas fa-link"></i></a>
+</h2>
+<p>Go to the File menu on the top left, then click New File - R-Markdown. If this is your first time ever doing this, it might ask to download some packages to be able to do this (look for a little yellow bar at the top of the screen and say yes)</p>
+<p>Eventually a window will open up:</p>
+<div class="inline-figure"><img src="index_images/pg_Tut4_markdown_fig1.png" alt="" width="80%" style="display: block; margin: auto;"></div>
+<ul>
+<li><p>It will ask you to name and save your file. Give it a relevant name.</p></li>
+<li><p>A new file should appear on your screen.</p></li>
+<li><p>At the top of that window (by the knit button, there is a save button. Save it as something relevant INSIDE YOUR PROJECT FOLDER!</p></li>
+</ul>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:tut4fig2"></span>
+<img src="index_images/pg_Tut4_markdown_fig2.png" alt="Yours will say STAT462 rather than GEOG364" width="80%"><p class="caption">
+Figure 3.1: Yours will say STAT462 rather than GEOG364
+</p>
+</div>
+<p>The new file on your screen is your first markdown script.</p>
+<p><br><br></p>
+<hr>
+</div>
+<div id="T32_MarkdownImportant" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Important things to know<a class="anchor" aria-label="anchor" href="#T32_MarkdownImportant"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<div id="all-markdown-documents-have-three-components.-t32a_whatisit" class="section level3" number="3.3.1">
+<h3>
+<span class="header-section-number">3.3.1</span> All markdown documents have three components. {#T32A_whatisit?}<a class="anchor" aria-label="anchor" href="#all-markdown-documents-have-three-components.-t32a_whatisit"><i class="fas fa-link"></i></a>
+</h3>
+<p><br></p>
+<p>All markdown documents have three components.</p>
+<ul>
+<li>There is a space at the top of the file where we can add information about themes/styles etc called “YAML”. This determines what type/style of document your work will become <br>
+</li>
+<li>There is space to add text (white), <br>
+</li>
+<li>And you can add code in ‘mini consoles’ called ‘code chunks’. (Grey) <br>
+</li>
+</ul>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:tut4fig4"></span>
+<img src="index_images/im_T3_Markdown.png" alt="Markdown Components" width="100%"><p class="caption">
+Figure 3.2: Markdown Components
+</p>
+</div>
+<p><br><br></p>
+</div>
+<div id="T32A_visualmode" class="section level3" number="3.3.2">
+<h3>
+<span class="header-section-number">3.3.2</span> Visual mode<a class="anchor" aria-label="anchor" href="#T32A_visualmode"><i class="fas fa-link"></i></a>
+</h3>
+<p>It is MUCH easier to edit markdown documents in the new visual mode. Essentially instead of having to remember text short cuts like ** for bold, you can edit the text part as though you were using a word processor. NOTE HEADERS where it says “Normal”, this allows you to make auto tables of contents.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:im-T3-SourceVis"></span>
+<img src="index_images/im_T3_SourceVisual.png" alt="Look at the circled button near the top of the two reports" width="100%"><p class="caption">
+Figure 3.3: Look at the circled button near the top of the two reports
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="Tut4E_YAML" class="section level3" number="3.3.3">
+<h3>
+<span class="header-section-number">3.3.3</span> Editing YAML Code<a class="anchor" aria-label="anchor" href="#Tut4E_YAML"><i class="fas fa-link"></i></a>
+</h3>
+<p>Your YAML code is the code at the top of your file in between the — lines. (see <a href="T3_Markdown.html#fig:tut4fig4">3.2</a>)). Let’s zoom in</p>
+<div class="inline-figure"><img src="index_images/pg_Tut4_markdown_fig5.png" alt="" width="80%" style="display: block; margin: auto;"></div>
+<p><br></p>
+<p>Your YAML code controls how your final output looks and which type of output it becomes. For example, your document could become a website, a pdf, a presentation or app..</p>
+<p>The basic version is very simple with a title, an author and a self entered date. Let’s add in more options.</p>
+<p>YAML code is annoying to edit, because here, <em>spaces really do matter</em>. Everything has to be perfect or it won’t knit.</p>
+<p><strong>Select everything in my code chunk here and replace your YAML with this (remember the — on line 1 and at the end).</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="T3_Markdown.html#cb7-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb7-2"><a href="T3_Markdown.html#cb7-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"GEOG-364 - Lab 2"</span></span>
+<span id="cb7-3"><a href="T3_Markdown.html#cb7-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"hlg5155"</span></span>
+<span id="cb7-4"><a href="T3_Markdown.html#cb7-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb7-5"><a href="T3_Markdown.html#cb7-5" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb7-6"><a href="T3_Markdown.html#cb7-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb7-7"><a href="T3_Markdown.html#cb7-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb7-8"><a href="T3_Markdown.html#cb7-8" tabindex="-1"></a>    toc_float<span class="sc">:</span> yes</span>
+<span id="cb7-9"><a href="T3_Markdown.html#cb7-9" tabindex="-1"></a>    number_sections<span class="sc">:</span> yes</span>
+<span id="cb7-10"><a href="T3_Markdown.html#cb7-10" tabindex="-1"></a>    theme<span class="sc">:</span> lumen</span>
+<span id="cb7-11"><a href="T3_Markdown.html#cb7-11" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb7-12"><a href="T3_Markdown.html#cb7-12" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<p>Replace the author ID with your user name, change the title if appropriate.</p>
+<p>The elements we just added are:</p>
+<ul>
+<li>The title</li>
+<li>The author (note,use your ID not your name)</li>
+<li>Automatically created today’s date</li>
+<li>A floating table of contents</li>
+<li>Numbered sections (this won’t appear until you start typing section headings)</li>
+<li>The document is now in the lumen theme.</li>
+</ul>
+<p><br></p>
+</div>
+<div id="troubleshooting" class="section level3" number="3.3.4">
+<h3>
+<span class="header-section-number">3.3.4</span> Troubleshooting<a class="anchor" aria-label="anchor" href="#troubleshooting"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Note, if you copy/paste this and it doesn’t work, sometimes the quote marks copy weirdly from the internet - try deleting and retyping the quotes.</p></li>
+<li>
+<p>If it still doesn’t work.. this might be because a space is missing (especially if you typed it out).</p>
+<ul>
+<li>Editing YAML code can be a pain. It is very case and space sensitive.<br>For example, the spaces at the start of some lines are important and are created using the SPACE BAR, not the tab key.</li>
+</ul>
+</li>
+</ul>
+<p><em>Don’t continue until you can make and view your html when you press knit. If it doesn’t work, ask for help before moving on</em></p>
+<p><br></p>
+</div>
+<div id="changing-the-theme" class="section level3" number="3.3.5">
+<h3>
+<span class="header-section-number">3.3.5</span> Changing the theme<a class="anchor" aria-label="anchor" href="#changing-the-theme"><i class="fas fa-link"></i></a>
+</h3>
+<p>You don’t need to choose the lumen theme. There are many other ways you can edit your markdown documents here: <a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/" class="uri">https://www.datadreaming.org/post/r-markdown-theme-gallery/</a></p>
+<p>To edit, replace the word lumen with the name of your chosen theme (THIS IS CASE SENSITIVE). Now click knit and see if it works.Some themes are buggy. Try a different one if it doesn’t work.</p>
+<p>The themes in “Even More Themes” on the website, require you to install/load some new packages, so they need some extra work. You’re welcome to try if you have one you fell in love with!</p>
+<p><nr></nr></p>
+</div>
+<div id="adding-other-yaml-options" class="section level3" number="3.3.6">
+<h3>
+<span class="header-section-number">3.3.6</span> Adding other YAML options<a class="anchor" aria-label="anchor" href="#adding-other-yaml-options"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are many more details about different options on these websites:</p>
+<ul>
+<li><a href="https://bookdown.org/yihui/rmarkdown/html-document.html" class="uri">https://bookdown.org/yihui/rmarkdown/html-document.html</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" class="uri">https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf</a></li>
+</ul>
+<p>If you want to get really fancy, there is an interesting package to help you design YAML code here: <a href="https://education.rstudio.com/blog/2019/10/tools-for-teaching-yaml-with-ymlthis/" class="uri">https://education.rstudio.com/blog/2019/10/tools-for-teaching-yaml-with-ymlthis/</a></p>
+<p><br><br></p>
+</div>
+</div>
+<div id="T32E_Knitting" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Knitting<a class="anchor" aria-label="anchor" href="#T32E_Knitting"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-figure"><img src="index_images/im_T3_knit.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p>The file on your screen isn’t the finished article. To see how it will look as a final version, we need to “knit” it. Go to the top of the .Rmd file, find the <code>knit</code> button. Press it (you might have to first save your script if you haven’t already, then press it again)</p>
+<p>You should see that the Markdown tab “builds” your document and you get an output as a website. The html should also be saved into your project folder.</p>
+<p>For example, here is a file with markdown and knitted output.</p>
+<div class="inline-figure"><img src="index_images/im_T3_AllMarkdownElements.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p><br><br></p>
+</div>
+<div id="editing-the-report-text" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> Editing the report text<a class="anchor" aria-label="anchor" href="#editing-the-report-text"><i class="fas fa-link"></i></a>
+</h2>
+<p>You can type anywhere inside the white report area. R will ignore it.</p>
+<p><br></p>
+<div id="T32B_formatting" class="section level3" number="3.5.1">
+<h3>
+<span class="header-section-number">3.5.1</span> Inserting images/tables and formatting<a class="anchor" aria-label="anchor" href="#T32B_formatting"><i class="fas fa-link"></i></a>
+</h3>
+<p>In visual mode, look at the menu at the top. It’s very easy to insert images, tables and other formatting. Pay special attention to the Normal/Heading 1/Heading 2 buttons..</p>
+<p><strong>You can also use the “insert anything” menu by typing / on a new line and choosing bullet point list, picture, heading levels or any other formatting choice.</strong></p>
+<p>You can also do this in source mode, but you have to learn the keyboard shortcuts. For example to make something <strong>bold</strong> you put stars around it e.g. <code>**bold**</code> . You can see more examples in the pic above and here</p>
+<p>For more, see this link: <a href="https://zsmith27.github.io/rmarkdown_crash-course/lesson-3-basic-syntax.html" class="uri">https://zsmith27.github.io/rmarkdown_crash-course/lesson-3-basic-syntax.html</a></p>
+<p><br><br></p>
+<hr>
+</div>
+<div id="T32D_CodeChunks" class="section level3" number="3.5.2">
+<h3>
+<span class="header-section-number">3.5.2</span> Code chunks<a class="anchor" aria-label="anchor" href="#T32D_CodeChunks"><i class="fas fa-link"></i></a>
+</h3>
+<p>Code chunks are mini consoles where you can run R commands.</p>
+<div id="T32Da_Adding" class="section level4" number="3.5.2.1">
+<h4>
+<span class="header-section-number">3.5.2.1</span> Adding a code chunk<a class="anchor" aria-label="anchor" href="#T32Da_Adding"><i class="fas fa-link"></i></a>
+</h4>
+<p>On the top right there are a suite of buttons for adding a new code chunk, running code etc. The green one adds a new code chunk.</p>
+<p><strong>You can also use the “insert anything” menu by typing / on a new line and choosing an R code chunk,</strong></p>
+<div class="inline-figure"><img src="index_images/im_T3_CodeChunkCreate.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p><br></p>
+</div>
+<div id="T32Db_Editing" class="section level4" number="3.5.2.2">
+<h4>
+<span class="header-section-number">3.5.2.2</span> Editing and running code chunks<a class="anchor" aria-label="anchor" href="#T32Db_Editing"><i class="fas fa-link"></i></a>
+</h4>
+<p>You should see that a new area has appeared in your report that is a different color to the background. Inside its essentially a “mini console”. It’s where you add your code and you need to ‘speak R’ inside it.</p>
+<p>When you press enter, the code won’t run. INSTEAD, click the little green arrow</p>
+<div class="inline-figure"><img src="index_images/im_T3_RunCodeChunk.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p><br></p>
+<hr>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="T3_MathsEquations" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> Writing Maths equations in R-Markdown<a class="anchor" aria-label="anchor" href="#T3_MathsEquations"><i class="fas fa-link"></i></a>
+</h2>
+<p>Equations in R-Markdon use the “LateX” format.</p>
+<div id="inserting-an-equation" class="section level3" number="3.6.1">
+<h3>
+<span class="header-section-number">3.6.1</span> Inserting an equation<a class="anchor" aria-label="anchor" href="#inserting-an-equation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Equations in R-Markdon use the “LateX” format.</p>
+<p>To make a new equation on a new line, you first need to put them between double dollar signs.</p>
+<p>For example, try typing</p>
+<p><code>$$</code></p>
+<p><code>x=2</code></p>
+<p><code>$$</code></p>
+<p>on a new line of the white text area in your report ( NOT INTO A CODE CHUNK), then pressing knit. You should see:</p>
+<p><span class="math display">\[x=2\]</span></p>
+<p><strong>You can make a space for an equation the “insert anything” menu by typing / on a new line and choosing “display math”</strong></p>
+<p><br></p>
+<div id="inline-equations---single-dollar-signs" class="section level4" number="3.6.1.1">
+<h4>
+<span class="header-section-number">3.6.1.1</span> Inline equations - Single dollar signs<a class="anchor" aria-label="anchor" href="#inline-equations---single-dollar-signs"><i class="fas fa-link"></i></a>
+</h4>
+<p>Essentially this is the same, but the equation is part of the text and you only see the output when you press knit. For example including <code>$x=2$</code> in this sentence shows <span class="math inline">\(x=2\)</span> as an output.</p>
+<p><strong>You can make a space for an inline equation via “insert anything” menu by typing / on a new line and choosing “inline math”</strong></p>
+<p><br><br></p>
+</div>
+</div>
+<div id="writing-the-equations-themselves" class="section level3" number="3.6.2">
+<h3>
+<span class="header-section-number">3.6.2</span> Writing the equations themselves<a class="anchor" aria-label="anchor" href="#writing-the-equations-themselves"><i class="fas fa-link"></i></a>
+</h3>
+<p>How do we write all the fancy equation stuff? We cheat.</p>
+<p>Create the equation you want in one of these generators, then copy the code into your script and put it between double dollar signs:</p>
+<ul>
+<li><a href="https://latex.codecogs.com/eqneditor/editor.php" class="uri">https://latex.codecogs.com/eqneditor/editor.php</a></li>
+<li><a href="https://www.tutorialspoint.com/latex_equation_editor.htm" class="uri">https://www.tutorialspoint.com/latex_equation_editor.htm</a></li>
+</ul>
+<p>For example</p>
+<p><code>$$\widehat{y} = b_{0}+b_{1}x$$</code></p>
+<p>Shows up as <span class="math display">\[\widehat{y} = b_{0}+b_{1}x\]</span></p>
+<p>Or, try asking chatgpt/claude to help (although it does get confused sometimes on exactly which type of latex to use - so TELL IT THAT YOU WANT A VERSION THAT WORKS FOR R-MARKDOWN!)</p>
+<p><br></p>
+<hr>
+<p><br></p>
+</div>
+</div>
+<div id="T3_CodeChunkOptions" class="section level2" number="3.7">
+<h2>
+<span class="header-section-number">3.7</span> Code Chunk options<a class="anchor" aria-label="anchor" href="#T3_CodeChunkOptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>What are they? Essentially, instructions that you tell the computer when you press knit.</p>
+<div id="creating-them-in-source-mode" class="section level3" number="3.7.1">
+<h3>
+<span class="header-section-number">3.7.1</span> Creating them in Source mode<a class="anchor" aria-label="anchor" href="#creating-them-in-source-mode"><i class="fas fa-link"></i></a>
+</h3>
+<p>Click source mode and have a look at a code chunk. You will see it starts with three little back-ticks and the {r} sign. For code chunk options, we will be focusing on the top line with the {r}</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptions.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p>At the moment, the code chunk tells us that the code inside is written in R.</p>
+<p>We can also add other options, <strong>separated using commas.</strong></p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptionsComplete.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p>In fact, you have often seen me add message=FALSE and warning=FALSE to prevent any spurious messages appearing when you press knit. Keep reading to see the many other things you can add.</p>
+<p><br></p>
+</div>
+<div id="creating-them-in-visual-mode" class="section level3" number="3.7.2">
+<h3>
+<span class="header-section-number">3.7.2</span> Creating them in Visual mode<a class="anchor" aria-label="anchor" href="#creating-them-in-visual-mode"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can also edit code chunk options in view mode. Create a new code chunk, then click on the little (almost invisible) cogwheel near the run triangle</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptionsView.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+<p>This will open a menu where you can choose many of the common options</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptionsViewMenu.png" alt="" width="70%" style="display: block; margin: auto;"></div>
+<p><br></p>
+</div>
+<div id="T3_CodeChunkWholeDoc" class="section level3" number="3.7.3">
+<h3>
+<span class="header-section-number">3.7.3</span> Setting the default for the whole document<a class="anchor" aria-label="anchor" href="#T3_CodeChunkWholeDoc"><i class="fas fa-link"></i></a>
+</h3>
+<p>Many templates already include this for you to edit.</p>
+<p>If not, you can put a code chunk at the top of your document (below the YAML code) containing <code>knitr::opts_chunk$set(echo=TRUE)</code> to change the default values of chunk options in a document.</p>
+<p>For example, you may put this in the first code chunk of your document to stop it showing messages on knit.</p>
+<pre><code>```{}
+knitr::opts_chunk$set(echo=TRUE, 
+                      warning=FALSE, 
+                      message=FALSE)
+```</code></pre>
+<p><br></p>
+</div>
+<div id="common-options" class="section level3" number="3.7.4">
+<h3>
+<span class="header-section-number">3.7.4</span> Common options<a class="anchor" aria-label="anchor" href="#common-options"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here are the common options we typically need:</p>
+<ul>
+<li><p><code>message = TRUE/FALSE</code>. Don’t show friendly R messages on knitting. I use this so often that I put it in that knitr code chunk at the top of my scripts. <br></p></li>
+<li><p><code>warning = TRUE/FALSE</code> . Don’t show R warnings on knitting. It will still show errors, so this is another good one to use. <br></p></li>
+<li><p><code>include = TRUE/FALSE.</code> Show or Hide the code AND output in the final document. <br></p></li>
+<li><p><code>echo = TRUE/FALSE.</code> Show or Hide the code chunk code in the final document. The output will still be shown. <br></p></li>
+<li><p><code>eval = TRUE/FALSE</code>. This option determines whether the code is evaluated or executed. If <strong><code>eval = TRUE</code></strong>, the code is executed. If <strong><code>eval = FALSE</code></strong>, the code is not executed, but the code chunk is still displayed. This can be useful for showing example code without actually running it.</p></li>
+<li><p>Or for example, if you can’t knit because of an error, you can add eval=FALSE to the problem code chunk so I can see what you did but you can still knit.</p></li>
+</ul>
+<p><br><br></p>
+<hr>
+</div>
+</div>
+<div id="inline-code" class="section level2" number="3.8">
+<h2>
+<span class="header-section-number">3.8</span> Inline Code<a class="anchor" aria-label="anchor" href="#inline-code"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are two types of code you can write in your reports: code chunks and inline R code.</p>
+<div id="code-chunks..-as-discussed-above" class="section level4" number="3.8.0.1">
+<h4>
+<span class="header-section-number">3.8.0.1</span> Code chunks….. (as discussed above)<a class="anchor" aria-label="anchor" href="#code-chunks..-as-discussed-above"><i class="fas fa-link"></i></a>
+</h4>
+<p>Click source mode and have a look at a code chunk. You will see it starts with three little back-ticks and the {r} sign.</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunk.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+</div>
+<div id="and-inline-code" class="section level4" number="3.8.0.2">
+<h4>
+<span class="header-section-number">3.8.0.2</span> ….. and Inline Code<a class="anchor" aria-label="anchor" href="#and-inline-code"><i class="fas fa-link"></i></a>
+</h4>
+<p>Inline R code is embedded in the TEXT/NARRATIVE of your document using single back-ticks. For example, writing</p>
+<p>My value of y is <code>`r y`</code> and x-squared is <code>`r x^2`</code></p>
+<p>Will output:</p>
+<p>My value of y is 10 and x-squared is 49.</p>
+<p>If this doesn’t make sense, follow these tutorial to see how to add inline code.</p>
+<ul>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html</a></li>
+<li><a href="https://www.njtierney.com/post/2019/07/10/jq-verbatim-inline-r/" class="uri">https://www.njtierney.com/post/2019/07/10/jq-verbatim-inline-r/</a></li>
+<li><a href="https://rmarkdown.rstudio.com/lesson-4.html" class="uri">https://rmarkdown.rstudio.com/lesson-4.html</a></li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="tips-for-adding-inline-code" class="section level3" number="3.8.1">
+<h3>
+<span class="header-section-number">3.8.1</span> Tips for adding inline code<a class="anchor" aria-label="anchor" href="#tips-for-adding-inline-code"><i class="fas fa-link"></i></a>
+</h3>
+<p>Inline code is GREAT. Imagine writing your 100 page thesis, but then you realise that your dataset was wrong. If all the numbers in your report are added using inline code, then it will automatically update your entire report.</p>
+<p>The easiest way to do this is to run your commands in a “silent” code chunk with the echo=FALSE and include=FALSE options. Then in the text, I just put the variable name I want to print, sometimes rounding to a better number of decimal places<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You can round in the inline code or the code chunk. Both are fine&lt;/p&gt;"><sup>1</sup></a>.</p>
+<p>For example here’s how I typed that the mean height of the starwars data is 174.6 cm:</p>
+<div class="inline-figure"><img src="index_images/im_T3InlineCode.png" alt="" width="100%" style="display: block; margin: auto;"></div>
+
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># OPTIONS -----------------------------------------------</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>echo <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                      warning<span class="op">=</span><span class="cn">FALSE</span>, </span>
+<span>                      message <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Tutorial packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ijlyttle/vembedr">vembedr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bookdown.org/ndphillips/YaRrr/">yarrr</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Loading required package: jpeg</code></pre>
+<pre><code>## Loading required package: BayesFactor</code></pre>
+<pre><code>## Loading required package: coda</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## ************
+## Welcome to BayesFactor 0.9.12-4.8. If you have questions, please contact Richard Morey (richarddmorey@gmail.com).
+## 
+## Type BFManual() to open the manual.
+## ************</code></pre>
+<pre><code>## Loading required package: circlize</code></pre>
+<pre><code>## ========================================
+## circlize version 0.4.18
+## CRAN page: https://cran.r-project.org/package=circlize
+## Github page: https://github.com/jokergoo/circlize
+## Documentation: https://jokergoo.github.io/circlize_book/book/
+## 
+## If you use it in published research, please cite:
+## Gu, Z. circlize implements and enhances circular visualization
+##   in R. Bioinformatics 2014.
+## 
+## This message can be suppressed by:
+##   suppressPackageStartupMessages(library(circlize))
+## ========================================</code></pre>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span> </span></code></pre></div>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## 
+## Attaching package: 'ggplot2'</code></pre>
+<pre><code>## The following object is masked from 'package:yarrr':
+## 
+##     diamonds</code></pre>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.2.1     ✔ readr     2.2.0
+## ✔ forcats   1.0.1     ✔ stringr   1.6.0
+## ✔ lubridate 1.9.5     ✔ tibble    3.3.1
+## ✔ purrr     1.2.2     ✔ tidyr     1.3.2</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ tidyr::expand()  masks Matrix::expand()
+## ✖ dplyr::filter()  masks stats::filter()
+## ✖ lubridate::hms() masks vembedr::hms()
+## ✖ dplyr::lag()     masks stats::lag()
+## ✖ tidyr::pack()    masks Matrix::pack()
+## ✖ tidyr::unpack()  masks Matrix::unpack()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Attaching package: 'plotly'
+## 
+## The following object is masked from 'package:ggplot2':
+## 
+##     last_plot
+## 
+## The following object is masked from 'package:stats':
+## 
+##     filter
+## 
+## The following object is masked from 'package:graphics':
+## 
+##     layout</code></pre>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Attaching package: 'rvest'
+## 
+## The following object is masked from 'package:readr':
+## 
+##     guess_encoding</code></pre>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://chris-prener.github.io/biscale/">biscale</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://walker-data.com/tidycensus/">tidycensus</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Attaching package: 'cowplot'
+## 
+## The following object is masked from 'package:lubridate':
+## 
+##     stamp</code></pre>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-quantities.github.io/units/">units</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## udunits database from /Library/Frameworks/R.framework/Versions/4.6-x86_64/Resources/library/units/share/udunits/udunits2.xml</code></pre>
+</div>
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></div>
+<div class="next"><a href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T3_Markdown"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li>
+<a class="nav-link" href="#T31_Basics"><span class="header-section-number">3.1</span> What is markdown</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#what-are-r-scripts"><span class="header-section-number">3.1.1</span> What are R-Scripts?</a></li>
+<li><a class="nav-link" href="#what-is-r-markdown"><span class="header-section-number">3.1.2</span> What is R-Markdown?</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#T31_NewMarkdown"><span class="header-section-number">3.2</span> Creating a markdown document</a></li>
+<li>
+<a class="nav-link" href="#T32_MarkdownImportant"><span class="header-section-number">3.3</span> Important things to know</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#all-markdown-documents-have-three-components.-t32a_whatisit"><span class="header-section-number">3.3.1</span> All markdown documents have three components. {#T32A_whatisit?}</a></li>
+<li><a class="nav-link" href="#T32A_visualmode"><span class="header-section-number">3.3.2</span> Visual mode</a></li>
+<li><a class="nav-link" href="#Tut4E_YAML"><span class="header-section-number">3.3.3</span> Editing YAML Code</a></li>
+<li><a class="nav-link" href="#troubleshooting"><span class="header-section-number">3.3.4</span> Troubleshooting</a></li>
+<li><a class="nav-link" href="#changing-the-theme"><span class="header-section-number">3.3.5</span> Changing the theme</a></li>
+<li><a class="nav-link" href="#adding-other-yaml-options"><span class="header-section-number">3.3.6</span> Adding other YAML options</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#T32E_Knitting"><span class="header-section-number">3.4</span> Knitting</a></li>
+<li>
+<a class="nav-link" href="#editing-the-report-text"><span class="header-section-number">3.5</span> Editing the report text</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T32B_formatting"><span class="header-section-number">3.5.1</span> Inserting images/tables and formatting</a></li>
+<li><a class="nav-link" href="#T32D_CodeChunks"><span class="header-section-number">3.5.2</span> Code chunks</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#T3_MathsEquations"><span class="header-section-number">3.6</span> Writing Maths equations in R-Markdown</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#inserting-an-equation"><span class="header-section-number">3.6.1</span> Inserting an equation</a></li>
+<li><a class="nav-link" href="#writing-the-equations-themselves"><span class="header-section-number">3.6.2</span> Writing the equations themselves</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#T3_CodeChunkOptions"><span class="header-section-number">3.7</span> Code Chunk options</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#creating-them-in-source-mode"><span class="header-section-number">3.7.1</span> Creating them in Source mode</a></li>
+<li><a class="nav-link" href="#creating-them-in-visual-mode"><span class="header-section-number">3.7.2</span> Creating them in Visual mode</a></li>
+<li><a class="nav-link" href="#T3_CodeChunkWholeDoc"><span class="header-section-number">3.7.3</span> Setting the default for the whole document</a></li>
+<li><a class="nav-link" href="#common-options"><span class="header-section-number">3.7.4</span> Common options</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#inline-code"><span class="header-section-number">3.8</span> Inline Code</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#tips-for-adding-inline-code"><span class="header-section-number">3.8.1</span> Tips for adding inline code</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
