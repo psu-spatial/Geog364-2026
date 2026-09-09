@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -89,7 +90,7 @@
 </h2>
 <p>This tutorial explains how to filter, select, and wrangle data in R using both <strong>Tidyverse</strong> and <strong>Base R</strong> approaches.</p>
 <p>Both approaches are valid, but they differ in syntax and philosophy. <strong>Tidyverse</strong> functions (from <code>dplyr</code>) use a pipeline-based approach, whereas <strong>Base R</strong> relies on indexing and built-in functions.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load necessary packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>  <span class="co"># Core data wrangling</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span> <span class="co"># Example dataset</span></span>
@@ -97,7 +98,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span>  <span class="co"># Pair plots</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co"># Visualization</span></span></code></pre></div>
 <p>We will use the <strong>penguins</strong> dataset from the <code>palmerpenguins</code> package to demonstrate data wrangling techniques.</p>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"penguins"</span><span class="op">)</span>  <span class="co"># Load dataset</span></span></code></pre></div>
 <p><br><br></p>
 </div>
@@ -111,7 +112,7 @@
 </h3>
 <p>Sometimes we want to deal with only one specific column in our dataset, for example applying the mean command to say just one column.</p>
 <p>To do this, we use the $ symbol. For example, here I’m simply selecting the data in the elevation column only and saving it to a new variable called elevationdata.</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mean_mass</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">$</span><span class="va">body_mass_g</span> </span>
 <span></span>
 <span><span class="va">mean_mass</span></span></code></pre></div>
@@ -134,7 +135,7 @@
 <div id="tidyverse-approach" class="section level4 unnumbered">
 <h4>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">selected_data</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selected_data</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
@@ -150,7 +151,7 @@
 <div id="base-r-approach" class="section level4 unnumbered">
 <h4>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">selected_data</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"species"</span>, <span class="st">"bill_length_mm"</span>, <span class="st">"flipper_length_mm"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selected_data</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
@@ -181,7 +182,7 @@ tablename [ ROWS , COLUMNS ]
 \]</span>
 <br></p>
 <p>Some examples:</p>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># This will select the data in the 5th row and 7th column</span></span>
 <span><span class="va">penguins</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">7</span><span class="op">]</span></span>
 <span></span>
@@ -209,7 +210,7 @@ tablename [ ROWS , COLUMNS ]
 <span class="header-section-number">9.3.1</span> Deleting data<a class="anchor" aria-label="anchor" href="#deleting-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Or if you know the row or column number you can use the minus - sign to remove. Or use filter..</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># remove row 6 and and overwrite</span></span>
 <span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="op">-</span><span class="fl">6</span> ,<span class="op">]</span></span>
 <span></span>
@@ -236,7 +237,7 @@ tablename [ ROWS , COLUMNS ]
 <span class="header-section-number">9.4.1</span> Random sampling<a class="anchor" aria-label="anchor" href="#random-sampling"><i class="fas fa-link"></i></a>
 </h3>
 <p>Dplyr’s sample_slice command will do this for us. Here I randomly selected 4 rows.</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguinsample</span> <span class="op">&lt;-</span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span><span class="va">penguins</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#check it worked</span></span>
@@ -249,23 +250,23 @@ tablename [ ROWS , COLUMNS ]
 </h3>
 <p>We can also use the tidyverse approach, the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code> function. All the condition symbols e.g. !=NOT etc also work for the which command,</p>
 <p>Selecting all <code>Adelie</code> penguins:</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span></span></code></pre></div>
 <p>Selecting multiple species using <code>%in%</code>:</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Excluding a species using <code>!=</code>:</p>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op">!=</span> <span class="st">"Gentoo"</span><span class="op">)</span></span></code></pre></div>
 <p>Filtering penguins with a flipper length greater than 200 mm:</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
 <p>Filtering penguins with a body mass less than or equal to 3000 g:</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">light_penguins</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">body_mass_g</span> <span class="op">&lt;=</span> <span class="fl">3000</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">light_penguins</span><span class="op">)</span></span></code></pre></div>
 <p>Filtering with multiple conditions:</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">180</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span></span></code></pre></div>
 <p>Using <code>|</code> (OR condition) to select penguins with either a <code>bill_depth_mm</code> greater than 18 or <code>flipper_length_mm</code> longer than 210 mm:</p>
 </div>
@@ -275,14 +276,14 @@ tablename [ ROWS , COLUMNS ]
 </h3>
 <p>The <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> command helps us identify row indices that meet a condition.</p>
 <p>For example, identifying numbers greater than 107 in a sequence:</p>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">100</span><span class="op">:</span><span class="fl">110</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="fl">107</span><span class="op">)</span></span></code></pre></div>
 <p>I like it because you can read the command as a sentence e.g. which numbers in “a” are greater than 107, Or which penguins have a <code>body_mass_g</code> less than or equal to 3000g:</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">outlier_rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">body_mass_g</span> <span class="op">&lt;=</span> <span class="fl">3000</span><span class="op">)</span></span></code></pre></div>
 <p>To find the row corresponding to the penguin with the smallest bill length:</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">row_number</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">smallest_bill</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="va">row_number</span>, <span class="op">]</span></span>
 <span><span class="va">smallest_bill</span></span></code></pre></div>
@@ -297,13 +298,13 @@ tablename [ ROWS , COLUMNS ]
 <div id="base-r-approach-1" class="section level3 unnumbered">
 <h3>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_ratio</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">penguins</span><span class="op">$</span><span class="va">bill_depth_mm</span></span></code></pre></div>
 </div>
 <div id="tidyverse-approach-1" class="section level3 unnumbered">
 <h3>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>bill_ratio <span class="op">=</span> <span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">bill_depth_mm</span><span class="op">)</span></span></code></pre></div>
 <p><br><br></p>
 </div>
@@ -317,19 +318,19 @@ tablename [ ROWS , COLUMNS ]
 <div id="tidyverse-approach-2" class="section level3 unnumbered">
 <h3>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">body_mass_g</span><span class="op">)</span></span></code></pre></div>
 <p>Sort by descending order:</p>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">flipper_length_mm</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div id="base-r-approach-2" class="section level3 unnumbered">
 <h3>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">body_mass_g</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">penguins</span><span class="op">$</span><span class="va">flipper_length_mm</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
 <p><br><br></p>
 </div>
@@ -342,7 +343,7 @@ tablename [ ROWS , COLUMNS ]
 <div id="tidyverse-approach-3" class="section level3 unnumbered">
 <h3>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach-3"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_result</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">180</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>bill_ratio <span class="op">=</span> <span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">bill_depth_mm</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -353,7 +354,7 @@ tablename [ ROWS , COLUMNS ]
 <div id="base-r-approach-3" class="section level3 unnumbered">
 <h3>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach-3"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">filtered</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="va">penguins</span><span class="op">$</span><span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">180</span>, <span class="op">]</span></span>
 <span><span class="va">filtered</span><span class="op">$</span><span class="va">bill_ratio</span> <span class="op">&lt;-</span> <span class="va">filtered</span><span class="op">$</span><span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">filtered</span><span class="op">$</span><span class="va">bill_depth_mm</span></span>
 <span></span>

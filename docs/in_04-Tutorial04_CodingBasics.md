@@ -167,6 +167,8 @@ mean(mpg$year)         ARGUMENT: tell the function what to use
 
 Sys.Date()             SPECIAL CASE: a function that needs no argument
 
+COMMANDS ARE CASE SENSITIVE!
+
 mpg$year               $: choose a column by name
 
 mpg[2, 3]              [row, column]: choose data by position
@@ -227,7 +229,7 @@ rnorm(n = 5, mean = 10, sd = 2)
 ```
 
 ```
-## [1] 10.198402 11.741009 11.708219 10.313859  9.637222
+## [1] 9.562586 8.593312 7.861588 7.265712 7.637137
 ```
 
 Here we have told R: to randomly select `5` values from a normal distribution that has a mean of `10`, and a standard deviation of `2`.
@@ -235,6 +237,31 @@ Here we have told R: to randomly select `5` values from a normal distribution th
 - The command/function is `rnorm`()\`
 
 - The arguments are `n=5` (the number of values we want), then `mean=10` and `sd=2`, the mean and standard distribition of the normal distribution to extract the values from.
+
+<br>
+
+### Commands are case sensitive!
+
+`round()` is not the same as `Round()` , `ROUND()` or `roUnd()` !
+
+You will get an error if you type the wrong one.
+
+Some commands have capital letters in them and won't work if you miss them out. For example `Sys.Date()` is correct, `sys.date()` is wrong.
+
+<br>
+
+### But you can put them on different lines..
+
+R doesn't look for the end of the line to know when a command is finished, it looks for the closing ).
+
+So this will run fine for example, and is often a way of making your code more readable:
+
+
+``` r
+# make 20 random numbers from a normal distribution with mean=10 and sd=3, then save them as the variable output.
+output <- rnorm(n=20,
+                mean=10,sd=3)
+```
 
 <br>
 
@@ -297,12 +324,12 @@ round(rnorm(n = 5, mean = 10, sd = 2), digits=3)
 ```
 
 ```
-## [1] 10.224 10.448 10.404  8.258 14.055
+## [1]  9.185 11.660 10.860 10.610 14.774
 ```
 
 <br>
 
-## Referring to a column using `$`
+## Referring to a column using `$` {#T4_applyingonecolumn}
 
 Often we don't want to apply a command to an entire spreadsheet. We want to use just **one column**.
 

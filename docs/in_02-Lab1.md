@@ -1,231 +1,259 @@
 
+# (PART\*) [.]{style="color: white;"} {.unnumbered}
+# (PART\*) **LAB INSTRUCTIONS** {.unnumbered}
 
-# Lab 1 {#Lab_1 .unnumbered}
+
+
+
+
+# Homework 2 {#Lab_2 .unnumbered}
 
 ## LAB AIM {.unnumbered}
 
-Welcome to Lab 1. This is worth 8% (80 points) and you can drop your lowest lab out of six.
+Welcome to Homework 2. This is worth 15/20 (the other 10 was for the in-class exercises). Overall each lab is worth 4.8% and you can drop your lowest score. 
 
-This is a ONE WEEK LAB. You only have one lab session (today) working on this during class, then until next Friday to finish up and write up. The maximum time it should take is about 4-5 hrs of your time.
+This is due the night before your next lab.  The maximum time it should take is about 2-3 hrs of your time.
 
 The aim of this lab is to get comfortable creating your lab reports, and how to edit both text and code. Finally you will get to apply some knowledge from the course so far.
 
-<br>
-
-------------------------------------------------------------------------
+<br><br>
 
 ## LAB SET-UP (Important!) {.unnumbered}
 
-This might take a while during week 1, but I promise that after a few labs, this will be very easy.
-
-### STEP 1: Install/update R and R-Studio {.unnumbered}
-
-If you are using R on your computer, you should be running R version "4.5.2 [Not] Part in a Rumble" (look at the top of the console), and R-Studio version 2026.01.0. (apple blossom).
-
-If you've already completed Homework 1 & installed/updated R, then, move to STEP 2. If you're using PositCloud, move to STEP 2.
-
--   **[1A]** First click here to learn more about R, R-Studio and R-Markdown: [What are R and R-Studio](#WhatIsR)
-
--   **[1B a]** If you're not planning to use your own computer, go here to make an account and log into Posit Cloud, which will let you use R online. [Tutorial on Posit Cloud](#Setup_Online)
-
--   **[1B b]** If you are planning to use your own laptop but don't yet have R and R studio, go here to learn how to install them. [Tutorial on Installing R](#Setup_Desktop)
-
--   **[1B c]** if you already have R on your laptop, you probably need to update it! You should be running R version "4.5.2 [Not] Part in a Rumble" (look at the top of the console), and R-Studio version 2026.01.0. (apple blossom). If not, click here to learn more - [Tutorial on Updating R](#Setup_UpdateDesktop)
-
-And finally,
-
--   **[1C]** Especially if you are new to R, use the tutorials to take a look around! Or take this opportunity to complete the Data Camp section of Homework 1. [NEED TUTORIAL LINK]
+You should have already done this from Homeworks 1 and during the Lab 2 class. So for most people this will be a quick check that you completed each item. If not, I have linked the tutorials for you. 
 
 <br>
 
-### STEP 2: Creating a project.. {.unnumbered}
+### STEP 1: Install/update R and R-Studio {.unnumbered}
 
-It's likely that past R users did not have to use projects, but they are WONDERFUL.
+If you are using R on your computer, you should have installed/updated it last week and should be running R version "4.6.1 (2026-06-24) -- "Happy Hop" (look at the top of the console), and R-Studio version 2026.08.2. (Yellow Yarrow).
 
--   **[2A]** Go here to read more about projects and to make a project for Lab 1: [Projects](#T1_Projects)
+**If that's the case (or you're using posit cloud), move to STEP 2** 
 
--   **[2B]** If you haven't already, open your project in R-Studio. It should look like this.
+If you do need to update, follow these tutorials
+
+-   _**[1A]** First click here to learn more about R, R-Studio and R-Markdown: [What are R and R-Studio](#WhatIsR)_
+
+-   _**[1B a]** If you're not planning to use your own computer, go here to make an account and log into Posit Cloud, which will let you use R online. [Tutorial on Posit Cloud](#Setup_Online)_
+
+-   _**[1B b]** If you are planning to use your own laptop but don't yet have R and R studio, go here to learn how to install them. [Tutorial on Installing R](#Setup_Desktop)_
+
+-   _**[1B c]** if you already have R on your laptop, you probably need to update it! You should be running R version "4.5.2 [Not] Part in a Rumble" (look at the top of the console), and R-Studio version 2026.01.0. (apple blossom). If not, click here to learn more - [Tutorial on Updating R](#Setup_UpdateDesktop)_
+
+<br><br>
+
+
+
+### STEP 2: Creating a project.. {#HW2_Step2 .unnumbered}
+
+You should have already made a project for this homework during class today.
+
+ **If you did NOT make a project, complete STEP 2A. Most people can jump to step 2B**
+ 
+ -   **[2A]**  Go here to read more about projects and to make a project for Homework2: [Projects](#T1_Projects)
+
+<br>
+
+**If you DID make a project, complete STEP 2B**
+
+-   **[2B]** Sorry, I realized I got everyone to call their project it Lab1 rather than Homework2! Lets rename the folders to match canvas or everyone will get confused. 
+
+      -   R-studio won't like this, so first, CLOSE R-STUDIO COMPLETELY 
+      -   Then go to your GEOG-364 folder and rename the folders Homework2, Homework3, Homework4, Homework5, Homework6.  So this lab (previously called Lab1) is now called Homework2.
+      -   Then you can reopen the project by double clicking on the Rproj file
+      
+
+<br>
+
+#### QUICK CHECK  {.unnumbered}
+
+-  If you haven't already, open your project in R-Studio. It should look like this, but say Homwork2 rather than Lab1.
 
 <div class="figure">
 <img src="./index_images/im_T1_Projectcheck.png" alt="How to check you are in a project" width="100%" />
 <p class="caption">(\#fig:L1-Projectcheck)How to check you are in a project</p>
 </div>
 
-<br>
 
-------------------------------------------------------------------------
 
-### STEP 3: Download code-Packages from the app store.. {.unnumbered}
+<br><br>
 
-Just like there are millions of apps for your phone, there are about 20,000 'packages' or 'libraries' that you can download and use in R. Just like phone apps can do wildly different things, some of the Packages will contain data, others might help you make beautiful graphics, others might do complex statistics, or speed up performance.. The options are endless.
+### STEP 3: Install Packages using the app store.. {.unnumbered}
 
-BUT! Just like phone apps, you don't want to have every package in existence downloaded from the app-store onto your computer. Instead, we select and install the ones we need from the R "app store".
-
--   **[3A]** Read [About Packages](#T2_Libraries_about), and [Installing Packages](#T2_Libraries_install)
-
--   **[3B]** Follow the instructions to go to the 'install/app store' and install these three packages:
+-   **[3A]** Go to the 'install/app store' and install these three packages. 
 
     -   `rmdformats`
+    
+    -   `palmerpenguins`
 
-    -   `tidyverse`
+    -   `tidyverse` # YOU DON'T NEED TO REINSTALL IF YOU DID THIS IN CLASS
 
-    -   `ggstatsplot`
+    -   `ggstatsplot` # YOU DON'T NEED TO REINSTALL IF YOU DID THIS IN CLASS
+    
+If you can't remember how, then here are the tutorials: 
+ - [About Packages](#T2_Libraries_about), 
+ - [Installing Packages](#T2_Libraries_install) We will load and use them later in the lab.
 
-We will load and use them later in the lab.
 
-------------------------------------------------------------------------
 
-### STEP 4: Create your lab report {.unnumbered}
+<br><br>
 
--   **[4A]** Watch the quick video overview of R Markdown. [Markdown Tutorial](#T31_Basics)
 
--   **[4B]** Using the tutorial instructions, make a new RMarkdown Report ( [Markdown Tutorial](#T31_Basics))
+### STEP 4: Download your lab report {.unnumbered}
 
--   **[4C]** Open your RmD report file (click on its name in the files tab, as long as you are running your project). Click visual mode and see if you can identify the code chunks, space for text and yaml files.
 
--   **[4D]** Using the [YAML tutorial](#Tut4E_YAML), edit the YAML code to include, A title, your author name, automatically created today's date, a floating table of contents, numbered sections (this won't appear until you start typing section headings) and the lumen theme.
+-   **[4A]** On the canvas assignment, you should see a file called `Homework2_LabReport_NAME.Rmd`. 
 
--   **[4E]** Click knit. This should work and create a html file in your lab 1 folder AND show you it on your screen. IF YOU HAVE PROBLEMS ASK FOR HELP (as long as you have first installed `rmdformats`)
+-   **[4B]** Download the lab report and PLACE IT IN YOUR PROJECT FOLDER. Rename the file so that instead of "NAME" it's your email ID. For example, for me  `Homework2_LabReport_hlg5155.Rmd`
 
-<br>
+-   **[4C]** You should be inside your R-project. Open the lab report by clicking on it using the file menu.  The result should look like the screenshot below
 
-------------------------------------------------------------------------
+-   **[4D]** Change the author at the top then press knit. THIS WILL ONLY WORK IF YOU INSTALLED THE rmdformats PACKAGE IN STEP 3! [Tutorial here](#T32E_Knitting)
 
-## QUESTIONS {.unnumbered}
 
-### STEP 5: R-Markdown {.unnumbered}
-
--   **[5A]** Close down the html file so that you are back in your lab report again.
-
--   **[5B]** Now you are going to delete all "the friendly welcome text" (leaving the code at the top), so you have space to write your answers.
-
-<img src="./index_images/T3_DeleteText.png" alt="" width="100%" style="display: block; margin: auto;" />
-
--   **[5B]** Create a level 1 heading called "Questions"
-
-<img src="./index_images/L3B_Questions1.png" alt="" width="100%" style="display: block; margin: auto;" />
-
-The result should look like this
 
 <img src="./index_images/L3B_Questions2.png" alt="" width="100%" style="display: block; margin: auto;" />
 
--   **[5C]** Below this, using bullet points and clearly marking what your answer refers to, answer these questions:
 
-    -   [**5C.Q1:**]{.underline} Using a bullet point list (hint visual mode, then click the bullet button), in your own words, state the difference between viewing your lab script using the Source Button vs the Visual Button (try it!) [Tutorial](#T32A_visualmode)
+<br><br>
 
-    -   [**5C.Q2:**]{.underline} In your own words and based on what you learned from Monday's lecture notes (lecture 3D), describe the central limit theorem.
 
-Press knit and check it still works.
+### STEP 5: Initial questions {HW2_Step5 .unnumbered}
+
+Under the questions heading, using bullet points and generally neat formatting.. 
+
+-   **[5A]** In the text, state the difference between viewing your lab script using the Source Button vs the Visual Button (try it!) [Tutorial](#T32A_visualmode)
+
+-   **[5B]** Find your favourite photo or screenshot online. SAVE A COPY INTO YOUR HOMEWORK2(LAB1) project folder. Then click Insert picture -> browse and find the picture. Insert it.[Tutorial here](#T32B_formatting)
+    
+-   **[5C]** Underneath the picture, write why you like it so much/what it means to you. 
+
+-   **[5D]** Press knit and check it still works. IF YOU DIDN'T PUT THE PICTURE IN YOUR HOMEWORK2/LAB1 FOLDER THEN IT MIGHT NOT SHOW UP WHEN YOU PRESS KNIT (even if it shows up on your screen when you insert it)
+
+In fact, the reason you are doing the picture exercise is so that you learn that data/files/photos etc need to go into your project folder..
+
+
+<br><br>
+
+
+### STEP 6: R-Coding Questions {.unnumbered}
+
+For those who have programmed in R, these questions are trivial, but use it to get used to the markdown format.  
+
+
+-   **[6A]** Create a code chunk (either by pressing / on a new line, or by pressing the little green c button at the top of the script). Inside the code chunk
 
 <br>
 
-------------------------------------------------------------------------
-
-### STEP 6: R-Coding {.unnumbered}
-
-The following questions link to your homework and datacamp. For those who have programmed in R, they are trivial, but use it to get used to the markdown format. If you are struggling, try the datacamp homework first.
-
-Now make a new heading/sub heading and make a new code chunk.[see here for what to click](#T32Da_Adding)
-
-Inside the code chunk, answer the following questions using R. I have already completed question 1 for you to give you a worked example.
-
--   **[6A]** Calculate the sum of 1+1 and assign/save it to the variable 'a' (e.g. a \<- 1+1)
+-   **[6B]** Calculate the sum of 1+1 and assign/save it to the variable 'a' (Like this - you get this one for free). Press the green arrow to run.
 
 
 ``` r
+# note, the <- is "< -"  without a space between them
 a <- 1+1
+a
 ```
 
--   **[6B]** Calculate the sum of 1+3 and assign it to the variable 'b'
+```
+## [1] 2
+```
 
--   **[6C]** Calculate your age to the power 4 and assign it to a variable called your name (e.g. mine would be `helen <-` )
+-   **[6C]** Calculate the sum of 1+3 and assign it to the variable 'b'
+<br>
 
--   **[6D]** Calculate the sum of a/b and assign it to the variable ans
-
--   **[6E]** Calculate the number of characters in the word "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch" using the nchar command (hint <https://www.educative.io/answers/how-to-calculate-the-size-of-a-string-using-nchar-in-r>, and USE QUOTES)
+-   **[6D]** Calculate your age to the power 4 and assign it to a variable called your name (e.g. mine would be `helen <- ...` )
 
 <br>
 
-------------------------------------------------------------------------
-
-### STEP 7: MPG Data {.unnumbered}
-
-In class we discussed about both numerical and graphical summaries to describe the data.You will be using the `mpg` dataset available in R to make some numerical and graphical summaries. **Hint - press knit after every question to check there are no coding errors before you move on.**
-
-The mpg dataset contains a subset of the fuel economy data that the EPA makes available on <https://fueleconomy.gov/>. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.
-
--   **[7A]** Make a new heading called Car Analysis
-
--   **[7B]** We need one more library/package. Just as you did in Step 3, go to the packages tab, click install to go to the app store and install the `datasets` package.
-
-Just like downloading a phone app from the app-store doesn't mean that it's automatically open on your phone, we need to load the datasets library every time we want to use it. To do this, we include a line of code in your report which loads the app:
-
--   **[7C]** Create a new code chunk, and add this command exactly, including the options at the top.<br>
-
-<div class="figure">
-<img src="./index_images/im_L1_LoadPackages.png" alt="Type this exactly then run the code chunk. It will only work if you have first installed the packages from the appstore" width="100%" />
-<p class="caption">(\#fig:L1-Loadpackages)Type this exactly then run the code chunk. It will only work if you have first installed the packages from the appstore</p>
-</div>
-
--   This will load the `datasets` and `tidyverse` packages which will allow us to use their commands in our analysis.<br>
-    -   The options mean that it won't show any error messages or warnings when you press knit.<br>
-    -   Run the code chunk by pressing the green arrow. The first time you run it, you might see a load of "friendly loading text". Press the green arrow a second time and it should go away.
+-   **[6E]** Calculate the sum of a/b and assign it to the variable ans. Then print out `ans` by adding its name (see my example code chunk).
 
 <br>
 
--   **[7D]** One by one, type the three lines below into the CONSOLE (not into a code chunk).
-    -   The `?` will bring up the help file for mpg, which contains valuable information about the dataset. You can type `?` before any command and built in dataset and it will bring up the help file.\
-    -   The `head` command prints the first 5 lines and
-    -   The `View` command opens the data in a new tab (close it to go back to your report)
+-   **[6F]** Using the `nchar()` command, calculate the number of characters in the word *"Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch"* . (hint <https://www.educative.io/answers/how-to-calculate-the-size-of-a-string-using-nchar-in-r>, and USE QUOTES)
 
-<div class="figure">
-<img src="./index_images/im_L1_ViewData.png" alt="Type each line into the CONSOLE" width="100%" />
-<p class="caption">(\#fig:L1-ViewData)Type each line into the CONSOLE</p>
-</div>
+<br><br>
 
-<br>
 
--   **[7E]** Using the help file and your analysis of the data, in your report, write as clearly and accurately as you can: *(note, chatGPT often gets these wrong! rely on the lecture notes and write up in your own writing)*
-    -   The object of analysis
-    -   The specific sampling frame the data came from
-    -   A reasonable target population, stating who or what the results are meant to apply to beyond the data you sampled from. Justify why you chose that population.
-    -   List each variable using a bullet point list, explaining what each one is, including units as available and stating what type of data each one is (e.g. nominal, ordinal etc). Justify your decision!
+### STEP 7: Loading the Penguins Data {.unnumbered}
 
-<br>
+In class we discussed about both numerical and graphical summaries to describe the data.You will be using the `penguins` dataset available in R to make some numerical and graphical summaries.  
 
--   **[7F]** Calculate the mean year of manufacture of the mpg car models. To do this you apply the `mean` command to the `year` column of the mpg data. If you're unsure, try the datacamp homework or see here <https://www.statology.org/r-mean-of-column/>
+-   **[7A]** Find the space in your lab report called Penguin Analysis 
 
-<br>
-
--   **[7G]** Make a new code chunk. Use the `str` command to look at the structure of your data e.g. make a new code chunk and type `str(mpg)`. From this, write down how many variables there are and how many objects are in the data.frame.
-
-<br>
-
--   **[7H]** Make a new code chunk. In the same way as 7F, use the `summary` command to look at the summary statistics of your data
-
-    -   You should see that R thinks many of your categorical variables are either descriptive text or numeric. To fix this, you are going to convert each categorical column to a factor, using the `factor` command. The two commands below will teach R that the `trans` and `model` columns are categorical data (called 'factors in R'). <br>
-
-    -   Make a new code chunk , copy these across and add more lines for every column that should be categorical. Run the code chunk (nothing will seem to happen on the outside).
+-   **[7C]** At the top of your code, you should have a library code chunk that looks like this.  This will load the `ggstatsplot`, `tidyverse` and `palmerpenguins` packages, making their commands available. 
 
 
 ``` r
-mpg$trans        <- factor(mpg$trans)
-mpg$model        <- factor(mpg$model)
+library(tidyverse)
+library(ggstatsplot)
+library(palmerpenguins)
+```
+
+
+-   Run the code chunk by pressing the green arrow. The first time you run it, you might see a load of "friendly loading text". Press the green arrow a second time and it should go away.
+
+<br>
+
+-   **[7C]** The palmer penguins package contains a dataset called penguins. Make a new code chunk under your penguin heading. Inside type this and run the code chunk to load it. In your environment you should see penguins turn up as a "promise"
+
+
+``` r
+data(penguins)
 ```
 
 <br>
 
--   **[7I]** Now make another new code chunk and run the summary command again on the mpg data. You should see a lot more information. Use this information and your previous code to tell me *what percentage* of the care models are the civic model.
-
-Congrats! Finished!
-
-------------------------------------------------------------------------
+-   **[7D]** Type `?penguins` into the CONSOLE (not into a code chunk) to bring up the help file for the penguins dataset. This contains important information about the data and contents.
 
 <br>
+
+-   **[7E]** Type `View(penguins)` into the CONSOLE (not into a code chunk) and it will open the dataset as a spreadsheet.  
+
+<br><br>
+
+
+### STEP 8: Penguin analysis {.unnumbered}
+
+-   **[8A]** Using the help file and your analysis of the data, in your report, write as clearly and accurately as you can: 
+    - The object of analysis <br>
+    - The specific sampling frame the data came from<br>
+    - A reasonable larger inferred population, e.g. might results from this extend beyond the specific. Justify why you chose that population.<br>
+    - List each variable using a bullet point list, explaining what each one is, including units as available and stating what type of data each one is (e.g. numeric, categorical data etc). Justify your decision! 
+    (hint THE EASIEST WAY TO DO THIS IS TO COPY THE VARIABLES FROM THE HELP FILE AND TIDY UP)
+
+<br>
+
+-   **[8B]** Create a code chunk.  Using the examples in [Tutorial on Basic Code](#T4_applyingonecolumn),
+
+    -   Calculate the MEAN of the column flipper_length_mm in the penguins dataset <br>
+    -   Calculate the MEDIAN body mass in the penguins dataset
+    
+         -   Hint 1, you need to spell the column name EXACTLY for it to work, case sensitive,
+         -   Hint 3, https://sparkbyexamples.com/r-programming/median-in-r-examples/
+
+
+<br>
+
+
+-   **[8C]** There have been MANY excellent tutorials written about this dataset. Each of the tutorials below contain many different plots and analysis.  Take a look then see if you can get ONE analysis working in your lab script. (e.g. one plot or one analysis output, not the entire tutorial!). Explain what you did below the r code and explain what the results tell you about Penguins. 
+
+    -    https://www.r-bloggers.com/2020/07/basic-data-analysis-with-palmerpenguins/
+    -    https://allisonhorst.github.io/palmerpenguins/articles/examples.html
+
+<br>
+
+
+
+**Congrats! Finished!**
+
+
+<br><br>
 
 ## WHAT TO SUBMIT {.unnumbered}
 
-### If you are using your own laptop {.unnumbered}
+<br>
+
+### If you are using your own computer {.unnumbered}
 
 Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
 
@@ -236,9 +264,12 @@ Find the html and RmD files in your Lab 1 folder on your computer. Double click 
 You can also add comments to your submission as needed on the canvas page, or you can message Dr G.
 
 <div class="figure">
-<img src="./index_images/im_T1_WhattoSubmit.png" alt="Find them in your STAT462 folder on your computer" width="100%" />
-<p class="caption">(\#fig:L1-Submit)Find them in your STAT462 folder on your computer</p>
+<img src="./index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%" />
+<p class="caption">(\#fig:L1-Submit)Find them in your GEOG364 folder on your computer</p>
 </div>
+
+
+<br>
 
 ### If you are using Posit Cloud online {.unnumbered}
 
@@ -263,33 +294,19 @@ You can also add comments to your submission as needed on the canvas page, or yo
 
 ### RUBRIC {.unnumbered}
 
-This is how you will be graded (percent)
+This is how you will be graded (plus any in-class components)
 
--   **HTML FILE SUBMISSION - 10 marks**
+15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.  Your lab book report is easy to read and its easy to find the answers.  
 
--   **RMD CODE SUBMISSION - 10 marks**
+14/15: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.Your lab book report is easy to read and its easy to find the answers.  
 
--   **MARKDOWN/CODE STYLE - 15 MARKS** <br> How to get full marks for this:
+12/15: Mostly accurate and shows a good understanding, but with some errors, omissions, or weaker explanations
 
-    -   Your YAML code is working e.g. when you press knit, you see your author name, a table of contents etc etc (see step 4)
+9/15: Shows some understanding, but several answers are incorrect, incomplete, or unclear
 
-    -   Your code and document is neat and easy to read. LOOK AT YOUR HTML FILE IN YOUR WEB-BROWSER BEFORE YOU SUBMIT. For example:
+5/15: Any attempt!   A single word or a canvas comment to say hi will get you 5 points even if you haven't attended lab,  because I want to know people who are simply dropping a lab compared to people who are really struggling.
 
-        -   There is a spell check next to the save button.
 
-        -   You have written in full sentences and it is clear what question your answers are referring to.
-
-        -   You have included units!
-
-        -   You have included formatting like headings/subheadings and bullets. Many people make typos with the headings. The easiest way to do it is to use visual mode, then highlight the text and click Header 1, Header 2 etc.
-
--   **WRITTEN QUESTIONS/R-MARKDOWN: 15 MARKS** <br> You have answered the questions in Step 5 clearly and thoughtfully in a way I could use as a class example.
-
--   **R-CODING: 15 MARKS** <br> You have managed to successfully complete all the code challenges
-
--   **MPG ANALYSIS: 15 MARKS** <br> You included all the code and successfully answered the questions, providing reasoning where appropriate
-
-[80 marks total]
 
 Overall, here is what your lab should correspond to:
 

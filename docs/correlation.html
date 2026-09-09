@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -84,7 +85,7 @@
 <span class="header-section-number">11</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
 </h1>
 <p>We are again using the HousesNY dataset to show these commands. To highlight how it deals with categorical data, I have decided that number of beds is ordinal (which makes sense, you can’t have half a bed)</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"HousesNY"</span>, package <span class="op">=</span> <span class="st">"Stat2Data"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># make the beds column a factor</span></span>
@@ -121,7 +122,7 @@ All of these scatterplots have the same correlation! (meet the datasaurus)</p>
 <span class="header-section-number">11.2</span> Correlation basic code<a class="anchor" aria-label="anchor" href="#correlation-basic-code"><i class="fas fa-link"></i></a>
 </h2>
 <p>To find the correlation coefficient between two variables, you can simply use the <code>cor</code> function e.g.</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span>,<span class="va">HousesNY</span><span class="op">$</span><span class="va">Lot</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] -0.01057599</code></pre>
 </div>
@@ -139,7 +140,7 @@ All of these scatterplots have the same correlation! (meet the datasaurus)</p>
 <p>A second option is in the <code>corrplot</code> package and you don’t need to worry about subsetting to numeric data. See</p>
 <p>First, remember to install the <code>corrplot</code> package (if you haven’t already) and to add <code><a href="https://github.com/taiyun/corrplot">library(corrplot)</a></code> to your library code chunk at the top of your script.</p>
 <p>This code will only show you the pearson correlations between any NUMERIC columns in your data. This means that first we have to filter to our data to remove categorical and text columns.</p>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Filter to a new data frame with only numeric columns</span></span>
 <span><span class="va">house.numeric</span> <span class="op">&lt;-</span> <span class="va">HousesNY</span><span class="op">[</span> , <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">HousesNY</span>,<span class="va">is.numeric</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
@@ -158,12 +159,12 @@ All of these scatterplots have the same correlation! (meet the datasaurus)</p>
 <p>A second option is in the <code>ggstatsplot</code> package and you don’t need to worry about subsetting to numeric data. It automatically removes the categorical data for you.</p>
 <p>First, remember to install the <code>ggstatsplot</code> package (if you haven’t already) and to add <code><a href="https://www.indrapatil.com/ggstatsplot/">library(ggstatsplot)</a></code> to your library code chunk at the top of your script.</p>
 <p>To look at the correlation matrix of all the data, you can simply run.</p>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://www.indrapatil.com/ggstatsplot/reference/ggcorrmat.html">ggcorrmat</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Correlation_files/figure-html/unnamed-chunk-4-1.png" alt="" width="672"></div>
 <p>If you only want to look at some columns (say your data is huge), you can select them like this - where you’re choosing the COLUMN NAMES. See
 <a href="https://indrajeetpatil.github.io/ggstatsplot/articles/web_only/ggcorrmat.html" class="uri">https://indrajeetpatil.github.io/ggstatsplot/articles/web_only/ggcorrmat.html</a> many more options and examples using this command.</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://www.indrapatil.com/ggstatsplot/reference/ggcorrmat.html">ggcorrmat</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Size"</span>,<span class="st">"Beds"</span>,<span class="st">"Price"</span>,<span class="st">"Lot"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Correlation_files/figure-html/unnamed-chunk-5-1.png" alt="" width="672"></div>
 <p><br></p>
@@ -175,7 +176,7 @@ All of these scatterplots have the same correlation! (meet the datasaurus)</p>
 <p>Another package is called GGally and it makes mini scatterplots of all your variables, or looks at boxplots for categorical ones. For small datasets this is MUCH more useful than looking at a single number for the correlation coefficient because you can check for non linearity.</p>
 <p>First, remember to install the <code>GGally</code> package (if you haven’t already) and to add <code><a href="https://ggobi.github.io/ggally/">library(GGally)</a></code> to your library code chunk at the top of your script.</p>
 <p>Then run the ggpairs command look at the correlation matrix. I STRONGLY SUGGEST ADDING CODE CHUNK OPTIONS message=FALSE, and warning=FALSE in the code chunk with this code, or it prints a load of unnecessary output.</p>
-<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># I have message=TRUE and warning=TRUE turned on at the top of my code chunk</span></span>
 <span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Correlation_files/figure-html/unnamed-chunk-6-1.png" alt="" width="672"></div>

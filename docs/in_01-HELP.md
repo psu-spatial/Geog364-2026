@@ -1,5 +1,3 @@
-# (PART\*) [.]{style="color: white;"} {.unnumbered}
-# (PART\*) **LAB INSTRUCTIONS** {.unnumbered}
 
 
 

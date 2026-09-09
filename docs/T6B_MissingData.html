@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -89,7 +90,7 @@
 <p><strong>Before you start:</strong> Make sure you have the following packages installed and loaded in your library code chunk: <code>skimr</code>, <code>dplyr</code>, <code>naniar</code>, <code>tidyr</code>, and <code>tidyverse</code>.</p>
 </blockquote>
 <p>We will use a small example dataset throughout so you can see exactly what each command does:</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">testdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span>,</span>
 <span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
@@ -125,10 +126,10 @@
 </ul>
 <p>If you know your dataset uses non-standard codes for missing values, you can tell R what to look for when reading in the file. Always check your data carefully afterwards to make sure it worked correctly.</p>
 <p>For CSV files:</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data.csv"</span>, na.strings <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"-1"</span>, <span class="st">"99"</span>, <span class="st">"9999"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>For Excel files:</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data.xlsx"</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"-1"</span>, <span class="st">"999"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><code>na.strings</code> (CSV) and <code>na</code> (Excel) both tell R which values to treat as <code>NA</code> on import.</p>
 <p><br></p>
@@ -138,7 +139,7 @@
 <span class="header-section-number">7.1.0.2</span> Turning existing values into NA<a class="anchor" aria-label="anchor" href="#T6B_ForceNA"><i class="fas fa-link"></i></a>
 </h4>
 <p>Sometimes you only notice a missing data code after reading the data in. You can overwrite specific values with <code>NA</code> directly. For example, to replace any impossible negative prices in a house price dataset:</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">[</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <p><br></p>
 <hr>
@@ -171,20 +172,20 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.3.0.1</span> Counting NAs<a class="anchor" aria-label="anchor" href="#T6B_Counting"><i class="fas fa-link"></i></a>
 </h4>
 <p>To count missing values per column:</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##           x           y           z randomnotes 
 ##           1           1           1           4</code></pre>
 <p>To count missing values per row:</p>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1 1 2 1 2</code></pre>
 <p>To count NAs in a single column:</p>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>To include missing values in a frequency table:</p>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">y</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##    A    B    C    D &lt;NA&gt; 
@@ -196,7 +197,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.3.0.2</span> Summary functions<a class="anchor" aria-label="anchor" href="#T6B_SummaryFunctions"><i class="fas fa-link"></i></a>
 </h4>
 <p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> and <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> both report missing value counts automatically:</p>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##        x                y           z            randomnotes
 ##  Min.   :1.00   Length   :5   Min.   :10.00   Length   :5   
@@ -206,7 +207,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 ##  3rd Qu.:3.50   Max.nchar:1   3rd Qu.:21.25   Max.nchar:5   
 ##  Max.   :5.00   NAs      :1   Max.   :25.00   NAs      :4   
 ##  NAs    :1                    NAs    :1</code></pre>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
@@ -359,10 +360,10 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.3.0.3</span> Visualising missing data — <code>naniar</code><a class="anchor" aria-label="anchor" href="#T6B_Visualising"><i class="fas fa-link"></i></a>
 </h4>
 <p>The <code>naniar</code> package provides helpful visualisations for understanding the pattern of missing data across your dataset.</p>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">gg_miss_var</span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>   <span class="co"># count of missing values per variable</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial06B_MissingData_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">vis_miss</span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>      <span class="co"># heatmap showing where NAs are across the whole dataset</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial06B_MissingData_files/figure-html/unnamed-chunk-11-2.png" alt="" width="672"></div>
 <p><code>vis_miss()</code> is particularly useful for spotting whether missingness clusters in particular rows or columns — which can give clues about whether data is MCAR, MAR, or MNAR.</p>
@@ -380,14 +381,14 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.4.1</span> Remove rows with any NA — <code>na.omit()</code><a class="anchor" aria-label="anchor" href="#T6B_naomit"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Listwise deletion</strong> removes any row that contains an NA in <em>any</em> column:</p>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data_complete</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span>
 <span><span class="va">data_complete</span></span></code></pre></div>
 <pre><code>## [1] x           y           z           randomnotes
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <blockquote>
 <p><strong>Warning:</strong> If your dataset has columns with lots of NAs that are irrelevant to your analysis (like a free-text notes column), <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> will still remove rows because of them. Always check how many rows you lose:</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span>       <span class="co"># before</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">data_complete</span><span class="op">)</span>  <span class="co"># after</span></span></code></pre></div>
 <p>If you’ve lost more than expected, use the targeted approach below instead.</p>
@@ -399,7 +400,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.4.2</span> Remove rows where specific columns are NA<a class="anchor" aria-label="anchor" href="#T6B_FilterNA"><i class="fas fa-link"></i></a>
 </h3>
 <p>To remove rows only where particular columns are missing, use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>:</p>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -410,10 +411,10 @@ Missingness depends on the value of the missing data itself. Example: people wit
 ## 3 5 &lt;NA&gt; 25        &lt;NA&gt;</code></pre>
 <p><code>!is.na(x)</code> means <em>“keep rows where x is NOT missing”</em>. This is more precise than <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> and is usually the better choice.</p>
 <p>You can also use <code><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases()</a></code> for the same result:</p>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
 <p>Or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na()</a></code> from <code>tidyr</code>:</p>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data_filtered</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
@@ -424,7 +425,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 </h3>
 <p>Sometimes you want to keep the row but fill in a specific value — for example, replacing <code>NA</code> with <code>0</code> or <code>"Unknown"</code>.</p>
 <p>Using <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>:</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>, <span class="fl">99</span>, <span class="va">testdata</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="va">testdata</span></span></code></pre></div>
 <pre><code>##    x    y  z randomnotes
@@ -434,7 +435,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 ## 4 99    D 20       hello
 ## 5  5 &lt;NA&gt; 25        &lt;NA&gt;</code></pre>
 <p>Using <code><a href="https://tidyr.tidyverse.org/reference/replace_na.html">replace_na()</a></code> from <code>tidyr</code> (cleaner for multiple columns at once):</p>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">testdata</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/replace_na.html">replace_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="st">"Unknown"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">testdata</span></span></code></pre></div>
@@ -462,14 +463,14 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.5.0.1</span> <code>na.rm = TRUE</code><a class="anchor" aria-label="anchor" href="#T6B_naRM"><i class="fas fa-link"></i></a>
 </h4>
 <p>By default, most summary functions return <code>NA</code> if any values are missing:</p>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Add <code>na.rm = TRUE</code> to ignore missing values:</p>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">z</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 17.5</code></pre>
-<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">z</span>,   na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 6.454972</code></pre>
 <p><code>na.rm = TRUE</code> works in <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, and most other summary functions.</p>
@@ -480,11 +481,11 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.5.0.2</span> Correlation and missing data<a class="anchor" aria-label="anchor" href="#T6B_Correlation"><i class="fas fa-link"></i></a>
 </h4>
 <p>The <code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> function doesn’t use <code>na.rm</code> — it has its own argument:</p>
-<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span>, <span class="va">testdata</span><span class="op">$</span><span class="va">z</span>, use <span class="op">=</span> <span class="st">"complete.obs"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.2919672</code></pre>
 <p>For a full correlation matrix, <strong>pairwise deletion</strong> uses all available data for each pair of variables, rather than removing entire rows:</p>
-<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">testdata</span>, use <span class="op">=</span> <span class="st">"pairwise.complete.obs"</span><span class="op">)</span></span></code></pre></div>
 <p>Pairwise deletion retains more data than listwise deletion, but can result in different sample sizes per correlation — worth noting when interpreting results.</p>
 <p><br></p>
@@ -496,7 +497,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.6</span> Missing data in regression models<a class="anchor" aria-label="anchor" href="#T6B_Regression"><i class="fas fa-link"></i></a>
 </h2>
 <p>Most modelling functions in R remove rows with missing values automatically. The question is <em>how</em> they do it — and this matters when you look at predictions.</p>
-<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_omit</span>    <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">z</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">testdata</span>, na.action <span class="op">=</span> <span class="va">na.omit</span><span class="op">)</span></span>
 <span><span class="va">model_exclude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">z</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">testdata</span>, na.action <span class="op">=</span> <span class="va">na.exclude</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
@@ -525,11 +526,11 @@ Missingness depends on the value of the missing data itself. Example: people wit
 </table></div>
 <p><strong>I recommend <code>na.exclude</code> unless you have a specific reason not to.</strong></p>
 <p>The difference becomes clear when you look at predictions:</p>
-<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model_omit</span><span class="op">)</span>     <span class="co"># predictions only for complete cases — shorter vector</span></span></code></pre></div>
 <pre><code>##        1        2        4        5 
 ## 16.49309 16.53220 20.32520 16.64951</code></pre>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model_exclude</span><span class="op">)</span>  <span class="co"># predictions with NA preserved at missing rows — same length as original data</span></span></code></pre></div>
 <pre><code>##        1        2        3        4        5 
 ## 16.49309 16.53220       NA 20.32520 16.64951</code></pre>
@@ -542,7 +543,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <span class="header-section-number">7.7</span> Command reference<a class="anchor" aria-label="anchor" href="#T6B_Commands"><i class="fas fa-link"></i></a>
 </h2>
 <p>A quick-copy summary of all commands covered in this tutorial. Replace <code>testdata</code> with your dataset name.</p>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># -------------------------------------------</span></span>
 <span><span class="co"># Reading in data with non-standard NA codes</span></span>
 <span><span class="co"># -------------------------------------------</span></span>
@@ -600,7 +601,7 @@ Missingness depends on the value of the missing data itself. Example: people wit
 <p><br></p>
 <p><strong>Function returned <code>NA</code> instead of a number</strong>
 Your column contains missing values. Add <code>na.rm = TRUE</code>:</p>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">$</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <p><strong><code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> removed far more rows than expected</strong>

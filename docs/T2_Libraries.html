@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -175,7 +176,7 @@
 </h4>
 <p>You can also install a package by typing the “app-store” command into the console.</p>
 <p>This is <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>, where you put the name of the package you want to install in quotes. For example, this command will install the <code>palmerpenguins</code> package (a teaching dataset on penguins).</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"palmerpenguins"</span><span class="op">)</span></span></code></pre></div>
 <p><u><strong>IMPORTANT!</strong></u> <strong>NEVER put the install.packages() command into your script or markdown report</strong>. Otherwise you force the computer to revisit the app store, which sometimes crashes R and is generally bad form. Instead, always go to the app-store manually or type this command into R.</p>
 <p><br></p>
@@ -190,7 +191,7 @@
 <p><strong>I will tell you which packages you need for each lab, but if R tells you it wants a package at any point, please install it AND load it.</strong></p>
 <p>This can be done with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command.</p>
 <p>For example, here’s how to load the <code>palmerpenguins</code> package (which contains the Palmer Penguins teaching dataset (<a href="https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1" class="uri">https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1</a>).<br></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span></code></pre></div>
 <p><em>Remember, if you want to try this yourself, you first install the palmerpenguins package using the instructions above.</em></p>
 <p><br></p>
@@ -204,7 +205,7 @@
 <p>Sometimes several packages name a command the same word and you want to specify which package you want to use.</p>
 <p>You can do this using the :: symbol. For example, many different packages have a command called filter and R can get confused about which one to use.</p>
 <p>This command <em>forces</em> the computer to use the ‘dplyr package’ version of the filter command.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <hr>

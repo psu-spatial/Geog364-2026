@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -109,10 +110,10 @@
 <span class="header-section-number">5.2.1.1</span> CSV files (.csv) — <code>read.csv()</code><a class="anchor" aria-label="anchor" href="#T4_load_csv"><i class="fas fa-link"></i></a>
 </h4>
 <p>No packages needed. It assumes that your data has headers/column names.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"filename.csv"</span><span class="op">)</span></span></code></pre></div>
 <p>If your data has no column names, add <code>header = FALSE</code>:</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"filename.csv"</span>, header <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>This will name each column V1, V2 etc. You can then rename your columns using the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> command.</p>
 <blockquote>
@@ -125,10 +126,10 @@
 <span class="header-section-number">5.2.1.2</span> Excel files (.xlsx, .xls) — <code>read_excel()</code><a class="anchor" aria-label="anchor" href="#T4_load_excel"><i class="fas fa-link"></i></a>
 </h4>
 <p>Requires the <code>readxl</code> package. Install it once via the Packages tab, then add <code><a href="https://readxl.tidyverse.org">library(readxl)</a></code> to your library code chunk.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"filename.xlsx"</span><span class="op">)</span></span></code></pre></div>
 <p>If you want to read in a specific sheet from your Excel file, add the <code>sheet</code> argument:</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"filename.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"SheetName"</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 </div>
@@ -137,7 +138,7 @@
 <span class="header-section-number">5.2.1.3</span> TXT files (.txt) — <code>read.table()</code><a class="anchor" aria-label="anchor" href="#T4_load_txt"><i class="fas fa-link"></i></a>
 </h4>
 <p>No packages needed, but you have to explicitly tell R that the data has headers/column names and that it’s “tab separated” (tab character between entries). For weird data-files, can also adjust sep to whatever your actual separater is.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"filename.txt"</span>, header<span class="op">=</span><span class="cn">TRUE</span>, sep<span class="op">=</span><span class="st">"\t"</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> If you are working with very large files (&gt;100MB or over 100,000 rows), look up the fread() function from the data.table package. It’s more complex but MUCH faster.</p>
@@ -157,7 +158,7 @@
 <span class="header-section-number">5.2.2.1</span> Built-in package datasets — <code>data()</code><a class="anchor" aria-label="anchor" href="#T4_load_builtindata"><i class="fas fa-link"></i></a>
 </h4>
 <p>Many R packages come with example datasets ready to load. In this case you don’t need the file containing the data. Instead add the relevant <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> to your library code chunk, then use <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> to load the dataset. This will show up as a “promise”. Then run any other command to load it fully. Sometimes you won’t see its name in the environment.</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"penguins"</span><span class="op">)</span>   <span class="co"># load the dataset into your global environment</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span>  <span class="co"># view it</span></span></code></pre></div>
 <blockquote>
@@ -170,7 +171,7 @@
 <span class="header-section-number">5.2.2.2</span> RDS files (.rds) — <code>readRDS()</code><a class="anchor" aria-label="anchor" href="#T4_load_rds"><i class="fas fa-link"></i></a>
 </h4>
 <p>This is R’s own format to store a single variable as a file. RDS saves a <strong>single</strong> R object (a data frame, model output, list, etc.) and reads it back in exactly as you left it. You can assign it any name on import. No packages needed.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"filename.rds"</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 </div>
@@ -179,7 +180,7 @@
 <span class="header-section-number">5.2.2.3</span> RData files (.RData, .rda) — <code>load()</code><a class="anchor" aria-label="anchor" href="#T4_load_rdata"><i class="fas fa-link"></i></a>
 </h4>
 <p>This is R’s own format to store many variables as a single file. RData files contain <strong>multiple</strong> R objects at once. Loading it is different from other formats — you use <code><a href="https://rdrr.io/r/base/load.html">load()</a></code> without <code>&lt;-</code>, and the objects reappear in your environment automatically with their original names.</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"filename.RData"</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> Because the object names are baked into the file, you cannot rename them on import the way you can with <code><a href="https://rdrr.io/r/base/readRDS.html">readRDS()</a></code>. After loading, check your Environment pane to see what objects have appeared.</p>
@@ -198,7 +199,7 @@
 <span class="header-section-number">5.2.3.1</span> Vector files (.shp, .geojson, .gpkg) — <code>st_read()</code><a class="anchor" aria-label="anchor" href="#T4_load_vector"><i class="fas fa-link"></i></a>
 </h4>
 <p>Vector spatial data includes points, lines, and polygons (e.g. country borders, survey locations, river networks). Requires the <code>sf</code> package. Install it once via the Packages tab, then add <code><a href="https://r-spatial.github.io/sf/">library(sf)</a></code> to your library code chunk.</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu">st_read</span><span class="op">(</span><span class="st">"filename.shp"</span><span class="op">)</span>      <span class="co"># shapefile</span></span>
 <span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu">st_read</span><span class="op">(</span><span class="st">"filename.geojson"</span><span class="op">)</span>  <span class="co"># GeoJSON</span></span>
 <span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu">st_read</span><span class="op">(</span><span class="st">"filename.gpkg"</span><span class="op">)</span>     <span class="co"># GeoPackage</span></span></code></pre></div>
@@ -213,7 +214,7 @@
 <span class="header-section-number">5.2.3.2</span> Raster files (.tif, .nc, .img) — <code>rast()</code><a class="anchor" aria-label="anchor" href="#T4_load_raster"><i class="fas fa-link"></i></a>
 </h4>
 <p>Raster data is grid-based (e.g. satellite imagery, elevation models, climate surfaces). Requires the <code>terra</code> package. Install it once via the Packages tab, then add <code><a href="https://rspatial.org/">library(terra)</a></code> to your library code chunk.</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu">rast</span><span class="op">(</span><span class="st">"filename.tif"</span><span class="op">)</span>   <span class="co"># GeoTIFF (most common)</span></span>
 <span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu">rast</span><span class="op">(</span><span class="st">"filename.nc"</span><span class="op">)</span>    <span class="co"># NetCDF (common for climate data)</span></span></code></pre></div>
 <p>If your raster file contains multiple layers (e.g. monthly temperature across 12 months), <code>rast()</code> will load them all as a multi-layer object. You can check how many layers you have with <code>nlyr(mydata)</code>.</p>
@@ -262,7 +263,7 @@
 <p><strong>For shapefiles: are ALL the component files present?</strong> A shapefile is made up of multiple files (<code>.shp</code>, <code>.dbf</code>, <code>.shx</code>, and usually <code>.prj</code>). If any are missing — for example if you only copied the <code>.shp</code> — R will throw an error. Make sure the entire set of files with the same base name are all in your project folder.</p>
 <p><br></p>
 <p><strong>Your data loaded but looks wrong?</strong> Run <code>head(mydata)</code> or <code>glimpse(mydata)</code> straight after reading in your data. This helps you catch problems early — for example, all your data ending up in one column is common with CSVs that use <code>;</code> instead of <code>,</code> as a separator. If that happens, try:</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"filename.csv"</span>, sep <span class="op">=</span> <span class="st">";"</span><span class="op">)</span></span></code></pre></div>
 
 </div>

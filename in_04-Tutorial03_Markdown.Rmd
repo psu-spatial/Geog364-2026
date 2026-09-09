@@ -226,6 +226,8 @@ In visual mode, look at the menu at the top. It's very easy to insert images, ta
 
 **You can also use the "insert anything" menu by typing / on a new line and choosing bullet point list, picture, heading levels or any other formatting choice.**
 
+IMPORTANTLY, YOU MUST HAVE THE PHOTO/IMAGE IN YOUR PROJECT FOLDER. It will show up immediately when you insert it, but will disappear when oyu press knit.
+
 You can also do this in source mode, but you have to learn the keyboard shortcuts. For example to make something **bold** you put stars around it e.g. `**bold**` . You can see more examples in the pic above and here
 
 For more, see this link: <https://zsmith27.github.io/rmarkdown_crash-course/lesson-3-basic-syntax.html>

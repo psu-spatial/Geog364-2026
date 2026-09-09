@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -93,7 +94,7 @@
 <span class="header-section-number">12.1</span> Running the model<a class="anchor" aria-label="anchor" href="#T11_RunModel"><i class="fas fa-link"></i></a>
 </h2>
 <p>The command for linear regression in R is <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> — short for <strong>linear model</strong>.</p>
-<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y_column</span> <span class="op">~</span> <span class="va">x_column</span>, data <span class="op">=</span> <span class="va">tablename</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>~</code> symbol means <em>“is modelled by”</em> or <em>“depends on”</em>. Think of it as the equals sign in your regression equation: y is on the left, x is on the right. So this line of code is saying</p>
 <p><em>Get the “tablename” spreadsheet. Then run a simple linear regression model (lm) where were use the the data in the column called “x_column” to predict the data in the column called “y_column”. Rather than print out the results on the screen, save the model to an object called “output”.</em></p>
@@ -102,7 +103,7 @@
 <span class="header-section-number">12.1.1</span> Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
 </h3>
 <p>For the <code>HousesNY</code> data, predicting <code>Price</code> from <code>Lot</code> and saving the result to an object called Model1.lm</p>
-<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Model1.lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Price</span> <span class="op">~</span> <span class="va">Lot</span>, data <span class="op">=</span> <span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> Always save your model to an object with <code>&lt;-</code>. You will need it for every subsequent step — summaries, plots, diagnostics. If you just run <code>lm(...)</code> without saving it, the output is lost.</p>
@@ -127,7 +128,7 @@
 <span class="header-section-number">12.2.0.1</span> Quick look<a class="anchor" aria-label="anchor" href="#T11_OLSregress"><i class="fas fa-link"></i></a>
 </h4>
 <p>Typing the name of your model and running the code chunk will show the formula and coefficients, but not much else</p>
-<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Model1.lm</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -144,7 +145,7 @@
 <span class="header-section-number">12.2.0.2</span> Standard summary<a class="anchor" aria-label="anchor" href="#standard-summary"><i class="fas fa-link"></i></a>
 </h4>
 <p>For the full output, use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> on your model.</p>
-<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -165,7 +166,7 @@
 ## Multiple R-squared:  0.0001119,  Adjusted R-squared:  -0.01949 
 ## F-statistic: 0.005705 on 1 and 51 DF,  p-value: 0.9401</code></pre>
 <p>and the ANOVA table</p>
-<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
@@ -180,7 +181,7 @@
 <span class="header-section-number">12.2.0.3</span> The <code>ols_regress()</code> summary<a class="anchor" aria-label="anchor" href="#the-ols_regress-summary"><i class="fas fa-link"></i></a>
 </h4>
 <p>The <code>olsrr</code> package provides an alternative summary with a cleaner layout. Remember to first install the olsrr package and to add library(olsrr) to your library code chunk at the top of your script.</p>
-<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## you apply this command to the MODEL</span></span>
 <span><span class="fu">ols_regress</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                           Model Summary                           
@@ -416,7 +417,7 @@ t = \frac{b_1 - 0}{SE(b_1)}
 <li>
 <code>Pr(&gt;|t|)</code> — the two-sided p-value</li>
 </ul>
-<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -444,13 +445,13 @@ t = \frac{b_1 - 0}{SE(b_1)}
 <span class="header-section-number">12.5.2</span> Confidence intervals on slope and intercept<a class="anchor" aria-label="anchor" href="#T11_CI"><i class="fas fa-link"></i></a>
 </h3>
 <p>To get 95% confidence intervals for both coefficients:</p>
-<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                 2.5 %    97.5 %
 ## (Intercept)  97.29998 130.88227
 ## Lot         -15.85529  14.70549</code></pre>
 <p>To change the confidence level (e.g. 99%):</p>
-<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">Model1.lm</span>, level <span class="op">=</span> <span class="fl">0.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                 0.5 %    99.5 %
 ## (Intercept)  91.71177 136.47049
@@ -471,7 +472,7 @@ t = \frac{b_1 - 0}{SE(b_1)}
 t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 \]</span></p>
 <p>where <span class="math inline">\(\beta_{1}\)</span> is the hypothesised value of the population slope from our experiment, <span class="math inline">\(b_1\)</span> is the sample slope that we actually see and se is the standard error on our sample slope. Step by step:</p>
-<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># First, extract the coefficients and standard errors from the model. the easiest way is to use olsrr </span></span>
 <span></span>
 <span><span class="va">Model1.summary</span> <span class="op">&lt;-</span> <span class="fu">ols_regress</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span>
@@ -497,10 +498,10 @@ t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 ## 0.1872342</code></pre>
 <p>Then calculate the two-sided p-value, using the residual degrees of freedom from the model:</p>
 <p>We also need the residual degrees of freedom from the model (n-2). Many ways you can calculate this!</p>
-<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/df.residual.html">df.residual</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <p>and calcualte the probablity</p>
-<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p_value</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">pt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">t_stat</span><span class="op">)</span>, df <span class="op">=</span> <span class="va">df</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">p_value</span></span></code></pre></div>
 <pre><code>##       Lot 
@@ -523,7 +524,7 @@ t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 <strong>Residual SS</strong> — variance left unexplained</li>
 </ul>
 <p>To get the ANOVA table, look at the olsrr output or type</p>
-<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
@@ -546,12 +547,12 @@ t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 <span class="header-section-number">12.7.0.1</span> <span class="math inline">\(R^2\)</span> — coefficient of determination<a class="anchor" aria-label="anchor" href="#T11_R2"><i class="fas fa-link"></i></a>
 </h4>
 <p><span class="math inline">\(R^2\)</span> tells you the <strong>proportion of variance in</strong> <span class="math inline">\(y\)</span> explained by the model. It ranges from 0 (model explains nothing) to 1 (model explains everything).</p>
-<div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span><span class="op">$</span><span class="va">r.squared</span></span></code></pre></div>
 <pre><code>## [1] 0.0001118517</code></pre>
 <p>For example, <span class="math inline">\(R^2 = 0.08\)</span> would mean that lot size explains 8% of the variation in house price.</p>
 <p>The <strong>adjusted</strong> <span class="math inline">\(R^2\)</span> penalises for adding extra predictors and is more appropriate when comparing models:</p>
-<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span><span class="op">$</span><span class="va">adj.r.squared</span></span></code></pre></div>
 <pre><code>## [1] -0.0194938</code></pre>
 <p>Both values appear in the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> output under <code>Multiple R-squared</code> and <code>Adjusted R-squared</code>.</p>
@@ -562,14 +563,14 @@ t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 <span class="header-section-number">12.7.0.2</span> <span class="math inline">\(r\)</span> — Pearson’s correlation coefficient<a class="anchor" aria-label="anchor" href="#T11_r"><i class="fas fa-link"></i></a>
 </h4>
 <p>For simple linear regression (one predictor), <span class="math inline">\(r\)</span> is simply the square root of <span class="math inline">\(R^2\)</span>, with the sign taken from the slope:</p>
-<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span><span class="op">$</span><span class="va">r.squared</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/sign.html">sign</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span><span class="op">[</span><span class="st">"Lot"</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">r</span></span></code></pre></div>
 <pre><code>##         Lot 
 ## -0.01057599</code></pre>
 <p><span class="math inline">\(r\)</span> ranges from -1 to 1. It measures the strength and direction of the linear relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
 <p>You can also calculate <span class="math inline">\(r\)</span> directly using <code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code>:</p>
-<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span>, <span class="va">HousesNY</span><span class="op">$</span><span class="va">Lot</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] -0.01057599</code></pre>
 <p>Both should give the same value. Note that <span class="math inline">\(r\)</span> and <span class="math inline">\(R^2\)</span> are related by <span class="math inline">\(R^2 = r^2\)</span> — so if <span class="math inline">\(r = -0.29\)</span>, then <span class="math inline">\(R^2 = 0.084\)</span>.</p>
@@ -587,7 +588,7 @@ t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 <span class="header-section-number">12.8.0.1</span> Quick plot — base R<a class="anchor" aria-label="anchor" href="#T11_BasePlot"><i class="fas fa-link"></i></a>
 </h4>
 <p>For a fast check during analysis, base R is the quickest option:</p>
-<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Price</span> <span class="op">~</span> <span class="va">Lot</span>, data <span class="op">=</span> <span class="va">HousesNY</span>,</span>
 <span>     xlab <span class="op">=</span> <span class="st">"Lot size"</span>, ylab <span class="op">=</span> <span class="st">"Price (x$1000)"</span>,</span>
 <span>     pch <span class="op">=</span> <span class="fl">16</span>, col <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span></span>
@@ -600,7 +601,7 @@ t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 <span class="header-section-number">12.8.0.2</span> Publication plot — ggplot<a class="anchor" aria-label="anchor" href="#T11_GGPlot"><i class="fas fa-link"></i></a>
 </h4>
 <p>For a report or presentation, use <code>ggplot2</code>:</p>
-<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">HousesNY</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Lot</span>, y <span class="op">=</span> <span class="va">Price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"grey50"</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, colour <span class="op">=</span> <span class="st">"steelblue"</span>, se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -641,12 +642,12 @@ t = \frac{b_1 - \beta_{1}fromH_0}{se(b_1)}
 </h3>
 <p><strong>What to look for:</strong> a random cloud of points in the residuals vs fitted plot. A curve or systematic pattern means a straight line is not the right model.</p>
 <div class="inline-figure"><img src="index_images/im_T10_linearity.png" style="width:90.0%"></div>
-<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_plot_resid_fit</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-20-1.png" alt="" width="672"></div>
 <details><summary><span style="color: #1388aa;">Expand to see an example where linearity is broken</span>
 </summary><p>This example uses treadwear data where the raw scatterplot looks approximately linear — but the residuals reveal a clear curve:</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">treadwear</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/treadwear.csv"</span><span class="op">)</span></span>
 <span><span class="va">tread_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mileage</span> <span class="op">~</span> <span class="va">groove</span>, data <span class="op">=</span> <span class="va">treadwear</span><span class="op">)</span></span>
 <span><span class="fu">ols_plot_resid_fit</span><span class="op">(</span><span class="va">tread_model</span><span class="op">)</span></span></code></pre></div>
@@ -665,11 +666,11 @@ Figure 12.1: The residuals show a clear parabolic pattern — a linear model is 
 </h3>
 <p><strong>What to look for:</strong> the spread of residuals should stay roughly constant across all fitted values. A fan shape or bow-tie means variance is unequal.</p>
 <div class="inline-figure"><img src="index_images/im_T10_variance.png" style="width:90.0%"></div>
-<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_plot_resid_fit</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-22-1.png" alt="" width="672"></div>
 <p>You can also run a formal test. The F-test assumes residuals are independent and identically distributed:</p>
-<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_test_f</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  F Test for Heteroskedasticity
@@ -687,7 +688,7 @@ Figure 12.1: The residuals show a clear parabolic pattern — a linear model is 
 ##  Prob &gt; F   =    0.9528726</code></pre>
 <p>A small p-value suggests the population may not have equal variance.</p>
 <details><summary><span style="color: #1388aa;">Expand to see an example where equal variance is broken</span>
-</summary><div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+</summary><div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alphapluto</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/alphapluto.txt"</span>, sep <span class="op">=</span> <span class="st">"\t"</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">alpha_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">alpha</span> <span class="op">~</span> <span class="va">pluto</span>, data <span class="op">=</span> <span class="va">alphapluto</span><span class="op">)</span></span>
 <span><span class="fu">ols_plot_resid_fit</span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
@@ -697,7 +698,7 @@ Figure 12.1: The residuals show a clear parabolic pattern — a linear model is 
 Figure 12.2: Clear fanning — variance increases with fitted values
 </p>
 </div>
-<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_test_f</span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  F Test for Heteroskedasticity
@@ -724,13 +725,13 @@ Figure 12.2: Clear fanning — variance increases with fitted values
 <blockquote>
 <p><strong>Note:</strong> Normality matters mainly for p-values and confidence intervals in small samples. With <span class="math inline">\(n &gt; 200\)</span>, the Central Limit Theorem means mild non-normality has little practical effect. Never discard data just because this assumption is mildly broken.</p>
 </blockquote>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_plot_resid_qq</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span>    <span class="co"># Q-Q plot</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-25-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_plot_resid_hist</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span>  <span class="co"># histogram of residuals</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-25-2.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_test_normality</span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span>   <span class="co"># formal normality tests</span></span></code></pre></div>
 <pre><code>## -----------------------------------------------
 ##        Test             Statistic       pvalue  

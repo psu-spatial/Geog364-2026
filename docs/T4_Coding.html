@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 4 Coding | GEOG364 Lab Book 2026</title>
 <meta name="author" content="Dr Helen Greatrex">
-<meta name="description" content="4.1 Quick reminder mean()         FUNCTION: something R does mean(mpg$year)     ARGUMENT: tell the function what to use Sys.Date()       SPECIAL CASE: a function that needs no argument mpg$year   ...">
+<meta name="description" content="4.1 Quick reminder mean()         FUNCTION: something R does mean(mpg$year)     ARGUMENT: tell the function what to use Sys.Date()       SPECIAL CASE: a function that needs no argument COMMANDS...">
 <meta name="generator" content="bookdown 0.47 with bs4_book()">
 <meta property="og:title" content="Chapter 4 Coding | GEOG364 Lab Book 2026">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T4_Coding.html">
-<meta property="og:description" content="4.1 Quick reminder mean()         FUNCTION: something R does mean(mpg$year)     ARGUMENT: tell the function what to use Sys.Date()       SPECIAL CASE: a function that needs no argument mpg$year   ...">
+<meta property="og:description" content="4.1 Quick reminder mean()         FUNCTION: something R does mean(mpg$year)     ARGUMENT: tell the function what to use Sys.Date()       SPECIAL CASE: a function that needs no argument COMMANDS...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 4 Coding | GEOG364 Lab Book 2026">
-<meta name="twitter:description" content="4.1 Quick reminder mean()         FUNCTION: something R does mean(mpg$year)     ARGUMENT: tell the function what to use Sys.Date()       SPECIAL CASE: a function that needs no argument mpg$year   ...">
+<meta name="twitter:description" content="4.1 Quick reminder mean()         FUNCTION: something R does mean(mpg$year)     ARGUMENT: tell the function what to use Sys.Date()       SPECIAL CASE: a function that needs no argument COMMANDS...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -93,6 +94,8 @@ mean(mpg$year)         ARGUMENT: tell the function what to use
 
 Sys.Date()             SPECIAL CASE: a function that needs no argument
 
+COMMANDS ARE CASE SENSITIVE!
+
 mpg$year               $: choose a column by name
 
 mpg[2, 3]              [row, column]: choose data by position
@@ -123,7 +126,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h2>
 <p>Most commands need some information from you, which you put inside the parentheses <code>( )</code>. These are called arguments. You separate them with a comma and you can find out whats available using the help file.</p>
 <p>For example, the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function tells R to round numbers to a pre-specified number of decimal places.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">1.6722615</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.672</code></pre>
 <p>Here we have told R to round the number 1.6722615 to three decimal places:</p>
@@ -133,22 +136,43 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p><code>digits = 3</code> is the second argument; we want to round to three decimal places</p></li>
 </ul>
 <p>As a second example</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1] 10.198402 11.741009 11.708219 10.313859  9.637222</code></pre>
+<pre><code>## [1] 9.562586 8.593312 7.861588 7.265712 7.637137</code></pre>
 <p>Here we have told R: to randomly select <code>5</code> values from a normal distribution that has a mean of <code>10</code>, and a standard deviation of <code>2</code>.</p>
 <ul>
 <li><p>The command/function is <code>rnorm</code>()`</p></li>
 <li><p>The arguments are <code>n=5</code> (the number of values we want), then <code>mean=10</code> and <code>sd=2</code>, the mean and standard distribition of the normal distribution to extract the values from.</p></li>
 </ul>
 <p><br></p>
-<div id="working-out-the-arguments" class="section level3" number="4.3.1">
+<div id="commands-are-case-sensitive" class="section level3" number="4.3.1">
 <h3>
-<span class="header-section-number">4.3.1</span> Working out the arguments<a class="anchor" aria-label="anchor" href="#working-out-the-arguments"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.1</span> Commands are case sensitive!<a class="anchor" aria-label="anchor" href="#commands-are-case-sensitive"><i class="fas fa-link"></i></a>
+</h3>
+<p><code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> is not the same as <code>Round()</code> , <code>ROUND()</code> or <code>roUnd()</code> !</p>
+<p>You will get an error if you type the wrong one.</p>
+<p>Some commands have capital letters in them and won’t work if you miss them out. For example <code><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date()</a></code> is correct, <code>sys.date()</code> is wrong.</p>
+<p><br></p>
+</div>
+<div id="but-you-can-put-them-on-different-lines.." class="section level3" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> But you can put them on different lines..<a class="anchor" aria-label="anchor" href="#but-you-can-put-them-on-different-lines.."><i class="fas fa-link"></i></a>
+</h3>
+<p>R doesn’t look for the end of the line to know when a command is finished, it looks for the closing ).</p>
+<p>So this will run fine for example, and is often a way of making your code more readable:</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># make 20 random numbers from a normal distribution with mean=10 and sd=3, then save them as the variable output.</span></span>
+<span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">20</span>,</span>
+<span>                mean<span class="op">=</span><span class="fl">10</span>,sd<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+</div>
+<div id="working-out-the-arguments" class="section level3" number="4.3.3">
+<h3>
+<span class="header-section-number">4.3.3</span> Working out the arguments<a class="anchor" aria-label="anchor" href="#working-out-the-arguments"><i class="fas fa-link"></i></a>
 </h3>
 <p>All R commands have a help file, some more complex than others! This always tells you the name and purpose of the command, then has a list of variables (and the default value if you choose to not type anything). Sometimes it also adds in several related commands into one help file.</p>
 <p>For example, take a look at the rnorm help file by typing its name into the console with a ? in front.</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">rnorm</span></span></code></pre></div>
 <p>You should see this. Exactly what the commands do is often hidden in the description! In this case you can see that</p>
 <ul>
@@ -165,13 +189,13 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <div class="inline-figure"><img src="index_images/im_T4_Rnromhelp.png" alt="" width="100%"></div>
 <p><br></p>
 </div>
-<div id="a-special-case-functions-with-empty" class="section level3" number="4.3.2">
+<div id="a-special-case-functions-with-empty" class="section level3" number="4.3.4">
 <h3>
-<span class="header-section-number">4.3.2</span> A special case: functions with empty <code>( )</code><a class="anchor" aria-label="anchor" href="#a-special-case-functions-with-empty"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.4</span> A special case: functions with empty <code>( )</code><a class="anchor" aria-label="anchor" href="#a-special-case-functions-with-empty"><i class="fas fa-link"></i></a>
 </h3>
 <p>Some functions don’t need any extra information from you. These are a special case where the parentheses can be left empty. Even though there is nothing inside the parentheses, <strong>you still need the <code>( )</code></strong> because these are functions.</p>
 <p>For example, try typing these exactly into your console</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/file.choose.html">file.choose</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -192,14 +216,14 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p>This FIRST generates 5 numbers from a normal distribution with mean=10 and sd=2.</p></li>
 <li><p>THEN it rounds each of those 5 numbers to 3 decimal places</p></li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1] 10.224 10.448 10.404  8.258 14.055</code></pre>
+<pre><code>## [1]  9.185 11.660 10.860 10.610 14.774</code></pre>
 <p><br></p>
 </div>
-<div id="referring-to-a-column-using" class="section level2" number="4.5">
+<div id="T4_applyingonecolumn" class="section level2" number="4.5">
 <h2>
-<span class="header-section-number">4.5</span> Referring to a column using <code>$</code><a class="anchor" aria-label="anchor" href="#referring-to-a-column-using"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.5</span> Referring to a column using <code>$</code><a class="anchor" aria-label="anchor" href="#T4_applyingonecolumn"><i class="fas fa-link"></i></a>
 </h2>
 <p>Often we don’t want to apply a command to an entire spreadsheet. We want to use just <strong>one column</strong>.</p>
 <p>The easiest way to refer to a column is:</p>
@@ -258,12 +282,14 @@ random_numbers &lt;- rnorm(20)</code></pre>
 <li><a class="nav-link" href="#functions-commands"><span class="header-section-number">4.2</span> Functions / Commands</a></li>
 <li>
 <a class="nav-link" href="#giving-information-to-a-function-arguments"><span class="header-section-number">4.3</span> Giving information to a function: arguments</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#working-out-the-arguments"><span class="header-section-number">4.3.1</span> Working out the arguments</a></li>
-<li><a class="nav-link" href="#a-special-case-functions-with-empty"><span class="header-section-number">4.3.2</span> A special case: functions with empty ( )</a></li>
+<li><a class="nav-link" href="#commands-are-case-sensitive"><span class="header-section-number">4.3.1</span> Commands are case sensitive!</a></li>
+<li><a class="nav-link" href="#but-you-can-put-them-on-different-lines.."><span class="header-section-number">4.3.2</span> But you can put them on different lines..</a></li>
+<li><a class="nav-link" href="#working-out-the-arguments"><span class="header-section-number">4.3.3</span> Working out the arguments</a></li>
+<li><a class="nav-link" href="#a-special-case-functions-with-empty"><span class="header-section-number">4.3.4</span> A special case: functions with empty ( )</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#stacking-commands"><span class="header-section-number">4.4</span> Stacking commands</a></li>
-<li><a class="nav-link" href="#referring-to-a-column-using"><span class="header-section-number">4.5</span> Referring to a column using $</a></li>
+<li><a class="nav-link" href="#T4_applyingonecolumn"><span class="header-section-number">4.5</span> Referring to a column using $</a></li>
 <li><a class="nav-link" href="#saving-your-results-using--"><span class="header-section-number">4.6</span> Saving your results using &lt;-</a></li>
 </ul>
 

@@ -2,6 +2,9 @@ tab:tab-main-rubric
 fig:Tut-Fig1
 fig:Tut-Fig2
 fig:Setup-Fig7
+fig:L1-Projectcheck
+fig:L1-Submit
+fig:L1-CloudDownload
 fig:im-T1-ProjectCloud
 fig:im-T1-Projectcheck
 fig:im-T2-friendlytext
@@ -21,6 +24,7 @@ written-instructions
 then-update-your-packages.
 everyone-should-sign-up-for-an-account-here-httpsposit.cloud
 what-if-i-run-out-of-free-time
+step-5-initial-questions-hw2_step5-.unnumbered
 T1_Projects
 T1A_ProjectIntro
 section
@@ -84,10 +88,12 @@ T4_Coding
 quick-reminder
 functions-commands
 giving-information-to-a-function-arguments
+commands-are-case-sensitive
+but-you-can-put-them-on-different-lines..
 working-out-the-arguments
 a-special-case-functions-with-empty
 stacking-commands
-referring-to-a-column-using
+T4_applyingonecolumn
 saving-your-results-using--
 T4_ReadingData
 T4_DataCheck

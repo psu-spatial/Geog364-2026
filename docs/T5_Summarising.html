@@ -50,13 +50,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
 <li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
 <li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -95,7 +96,7 @@ summary(mpg)    # give a quick summary of the dataset</code></pre>
 <p><code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> is an interactive command, so I normally run it in the <strong>Console</strong> rather than putting it in a report that I need to knit.</p>
 <p><br></p>
 <p>In this tutorial we will use the <code>pirates</code> dataset from the <code>yarrr</code> package as our example. If you want to follow along, make sure <code><a href="https://bookdown.org/ndphillips/YaRrr/">library(yarrr)</a></code> is in your library code chunk, then run:</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"pirates"</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
 <p><strong>Summarising vs EDA — what’s the difference?</strong>
@@ -115,7 +116,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.2.0.1</span> View your data — <code>View()</code><a class="anchor" aria-label="anchor" href="#T5_View"><i class="fas fa-link"></i></a>
 </h4>
 <p>The quickest way to look at your data is to click its name in the <strong>Environment pane</strong>, or type this directly into the <strong>console</strong> (not your code chunk):</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
 <p>This opens a spreadsheet-style viewer. Run this in the console rather than in a code chunk — it’s an interactive command that won’t work when you knit your document.</p>
 <p><br></p>
@@ -125,7 +126,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.2.0.2</span> Check structure — <code>str()</code> and <code>glimpse()</code><a class="anchor" aria-label="anchor" href="#T5_str"><i class="fas fa-link"></i></a>
 </h4>
 <p><code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> (structure) is usually the first command to run on any new dataset. It shows how many rows and columns you have, each column’s name, its data type, and the first few values.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 'data.frame':    1000 obs. of  17 variables:
 ##  $ id             : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -146,7 +147,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 ##  $ fav.pixar      : chr  "Monsters, Inc." "WALL-E" "Inside Out" "Inside Out" ...
 ##  $ grogg          : num  11 9 7 9 14 7 9 12 16 9 ...</code></pre>
 <p><code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> from the <code>tidyverse</code> gives the same information in a slightly cleaner layout:</p>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 1,000
 ## Columns: 17
@@ -174,7 +175,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <h4>
 <span class="header-section-number">6.2.0.3</span> Check size — <code>nrow()</code>, <code>ncol()</code>, <code>dim()</code><a class="anchor" aria-label="anchor" href="#T5_size"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>   <span class="co"># number of rows</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>   <span class="co"># number of columns</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>    <span class="co"># both at once: rows then columns</span></span></code></pre></div>
@@ -235,13 +236,13 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.3.0.1</span> Checking the type of a single column — <code>class()</code><a class="anchor" aria-label="anchor" href="#T5_class"><i class="fas fa-link"></i></a>
 </h4>
 <p>To check one column at a time, use <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> with the <code>$</code> operator (<code>datasetname$columnname</code>):</p>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "character"</code></pre>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "numeric"</code></pre>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">college</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "character"</code></pre>
 <p>If a column should be a factor but shows as <code>chr</code>, or should be numeric but shows as <code>chr</code>, you need to fix it before your analysis will work correctly.</p>
@@ -264,14 +265,14 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.3.1.1</span> Converting a column to a factor — <code>as.factor()</code><a class="anchor" aria-label="anchor" href="#T5_asfactor"><i class="fas fa-link"></i></a>
 </h4>
 <p>Looking at <code>str(pirates)</code>, several columns are stored as <code>chr</code> (character/text) that would be better as factors for analysis: <code>sex</code>, <code>college</code>, <code>headband</code>, and <code>sword.type</code>. The <code>eyepatch</code> column is stored as <code>num</code> (0/1) but is also categorical — it should be a factor too.</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span>       <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span>
 <span><span class="va">pirates</span><span class="op">$</span><span class="va">college</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">college</span><span class="op">)</span></span>
 <span><span class="va">pirates</span><span class="op">$</span><span class="va">headband</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">headband</span><span class="op">)</span></span>
 <span><span class="va">pirates</span><span class="op">$</span><span class="va">sword.type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sword.type</span><span class="op">)</span></span>
 <span><span class="va">pirates</span><span class="op">$</span><span class="va">eyepatch</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">eyepatch</span><span class="op">)</span></span></code></pre></div>
 <p>After converting, run <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> again to confirm the changes:</p>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 'data.frame':    1000 obs. of  17 variables:
 ##  $ id             : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -298,7 +299,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.3.1.2</span> Checking factor levels — <code>levels()</code><a class="anchor" aria-label="anchor" href="#T5_levels"><i class="fas fa-link"></i></a>
 </h4>
 <p><code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> shows you all the categories R knows about, in the order it will use them:</p>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "female" "male"   "other"</code></pre>
 <p>The first level is always the <strong>reference category</strong> in regression models — R will compare all other levels against it. By default levels are ordered alphabetically, so <code>female</code> would come before <code>male</code>.</p>
@@ -309,10 +310,10 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.3.1.3</span> Changing the reference level — <code>relevel()</code><a class="anchor" aria-label="anchor" href="#T5_relevel"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you want a different reference category (for example, you want <code>"male"</code> to be the baseline in a regression rather than <code>"female"</code>, which comes first alphabetically):</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>   <span class="co"># check current order first — female is the default reference</span></span></code></pre></div>
 <pre><code>## [1] "female" "male"   "other"</code></pre>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/relevel.html">relevel</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span>, ref <span class="op">=</span> <span class="st">"male"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>   <span class="co"># male is now first</span></span></code></pre></div>
 <pre><code>## [1] "male"   "female" "other"</code></pre>
@@ -323,10 +324,10 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.3.1.4</span> Renaming factor levels — <code>levels()</code> assignment<a class="anchor" aria-label="anchor" href="#T5_relabel"><i class="fas fa-link"></i></a>
 </h4>
 <p>To rename the categories themselves (for example, to capitalise labels for a plot):</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>                                    <span class="co"># check current labels and order first</span></span></code></pre></div>
 <pre><code>## [1] "male"   "female" "other"</code></pre>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Other"</span><span class="op">)</span>   <span class="co"># rename in the same order</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Male"   "Female" "Other"</code></pre>
@@ -341,20 +342,20 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 </h4>
 <p>Some categorical variables have a natural order — for example, education level (low, medium, high) or survey responses (never, sometimes, always). A plain <code>factor</code> treats all levels as equal; an <strong>ordered factor</strong> tells R that the categories have a meaningful sequence.</p>
 <p>The <code>pirates</code> dataset doesn’t have a natural ordinal column, but we can create one by grouping grogg consumption into low, medium, and high:</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create an ordinal grogg consumption variable</span></span>
 <span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg</span>, </span>
 <span>                           breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">7</span>, <span class="fl">12</span>, <span class="cn">Inf</span><span class="op">)</span>,</span>
 <span>                           labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Here’s the actual code you need to create an ordered factor where you control the order.</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span>,</span>
 <span>                              levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span><span class="op">)</span>,</span>
 <span>                              ordered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "low"    "medium" "high"</code></pre>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">is.ordered</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">grogg.level</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Ordered factors matter in regression — R fits them differently from unordered factors (using polynomial contrasts rather than dummy variables), so only use <code>ordered = TRUE</code> when the order genuinely reflects a meaningful progression.</p>
@@ -374,7 +375,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.4.0.1</span> Checking for missing values<a class="anchor" aria-label="anchor" href="#T5_checkNA"><i class="fas fa-link"></i></a>
 </h4>
 <p>To count missing values in every column at once:</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##              id             sex             age          height          weight 
 ##               0               0               0               0               0 
@@ -392,7 +393,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.4.0.2</span> Ignoring NAs in calculations — <code>na.rm = TRUE</code><a class="anchor" aria-label="anchor" href="#T5_naInCalcs"><i class="fas fa-link"></i></a>
 </h4>
 <p>Most summary functions have a built-in argument to skip NAs rather than returning <code>NA</code>:</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><code>na.rm = TRUE</code> works in <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, and most other summary functions.</p>
 <p><br></p>
@@ -402,11 +403,11 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.4.0.3</span> Removing rows where a specific column is NA — <code>filter()</code><a class="anchor" aria-label="anchor" href="#T5_naFilter"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you want to remove rows where a particular column is missing, use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. This is the most precise approach:</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pirates_clean</span> <span class="op">&lt;-</span> <span class="va">pirates</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><code>!is.na(age)</code> means <em>“keep rows where age is NOT missing”</em>. You can chain multiple columns:</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pirates_clean</span> <span class="op">&lt;-</span> <span class="va">pirates</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>,</span>
 <span>         <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">height</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -417,13 +418,13 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.4.0.4</span> Removing all incomplete rows — <code>na.omit()</code><a class="anchor" aria-label="anchor" href="#T5_naomit"><i class="fas fa-link"></i></a>
 </h4>
 <p>To remove any row that has an NA in <em>any</em> column:</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pirates_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> can remove a lot of rows if your dataset has many columns. Always check how many rows you lose:</p>
 </blockquote>
 <blockquote>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span>        <span class="co"># before</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pirates_clean</span><span class="op">)</span>  <span class="co"># after</span></span></code></pre></div>
 <p>If you’ve lost more than you expected, use <code>filter(!is.na(columnname))</code> instead to target only the columns that matter for your analysis.</p>
@@ -449,7 +450,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.5.1.1</span> <code>summary()</code><a class="anchor" aria-label="anchor" href="#T5_summary"><i class="fas fa-link"></i></a>
 </h4>
 <p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> gives a statistical overview of every column — min, max, mean, and quartiles for numeric columns, and level counts for factors.</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
 <p><strong>Tip:</strong> <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> output can wrap awkwardly in a knitted document. Run it in the <strong>console</strong> for easier reading.</p>
@@ -461,7 +462,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.5.1.2</span> <code>skim()</code><a class="anchor" aria-label="anchor" href="#T5_skim"><i class="fas fa-link"></i></a>
 </h4>
 <p><code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> from the <code>skimr</code> package gives a more detailed summary, including missing value counts and a small histogram for each numeric column. It’s the most useful single command for a thorough QC check.</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">)</span></span></code></pre></div>
 <p>Like <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>, <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> is often easier to read in the console than in a knitted document.</p>
 <p><br></p>
@@ -472,7 +473,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.5.2</span> A single column<a class="anchor" aria-label="anchor" href="#T5_SingleCol"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use <code>$</code> to refer to one column: <code>datasetname$columnname</code>.</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>      <span class="co"># mean</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>    <span class="co"># median</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>        <span class="co"># standard deviation</span></span>
@@ -485,13 +486,13 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <span class="header-section-number">6.6</span> Frequency tables<a class="anchor" aria-label="anchor" href="#T5_Tables"><i class="fas fa-link"></i></a>
 </h2>
 <p>For categorical columns, <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> counts how many observations fall into each level:</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##   Male Female  Other 
 ##    490    464     46</code></pre>
 <p>For proportions instead of counts:</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">proportions</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##   Male Female  Other 
@@ -506,7 +507,7 @@ This tutorial is about <strong>quality control</strong> — checking your data a
 <p><br></p>
 <p><strong>Got <code>NA</code> as your answer?</strong>
 Your column probably contains missing values. Add <code>na.rm = TRUE</code>:</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <p><strong><code>Error: object 'columnname' not found</code></strong>
@@ -514,7 +515,7 @@ You probably forgot the <code>$</code>. R doesn’t know which dataset to look i
 <p><br></p>
 <p><strong>Factor conversion seems to have done nothing</strong>
 Make sure you saved the result back to the column with <code>&lt;-</code>:</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>   <span class="co"># correct — saves the result</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">pirates</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span>                  <span class="co"># wrong — converts but doesn't save</span></span></code></pre></div>
 <p><br></p>
