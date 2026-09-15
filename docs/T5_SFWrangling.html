@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 14 Basic wrangling with sf | GEOG364 Lab Book 2026</title>
+
+    <meta name="author" content="Dr Helen Greatrex" />
+  
+   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 14 Basic wrangling with sf | GEOG364 Lab Book 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
+  
+  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 Basic wrangling with sf | GEOG364 Lab Book 2026" />
+  
+  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.11.0/transition.js"></script>
+    <script src="libs/bs3compat-0.11.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.11.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="T5_SFWrangling" class="section level1" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Basic wrangling with <code>sf</code></h1>
+<p>An <code>sf</code> object is still a data frame, so most of the <code>dplyr</code> commands you already use work in the usual way. The geometry stays attached to the correct row as you filter, select or mutate the data.</p>
+<p><br></p>
+<div id="T5_filter" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Filtering using a variable — <code>filter()</code></h2>
+<p>For example, keep only active sites:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="T5_SFWrangling.html#cb14-1" tabindex="-1"></a>active_points <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="T5_SFWrangling.html#cb14-2" tabindex="-1"></a>  <span class="fu">filter</span>(status <span class="sc">==</span> <span class="st">&quot;Active&quot;</span>)</span></code></pre></div>
+<p>Or remove one known bad observation:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="T5_SFWrangling.html#cb15-1" tabindex="-1"></a>points <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="T5_SFWrangling.html#cb15-2" tabindex="-1"></a>  <span class="fu">filter</span>(site_id <span class="sc">!=</span> <span class="st">&quot;BAD_SITE&quot;</span>)</span></code></pre></div>
+<p>The rows are filtered and their geometries go with them.</p>
+<p><br></p>
+</div>
+<div id="T5_select" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> Selecting variables — <code>select()</code></h2>
+<p>You can keep only the variables you need:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="T5_SFWrangling.html#cb16-1" tabindex="-1"></a>points_small <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="T5_SFWrangling.html#cb16-2" tabindex="-1"></a>  <span class="fu">select</span>(site_id, status, temperature)</span></code></pre></div>
+<p>You may notice that the geometry column is still there even though you did not list it. This is deliberate. In an <code>sf</code> object the geometry column is <strong>sticky</strong>, so <code>select()</code> keeps it automatically.</p>
+<p>If you genuinely want to remove the spatial information and return to an ordinary data frame, use:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="T5_SFWrangling.html#cb17-1" tabindex="-1"></a>points_table <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="T5_SFWrangling.html#cb17-2" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>()</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="T5_mutate" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> Creating or changing variables — <code>mutate()</code></h2>
+<p><code>mutate()</code> also works normally. For example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="T5_SFWrangling.html#cb18-1" tabindex="-1"></a>points <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="T5_SFWrangling.html#cb18-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp_f =</span> temperature <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span> <span class="sc">+</span> <span class="dv">32</span>)</span></code></pre></div>
+<p>The geometry is unchanged.</p>
+<p><br></p>
+<hr />
+</div>
+<div id="T5_st_filter" class="section level2" number="14.4">
+<h2><span class="header-section-number">14.4</span> Filtering using location — <code>st_filter()</code></h2>
+<p>There is an important difference between <strong>filtering by a variable</strong> and <strong>filtering by location</strong>.</p>
+<p><code>filter()</code> asks a question about the attributes in the table:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="T5_SFWrangling.html#cb19-1" tabindex="-1"></a>points <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="T5_SFWrangling.html#cb19-2" tabindex="-1"></a>  <span class="fu">filter</span>(temperature <span class="sc">&gt;</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><code>st_filter()</code> asks a spatial question using the geometry. For example, if <code>areas</code> contains your study-area polygon, this keeps only points that intersect that area:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="T5_SFWrangling.html#cb20-1" tabindex="-1"></a>points_in_area <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="T5_SFWrangling.html#cb20-2" tabindex="-1"></a>  <span class="fu">st_filter</span>(areas)</span></code></pre></div>
+<p>A useful way to remember the difference is:</p>
+<ul>
+<li><code>filter()</code> = <strong>which rows have the attribute values I want?</strong></li>
+<li><code>st_filter()</code> = <strong>which spatial objects are in the location I want?</strong></li>
+</ul>
+<p><code>st_filter()</code> keeps the variables from <code>points</code>; <code>areas</code> is being used to decide which point rows should remain.</p>
+<p><br></p>
+</div>
+<div id="T5_st_join" class="section level2" number="14.5">
+<h2><span class="header-section-number">14.5</span> Adding information using location — <code>st_join()</code></h2>
+<p>Sometimes you do not want to remove points. Instead, you want to add information from the polygon each point falls in.</p>
+<p>For example, if <code>areas</code> contains county polygons, a spatial join can attach the appropriate county information to each point:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="T5_SFWrangling.html#cb21-1" tabindex="-1"></a>points_with_area <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="T5_SFWrangling.html#cb21-2" tabindex="-1"></a>  <span class="fu">st_join</span>(areas)</span></code></pre></div>
+<p>The result still contains point geometry, but it now also contains variables copied from the matching polygon.</p>
+<p>So:</p>
+<ul>
+<li><code>st_filter()</code> uses another layer to decide <strong>which objects to keep</strong>.</li>
+<li><code>st_join()</code> uses another layer to decide <strong>which information to add</strong>.</li>
+</ul>
+<p><br></p>
+<hr />
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-11.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

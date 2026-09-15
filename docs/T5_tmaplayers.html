@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 16 Building a tmap using layers | GEOG364 Lab Book 2026</title>
+
+    <meta name="author" content="Dr Helen Greatrex" />
+  
+   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 16 Building a tmap using layers | GEOG364 Lab Book 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
+  
+  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 16 Building a tmap using layers | GEOG364 Lab Book 2026" />
+  
+  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.11.0/transition.js"></script>
+    <script src="libs/bs3compat-0.11.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.11.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="T5_tmaplayers" class="section level1" number="16">
+<h1><span class="header-section-number">Chapter 16</span> Building a <code>tmap</code> using layers</h1>
+<p><code>qtm()</code> is excellent for a quick look. For a map where you want more control, build it using layers.</p>
+<p>The basic structure is:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="T5_tmaplayers.html#cb27-1" tabindex="-1"></a><span class="fu">tm_shape</span>(SPATIAL_DATA) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="T5_tmaplayers.html#cb27-2" tabindex="-1"></a>  <span class="fu">tm_LAYER</span>()</span></code></pre></div>
+<p><code>tm_shape()</code> tells <code>tmap</code> <strong>which spatial dataset to use</strong>. The next command tells it <strong>how to draw that dataset</strong>.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="T5_tmaplayers.html#cb28-1" tabindex="-1"></a><span class="fu">tm_shape</span>(points) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="T5_tmaplayers.html#cb28-2" tabindex="-1"></a>  <span class="fu">tm_dots</span>()</span></code></pre></div>
+<p>The <code>+</code> means that we are adding another piece to the map.</p>
+<p><br></p>
+<div id="T5_tm_points" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Points — <code>tm_dots()</code> and <code>tm_symbols()</code></h2>
+<p>For simple points, use <code>tm_dots()</code>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="T5_tmaplayers.html#cb29-1" tabindex="-1"></a><span class="fu">tm_shape</span>(points) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="T5_tmaplayers.html#cb29-2" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">&quot;status&quot;</span>)</span></code></pre></div>
+<p>If you also want a variable to control symbol size, use <code>tm_symbols()</code>:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="T5_tmaplayers.html#cb30-1" tabindex="-1"></a><span class="fu">tm_shape</span>(points) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="T5_tmaplayers.html#cb30-2" tabindex="-1"></a>  <span class="fu">tm_symbols</span>(<span class="at">fill =</span> <span class="st">&quot;status&quot;</span>,</span>
+<span id="cb30-3"><a href="T5_tmaplayers.html#cb30-3" tabindex="-1"></a>             <span class="at">size =</span> <span class="st">&quot;population&quot;</span>)</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="T5_tm_polygons" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Polygons — <code>tm_polygons()</code></h2>
+<p>For polygon data:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="T5_tmaplayers.html#cb31-1" tabindex="-1"></a><span class="fu">tm_shape</span>(areas) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="T5_tmaplayers.html#cb31-2" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">fill =</span> <span class="st">&quot;population&quot;</span>)</span></code></pre></div>
+<p><code>tm_polygons()</code> draws both the polygon fill and the borders. If you want separate control over them, use <code>tm_fill()</code> and <code>tm_borders()</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="T5_tmaplayers.html#cb32-1" tabindex="-1"></a><span class="fu">tm_shape</span>(areas) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="T5_tmaplayers.html#cb32-2" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">fill =</span> <span class="st">&quot;population&quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="T5_tmaplayers.html#cb32-3" tabindex="-1"></a>  <span class="fu">tm_borders</span>()</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="T5_tm_lines" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> Lines — <code>tm_lines()</code></h2>
+<p>For roads, rivers, routes or other line data:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="T5_tmaplayers.html#cb33-1" tabindex="-1"></a><span class="fu">tm_shape</span>(roads) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="T5_tmaplayers.html#cb33-2" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">&quot;road_type&quot;</span>)</span></code></pre></div>
+<p><br></p>
+<hr />
+</div>
+<div id="T5_MultipleLayers" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> Putting several spatial layers on one map</h2>
+<p>Most GIS maps contain more than one spatial dataset. Add another <code>tm_shape()</code> whenever you want to switch to a different dataset.</p>
+<p>For example, draw polygons first and points on top:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="T5_tmaplayers.html#cb34-1" tabindex="-1"></a><span class="fu">tm_shape</span>(areas) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="T5_tmaplayers.html#cb34-2" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">fill =</span> <span class="st">&quot;population&quot;</span>) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="T5_tmaplayers.html#cb34-3" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="T5_tmaplayers.html#cb34-4" tabindex="-1"></a>  <span class="fu">tm_shape</span>(points) <span class="sc">+</span></span>
+<span id="cb34-5"><a href="T5_tmaplayers.html#cb34-5" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">&quot;status&quot;</span>)</span></code></pre></div>
+<p><code>tmap</code> draws the layers in the order you add them, so the points appear on top of the polygons here.</p>
+<p><br></p>
+</div>
+<div id="T5_Basemap" class="section level2" number="16.5">
+<h2><span class="header-section-number">16.5</span> Adding a basemap</h2>
+<p>A basemap gives your spatial data geographic context. This is most useful in interactive <code>view</code> mode.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="T5_tmaplayers.html#cb35-1" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
+<span id="cb35-2"><a href="T5_tmaplayers.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="T5_tmaplayers.html#cb35-3" tabindex="-1"></a><span class="fu">tm_shape</span>(areas) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="T5_tmaplayers.html#cb35-4" tabindex="-1"></a>  <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
+<span id="cb35-5"><a href="T5_tmaplayers.html#cb35-5" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="T5_tmaplayers.html#cb35-6" tabindex="-1"></a>  <span class="fu">tm_shape</span>(points) <span class="sc">+</span></span>
+<span id="cb35-7"><a href="T5_tmaplayers.html#cb35-7" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">&quot;status&quot;</span>) <span class="sc">+</span></span>
+<span id="cb35-8"><a href="T5_tmaplayers.html#cb35-8" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="T5_tmaplayers.html#cb35-9" tabindex="-1"></a>  <span class="fu">tm_basemap</span>(<span class="st">&quot;OpenStreetMap&quot;</span>)</span></code></pre></div>
+<p>The basemap is the background map. Your <code>points</code> and <code>areas</code> objects are still the spatial data you are analysing.</p>
+<p><br></p>
+</div>
+<div id="T5_Labels" class="section level2" number="16.6">
+<h2><span class="header-section-number">16.6</span> Labels and other map components</h2>
+<p>Use <code>tm_text()</code> to label objects using one of their variables:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="T5_tmaplayers.html#cb36-1" tabindex="-1"></a><span class="fu">tm_shape</span>(areas) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="T5_tmaplayers.html#cb36-2" tabindex="-1"></a>  <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
+<span id="cb36-3"><a href="T5_tmaplayers.html#cb36-3" tabindex="-1"></a>  <span class="fu">tm_text</span>(<span class="at">text =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<p>You can also add components such as a title or scale bar:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="T5_tmaplayers.html#cb37-1" tabindex="-1"></a><span class="fu">tm_shape</span>(areas) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="T5_tmaplayers.html#cb37-2" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">fill =</span> <span class="st">&quot;population&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="T5_tmaplayers.html#cb37-3" tabindex="-1"></a>  <span class="fu">tm_title</span>(<span class="st">&quot;Population&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="T5_tmaplayers.html#cb37-4" tabindex="-1"></a>  <span class="fu">tm_scalebar</span>()</span></code></pre></div>
+<p><br></p>
+<hr />
+</div>
+<div id="T5_CommonLayers" class="section level2" number="16.7">
+<h2><span class="header-section-number">16.7</span> Common <code>tmap</code> commands</h2>
+<table>
+<thead>
+<tr class="header">
+<th>What you want to draw</th>
+<th>Common <code>tmap</code> command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Points</td>
+<td><code>tm_dots()</code> / <code>tm_symbols()</code></td>
+</tr>
+<tr class="even">
+<td>Lines</td>
+<td><code>tm_lines()</code></td>
+</tr>
+<tr class="odd">
+<td>Polygons</td>
+<td><code>tm_polygons()</code></td>
+</tr>
+<tr class="even">
+<td>Polygon fill only</td>
+<td><code>tm_fill()</code></td>
+</tr>
+<tr class="odd">
+<td>Polygon borders only</td>
+<td><code>tm_borders()</code></td>
+</tr>
+<tr class="even">
+<td>Raster</td>
+<td><code>tm_raster()</code></td>
+</tr>
+<tr class="odd">
+<td>Text labels</td>
+<td><code>tm_text()</code></td>
+</tr>
+<tr class="even">
+<td>Web basemap</td>
+<td><code>tm_basemap()</code></td>
+</tr>
+<tr class="odd">
+<td>Map title</td>
+<td><code>tm_title()</code></td>
+</tr>
+<tr class="even">
+<td>Scale bar</td>
+<td><code>tm_scalebar()</code></td>
+</tr>
+</tbody>
+</table>
+<p>The pattern is always the same: choose a dataset with <code>tm_shape()</code>, then add layers or map components with <code>+</code>.</p>
+<p><br></p>
+<hr />
+</div>
+<div id="T5_SpatialTroubleshooting" class="section level2" number="16.8">
+<h2><span class="header-section-number">16.8</span> Troubleshooting</h2>
+<p><strong>My points appear in completely the wrong place.</strong> Check that your x and y columns were supplied in the correct order. For longitude/latitude data, longitude is x and latitude is y. Then check the CRS.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="T5_tmaplayers.html#cb38-1" tabindex="-1"></a><span class="fu">st_crs</span>(points)</span>
+<span id="cb38-2"><a href="T5_tmaplayers.html#cb38-2" tabindex="-1"></a><span class="fu">st_bbox</span>(points)</span></code></pre></div>
+<p><br></p>
+<p><strong>My map is blank or zoomed out across a huge area.</strong> Check <code>st_bbox()</code>. One bad coordinate can make the map extent enormous.</p>
+<p><br></p>
+<p><strong>Two spatial datasets will not work together.</strong> Check both CRSs. If they differ, transform one to match the other before doing spatial analysis.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="T5_tmaplayers.html#cb39-1" tabindex="-1"></a>points <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="T5_tmaplayers.html#cb39-2" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="fu">st_crs</span>(areas))</span></code></pre></div>
+<p><br></p>
+<p><br></p>
+<p><strong>I used <code>filter()</code> when I meant “keep points inside this polygon.”</strong> <code>filter()</code> works on attribute values. Use <code>st_filter()</code> when the condition depends on spatial location.</p>
+<p><br></p>
+<hr />
+</div>
+<div id="T5_Summary" class="section level2" number="16.9">
+<h2><span class="header-section-number">16.9</span> Main commands in one place</h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="T5_tmaplayers.html#cb40-1" tabindex="-1"></a><span class="co"># READ AN ORDINARY TABLE --------------------------------</span></span>
+<span id="cb40-2"><a href="T5_tmaplayers.html#cb40-2" tabindex="-1"></a>points_table <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;points.xlsx&quot;</span>)</span>
+<span id="cb40-3"><a href="T5_tmaplayers.html#cb40-3" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="T5_tmaplayers.html#cb40-4" tabindex="-1"></a><span class="co"># MAKE IT SPATIAL ---------------------------------------</span></span>
+<span id="cb40-5"><a href="T5_tmaplayers.html#cb40-5" tabindex="-1"></a>points <span class="ot">&lt;-</span> points_table <span class="sc">|&gt;</span></span>
+<span id="cb40-6"><a href="T5_tmaplayers.html#cb40-6" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>),</span>
+<span id="cb40-7"><a href="T5_tmaplayers.html#cb40-7" tabindex="-1"></a>           <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb40-8"><a href="T5_tmaplayers.html#cb40-8" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="T5_tmaplayers.html#cb40-9" tabindex="-1"></a><span class="co"># READ AN EXISTING SPATIAL FILE -------------------------</span></span>
+<span id="cb40-10"><a href="T5_tmaplayers.html#cb40-10" tabindex="-1"></a>areas <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;areas.gpkg&quot;</span>)</span>
+<span id="cb40-11"><a href="T5_tmaplayers.html#cb40-11" tabindex="-1"></a></span>
+<span id="cb40-12"><a href="T5_tmaplayers.html#cb40-12" tabindex="-1"></a><span class="co"># CHECK THE SPATIAL INFORMATION -------------------------</span></span>
+<span id="cb40-13"><a href="T5_tmaplayers.html#cb40-13" tabindex="-1"></a><span class="fu">st_geometry_type</span>(points)</span>
+<span id="cb40-14"><a href="T5_tmaplayers.html#cb40-14" tabindex="-1"></a><span class="fu">st_crs</span>(points)</span>
+<span id="cb40-15"><a href="T5_tmaplayers.html#cb40-15" tabindex="-1"></a><span class="fu">st_bbox</span>(points)</span>
+<span id="cb40-16"><a href="T5_tmaplayers.html#cb40-16" tabindex="-1"></a></span>
+<span id="cb40-17"><a href="T5_tmaplayers.html#cb40-17" tabindex="-1"></a><span class="co"># MAKE TWO LAYERS USE THE SAME CRS ----------------------</span></span>
+<span id="cb40-18"><a href="T5_tmaplayers.html#cb40-18" tabindex="-1"></a>points <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb40-19"><a href="T5_tmaplayers.html#cb40-19" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="fu">st_crs</span>(areas))</span>
+<span id="cb40-20"><a href="T5_tmaplayers.html#cb40-20" tabindex="-1"></a></span>
+<span id="cb40-21"><a href="T5_tmaplayers.html#cb40-21" tabindex="-1"></a><span class="co"># NORMAL DATA WRANGLING ---------------------------------</span></span>
+<span id="cb40-22"><a href="T5_tmaplayers.html#cb40-22" tabindex="-1"></a>points <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb40-23"><a href="T5_tmaplayers.html#cb40-23" tabindex="-1"></a>  <span class="fu">filter</span>(status <span class="sc">==</span> <span class="st">&quot;Active&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-24"><a href="T5_tmaplayers.html#cb40-24" tabindex="-1"></a>  <span class="fu">select</span>(site_id, status, temperature) <span class="sc">|&gt;</span></span>
+<span id="cb40-25"><a href="T5_tmaplayers.html#cb40-25" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp_f =</span> temperature <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span> <span class="sc">+</span> <span class="dv">32</span>)</span>
+<span id="cb40-26"><a href="T5_tmaplayers.html#cb40-26" tabindex="-1"></a></span>
+<span id="cb40-27"><a href="T5_tmaplayers.html#cb40-27" tabindex="-1"></a><span class="co"># FILTER USING LOCATION ---------------------------------</span></span>
+<span id="cb40-28"><a href="T5_tmaplayers.html#cb40-28" tabindex="-1"></a>points_in_area <span class="ot">&lt;-</span> points <span class="sc">|&gt;</span></span>
+<span id="cb40-29"><a href="T5_tmaplayers.html#cb40-29" tabindex="-1"></a>  <span class="fu">st_filter</span>(areas)</span>
+<span id="cb40-30"><a href="T5_tmaplayers.html#cb40-30" tabindex="-1"></a></span>
+<span id="cb40-31"><a href="T5_tmaplayers.html#cb40-31" tabindex="-1"></a><span class="co"># QUICK MAP ---------------------------------------------</span></span>
+<span id="cb40-32"><a href="T5_tmaplayers.html#cb40-32" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
+<span id="cb40-33"><a href="T5_tmaplayers.html#cb40-33" tabindex="-1"></a><span class="fu">qtm</span>(points, <span class="at">fill =</span> <span class="st">&quot;temperature&quot;</span>)</span>
+<span id="cb40-34"><a href="T5_tmaplayers.html#cb40-34" tabindex="-1"></a></span>
+<span id="cb40-35"><a href="T5_tmaplayers.html#cb40-35" tabindex="-1"></a><span class="co"># LAYERED MAP -------------------------------------------</span></span>
+<span id="cb40-36"><a href="T5_tmaplayers.html#cb40-36" tabindex="-1"></a><span class="fu">tm_shape</span>(areas) <span class="sc">+</span></span>
+<span id="cb40-37"><a href="T5_tmaplayers.html#cb40-37" tabindex="-1"></a>  <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
+<span id="cb40-38"><a href="T5_tmaplayers.html#cb40-38" tabindex="-1"></a></span>
+<span id="cb40-39"><a href="T5_tmaplayers.html#cb40-39" tabindex="-1"></a>  <span class="fu">tm_shape</span>(points) <span class="sc">+</span></span>
+<span id="cb40-40"><a href="T5_tmaplayers.html#cb40-40" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">&quot;temperature&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-41"><a href="T5_tmaplayers.html#cb40-41" tabindex="-1"></a></span>
+<span id="cb40-42"><a href="T5_tmaplayers.html#cb40-42" tabindex="-1"></a>  <span class="fu">tm_basemap</span>(<span class="st">&quot;OpenStreetMap&quot;</span>)</span></code></pre></div>
+
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-11.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

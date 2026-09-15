@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Page not found | GEOG364 Lab Book 2026</title>
+  <title>Chapter 15 Mapping vector data with tmap | GEOG364 Lab Book 2026</title>
 
     <meta name="author" content="Dr Helen Greatrex" />
   
    <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
    <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="Page not found | GEOG364 Lab Book 2026" />
+  <meta property="og:title" content="Chapter 15 Mapping vector data with tmap | GEOG364 Lab Book 2026" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
   
   <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | GEOG364 Lab Book 2026" />
+  <meta name="twitter:title" content="Chapter 15 Mapping vector data with tmap | GEOG364 Lab Book 2026" />
   
   <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
   
@@ -87,11 +87,37 @@
   </header>
 
   <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="T5_tmap" class="section level1" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Mapping vector data with <code>tmap</code></h1>
+<p><code>tmap</code> is designed to work directly with spatial objects such as <code>sf</code> data. It can make both quick exploratory maps and more carefully constructed maps.</p>
+<p>We will start with <code>qtm()</code> and then move to the full layer-based syntax.</p>
+<p><br></p>
+<div id="T5_qtm" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Quick maps — <code>qtm()</code></h2>
+<p><code>qtm()</code> stands for <strong>quick thematic map</strong>. It is useful when you simply want to check where your data is or quickly look at a variable.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="T5_tmap.html#cb22-1" tabindex="-1"></a><span class="fu">qtm</span>(points)</span></code></pre></div>
+<p>If the points appear in the wrong country, or the map zooms out across a huge area, stop here and check your coordinates and CRS.</p>
+<p>You can also map one of the variables in the dataset:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="T5_tmap.html#cb23-1" tabindex="-1"></a><span class="fu">qtm</span>(points, <span class="at">fill =</span> <span class="st">&quot;temperature&quot;</span>)</span></code></pre></div>
+<p>For polygon data:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="T5_tmap.html#cb24-1" tabindex="-1"></a><span class="fu">qtm</span>(areas, <span class="at">fill =</span> <span class="st">&quot;population&quot;</span>)</span></code></pre></div>
+<p>Here <code>fill</code> tells <code>tmap</code> which variable should control the fill colour of the symbols or polygons.</p>
+<p><br></p>
+<hr />
+</div>
+<div id="T5_tmapmode" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Static or interactive maps — <code>tmap_mode()</code></h2>
+<p><code>tmap</code> has two main modes.</p>
+<p>Use <code>plot</code> for a static map suitable for a report or PDF:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="T5_tmap.html#cb25-1" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">&quot;plot&quot;</span>)</span>
+<span id="cb25-2"><a href="T5_tmap.html#cb25-2" tabindex="-1"></a><span class="fu">qtm</span>(points, <span class="at">fill =</span> <span class="st">&quot;temperature&quot;</span>)</span></code></pre></div>
+<p>Use <code>view</code> for an interactive map that you can pan and zoom:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="T5_tmap.html#cb26-1" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
+<span id="cb26-2"><a href="T5_tmap.html#cb26-2" tabindex="-1"></a><span class="fu">qtm</span>(points, <span class="at">fill =</span> <span class="st">&quot;temperature&quot;</span>)</span></code></pre></div>
+<p>Interactive <code>view</code> mode can also use web basemaps, which is useful for checking your data against roads, buildings and other landmarks.</p>
+<p><br></p>
+<hr />
+</div>
 </div>
   </main>
 
