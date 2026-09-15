@@ -164,26 +164,25 @@ You are allowed and encouraged to work in groups for this section
 
 ### STEP 8: Reading in data {.unnumbered}
 
-In lab 1, we used data that was built into R. This week we will read in data from files. 
+In lab 1, we used data that was built into R. This week we will read in data from files.
 
-- **[8A]** Go to the canvas assignment page.  Download all the datasets for the lab AND PUT THEM IN THE HOMEWORK 3 PROJECT FOLDER ON YOUR COMPUTER.
+- **[8A]** Go to the canvas assignment page. Download all the datasets for the lab AND PUT THEM IN THE HOMEWORK 3 PROJECT FOLDER ON YOUR COMPUTER.
 
 - **[8B]** In the TEXT part of the report, below the library code chunk, make a new heading 1, text header called "In-Class work".
 
-- **[8C]** Below that, make a new code chunk.  Use the read_excel() command to load the "Lab03_house.xlsx" data into your report and assign it it to a variable called House ([Tutorial 4 - Read Excel](#T4_load_excel)).
+- **[8C]** Below that, make a new code chunk. Use the read_excel() command to load the "Lab03_house.xlsx" data into your report and assign it it to a variable called House ([Tutorial 4 - Read Excel](#T4_load_excel)).
 
 <br><br>
 
 ### STEP 9: Understand where the data has come from {.unnumbered}
 
-IMPORTANT.  Imagine that next month, your friend is moving to Sindian Dist., in New Taipei City, Taiwan. They want to buy a house and have asked you to figure out what most impacts house price.
+IMPORTANT. Imagine that next month, your friend is moving to Sindian Dist., in New Taipei City, Taiwan. They want to buy a house and have asked you to figure out what most impacts house price.
 
 YOU ARE WRITING THIS REPORT FOR THEM!
 
 - **[9A]** You have been given a specific dataset to help answer your friend's question. Read more about the data here:<https://archive.ics.uci.edu/ml/datasets/Real+estate+valuation+data+set>.
 
-- **[9B]** In your report, describe the data, including the object of analysis, population and variables.  Now critique it! What aspects of this data are useful for your friend or not useful. 
-
+- **[9B]** In your report, describe the data, including the object of analysis, population and variables. Now critique it! What aspects of this data are useful for your friend or not useful.
 
 <br><br>
 

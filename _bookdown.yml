@@ -30,7 +30,5 @@ rmd_files:
     "in_04-Tutorial08_Wrangling.Rmd",
     "in_04-Tutorial09_DistributionsHypTests.Rmd",
     "in_04-Tutorial10_Correlation.Rmd",
-    "in_04-Tutorial11_SLR.Rmd",
-    "in_04-Tutorial12_SpatialBasics.Rmd"
-
+    "in_04-Tutorial11_SLR.Rmd"
   ]

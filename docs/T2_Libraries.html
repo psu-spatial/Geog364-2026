@@ -59,6 +59,9 @@
 <li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_3.html">Homework 3</a></li>
+<li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
 <li><a class="active" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
@@ -73,8 +76,6 @@
 <li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
 <li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
 <li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
-<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">14</span> Vector spatial data basics</a></li>
-<li><a class="" href="T5_tmap.html"><span class="header-section-number">15</span> Mapping vector data with tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -178,7 +179,7 @@
 </h4>
 <p>You can also install a package by typing the “app-store” command into the console.</p>
 <p>This is <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>, where you put the name of the package you want to install in quotes. For example, this command will install the <code>palmerpenguins</code> package (a teaching dataset on penguins).</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"palmerpenguins"</span><span class="op">)</span></span></code></pre></div>
 <p><u><strong>IMPORTANT!</strong></u> <strong>NEVER put the install.packages() command into your script or markdown report</strong>. Otherwise you force the computer to revisit the app store, which sometimes crashes R and is generally bad form. Instead, always go to the app-store manually or type this command into R.</p>
 <p><br></p>
@@ -193,7 +194,7 @@
 <p><strong>I will tell you which packages you need for each lab, but if R tells you it wants a package at any point, please install it AND load it.</strong></p>
 <p>This can be done with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command.</p>
 <p>For example, here’s how to load the <code>palmerpenguins</code> package (which contains the Palmer Penguins teaching dataset (<a href="https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1" class="uri">https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1</a>).<br></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span></code></pre></div>
 <p><em>Remember, if you want to try this yourself, you first install the palmerpenguins package using the instructions above.</em></p>
 <p><br></p>
@@ -207,7 +208,7 @@
 <p>Sometimes several packages name a command the same word and you want to specify which package you want to use.</p>
 <p>You can do this using the :: symbol. For example, many different packages have a command called filter and R can get confused about which one to use.</p>
 <p>This command <em>forces</em> the computer to use the ‘dplyr package’ version of the filter command.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <hr>
@@ -312,7 +313,7 @@ Figure 2.1: Tidyverse install messages
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-11.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
