@@ -47,36 +47,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
-<li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li><a class="" href="Help.html">HELP!</a></li>
-<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
-<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
-<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
-<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="" href="Lab_2.html">Homework 2</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="active" href="Lab_3.html">Homework 3</a></li>
-<li class="book-part">.</li>
-<li class="book-part">TUTORIALS</li>
-<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
-<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
-<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
-<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
-<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
-<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
-<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
-<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
-<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
-<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
-<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
-<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html">Homework 3</a></li></ul>
 
         <div class="book-extra">
           
@@ -94,9 +65,9 @@
 <p>The aim of this lab is to get comfortable with spatial data and exploratory analysis.</p>
 <p><br></p>
 </div>
-<div id="need-help" class="section level3" number="0.1.4">
+<div id="need-help" class="section level3" number="1.1.4">
 <h3>
-<span class="header-section-number">0.1.4</span> Need help?<a class="anchor" aria-label="anchor" href="#need-help"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.1.4</span> Need help?<a class="anchor" aria-label="anchor" href="#need-help"><i class="fas fa-link"></i></a>
 </h3>
 <p>REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN <strong>ALL</strong> YOUR CODE CHUNKS. The easiest way to do this is to press the “Run All” button, in the “Run” menu at the top right of your screen</p>
 <p><br></p>
@@ -110,13 +81,13 @@
 <h3>STEP 1: Create your project for homework 3<a class="anchor" aria-label="anchor" href="#step-1-create-your-project-for-homework-3"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li><p><strong>[1A]</strong> Make a project for Homework 3 (tutorial here) <a href="T1_Projects.html#T1_Projects">Projects</a></p></li>
+<li><p><strong>[1A]</strong> Make a project for Homework 3 (tutorial here) <a href="#T1_Projects">Projects</a></p></li>
 <li><p><strong>[1B]</strong> Open your Homework3 project in R-Studio (see screenshot below).</p></li>
 </ul>
 <div class="figure">
 <span style="display:block;" id="fig:L3-Projectcheck"></span>
 <img src="index_images/im_T1_Projectcheck.png" alt="Yours should look like this but say the name of your homework 3 project" width="100%"><p class="caption">
-Figure 0.7: Yours should look like this but say the name of your homework 3 project
+Figure 1.1: Yours should look like this but say the name of your homework 3 project
 </p>
 </div>
 <p><br></p>
@@ -129,23 +100,23 @@ Figure 0.7: Yours should look like this but say the name of your homework 3 proj
 <li><p><strong>[2A]</strong> Make a new RMarkdown Report (<a href="T3_Markdown.html#T31_NewMarkdown">Tutorial here</a>) <br></p></li>
 <li><p><strong>[2B]</strong> As we discussed last week, your YAML code at the top of your script tells R how to make the final report. It lives between the — lines. CAREFULLY replace the YAML code with this code (remember to only have one set of —) and press knit.</p></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Lab_3.html#cb5-1" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb5-2"><a href="Lab_3.html#cb5-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"GEOG-364 - Homework 3"</span></span>
-<span id="cb5-3"><a href="Lab_3.html#cb5-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"CHANGE TO YOUR E-MAIL ID"</span></span>
-<span id="cb5-4"><a href="Lab_3.html#cb5-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
-<span id="cb5-5"><a href="Lab_3.html#cb5-5" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb5-6"><a href="Lab_3.html#cb5-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb5-7"><a href="Lab_3.html#cb5-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb5-8"><a href="Lab_3.html#cb5-8" tabindex="-1"></a>    toc_float<span class="sc">:</span> yes</span>
-<span id="cb5-9"><a href="Lab_3.html#cb5-9" tabindex="-1"></a>    number_sections<span class="sc">:</span> yes</span>
-<span id="cb5-10"><a href="Lab_3.html#cb5-10" tabindex="-1"></a>    theme<span class="sc">:</span> journal</span>
-<span id="cb5-11"><a href="Lab_3.html#cb5-11" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb5-12"><a href="Lab_3.html#cb5-12" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Lab_3.html#cb1-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb1-2"><a href="Lab_3.html#cb1-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"GEOG-364 - Homework 3"</span></span>
+<span id="cb1-3"><a href="Lab_3.html#cb1-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"CHANGE TO YOUR E-MAIL ID"</span></span>
+<span id="cb1-4"><a href="Lab_3.html#cb1-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb1-5"><a href="Lab_3.html#cb1-5" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb1-6"><a href="Lab_3.html#cb1-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb1-7"><a href="Lab_3.html#cb1-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb1-8"><a href="Lab_3.html#cb1-8" tabindex="-1"></a>    toc_float<span class="sc">:</span> yes</span>
+<span id="cb1-9"><a href="Lab_3.html#cb1-9" tabindex="-1"></a>    number_sections<span class="sc">:</span> yes</span>
+<span id="cb1-10"><a href="Lab_3.html#cb1-10" tabindex="-1"></a>    theme<span class="sc">:</span> journal</span>
+<span id="cb1-11"><a href="Lab_3.html#cb1-11" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb1-12"><a href="Lab_3.html#cb1-12" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <p>It should look like this.</p>
 <div class="figure">
 <span style="display:block;" id="fig:L3-YAML"></span>
 <img src="index_images/L3B_YAMLcode.png" alt="Remember the ---! This is easier in source mode" width="100%"><p class="caption">
-Figure 0.8: Remember the —! This is easier in source mode
+Figure 1.2: Remember the —! This is easier in source mode
 </p>
 </div>
 <p><br></p>
@@ -197,7 +168,7 @@ Figure 0.8: Remember the —! This is easier in source mode
 <li>
 <strong>[6A]</strong> Add a new code chunk under the opts one, and add the code inside it to load the packages.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># Lots of data processing commands</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span>     <span class="co"># Helps make pretty output files</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>   <span class="co"># Output plots</span></span>
@@ -255,7 +226,16 @@ Figure 0.8: Remember the —! This is easier in source mode
 <li><p><strong>[9B]</strong> In your report, describe the data, including the object of analysis, population and variables. Now critique it! What aspects of this data are useful for your friend or not useful.</p></li>
 </ul>
 <p><br><br></p>
-<p>More to come.</p>
+</div>
+<div id="step-10-basic-stats" class="section level3 unnumbered">
+<h3>STEP 10: Basic stats<a class="anchor" aria-label="anchor" href="#step-10-basic-stats"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>[Step 10A]:</strong> Now use R-Commands that you learned in so far tutorials to explore the summary statistics and distribution of the House.Price column. See if you can work out:</p>
+<ul>
+<li><p>The mean distance to the MRT. (hint summary command or mean command)</p></li>
+<li><p>Make a professional looking histogram of the price data with units! <a href="T6_plots.html#T7_Histograms">Tutorial - Histograms</a></p></li>
+</ul>
+<p><strong>[Step 10B]:</strong> Assume your sample is representative of the underlying population. What is the 90% confidence interval on the TRUE mean price? (hint t.test)</p>
 <hr>
 </div>
 </div>
@@ -263,9 +243,9 @@ Figure 0.8: Remember the —! This is easier in source mode
 <h2>PART 3: TAKE HOME WORK<a class="anchor" aria-label="anchor" href="#part-3-take-home-work"><i class="fas fa-link"></i></a>
 </h2>
 <p><br><br></p>
-<div id="to-be-updated" class="section level3" number="0.1.5">
+<div id="to-be-updated" class="section level3" number="1.1.5">
 <h3>
-<span class="header-section-number">0.1.5</span> TO BE UPDATED<a class="anchor" aria-label="anchor" href="#to-be-updated"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.1.5</span> TO BE UPDATED<a class="anchor" aria-label="anchor" href="#to-be-updated"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Congrats! Finished!</strong></p>
 <p><br><br></p>
@@ -285,7 +265,7 @@ Figure 0.8: Remember the —! This is easier in source mode
 <div class="figure">
 <span style="display:block;" id="fig:L1-Submit"></span>
 <img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%"><p class="caption">
-Figure 0.5: Find them in your GEOG364 folder on your computer
+Figure 1.3: Find them in your GEOG364 folder on your computer
 </p>
 </div>
 <p><br></p>
@@ -300,7 +280,7 @@ Figure 0.5: Find them in your GEOG364 folder on your computer
 <div class="figure">
 <span style="display:block;" id="fig:L1-CloudDownload"></span>
 <img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%"><p class="caption">
-Figure 0.6: How do download the files from PositCloud
+Figure 1.4: How do download the files from PositCloud
 </p>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -433,51 +413,48 @@ Didn’t submit, or incredibly limited attempt. 
 
 
 
+<div id="T1A_ProjectIntro" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> What are projects<a class="anchor" aria-label="anchor" href="#T1A_ProjectIntro"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="T1_ProjectsCloud" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Projects using posit Cloud<a class="anchor" aria-label="anchor" href="#T1_ProjectsCloud"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="T1_ProjectsDesktop" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Projects on your desktop<a class="anchor" aria-label="anchor" href="#T1_ProjectsDesktop"><i class="fas fa-link"></i></a>
+</h2>
+<div id="how-to-check-you-are-running-your-project" class="section level3" number="1.4.1">
+<h3>
+<span class="header-section-number">1.4.1</span> How to check you are running your project<a class="anchor" aria-label="anchor" href="#how-to-check-you-are-running-your-project"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="returning-to-your-lab-project" class="section level3" number="1.4.2">
+<h3>
+<span class="header-section-number">1.4.2</span> Returning to your lab project<a class="anchor" aria-label="anchor" href="#returning-to-your-lab-project"><i class="fas fa-link"></i></a>
+</h3>
+<div id="from-your-computer" class="section level4" number="1.4.2.1">
+<h4>
+<span class="header-section-number">1.4.2.1</span> From your computer<a class="anchor" aria-label="anchor" href="#from-your-computer"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="from-inside-r-studio." class="section level4" number="1.4.2.2">
+<h4>
+<span class="header-section-number">1.4.2.2</span> From inside R-studio.<a class="anchor" aria-label="anchor" href="#from-inside-r-studio."><i class="fas fa-link"></i></a>
+</h4>
 
-
-
-  <div class="chapter-nav">
-<div class="prev"><a href="Lab_2.html">Homework 2</a></div>
-<div class="next"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
+</div>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li>
-<a class="nav-link" href="#Lab_3">Homework 3</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#aim">Aim</a></li>
-<li><a class="nav-link" href="#need-help"><span class="header-section-number">0.1.4</span> Need help?</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-1-lab-set-up-important">PART 1: LAB SET-UP (Important!)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-1-create-your-project-for-homework-3">STEP 1: Create your project for homework 3</a></li>
-<li><a class="nav-link" href="#step-2-create-your-lab-report-structure-yaml-code">STEP 2: Create your lab report structure &amp; YAML code</a></li>
-<li><a class="nav-link" href="#step-3-change-the-theme">STEP 3: Change the theme</a></li>
-<li><a class="nav-link" href="#step-4-new-ish-adjust-your-knit-options">STEP 4: NEW (ish) Adjust your knit options</a></li>
-<li><a class="nav-link" href="#step-5-tidy-up">STEP 5: Tidy up</a></li>
-<li><a class="nav-link" href="#step-6-finally..-sort-out-libraries">STEP 6: Finally.. sort out libraries</a></li>
-<li><a class="nav-link" href="#step-7-check-progress">STEP 7: Check progress</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-2-in-class-work">PART 2: IN-CLASS WORK</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-8-reading-in-data">STEP 8: Reading in data</a></li>
-<li><a class="nav-link" href="#step-9-understand-where-the-data-has-come-from">STEP 9: Understand where the data has come from</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-3-take-home-work">PART 3: TAKE HOME WORK</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#to-be-updated"><span class="header-section-number">0.1.5</span> TO BE UPDATED</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#what-to-submit-1">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#if-you-are-using-your-own-computer-1">If you are using your own computer</a></li>
-<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online-1">If you are using Posit Cloud online</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#CheckGradeL1">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric-1">RUBRIC</a></li></ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -486,9 +463,13 @@ Didn’t submit, or incredibly limited attempt. 
 </div>
     </nav>
 </div>
+</div>
+  
+
+  
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 

@@ -177,7 +177,15 @@ YOU ARE WRITING THIS REPORT FOR THEM!
 
 <br><br>
 
-More to come.
+### STEP 10: Basic stats {.unnumbered}
+
+**[Step 10A]:** Now use R-Commands that you learned in so far tutorials to explore the summary statistics and distribution of the House.Price column. See if you can work out:
+
+- The mean distance to the MRT. (hint summary command or mean command)
+
+- Make a professional looking histogram of the price data with units! [Tutorial - Histograms](#T7_Histograms)
+
+**[Step 10B]:** Assume your sample is representative of the underlying population. What is the 90% confidence interval on the TRUE mean price? (hint t.test)
 
 ------------------------------------------------------------------------
 

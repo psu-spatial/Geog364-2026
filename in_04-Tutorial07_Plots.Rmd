@@ -270,15 +270,6 @@ abline(mymodel,col="purple",lty="dotted",lwd=3)
 
 Especially just looking at a single response variable, it's useful to look immediately at the distribution itself. Histograms are great for this, although you must be careful that the bin size doesn't impact your perception of results. Adding in a boxplot is often useful
 
-### Quick check (not report ready!)
-
-Here is the absolute basic histogram, again on our HousesNY price data. You can  specify exact bin sizes using br. - see ?hist
-
-```{r}
-hist(HousesNY$Price,
-     br=40,
-     xlab="Price (USD)")
-```
 
 ### ggstatsplot histograms
 
