@@ -1,6 +1,3 @@
-# (PART\*) [.]{style="color: white;"} {.unnumbered}
-
-# (PART\*) **LAB INSTRUCTIONS** {.unnumbered}
 
 ```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
 library(tidyverse)
@@ -156,7 +153,7 @@ library(readxl)    # Read from excel files
 
 ------------------------------------------------------------------------
 
-## PART 2: IN-CLASS WORK {.unnumbered}
+## PART 2: IN-CLASS WORK AND TAKE-HOME WORK {.unnumbered}
 
 You are allowed and encouraged to work in groups for this section
 
@@ -182,29 +179,52 @@ YOU ARE WRITING THIS REPORT FOR THEM!
 
 - **[9A]** You have been given a specific dataset to help answer your friend's question. Read more about the data here:<https://archive.ics.uci.edu/ml/datasets/Real+estate+valuation+data+set>.
 
+<br>
+
 - **[9B]** In your report, describe the data, including the object of analysis, population and variables. Now critique it! What aspects of this data are useful for your friend or not useful.
 
 <br><br>
 
 ### STEP 10: Basic stats {.unnumbered}
 
-**[Step 10A]:** Now use R-Commands that you learned in so far tutorials to explore the summary statistics and distribution of the House.Price column. See if you can work out:
+Now use R-Commands that you learned in so far tutorials to explore the summary statistics and distribution of the dataset.
 
-- The mean distance to the MRT. (hint summary command or mean command)
+**[Step 10A]:** Calculate the mean distance to the MRT and report your answer in the text with units!. (hint summary command or mean command)
 
-- Make a professional looking histogram of the price data with units! [Tutorial - Histograms](#T7_Histograms)
+<br>
 
-**[Step 10B]:** Assume your sample is representative of the underlying population. What is the 90% confidence interval on the TRUE mean price? (hint t.test)
+**[Step 10B]:** Make a professional looking histogram of the price data with units! [Tutorial - Histograms](#T7_Histograms)
 
-------------------------------------------------------------------------
+<br>
 
-## PART 3: TAKE HOME WORK {.unnumbered}
+**[Step 10C]:** Assume your sample is representative of the underlying population. What is the 90% confidence interval on the TRUE mean price? [hint t.test](#Ttest)
 
 <br><br>
 
-### TO BE UPDATED
+### STEP 11: Make the data spatial {.unnumbered}
+
+**[Step 11A]:**  The spatial tutorial is FINALLY available. Make your house data 'spatial' by following this tutorial and assign it to a variable called house_sf  [Tutorial - "How to make existing data spatial"](#T5_st_as_sf)
+
+<br>
+
+**[Step 11B]:**  Type `house_sf` into the console or a code chunk to bring up the summary.  Use this to find out the bounding box of your data and write the bounding box into your report. [Tutorial - "How to make existing data spatial"](#T5_st_as_sf)
+
+
+<br>
+
+**[Step 11C]:**  Make an interactive qtm map of the price per unit area from your dataset (hint you already have this data/column, you only need to make the map) [Tutorial - QTM maps](#T5_qtmmaps) 
+
+
+<br>
+
+**[Step 11D]:**  Explore the data spatially by looking at the maps and changing the basemaps. In the text, write a paragraph decribing what you see to help your friend understand the spatial patterns of house prices in the area.  
+
+
+<br><br>
 
 **Congrats! Finished!**
+
+Becuase of the technical issues getting this homework up, this is everything you need to do for this week. And check out the rubric for some very easy grading.
 
 <br><br>
 
@@ -252,13 +272,9 @@ You can also add comments to your submission as needed on the canvas page, or yo
 
 This is how you will be graded (plus any in-class components)
 
-15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts. Your lab book report is easy to read and its easy to find the answers.
+25/25: You made a good effort and answered all the questions. If you came to the lab, there's probably about 10-15 mins additional work.  CHECK EACH PART OF QUESTION 10 AND 11.
 
-14/15: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.Your lab book report is easy to read and its easy to find the answers.
-
-12/15: Mostly accurate and shows a good understanding, but with some errors, omissions, or weaker explanations
-
-9/15: Shows some understanding, but several answers are incorrect, incomplete, or unclear
+15/25: You attempted most of the lab and explained where you got stuck.
 
 5/15: Any attempt! A single word or a canvas comment to say hi will get you 5 points even if you haven't attended lab, because I want to know people who are simply dropping a lab compared to people who are really struggling.
 

@@ -241,7 +241,7 @@ qt(0.9,df=25,lower.tail = TRUE)
 
 <br>
 
-### One sided T-test
+### T-Test {#Ttest}
 
 To conduct a full t-test on some data:
 

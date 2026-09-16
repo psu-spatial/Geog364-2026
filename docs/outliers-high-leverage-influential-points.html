@@ -23,7 +23,10 @@
 <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -58,8 +61,6 @@
 <li class="book-part">.</li>
 <li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Lab_2.html">Homework 2</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Lab_3.html">Homework 3</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
@@ -76,6 +77,7 @@
 <li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
 <li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
 <li><a class="active" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">14</span> Spatial data</a></li>
 </ul>
 
         <div class="book-extra">
@@ -121,7 +123,7 @@
 <h3>
 <span class="header-section-number">13.2.1</span> Residual vs leverage plots<a class="anchor" aria-label="anchor" href="#residual-vs-leverage-plots"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ols_plot_resid_lev</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-27-1.png" alt="" width="672"></div>
 <p>This takes all</p>
@@ -227,7 +229,7 @@ Figure 13.5: One influential high leverage outlier. The red-dashed line is the m
 </ul>
 <p>For now, we will focus on one of the most effective ways to assess residuals, the studentized residual/fits plot.</p>
 <p>For example for our test data:</p>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># read the data</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/neither.csv"</span><span class="op">)</span></span>
 <span></span>
@@ -239,12 +241,12 @@ Figure 13.5: One influential high leverage outlier. The red-dashed line is the m
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>,<span class="va">data</span><span class="op">$</span><span class="va">y</span>,pch<span class="op">=</span><span class="fl">16</span>,xlab<span class="op">=</span><span class="st">"x"</span>,ylab<span class="op">=</span><span class="st">"y"</span>,main<span class="op">=</span><span class="st">"Dataset C"</span><span class="op">)</span>; </span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-33-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plot 2 (right hand side). Remember to choose your own ylim</span></span>
 <span><span class="fu">ols_plot_resid_stud</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-33-2.png" alt="" width="672"></div>
 <p>There should be no absolute cut-off here (around 2-3 is a warning sign). Instead, take these as an opportunity to explore those points further. For example here is our plot with the residual:</p>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># read the data</span></span>
 <span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/outlier.csv"</span><span class="op">)</span></span>
 <span></span>
@@ -255,12 +257,12 @@ Figure 13.5: One influential high leverage outlier. The red-dashed line is the m
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">data1</span><span class="op">$</span><span class="va">x</span>,<span class="va">data1</span><span class="op">$</span><span class="va">y</span>,pch<span class="op">=</span><span class="fl">16</span>,xlab<span class="op">=</span><span class="st">"x"</span>,ylab<span class="op">=</span><span class="st">"y"</span>,main<span class="op">=</span><span class="st">"Dataset B"</span><span class="op">)</span>; </span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-34-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plot 2 (right hand side). Remember to choose your own ylim</span></span>
 <span><span class="fu">ols_plot_resid_stand</span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-34-2.png" alt="" width="672"></div>
 <p>Here the plot is telling me that it thinks row 21 of the dataset might be an outlier</p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data1</span><span class="op">[</span><span class="fl">21</span>,<span class="op">]</span></span></code></pre></div>
 <pre><code>##    x  y
 ## 21 4 40</code></pre>
@@ -272,7 +274,7 @@ Figure 13.5: One influential high leverage outlier. The red-dashed line is the m
 </h3>
 <p>If a point is both an outlier AND has leverage, chances are it will be influential over the fit. OLSRR has a nice way of summarising both statistics.</p>
 <p>For example here are our four plots together:</p>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># read the data</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/neither.csv"</span><span class="op">)</span></span>
 <span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Users/hgreatrex/Documents/GitHub/Teaching/STAT-462/Stat462-2026/index_data/outlier.csv"</span><span class="op">)</span></span>
@@ -317,19 +319,19 @@ Figure 13.6: Our four examples
 <li><p>On the y-axis, you can see the normalised residual value AKA how big is the residual, but plotted in terms of standard deviations away from the mean of y.</p></li>
 </ul>
 <p>Compare plots 1,2,3 and 4 with the scatterplots above. See if you can identify which is which.</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># model A</span></span>
 <span><span class="fu">ols_plot_resid_lev</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-37-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># model B</span></span>
 <span><span class="fu">ols_plot_resid_lev</span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-37-2.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># model C</span></span>
 <span><span class="fu">ols_plot_resid_lev</span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-37-3.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># model D</span></span>
 <span><span class="fu">ols_plot_resid_lev</span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial11_SLR_files/figure-html/unnamed-chunk-37-4.png" alt="" width="672"></div>
@@ -355,15 +357,9 @@ Figure 13.6: Our four examples
 
 </div>
 </div>
-
-
-
-
-
-
   <div class="chapter-nav">
 <div class="prev"><a href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></div>
-<div class="empty"></div>
+<div class="next"><a href="T5_VectorSpatial.html"><span class="header-section-number">14</span> Spatial data</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -409,7 +405,7 @@ Figure 13.6: Our four examples
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-15.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

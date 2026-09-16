@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>in_04-Tutorial12_SpatialBasics.knit</title>
+
+  
+   
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="in_04-Tutorial12_SpatialBasics.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="in_04-Tutorial12_SpatialBasics.knit" />
+  
+  
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.11.0/transition.js"></script>
+    <script src="libs/bs3compat-0.11.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.11.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<!--bookdown:title:start-->
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
+<div id="T5_VectorSpatial" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Spatial data</h1>
+<p><br></p>
+<div id="example-datasets" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Example datasets</h2>
+<p>Throughout this tutorial, I will be using a dataset of medical clinics. You are welcome to download it yourself if you want to follow along by clicking here.</p>
+<ul>
+<li>Medical clinics: MedicalClinics.xlsx</li>
+<li>Population Density: medical_population.gpkg</li>
+<li>Broadband: medical_broadband.zip</li>
+</ul>
+</div>
+<div id="useful-tutorials" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Useful tutorials</h2>
+<ul>
+<li><a href="https://ourcodingclub.github.io/tutorials/spatial-vector-sf/" class="uri">https://ourcodingclub.github.io/tutorials/spatial-vector-sf/</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/blob/main/sf.pdf" class="uri">https://github.com/rstudio/cheatsheets/blob/main/sf.pdf</a></li>
+<li><a href="https://learning.nceas.ucsb.edu/2020-02-RRCourse/spatial-vector-analysis-using-sf.html" class="uri">https://learning.nceas.ucsb.edu/2020-02-RRCourse/spatial-vector-analysis-using-sf.html</a></li>
+</ul>
+<p><br></p>
+</div>
+<div id="T5_WhatIsSpatial" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Spatial data basics</h2>
+<p>Geographical data needs special treatment. As well as standard data analysis, we need to tell R that our data has a spatial location on the Earth’s surface. R needs to understand what units our spatial location is in (e.g. metres, degrees..) and how we want the data to appear on plots and maps. R also needs to understand the different types of vector data (e.g. what we mean by a “polygon” or “point”).</p>
+<p>To achieve this there are some specialist types of data we need to use and several spatial data packages.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Vector data mostly uses the <code>sf</code> package</strong>. Each object (row) is represented as a spatial object (a point, line or polygon). For example the locations of trees might be represented as points, a road network as lines, and building footprints as polygons.</p></li>
+<li><p><strong>Raster data mostly uses the <code>terra</code> package</strong> The spatial domain is divided into a grid of equally sized cells. These are useful for storing field data that varies continuously over space, such as a satellite image, temperature or an elevation surface.</p></li>
+</ol>
+<p>We’re going to split this tutorial by vector and raster (field) data</p>
+<p><br></p>
+<div id="map-projections" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Map projections</h3>
+<p>See here for a great overview: <a href="https://source.opennews.org/articles/choosing-right-map-projection/" class="uri">https://source.opennews.org/articles/choosing-right-map-projection/</a></p>
+<p>At its simplest, think of our map projections as the “units” of the x-y-z coordinates of geographic data. For example, here is the same map, but in two different projections.</p>
+<ul>
+<li><p>On the left, the figure is in latitiude/longitude in units of degrees. LOOK AT THE UNITS ON THE AXIS!</p></li>
+<li><p>On the right the same map is in UTM.</p></li>
+</ul>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_T12_projection1.png" alt="*Examples of geographic coordinate systems for raster data (WGS 84; left, in Lon/Lat degrees) and projected (NAD83 / UTM zone 12N; right, in metres), figure from https://geocompr.robinlovelace.net/spatial-class.html*" width="80%" />
+<p class="caption">
+(#fig:Tut11Fig1)<em>Examples of geographic coordinate systems for raster data (WGS 84; left, in Lon/Lat degrees) and projected (NAD83 / UTM zone 12N; right, in metres), figure from <a href="https://geocompr.robinlovelace.net/spatial-class.html" class="uri">https://geocompr.robinlovelace.net/spatial-class.html</a></em>
+</p>
+</div>
+<div id="the-utm-system" class="section level4" number="1.3.1.1">
+<h4><span class="header-section-number">1.3.1.1</span> The UTM system</h4>
+<p>In the UTM system, the Earth is divided into 60 zones. Northing values are given by the metres north, or south (in the southern hemisphere) of the equator. Easting values are established as the number of metres from the central meridian of a zone. You can see the UTM zone here</p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_T12_projection2.png" alt="Zone 12N: https://epsg.io/32612" width="45%" />
+<p class="caption">
+(#fig:Tut11Fig2)Zone 12N: <a href="https://epsg.io/32612" class="uri">https://epsg.io/32612</a>
+</p>
+</div>
+</div>
+<div id="epsg-codes" class="section level4" number="1.3.1.2">
+<h4><span class="header-section-number">1.3.1.2</span> EPSG codes</h4>
+<p>Each map projection has a unique numeric code called an EPSG code. To find them, I tend to use these resources, but in this course I will try to provide the codes</p>
+<ul>
+<li><a href="https://epsg.io" class="uri">https://epsg.io</a></li>
+<li><a href="https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-" class="uri">https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-</a></li>
+<li>ChatGPT and similar</li>
+</ul>
+<p class="comment">
+<strong>R is stupid. It has no idea what units or projection your coordinates are in until you tell it</strong>
+</p>
+<p><br><br></p>
+</div>
+</div>
+</div>
+<div id="T5_sfobjects" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Vector Data</h2>
+<div id="T5_st_as_sf" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> How to make existing data “spatial” (<code>st_as_sf</code>)</h3>
+<p>The <code>sf</code> package is designed to deal with vector data, but you need to convert your data into <code>sf</code> format before its commands will work. Lets read in some non spatial data. These are medical clinics near the LA/MI border.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>medicaldata <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;MedicalClinics.xlsx&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">head</span>(medicaldata)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   Longggitude latitudE Name                            Description
+##         &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
+## 1       -91.2     32.4 Madison Parish Hospital         Hospital   
+## 2       -91.4     32.9 West Carroll Memorial Hospital  Hospital   
+## 3       -91.3     33.3 Chicot Memorial Medical Center  Hospital   
+## 4       -91.9     32.8 Morehouse General Hospital      Hospital   
+## 5       -90.8     32.4 Merit Health River Region       Hospital   
+## 6       -90.6     33.5 South Sunflower County Hospital Hospital</code></pre>
+<div id="step-1-note-the-column-names-of-your-xy-coordinates" class="section level4 unnumbered">
+<h4 class="unnumbered">Step 1: Note the column names of your x/y coordinates</h4>
+<p>First, look at your data and note the column names of your x and y coordinates. Note, these don’t have to be fancy spatial names, they can be “elephanT” and “popcorn”. To make my point, I have named my x and y columns “Longggitude” and “latitudE”.</p>
+<p>You can do this via looking at just the column names with the names command</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">names</span>(medicaldata)</span></code></pre></div>
+<pre><code>## [1] &quot;Longggitude&quot; &quot;latitudE&quot;    &quot;Name&quot;        &quot;Description&quot;</code></pre>
+<p>or by just looking at the data</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>medicaldata</span></code></pre></div>
+<pre><code>## # A tibble: 18 × 4
+##    Longggitude latitudE Name                                       Description
+##          &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                                      &lt;chr&gt;      
+##  1       -91.2     32.4 Madison Parish Hospital                    Hospital   
+##  2       -91.4     32.9 West Carroll Memorial Hospital             Hospital   
+##  3       -91.3     33.3 Chicot Memorial Medical Center             Hospital   
+##  4       -91.9     32.8 Morehouse General Hospital                 Hospital   
+##  5       -90.8     32.4 Merit Health River Region                  Hospital   
+##  6       -90.6     33.5 South Sunflower County Hospital            Hospital   
+##  7       -90.9     32.9 Sharkey Issaquena Community Hospital       Hospital   
+##  8       -91.0     33.4 Family Medical Center                      Clinic     
+##  9       -91.4     32.9 Oak Grove Medical Clinic                   Clinic     
+## 10       -90.4     32.9 Baptist Medical Group - Yazoo Primary Care Hospital   
+## 11       -90.1     32.6 UMMC Madison Hospital                      Hospital   
+## 12       -90.9     32.3 Medical Associates of Vicksburg            Clinic     
+## 13       -90.9     32.9 Rolling Fork Medical Clinic                Clinic     
+## 14       -91.2     32.8 Lake Providence Medical Clinic             Clinic     
+## 15       -91.0     33.4 Delta Health Center                        Clinic     
+## 16       -91.1     33.4 Delta Regional Health Clinic               Clinic     
+## 17       -91.0     33.4 United Medical Inc                         Clinic     
+## 18       -90.9     32.9 Jackson Rural Health Clinic                Clinic</code></pre>
+<p><br></p>
+</div>
+<div id="step-2-note-the-coordinate-reference-system" class="section level4 unnumbered">
+<h4 class="unnumbered">Step 2: Note the coordinate reference system</h4>
+<p>Spatial data also needs a <strong>Coordinate Reference System (CRS)</strong>. The CRS tells R what the coordinates mean and how they relate to locations in your domain. For example, the coordinates might be longitude/latitude in degrees, or projected x/y coordinates measured in metres.</p>
+<p>Each of these many thousands of coordinate systems has an “EPSG” reference number assigned to it, and we need that to communicate to R in order to correctly make the data spatial.</p>
+<p><u>In this class, we are mostly going to be longitude/latitude data in units of degrees with EPSG=4326</u></p>
+<p>But as long as you can identify it, you can work with any form of spatial data. The problem is that you need to note the coordinate system in advance from the help-file/data-documentation. These days, if you have some idea then asking chatGPT/Claude for the related EPSG code will be the fastest way to get it, but there are also many websites that can help such as <a href="https://epsg.io" class="uri">https://epsg.io</a></p>
+<p><br></p>
+</div>
+<div id="step-3-make-the-data-spatial" class="section level4 unnumbered">
+<h4 class="unnumbered">Step 3: Make the data spatial</h4>
+<p>Now we have everything needed to make our data spatial.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>medicaldata_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(medicaldata, </span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>                           <span class="at">coords=</span><span class="fu">c</span>(<span class="st">&quot;Longggitude&quot;</span>,<span class="st">&quot;latitudE&quot;</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>                           <span class="at">crs=</span><span class="dv">4326</span>)</span></code></pre></div>
+<p>In this code:</p>
+<ul>
+<li><p><strong>Command:</strong></p>
+<ul>
+<li>st_as_sf() from the sf package. It will only work if you have the sf package in your library loading chunk and if you have run that code chunk.</li>
+</ul></li>
+<li><p><strong>Arguments</strong></p>
+<ul>
+<li><p><code>medicaldata</code> is the original table.</p></li>
+<li><p><code>coords = c("Longggitude", "latitudE")</code> tells R the COLUMN NAMES of the <strong>x and y coordinates</strong>. Longitude is x, so it comes first. Latitude is y, so it comes second.</p></li>
+<li><p>coords: These are the COLUMN NAMES of our coordinates. In this case, they are are “Longggitude” and “latitudE” (note the c() and the quote marks)</p></li>
+<li><p><code>crs = 4326</code> tells R what coordinate system those numbers are already using. EPSG:4326 is WGS 84 longitude/latitude.</p></li>
+<li><p><code>medicaldata_sf</code> I tend to name the spatial version the same as the original data but add _sf at the end.</p></li>
+</ul></li>
+</ul>
+<p><br><br></p>
+<hr />
+</div>
+</div>
+<div id="T5_st_read" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Reading spatial data from file — <code>st_read()</code></h3>
+<p>There are also many spatial files. Common examples include shapefiles (<code>.shp</code>), GeoJSON files (<code>.geojson</code>) and GeoPackages (<code>.gpkg</code>). In this case the geometry is already stored in the file, so you do <strong>not</strong> need <code>st_as_sf()</code>.</p>
+<p>To read in spatial files, use the <code>st_read()</code> command. This is easy for gpkg and geoson files.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>population_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;medical_population_density.gpkg&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `acs_pop_density&#39; from data source 
+##   `/Users/hgreatrex/Documents/GitHub/Teaching/GEOG-364/Geog364-2026/medical_population_density.gpkg&#39; 
+##   using driver `GPKG&#39;
+## Simple feature collection with 156 features and 5 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.46097
+## Geodetic CRS:  NAD83</code></pre>
+<div id="reading-in-shapefiles" class="section level4" number="1.4.2.1">
+<h4><span class="header-section-number">1.4.2.1</span> Reading in shapefiles</h4>
+<p><strong>IMPORTANT</strong>: Shapefiles (.shp) are actually made up of several separate files (for example, .shp, .shx, and .dbf). Keep all of these files together in the same folder, or the shapefile will not open correctly.</p>
+<p>You will have downloaded a zipped folder (medical_broadband.zip). Unzip this, but keep all of the shapefile components together in the same folder.</p>
+<pre><code>## [1] &quot;medical_broadband.dbf&quot; &quot;medical_broadband.prj&quot; &quot;medical_broadband.shp&quot;
+## [4] &quot;medical_broadband.shx&quot;</code></pre>
+<p>To read the shapefile into R, point st_read() to the .shp file: R will automatically use the other shapefile components stored alongside it.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>broadband_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;medical_broadband/medical_broadband.shp&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `medical_broadband&#39; from data source 
+##   `/Users/hgreatrex/Documents/GitHub/Teaching/GEOG-364/Geog364-2026/medical_broadband/medical_broadband.shp&#39; 
+##   using driver `ESRI Shapefile&#39;
+## Simple feature collection with 156 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.46097
+## Geodetic CRS:  NAD83</code></pre>
+<p><br><br></p>
+</div>
+</div>
+</div>
+<div id="exploring-spatial-data" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Exploring spatial data</h2>
+<p>No matter if you have read the data in from file or converted it, your spatial dataset will appear different to a normal table.</p>
+<p>In general, a <code>sf</code> object behaves very much like an ordinary data frame: each row is one object and the ordinary columns contain its variables. The difference is that an <code>sf</code> object also has a special <code>geometry column</code> which stores the spatial information for each row. It also contains meta data about the coordinate system and the bounding box/spatial domain.</p>
+<p>For example, a point dataset might conceptually look like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Height</th>
+<th>Number of leaves</th>
+<th>geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>21.3</td>
+<td>350</td>
+<td>POINT (…)</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>19.8</td>
+<td>510</td>
+<td>POINT (…)</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>22.1</td>
+<td>280</td>
+<td>POINT (…)</td>
+</tr>
+</tbody>
+</table>
+<p>The first three columns are ordinary variables. The <code>geometry</code> column tells R where each station is located. For lines and polygons, the geometry column will also contain information about direction and shape.</p>
+<p>Here’s how the medical data has changed. R now understands that it’s spatial,so typing its name it provides a spatial summary alongside the data itself. Here is our point data.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>medicaldata_sf</span></code></pre></div>
+<pre><code>## Simple feature collection with 18 features and 2 fields
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.4576
+## Geodetic CRS:  WGS 84
+## # A tibble: 18 × 3
+##    Name                                    Description             geometry
+##  * &lt;chr&gt;                                   &lt;chr&gt;                &lt;POINT [°]&gt;
+##  1 Madison Parish Hospital                 Hospital    (-91.18497 32.40362)
+##  2 West Carroll Memorial Hospital          Hospital    (-91.38239 32.86837)
+##  3 Chicot Memorial Medical Center          Hospital    (-91.29039 33.30641)
+##  4 Morehouse General Hospital              Hospital    (-91.91738 32.77498)
+##  5 Merit Health River Region               Hospital    (-90.82479 32.37449)
+##  6 South Sunflower County Hospital         Hospital     (-90.64957 33.4576)
+##  7 Sharkey Issaquena Community Hospital    Hospital    (-90.87507 32.90016)
+##  8 Family Medical Center                   Clinic      (-91.03973 33.38151)
+##  9 Oak Grove Medical Clinic                Clinic      (-91.38139 32.86133)
+## 10 Baptist Medical Group - Yazoo Primary … Hospital    (-90.40434 32.85895)
+## 11 UMMC Madison Hospital                   Hospital    (-90.08308 32.58133)
+## 12 Medical Associates of Vicksburg         Clinic      (-90.86579 32.32208)
+## 13 Rolling Fork Medical Clinic             Clinic       (-90.88494 32.9058)
+## 14 Lake Providence Medical Clinic          Clinic      (-91.17124 32.80971)
+## 15 Delta Health Center                     Clinic      (-91.04208 33.35394)
+## 16 Delta Regional Health Clinic            Clinic      (-91.05115 33.40433)
+## 17 United Medical Inc                      Clinic       (-91.0411 33.35769)
+## 18 Jackson Rural Health Clinic             Clinic      (-90.88474 32.90506)</code></pre>
+<p>and here is our polygon data for population density</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>population_sf</span></code></pre></div>
+<pre><code>## Simple feature collection with 156 features and 5 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.46097
+## Geodetic CRS:  NAD83
+## First 10 features:
+##          GEOID                Name     State Population Pop_density
+## 1  22065960200      Madison Parish Louisiana       2359    5.305680
+## 2  22083970600     Richland Parish Louisiana       4521   24.553315
+## 3  22065960100      Madison Parish Louisiana       1614    9.172155
+## 4  22067950600    Morehouse Parish Louisiana       2597   14.511767
+## 5  22083970400     Richland Parish Louisiana       3336   24.487161
+## 6  22065960500      Madison Parish Louisiana       1983 1451.136487
+## 7  22067950100    Morehouse Parish Louisiana       1282    4.691311
+## 8  22035000100 East Carroll Parish Louisiana       2377   18.396992
+## 9  22035000300 East Carroll Parish Louisiana       1960  504.830911
+## 10 22067950800    Morehouse Parish Louisiana       3427  972.502707
+##                              geom
+## 1  MULTIPOLYGON (((-91.13204 3...
+## 2  MULTIPOLYGON (((-91.76072 3...
+## 3  MULTIPOLYGON (((-90.90109 3...
+## 4  MULTIPOLYGON (((-91.91035 3...
+## 5  MULTIPOLYGON (((-91.91738 3...
+## 6  MULTIPOLYGON (((-91.20573 3...
+## 7  MULTIPOLYGON (((-91.86088 3...
+## 8  MULTIPOLYGON (((-91.34755 3...
+## 9  MULTIPOLYGON (((-91.22745 3...
+## 10 MULTIPOLYGON (((-91.91738 3...</code></pre>
+<p>You can also ask directly for the geometry type or the details of the map projection. In the example above I would type</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">st_geometry</span>(medicaldata_sf)</span></code></pre></div>
+<pre><code>## Geometry set for 18 features 
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.4576
+## Geodetic CRS:  WGS 84
+## First 5 geometries:</code></pre>
+<p>and</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co"># This is what the EPSG=4326 actually means. </span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="fu">st_crs</span>(medicaldata_sf)</span></code></pre></div>
+<p><br></p>
+<div id="keeping-the-longlatcoordinate-columns" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Keeping the long/lat/coordinate columns</h3>
+<p>By default, the original longitude and latitude columns have disappeared and been replaced by a <code>geometry</code> column. The coordinates have not been lost: they are now stored inside each point geometry.</p>
+<p>If you want to keep the original coordinate columns as well, add <code>remove = FALSE</code>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>medicaldata_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(medicaldata, </span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>                           <span class="at">coords=</span><span class="fu">c</span>(<span class="st">&quot;Longggitude&quot;</span>,<span class="st">&quot;latitudE&quot;</span>),</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>                           <span class="at">crs=</span><span class="dv">4326</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>                           <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>medicaldata_sf</span></code></pre></div>
+<pre><code>## Simple feature collection with 18 features and 4 fields
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.4576
+## Geodetic CRS:  WGS 84
+## # A tibble: 18 × 5
+##    Longggitude latitudE Name               Description             geometry
+##  *       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;                &lt;POINT [°]&gt;
+##  1       -91.2     32.4 Madison Parish Ho… Hospital    (-91.18497 32.40362)
+##  2       -91.4     32.9 West Carroll Memo… Hospital    (-91.38239 32.86837)
+##  3       -91.3     33.3 Chicot Memorial M… Hospital    (-91.29039 33.30641)
+##  4       -91.9     32.8 Morehouse General… Hospital    (-91.91738 32.77498)
+##  5       -90.8     32.4 Merit Health Rive… Hospital    (-90.82479 32.37449)
+##  6       -90.6     33.5 South Sunflower C… Hospital     (-90.64957 33.4576)
+##  7       -90.9     32.9 Sharkey Issaquena… Hospital    (-90.87507 32.90016)
+##  8       -91.0     33.4 Family Medical Ce… Clinic      (-91.03973 33.38151)
+##  9       -91.4     32.9 Oak Grove Medical… Clinic      (-91.38139 32.86133)
+## 10       -90.4     32.9 Baptist Medical G… Hospital    (-90.40434 32.85895)
+## 11       -90.1     32.6 UMMC Madison Hosp… Hospital    (-90.08308 32.58133)
+## 12       -90.9     32.3 Medical Associate… Clinic      (-90.86579 32.32208)
+## 13       -90.9     32.9 Rolling Fork Medi… Clinic       (-90.88494 32.9058)
+## 14       -91.2     32.8 Lake Providence M… Clinic      (-91.17124 32.80971)
+## 15       -91.0     33.4 Delta Health Cent… Clinic      (-91.04208 33.35394)
+## 16       -91.1     33.4 Delta Regional He… Clinic      (-91.05115 33.40433)
+## 17       -91.0     33.4 United Medical Inc Clinic       (-91.0411 33.35769)
+## 18       -90.9     32.9 Jackson Rural Hea… Clinic      (-90.88474 32.90506)</code></pre>
+<p><br><br></p>
+</div>
+</div>
+<div id="selecting-a-map-projection." class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Selecting a map projection.</h2>
+<p>Its important that all your data is in the same map projection or it won’t plot. We do this by using the st_transform command. You can set everything to a new map projection of your choice, but it’s often easier to convert all your data to an existing projection. For example</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>medicaldata_sf <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(medicaldata_sf, <span class="fu">st_crs</span>(population_sf))</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>broadband_sf  <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(broadband_sf,   <span class="fu">st_crs</span>(population_sf))</span></code></pre></div>
+</div>
+</div>
+<!--bookdown:body:end-->
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+</body>
+
+</html>

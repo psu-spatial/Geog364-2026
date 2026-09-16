@@ -140,11 +140,17 @@ In your report, define a relevant population to answer your friend's question (s
 
 **[Step 6]:** Now use R-Commands that you learned in Labs 1, 2 and the tutorials to explore the summary statistics and distribution of the House.Price column. See if you can work out:
 
--   What range of costs are "most" of the prices between? (say 68%) or the interquartile range. (Remember you can google the command for IQR, or see the boxplot tutorials in (Tutorial 6: [Box Plots](#T6_boxplots)
+-   The mean distance to the MRT.
 
--   Is the house price data normally distributed? See (Tutorial 5: [Normal distribution](#T5_NormalDist)
+-   Make a professional looking histogram of the price data with units! (see tutorial 6)
 
--   Make a professional looking histogram of the price data (see tutorial 6)
+
+**[Step 7]:** Now use R-Commands that you learned in Labs 1, 2 and the tutorials to explore the summary statistics and distribution of the House.Price column. See if you can work out:
+
+-   The mean distance to the MRT.
+
+-   Make a professional looking histogram of the price data with units! (see tutorial 6)
+
 
 <br>
 

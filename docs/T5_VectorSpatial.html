@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 13 Vector spatial data basics | GEOG364 Lab Book 2026</title>
+<title>Chapter 14 Spatial data | GEOG364 Lab Book 2026</title>
 <meta name="author" content="Dr Helen Greatrex">
-<meta name="description" content="13.1 What is spatial data? Spatial data is data where location matters. As well as ordinary variables such as a name, temperature, population or land-use type, we also need information describing...">
+<meta name="description" content="14.1 Example datasets Throughout this tutorial, I will be using a dataset of medical clinics. You are welcome to download it yourself if you want to follow along by clicking here. Medical clinics:...">
 <meta name="generator" content="bookdown 0.47 with bs4_book()">
-<meta property="og:title" content="Chapter 13 Vector spatial data basics | GEOG364 Lab Book 2026">
+<meta property="og:title" content="Chapter 14 Spatial data | GEOG364 Lab Book 2026">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T5_VectorSpatial.html">
-<meta property="og:description" content="13.1 What is spatial data? Spatial data is data where location matters. As well as ordinary variables such as a name, temperature, population or land-use type, we also need information describing...">
+<meta property="og:description" content="14.1 Example datasets Throughout this tutorial, I will be using a dataset of medical clinics. You are welcome to download it yourself if you want to follow along by clicking here. Medical clinics:...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 13 Vector spatial data basics | GEOG364 Lab Book 2026">
-<meta name="twitter:description" content="13.1 What is spatial data? Spatial data is data where location matters. As well as ordinary variables such as a name, temperature, population or land-use type, we also need information describing...">
+<meta name="twitter:title" content="Chapter 14 Spatial data | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="14.1 Example datasets Throughout this tutorial, I will be using a dataset of medical clinics. You are welcome to download it yourself if you want to follow along by clicking here. Medical clinics:...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -23,7 +23,10 @@
 <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -47,57 +50,271 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 13</span> Vector spatial data basics</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
+<li><a class="" href="Lab_3.html">Homework 3</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
+<li><a class="active" href="T5_VectorSpatial.html"><span class="header-section-number">14</span> Spatial data</a></li>
+</ul>
 
         <div class="book-extra">
           
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T5_VectorSpatial" class="section level1" number="13">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T5_VectorSpatial" class="section level1" number="14">
 <h1>
-<span class="header-section-number">13</span> Vector spatial data basics<a class="anchor" aria-label="anchor" href="#T5_VectorSpatial"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14</span> Spatial data<a class="anchor" aria-label="anchor" href="#T5_VectorSpatial"><i class="fas fa-link"></i></a>
 </h1>
 <p><br></p>
-<div id="T5_WhatIsSpatial" class="section level2" number="13.1">
+<div id="example-datasets" class="section level2" number="14.1">
 <h2>
-<span class="header-section-number">13.1</span> What is spatial data?<a class="anchor" aria-label="anchor" href="#T5_WhatIsSpatial"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1</span> Example datasets<a class="anchor" aria-label="anchor" href="#example-datasets"><i class="fas fa-link"></i></a>
 </h2>
-<p>Spatial data is data where <strong>location matters</strong>. As well as ordinary variables such as a name, temperature, population or land-use type, we also need information describing <strong>where each object is located on the Earth</strong>.</p>
-<p>There are two main ways of representing spatial data:</p>
+<p>Throughout this tutorial, I will be using a dataset of medical clinics. You are welcome to download it yourself if you want to follow along by clicking here.</p>
+<ul>
+<li>Medical clinics: MedicalClinics.xlsx</li>
+<li>Population Density: medical_population.gpkg</li>
+<li>Broadband: medical_broadband.zip</li>
+</ul>
+</div>
+<div id="useful-tutorials" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> Useful tutorials<a class="anchor" aria-label="anchor" href="#useful-tutorials"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://ourcodingclub.github.io/tutorials/spatial-vector-sf/" class="uri">https://ourcodingclub.github.io/tutorials/spatial-vector-sf/</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/blob/main/sf.pdf" class="uri">https://github.com/rstudio/cheatsheets/blob/main/sf.pdf</a></li>
+<li><a href="https://learning.nceas.ucsb.edu/2020-02-RRCourse/spatial-vector-analysis-using-sf.html" class="uri">https://learning.nceas.ucsb.edu/2020-02-RRCourse/spatial-vector-analysis-using-sf.html</a></li>
+</ul>
+<p><br></p>
+</div>
+<div id="T5_WhatIsSpatial" class="section level2" number="14.3">
+<h2>
+<span class="header-section-number">14.3</span> Spatial data basics<a class="anchor" aria-label="anchor" href="#T5_WhatIsSpatial"><i class="fas fa-link"></i></a>
+</h2>
+<p>Geographical data needs special treatment. As well as standard data analysis, we need to tell R that our data has a spatial location on the Earth’s surface. R needs to understand what units our spatial location is in (e.g. metres, degrees..) and how we want the data to appear on plots and maps. R also needs to understand the different types of vector data (e.g. what we mean by a “polygon” or “point”).</p>
+<p>To achieve this there are some specialist types of data we need to use and several spatial data packages.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Vector data mostly uses the <code>sf</code> package</strong>. Each object (row) is represented as a spatial object (a point, line or polygon). For example the locations of trees might be represented as points, a road network as lines, and building footprints as polygons.</p></li>
+<li><p><strong>Raster data mostly uses the <code>terra</code> package</strong> The spatial domain is divided into a grid of equally sized cells. These are useful for storing field data that varies continuously over space, such as a satellite image, temperature or an elevation surface.</p></li>
+</ol>
+<p>We’re going to split this tutorial by vector and raster (field) data</p>
+<p><br></p>
+<div id="map-projections" class="section level3" number="14.3.1">
+<h3>
+<span class="header-section-number">14.3.1</span> Map projections<a class="anchor" aria-label="anchor" href="#map-projections"><i class="fas fa-link"></i></a>
+</h3>
+<p>See here for a great overview: <a href="https://source.opennews.org/articles/choosing-right-map-projection/" class="uri">https://source.opennews.org/articles/choosing-right-map-projection/</a></p>
+<p>At its simplest, think of our map projections as the “units” of the x-y-z coordinates of geographic data. For example, here is the same map, but in two different projections.</p>
+<ul>
+<li><p>On the left, the figure is in latitiude/longitude in units of degrees. LOOK AT THE UNITS ON THE AXIS!</p></li>
+<li><p>On the right the same map is in UTM.</p></li>
+</ul>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Tut11Fig1"></span>
+<img src="index_images/im_T12_projection1.png" alt="*Examples of geographic coordinate systems for raster data (WGS 84; left, in Lon/Lat degrees) and projected (NAD83 / UTM zone 12N; right, in metres), figure from https://geocompr.robinlovelace.net/spatial-class.html*" width="80%"><p class="caption">
+Figure 14.1: <em>Examples of geographic coordinate systems for raster data (WGS 84; left, in Lon/Lat degrees) and projected (NAD83 / UTM zone 12N; right, in metres), figure from <a href="https://geocompr.robinlovelace.net/spatial-class.html" class="uri">https://geocompr.robinlovelace.net/spatial-class.html</a></em>
+</p>
+</div>
+<div id="the-utm-system" class="section level4" number="14.3.1.1">
+<h4>
+<span class="header-section-number">14.3.1.1</span> The UTM system<a class="anchor" aria-label="anchor" href="#the-utm-system"><i class="fas fa-link"></i></a>
+</h4>
+<p>In the UTM system, the Earth is divided into 60 zones. Northing values are given by the metres north, or south (in the southern hemisphere) of the equator. Easting values are established as the number of metres from the central meridian of a zone. You can see the UTM zone here</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Tut11Fig2"></span>
+<img src="index_images/im_T12_projection2.png" alt="Zone 12N: https://epsg.io/32612" width="45%"><p class="caption">
+Figure 14.2: Zone 12N: <a href="https://epsg.io/32612" class="uri">https://epsg.io/32612</a>
+</p>
+</div>
+</div>
+<div id="epsg-codes" class="section level4" number="14.3.1.2">
+<h4>
+<span class="header-section-number">14.3.1.2</span> EPSG codes<a class="anchor" aria-label="anchor" href="#epsg-codes"><i class="fas fa-link"></i></a>
+</h4>
+<p>Each map projection has a unique numeric code called an EPSG code. To find them, I tend to use these resources, but in this course I will try to provide the codes</p>
+<ul>
+<li><a href="https://epsg.io" class="uri">https://epsg.io</a></li>
+<li><a href="https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-" class="uri">https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-</a></li>
+<li>ChatGPT and similar</li>
+</ul>
+<p class="comment">
+</p>
+<p><strong>R is stupid. It has no idea what units or projection your coordinates are in until you tell it</strong></p>
+
+<p><br><br></p>
+</div>
+</div>
+</div>
+<div id="T5_sfobjects" class="section level2" number="14.4">
+<h2>
+<span class="header-section-number">14.4</span> Vector Data<a class="anchor" aria-label="anchor" href="#T5_sfobjects"><i class="fas fa-link"></i></a>
+</h2>
+<div id="T5_st_as_sf" class="section level3" number="14.4.1">
+<h3>
+<span class="header-section-number">14.4.1</span> How to make existing data “spatial” (<code>st_as_sf</code>)<a class="anchor" aria-label="anchor" href="#T5_st_as_sf"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>sf</code> package is designed to deal with vector data, but you need to convert your data into <code>sf</code> format before its commands will work. Lets read in some non spatial data. These are medical clinics near the LA/MI border.</p>
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">medicaldata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"MedicalClinics.xlsx"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">medicaldata</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   Longggitude latitudE Name                            Description
+##         &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
+## 1       -91.2     32.4 Madison Parish Hospital         Hospital   
+## 2       -91.4     32.9 West Carroll Memorial Hospital  Hospital   
+## 3       -91.3     33.3 Chicot Memorial Medical Center  Hospital   
+## 4       -91.9     32.8 Morehouse General Hospital      Hospital   
+## 5       -90.8     32.4 Merit Health River Region       Hospital   
+## 6       -90.6     33.5 South Sunflower County Hospital Hospital</code></pre>
+<div id="step-1-note-the-column-names-of-your-xy-coordinates" class="section level4 unnumbered">
+<h4>Step 1: Note the column names of your x/y coordinates<a class="anchor" aria-label="anchor" href="#step-1-note-the-column-names-of-your-xy-coordinates"><i class="fas fa-link"></i></a>
+</h4>
+<p>First, look at your data and note the column names of your x and y coordinates. Note, these don’t have to be fancy spatial names, they can be “elephanT” and “popcorn”. To make my point, I have named my x and y columns “Longggitude” and “latitudE”.</p>
+<p>You can do this via looking at just the column names with the names command</p>
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">medicaldata</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "Longggitude" "latitudE"    "Name"        "Description"</code></pre>
+<p>or by just looking at the data</p>
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">medicaldata</span></span></code></pre></div>
+<pre><code>## # A tibble: 18 × 4
+##    Longggitude latitudE Name                                       Description
+##          &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                                      &lt;chr&gt;      
+##  1       -91.2     32.4 Madison Parish Hospital                    Hospital   
+##  2       -91.4     32.9 West Carroll Memorial Hospital             Hospital   
+##  3       -91.3     33.3 Chicot Memorial Medical Center             Hospital   
+##  4       -91.9     32.8 Morehouse General Hospital                 Hospital   
+##  5       -90.8     32.4 Merit Health River Region                  Hospital   
+##  6       -90.6     33.5 South Sunflower County Hospital            Hospital   
+##  7       -90.9     32.9 Sharkey Issaquena Community Hospital       Hospital   
+##  8       -91.0     33.4 Family Medical Center                      Clinic     
+##  9       -91.4     32.9 Oak Grove Medical Clinic                   Clinic     
+## 10       -90.4     32.9 Baptist Medical Group - Yazoo Primary Care Hospital   
+## 11       -90.1     32.6 UMMC Madison Hospital                      Hospital   
+## 12       -90.9     32.3 Medical Associates of Vicksburg            Clinic     
+## 13       -90.9     32.9 Rolling Fork Medical Clinic                Clinic     
+## 14       -91.2     32.8 Lake Providence Medical Clinic             Clinic     
+## 15       -91.0     33.4 Delta Health Center                        Clinic     
+## 16       -91.1     33.4 Delta Regional Health Clinic               Clinic     
+## 17       -91.0     33.4 United Medical Inc                         Clinic     
+## 18       -90.9     32.9 Jackson Rural Health Clinic                Clinic</code></pre>
+<p><br></p>
+</div>
+<div id="step-2-note-the-coordinate-reference-system" class="section level4 unnumbered">
+<h4>Step 2: Note the coordinate reference system<a class="anchor" aria-label="anchor" href="#step-2-note-the-coordinate-reference-system"><i class="fas fa-link"></i></a>
+</h4>
+<p>Spatial data also needs a <strong>Coordinate Reference System (CRS)</strong>. The CRS tells R what the coordinates mean and how they relate to locations in your domain. For example, the coordinates might be longitude/latitude in degrees, or projected x/y coordinates measured in metres.</p>
+<p>Each of these many thousands of coordinate systems has an “EPSG” reference number assigned to it, and we need that to communicate to R in order to correctly make the data spatial.</p>
+<p><u>In this class, we are mostly going to be longitude/latitude data in units of degrees with EPSG=4326</u></p>
+<p>But as long as you can identify it, you can work with any form of spatial data. The problem is that you need to note the coordinate system in advance from the help-file/data-documentation. These days, if you have some idea then asking chatGPT/Claude for the related EPSG code will be the fastest way to get it, but there are also many websites that can help such as <a href="https://epsg.io" class="uri">https://epsg.io</a></p>
+<p><br></p>
+</div>
+<div id="step-3-make-the-data-spatial" class="section level4 unnumbered">
+<h4>Step 3: Make the data spatial<a class="anchor" aria-label="anchor" href="#step-3-make-the-data-spatial"><i class="fas fa-link"></i></a>
+</h4>
+<p>Now we have everything needed to make our data spatial.</p>
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">medicaldata_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="va">medicaldata</span>, </span>
+<span>                           coords<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Longggitude"</span>,<span class="st">"latitudE"</span><span class="op">)</span>,</span>
+<span>                           crs<span class="op">=</span><span class="fl">4326</span><span class="op">)</span></span></code></pre></div>
+<p>In this code:</p>
 <ul>
 <li>
-<strong>Vector data</strong> represents individual objects as <strong>points, lines or polygons</strong>. For example, weather stations might be points, roads might be lines, and counties might be polygons.</li>
-<li>
-<strong>Raster data</strong> divides an area into a <strong>grid of cells</strong>. Each cell stores a value, such as elevation, temperature or tree cover.</li>
+<p><strong>Command:</strong></p>
+<ul>
+<li>st_as_sf() from the sf package. It will only work if you have the sf package in your library loading chunk and if you have run that code chunk.</li>
 </ul>
-<p>This tutorial focuses on <strong>vector data</strong>.</p>
-<p>A vector dataset therefore usually contains two kinds of information:</p>
-<ol style="list-style-type: decimal">
+</li>
 <li>
-<strong>Attributes</strong> — the ordinary variables describing each object.</li>
-<li>
-<strong>Geometry</strong> — the location and shape of each object.</li>
-</ol>
-<p>For example, a weather-station dataset might contain station name, elevation and temperature as attributes, plus a point showing where each station is located.</p>
-<blockquote>
-<p><strong>Note:</strong> Some vector datasets contain very few attributes and are mainly about the locations themselves. The geometry is what makes the dataset spatial.</p>
-</blockquote>
-<p><br></p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><p><code>medicaldata</code> is the original table.</p></li>
+<li><p><code>coords = c("Longggitude", "latitudE")</code> tells R the COLUMN NAMES of the <strong>x and y coordinates</strong>. Longitude is x, so it comes first. Latitude is y, so it comes second.</p></li>
+<li><p>coords: These are the COLUMN NAMES of our coordinates. In this case, they are are “Longggitude” and “latitudE” (note the c() and the quote marks)</p></li>
+<li><p><code>crs = 4326</code> tells R what coordinate system those numbers are already using. EPSG:4326 is WGS 84 longitude/latitude.</p></li>
+<li><p><code>medicaldata_sf</code> I tend to name the spatial version the same as the original data but add _sf at the end.</p></li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
 <hr>
 </div>
-<div id="T5_sfobjects" class="section level2" number="13.2">
-<h2>
-<span class="header-section-number">13.2</span> How does R know that data is spatial?<a class="anchor" aria-label="anchor" href="#T5_sfobjects"><i class="fas fa-link"></i></a>
-</h2>
-<p>For vector work we will use the <code>sf</code> package. An <code>sf</code> object behaves very much like an ordinary data frame: each <strong>row is one object</strong> and the ordinary columns contain its variables.</p>
-<p>The difference is that an <code>sf</code> object also has a special <strong>geometry column</strong>. This stores the spatial information for each row.</p>
+</div>
+<div id="T5_st_read" class="section level3" number="14.4.2">
+<h3>
+<span class="header-section-number">14.4.2</span> Reading spatial data from file — <code>st_read()</code><a class="anchor" aria-label="anchor" href="#T5_st_read"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are also many spatial files. Common examples include shapefiles (<code>.shp</code>), GeoJSON files (<code>.geojson</code>) and GeoPackages (<code>.gpkg</code>). In this case the geometry is already stored in the file, so you do <strong>not</strong> need <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf()</a></code>.</p>
+<p>To read in spatial files, use the <code><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read()</a></code> command. This is easy for gpkg and geoson files.</p>
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">population_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"medical_population_density.gpkg"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Reading layer `acs_pop_density' from data source 
+##   `/Users/hgreatrex/Documents/GitHub/Teaching/GEOG-364/Geog364-2026/medical_population_density.gpkg' 
+##   using driver `GPKG'
+## Simple feature collection with 156 features and 5 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.46097
+## Geodetic CRS:  NAD83</code></pre>
+<div id="reading-in-shapefiles" class="section level4" number="14.4.2.1">
+<h4>
+<span class="header-section-number">14.4.2.1</span> Reading in shapefiles<a class="anchor" aria-label="anchor" href="#reading-in-shapefiles"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>IMPORTANT</strong>: Shapefiles (.shp) are actually made up of several separate files (for example, .shp, .shx, and .dbf). Keep all of these files together in the same folder, or the shapefile will not open correctly.</p>
+<p>You will have downloaded a zipped folder (medical_broadband.zip). Unzip this, but keep all of the shapefile components together in the same folder.</p>
+<pre><code>## [1] "medical_broadband.dbf" "medical_broadband.prj" "medical_broadband.shp"
+## [4] "medical_broadband.shx"</code></pre>
+<p>To read the shapefile into R, point st_read() to the .shp file: R will automatically use the other shapefile components stored alongside it.</p>
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">broadband_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"medical_broadband/medical_broadband.shp"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Reading layer `medical_broadband' from data source 
+##   `/Users/hgreatrex/Documents/GitHub/Teaching/GEOG-364/Geog364-2026/medical_broadband/medical_broadband.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 156 features and 6 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.46097
+## Geodetic CRS:  NAD83</code></pre>
+<p><br><br></p>
+</div>
+</div>
+<div id="T5_sfexplore" class="section level3" number="14.4.3">
+<h3>
+<span class="header-section-number">14.4.3</span> Exploring vector data<a class="anchor" aria-label="anchor" href="#T5_sfexplore"><i class="fas fa-link"></i></a>
+</h3>
+<p>No matter if you have read the data in from file or converted it, your spatial dataset will appear different to a normal table.</p>
+<p>In general, a <code>sf</code> object behaves very much like an ordinary data frame: each row is one object and the ordinary columns contain its variables. The difference is that an <code>sf</code> object also has a special <code>geometry column</code> which stores the spatial information for each row. It also contains meta data about the coordinate system and the bounding box/spatial domain.</p>
 <p>For example, a point dataset might conceptually look like this:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
-<th>Station</th>
-<th>Temperature</th>
-<th>Elevation</th>
+<th>Name</th>
+<th>Height</th>
+<th>Number of leaves</th>
 <th>geometry</th>
 </tr></thead>
 <tbody>
@@ -121,125 +338,177 @@
 </tr>
 </tbody>
 </table></div>
-<p>The first three columns are ordinary variables. The <code>geometry</code> column tells R where each station is located.</p>
-<p>Spatial data also needs a <strong>Coordinate Reference System (CRS)</strong>. The CRS tells R what the coordinates mean and how they relate to locations on the Earth. For example, the coordinates might be longitude/latitude in degrees, or projected x/y coordinates measured in metres.</p>
-<p>If you type the name of an <code>sf</code> object, R prints a useful spatial summary:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mydata</span></span></code></pre></div>
-<p>You can also ask directly for the geometry type or CRS:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">st_geometry_type</span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span>
-<span><span class="fu">st_crs</span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code></pre></div>
+<p>The first three columns are ordinary variables. The <code>geometry</code> column tells R where each station is located. For lines and polygons, the geometry column will also contain information about direction and shape.</p>
+<p>Here’s how the medical data has changed. R now understands that it’s spatial,so typing its name it provides a spatial summary alongside the data itself. This includes things like the bounding box and map projection.</p>
+<p>Here is our point data.</p>
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">medicaldata_sf</span></span></code></pre></div>
+<pre><code>## Simple feature collection with 18 features and 2 fields
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.4576
+## Geodetic CRS:  WGS 84
+## # A tibble: 18 × 3
+##    Name                                    Description             geometry
+##  * &lt;chr&gt;                                   &lt;chr&gt;                &lt;POINT [°]&gt;
+##  1 Madison Parish Hospital                 Hospital    (-91.18497 32.40362)
+##  2 West Carroll Memorial Hospital          Hospital    (-91.38239 32.86837)
+##  3 Chicot Memorial Medical Center          Hospital    (-91.29039 33.30641)
+##  4 Morehouse General Hospital              Hospital    (-91.91738 32.77498)
+##  5 Merit Health River Region               Hospital    (-90.82479 32.37449)
+##  6 South Sunflower County Hospital         Hospital     (-90.64957 33.4576)
+##  7 Sharkey Issaquena Community Hospital    Hospital    (-90.87507 32.90016)
+##  8 Family Medical Center                   Clinic      (-91.03973 33.38151)
+##  9 Oak Grove Medical Clinic                Clinic      (-91.38139 32.86133)
+## 10 Baptist Medical Group - Yazoo Primary … Hospital    (-90.40434 32.85895)
+## 11 UMMC Madison Hospital                   Hospital    (-90.08308 32.58133)
+## 12 Medical Associates of Vicksburg         Clinic      (-90.86579 32.32208)
+## 13 Rolling Fork Medical Clinic             Clinic       (-90.88494 32.9058)
+## 14 Lake Providence Medical Clinic          Clinic      (-91.17124 32.80971)
+## 15 Delta Health Center                     Clinic      (-91.04208 33.35394)
+## 16 Delta Regional Health Clinic            Clinic      (-91.05115 33.40433)
+## 17 United Medical Inc                      Clinic       (-91.0411 33.35769)
+## 18 Jackson Rural Health Clinic             Clinic      (-90.88474 32.90506)</code></pre>
+<p>and here is our polygon data for population density</p>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">population_sf</span></span></code></pre></div>
+<pre><code>## Simple feature collection with 156 features and 5 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.46097
+## Geodetic CRS:  NAD83
+## First 10 features:
+##          GEOID                Name     State Population Pop_density
+## 1  22065960200      Madison Parish Louisiana       2359    5.305680
+## 2  22083970600     Richland Parish Louisiana       4521   24.553315
+## 3  22065960100      Madison Parish Louisiana       1614    9.172155
+## 4  22067950600    Morehouse Parish Louisiana       2597   14.511767
+## 5  22083970400     Richland Parish Louisiana       3336   24.487161
+## 6  22065960500      Madison Parish Louisiana       1983 1451.136487
+## 7  22067950100    Morehouse Parish Louisiana       1282    4.691311
+## 8  22035000100 East Carroll Parish Louisiana       2377   18.396992
+## 9  22035000300 East Carroll Parish Louisiana       1960  504.830911
+## 10 22067950800    Morehouse Parish Louisiana       3427  972.502707
+##                              geom
+## 1  MULTIPOLYGON (((-91.13204 3...
+## 2  MULTIPOLYGON (((-91.76072 3...
+## 3  MULTIPOLYGON (((-90.90109 3...
+## 4  MULTIPOLYGON (((-91.91035 3...
+## 5  MULTIPOLYGON (((-91.91738 3...
+## 6  MULTIPOLYGON (((-91.20573 3...
+## 7  MULTIPOLYGON (((-91.86088 3...
+## 8  MULTIPOLYGON (((-91.34755 3...
+## 9  MULTIPOLYGON (((-91.22745 3...
+## 10 MULTIPOLYGON (((-91.91738 3...</code></pre>
+<p>You can also ask directly for the geometry type or the details of the map projection. In the example above I would type</p>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">medicaldata_sf</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Geometry set for 18 features 
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.4576
+## Geodetic CRS:  WGS 84
+## First 5 geometries:</code></pre>
+<p>and</p>
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># This is what the EPSG=4326 actually means. </span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">medicaldata_sf</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
-<hr>
 </div>
-<div id="T5_st_as_sf" class="section level2" number="13.3">
-<h2>
-<span class="header-section-number">13.3</span> Turning a normal table into spatial data — <code>st_as_sf()</code><a class="anchor" aria-label="anchor" href="#T5_st_as_sf"><i class="fas fa-link"></i></a>
-</h2>
-<p>Sometimes your data starts as an ordinary spreadsheet containing longitude and latitude columns. R can see those columns, but at the moment it just sees them as numbers. We need to tell R that they describe locations.</p>
-<p>First read the spreadsheet normally:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">points_table</span> <span class="op">&lt;-</span> <span class="fu">read_excel</span><span class="op">(</span><span class="st">"points.xlsx"</span><span class="op">)</span></span></code></pre></div>
-<p>Look at the data and check the exact names of the coordinate columns:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">points_table</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">points_table</span><span class="op">)</span></span></code></pre></div>
-<p>Suppose they are called <code>longitude</code> and <code>latitude</code>. Use <code>st_as_sf()</code> to create a spatial version:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">points</span> <span class="op">&lt;-</span> <span class="va">points_table</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">st_as_sf</span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"longitude"</span>, <span class="st">"latitude"</span><span class="op">)</span>,</span>
-<span>           crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span></span></code></pre></div>
-<p>There are three important pieces here:</p>
-<ul>
-<li>
-<code>points_table</code> is the original table.</li>
-<li>
-<code>coords = c("longitude", "latitude")</code> tells R which columns contain the <strong>x and y coordinates</strong>. Longitude is x, so it comes first. Latitude is y, so it comes second.</li>
-<li>
-<code>crs = 4326</code> tells R what coordinate system those numbers are already using. EPSG:4326 is WGS 84 longitude/latitude.</li>
-</ul>
-<blockquote>
-<p><strong>Important:</strong> <code>st_as_sf()</code> does not work out the CRS from the coordinate values. You need to know what coordinate system the original data uses. Only use <code>crs = 4326</code> when your coordinates really are WGS 84 longitude/latitude.</p>
-</blockquote>
-<p>Now look at the new object:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">points</span></span></code></pre></div>
-<p>or open it as a table:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span></code></pre></div>
+<div id="keeping-the-longlatcoordinate-columns" class="section level3" number="14.4.4">
+<h3>
+<span class="header-section-number">14.4.4</span> Keeping the long/lat/coordinate columns<a class="anchor" aria-label="anchor" href="#keeping-the-longlatcoordinate-columns"><i class="fas fa-link"></i></a>
+</h3>
 <p>By default, the original longitude and latitude columns have disappeared and been replaced by a <code>geometry</code> column. The coordinates have not been lost: they are now stored inside each point geometry.</p>
 <p>If you want to keep the original coordinate columns as well, add <code>remove = FALSE</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">points</span> <span class="op">&lt;-</span> <span class="va">points_table</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">st_as_sf</span><span class="op">(</span>coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"longitude"</span>, <span class="st">"latitude"</span><span class="op">)</span>,</span>
-<span>           crs <span class="op">=</span> <span class="fl">4326</span>,</span>
-<span>           remove <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><br></p>
-<hr>
-</div>
-<div id="T5_st_read" class="section level2" number="13.4">
-<h2>
-<span class="header-section-number">13.4</span> Reading data that is already spatial — <code>st_read()</code><a class="anchor" aria-label="anchor" href="#T5_st_read"><i class="fas fa-link"></i></a>
-</h2>
-<p>Some files are already spatial vector datasets. Common examples include shapefiles (<code>.shp</code>), GeoJSON files (<code>.geojson</code>) and GeoPackages (<code>.gpkg</code>).</p>
-<p>In this case the geometry is already stored in the file, so you do <strong>not</strong> need <code>st_as_sf()</code>. Read it directly using <code>st_read()</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">areas</span> <span class="op">&lt;-</span> <span class="fu">st_read</span><span class="op">(</span><span class="st">"areas.gpkg"</span><span class="op">)</span></span></code></pre></div>
-<p>or:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">areas</span> <span class="op">&lt;-</span> <span class="fu">st_read</span><span class="op">(</span><span class="st">"areas.shp"</span><span class="op">)</span></span></code></pre></div>
-<p><code>areas</code> should now already be an <code>sf</code> object, with a geometry column and, if the file contains it, a CRS.</p>
-<p><br></p>
-<hr>
-</div>
-<div id="T5_CheckSpatial" class="section level2" number="13.5">
-<h2>
-<span class="header-section-number">13.5</span> Checking your spatial data<a class="anchor" aria-label="anchor" href="#T5_CheckSpatial"><i class="fas fa-link"></i></a>
-</h2>
-<p>It is worth checking spatial data immediately after you create or read it. Start by typing the object name, then check its geometry, CRS and bounding box:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">points</span></span>
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">medicaldata_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="va">medicaldata</span>, </span>
+<span>                           coords<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Longggitude"</span>,<span class="st">"latitudE"</span><span class="op">)</span>,</span>
+<span>                           crs<span class="op">=</span><span class="fl">4326</span>,</span>
+<span>                           remove <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">st_geometry_type</span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span>
-<span><span class="fu">st_crs</span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span>
-<span><span class="fu">st_bbox</span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span></code></pre></div>
-<p><code>st_geometry_type()</code> tells you whether your objects are points, lines, polygons etc.</p>
-<p><code>st_crs()</code> tells you the Coordinate Reference System.</p>
-<p><code>st_bbox()</code> gives the minimum and maximum x and y coordinates for the whole dataset. This is a quick way to find obvious problems: one incorrect coordinate can make your map stretch across half the world.</p>
-<p>A quick map is also one of the best checks. We will use <code>qtm()</code> for this below.</p>
-<p><br></p>
-<hr>
+<span></span>
+<span><span class="va">medicaldata_sf</span></span></code></pre></div>
+<pre><code>## Simple feature collection with 18 features and 4 fields
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: -91.91738 ymin: 32.32208 xmax: -90.08308 ymax: 33.4576
+## Geodetic CRS:  WGS 84
+## # A tibble: 18 × 5
+##    Longggitude latitudE Name               Description             geometry
+##  *       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;                &lt;POINT [°]&gt;
+##  1       -91.2     32.4 Madison Parish Ho… Hospital    (-91.18497 32.40362)
+##  2       -91.4     32.9 West Carroll Memo… Hospital    (-91.38239 32.86837)
+##  3       -91.3     33.3 Chicot Memorial M… Hospital    (-91.29039 33.30641)
+##  4       -91.9     32.8 Morehouse General… Hospital    (-91.91738 32.77498)
+##  5       -90.8     32.4 Merit Health Rive… Hospital    (-90.82479 32.37449)
+##  6       -90.6     33.5 South Sunflower C… Hospital     (-90.64957 33.4576)
+##  7       -90.9     32.9 Sharkey Issaquena… Hospital    (-90.87507 32.90016)
+##  8       -91.0     33.4 Family Medical Ce… Clinic      (-91.03973 33.38151)
+##  9       -91.4     32.9 Oak Grove Medical… Clinic      (-91.38139 32.86133)
+## 10       -90.4     32.9 Baptist Medical G… Hospital    (-90.40434 32.85895)
+## 11       -90.1     32.6 UMMC Madison Hosp… Hospital    (-90.08308 32.58133)
+## 12       -90.9     32.3 Medical Associate… Clinic      (-90.86579 32.32208)
+## 13       -90.9     32.9 Rolling Fork Medi… Clinic       (-90.88494 32.9058)
+## 14       -91.2     32.8 Lake Providence M… Clinic      (-91.17124 32.80971)
+## 15       -91.0     33.4 Delta Health Cent… Clinic      (-91.04208 33.35394)
+## 16       -91.1     33.4 Delta Regional He… Clinic      (-91.05115 33.40433)
+## 17       -91.0     33.4 United Medical Inc Clinic       (-91.0411 33.35769)
+## 18       -90.9     32.9 Jackson Rural Hea… Clinic      (-90.88474 32.90506)</code></pre>
+<p><br><br></p>
 </div>
-<div id="T5_CRS" class="section level2" number="13.6">
+</div>
+<div id="T5_qtmmaps" class="section level2" number="14.5">
 <h2>
-<span class="header-section-number">13.6</span> Coordinate Reference Systems<a class="anchor" aria-label="anchor" href="#T5_CRS"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.5</span> Making basic maps (qtm)<a class="anchor" aria-label="anchor" href="#T5_qtmmaps"><i class="fas fa-link"></i></a>
 </h2>
-<p>Coordinates only make sense if we know what they mean. A value of <code>40.8</code> could be a latitude in degrees; a value of <code>500000</code> might be an easting measured in metres. The <strong>CRS</strong> stores the information R needs to interpret those coordinates correctly.</p>
-<p>Many common coordinate reference systems have an <strong>EPSG code</strong>. For example, EPSG:4326 is WGS 84 longitude/latitude, measured in degrees. Projected CRSs commonly use x/y coordinates measured in metres.</p>
-<p>When you work with several spatial layers, they may arrive in different coordinate systems. Check them using:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">st_crs</span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span>
-<span><span class="fu">st_crs</span><span class="op">(</span><span class="va">areas</span><span class="op">)</span></span></code></pre></div>
-<p>For spatial analysis it is usually easiest to put them into the same CRS. <code>st_transform()</code> converts the coordinates into a new coordinate system.</p>
-<p>For example, make the points use the same CRS as the polygon data:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">points</span> <span class="op">&lt;-</span> <span class="va">points</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">st_transform</span><span class="op">(</span><span class="fu">st_crs</span><span class="op">(</span><span class="va">areas</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>The points have not moved in the real world. R has recalculated their coordinates so that the two datasets describe locations using the same coordinate system.</p>
-<blockquote>
-<p><strong>Important:</strong> Use <code>st_transform()</code> when you want to reproject data. Simply replacing the CRS label does not convert the coordinates.</p>
-</blockquote>
-<p><br></p>
-<hr>
+<p>You can do this by using the qtm command. “quick thematic map”. It’s in the tmap package so you need that loaded in your top code chunk before this will work.</p>
+<p>To make a quick map of a spatial dataset, all I do is say qtm(DataName). For example for the medical data:</p>
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/qtm.html">qtm</a></span><span class="op">(</span><span class="va">medicaldata_sf</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial12_SpatialBasics_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672"></div>
+<p>I can then add to this by adding a column title and it will color the dots/polygons by that column. For example, lets say I wanted to look at the population density column of population_sf</p>
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/qtm.html">qtm</a></span><span class="op">(</span><span class="va">population_sf</span>, <span class="st">"Pop_density"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial12_SpatialBasics_files/figure-html/unnamed-chunk-14-1.png" alt="" width="672"></div>
+<p>Even more interestingly, you can make the map interactive by adding tmap_mode(“view”) before the qtm code. In this mode, someone can change the basemap and zoom in and out.</p>
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_mode.html">tmap_mode</a></span><span class="op">(</span><span class="st">"view"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/qtm.html">qtm</a></span><span class="op">(</span><span class="va">medicaldata_sf</span>,<span class="st">"Description"</span> <span class="op">)</span></span></code></pre></div>
+<style>#legend01 { background: #FFFFFF; opacity: 1}</style>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-0d5e9d0c9ca8e99f4144" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-0d5e9d0c9ca8e99f4144">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"attributionControl":true},"calls":[{"method":"createMapPane","args":["tmap403",403]},{"method":"addLayersControl","args":[["Esri.WorldGrayCanvas","OpenStreetMap","Esri.WorldTopoMap"],"medicaldata_sf",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addProviderTiles","args":["Esri.WorldGrayCanvas",null,"Esri.WorldGrayCanvas",{"minZoom":0,"maxZoom":18,"maxNativeZoom":17,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"minZoom":0,"maxZoom":18,"maxNativeZoom":17,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,"Esri.WorldTopoMap",{"minZoom":0,"maxZoom":18,"maxNativeZoom":17,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addCircleMarkers","args":[[32.4036198,32.8683681,33.3064148,32.774979,32.3744933,33.4576013,32.9001632,33.381512,32.8613319,32.8589459,32.5813311,32.3220803,32.9057951,32.8097065,33.3539375,33.4043276,33.3576853,32.9050568],[-91.18496639999999,-91.3823879,-91.2903886,-91.91738459999991,-90.82479359999989,-90.6495666,-90.87507119999999,-91.03973309999991,-91.3813857999999,-90.4043432,-90.0830768,-90.8657935999999,-90.884939,-91.1712395,-91.04208,-91.0511456,-91.0410996999999,-90.88473619999991],[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],["X0000001","X0000002","X0000003","X0000004","X0000005","X0000006","X0000007","X0000008","X0000009","X0000010","X0000011","X0000012","X0000013","X0000014","X0000015","X0000016","X0000017","X0000018"],"medicaldata_sf",{"interactive":true,"className":"","pane":"tmap403","stroke":true,"color":["#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040","#404040"],"weight":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fill":true,"fillColor":["#77AADD","#77AADD","#77AADD","#77AADD","#77AADD","#77AADD","#77AADD","#FF9D9A","#FF9D9A","#77AADD","#77AADD","#FF9D9A","#FF9D9A","#FF9D9A","#FF9D9A","#FF9D9A","#FF9D9A","#FF9D9A"],"fillOpacity":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},null,null,["<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.1850<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.4036<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Madison Parish Hospital<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.3824<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.8684<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>West Carroll Memorial Hospital<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.2904<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>33.3064<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Chicot Memorial Medical Center<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.9174<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.7750<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Morehouse General Hospital<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.8248<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.3745<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Merit Health River Region<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.6496<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>33.4576<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>South Sunflower County Hospital<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.8751<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.9002<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Sharkey Issaquena Community Hospital<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.0397<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>33.3815<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Family Medical Center<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.3814<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.8613<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Oak Grove Medical Clinic<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.4043<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.8589<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Baptist Medical Group - Yazoo Primary Care<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.0831<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.5813<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>UMMC Madison Hospital<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Hospital<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.8658<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.3221<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Medical Associates of Vicksburg<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.8849<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.9058<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Rolling Fork Medical Clinic<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.1712<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.8097<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Lake Providence Medical Clinic<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.0421<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>33.3539<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Delta Health Center<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.0511<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>33.4043<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Delta Regional Health Clinic<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-91.0411<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>33.3577<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>United Medical Inc<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>","<style> div.leaflet-popup-content {width:auto !important;}<\/style><div class=\"tmap-popup\" style=\"max-height:25em;overflow-y:auto;overflow-x:hidden;padding-right:0px;\"><table class=\"tmap-popup-table\"><thead><tr><th class=\"tmap-popup-title\" colspan=\"2\" style=\"text-align:left;\"><\/th><\/tr><\/thead><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Longggitude<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>-90.8847<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>latitudE<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>32.9051<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Name<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Jackson Rural Health Clinic<\/nobr><\/td><\/tr><tr><td class=\"tmap-popup-label\" style=\"text-align:left; color:#888888;\"><nobr>Description<\/nobr><\/td><td class=\"tmap-popup-value\" style=\"text-align:right;\"><nobr>Clinic<\/nobr><\/td><\/tr><\/table><\/div>"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addControl","args":["<div>\n  <div style=\"font-size: 14px; text-align: left; margin-bottom: 5px; color: #000000;\">Description<\/div>\n<\/div>\n<div>\n  <img src=\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2216%22%20height%3D%2216%22%3E%0A%20%20%3Ccircle%20id%3D%22circle%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%227%22%20stroke%3D%22%23404040%22%20fill%3D%22%23FF9D9A%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%20stroke-dasharray%3D%22%22%20baseSize%3D%2220%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E\" style=\"vertical-align: middle; margin: 5px; margin-right: 0px; margin-left: 0px\" height=\"16\" width=\"16\"/>\n  <span style=\"font-size: 14px; vertical-align: middle; margin: 0px;\">Clinic<\/span>\n<\/div>\n<div>\n  <img src=\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2216%22%20height%3D%2216%22%3E%0A%20%20%3Ccircle%20id%3D%22circle%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%227%22%20stroke%3D%22%23404040%22%20fill%3D%22%2377AADD%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%20stroke-dasharray%3D%22%22%20baseSize%3D%2220%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E\" style=\"vertical-align: middle; margin: 5px; margin-right: 0px; margin-left: 0px\" height=\"16\" width=\"16\"/>\n  <span style=\"font-size: 14px; vertical-align: middle; margin: 0px;\">Hospital<\/span>\n<\/div>","bottomright","legend01","info legend medicaldata_sf leaflegend-group-medicaldatasf"]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomright"}]}],"fitBounds":[32.29936988,-91.95407075599991,33.48031172,-90.046390644,[]],"limits":{"lat":[32.3220803,33.4576013],"lng":[-91.91738459999991,-90.0830768]}},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\nfunction(el, x) {\n  var updateLeafLegend = function() {\n    var controlGroups = el.querySelectorAll(\n      'input.leaflet-control-layers-selector');\n    controlGroups.forEach(g => {\n      var groupName = g.nextSibling.innerText.substr(1);\n      var className = 'leaflegend-group-' +\n        groupName.replace(/[^a-zA-Z0-9]/g, '');\n      var checked = g.checked;\n      el.querySelectorAll('.legend.' + className).forEach(l => {\n        l.hidden = !checked;\n      })\n    })\n  }\n\n  updateLeafLegend();\n  this.on('baselayerchange', el => updateLeafLegend())\n  this.on('overlayadd', el => updateLeafLegend());\n  this.on('overlayremove', el => updateLeafLegend());\n}\n                        ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\"position\":\"relative\",\"bottomleft\":\"0px\",\"background-color\":\"rgba(255, 255, 255, 0.7)\",\"box-shadow\":\"0 0 2px #bbb\",\"background-clip\":\"padding-box\",\"margin\":\"0\",\"padding-left\":\"5px\",\"padding-right\":\"5px\",\"color\":\"#333\",\"font-size\":\"9px\",\"font-family\":\"\\\"Helvetica Neue\\\", Arial, Helvetica, sans-serif\",\"text-align\":\"left\",\"z-index\":\"700\"});\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null}]}}</script><p>There are MANY more features in the qtm help file (?qtm), but to go to the next level with making maps, we need to use the full tmap package (next week)</p>
+
 </div>
 </div>
+
+
+
+
+
+
   <div class="chapter-nav">
-<div class="empty"></div>
+<div class="prev"><a href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T5_VectorSpatial"><span class="header-section-number">14</span> Spatial data</a></li>
+<li><a class="nav-link" href="#example-datasets"><span class="header-section-number">14.1</span> Example datasets</a></li>
+<li><a class="nav-link" href="#useful-tutorials"><span class="header-section-number">14.2</span> Useful tutorials</a></li>
+<li>
+<a class="nav-link" href="#T5_WhatIsSpatial"><span class="header-section-number">14.3</span> Spatial data basics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#map-projections"><span class="header-section-number">14.3.1</span> Map projections</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#T5_sfobjects"><span class="header-section-number">14.4</span> Vector Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T5_st_as_sf"><span class="header-section-number">14.4.1</span> How to make existing data “spatial” (st_as_sf)</a></li>
+<li><a class="nav-link" href="#T5_st_read"><span class="header-section-number">14.4.2</span> Reading spatial data from file — st_read()</a></li>
+<li><a class="nav-link" href="#T5_sfexplore"><span class="header-section-number">14.4.3</span> Exploring vector data</a></li>
+<li><a class="nav-link" href="#keeping-the-longlatcoordinate-columns"><span class="header-section-number">14.4.4</span> Keeping the long/lat/coordinate columns</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#T5_qtmmaps"><span class="header-section-number">14.5</span> Making basic maps (qtm)</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -255,7 +524,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-11.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
