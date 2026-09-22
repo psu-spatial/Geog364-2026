@@ -1,0 +1,452 @@
+```{r setup, include=FALSE,message=FALSE,warning=FALSE}
+# OPTIONS -----------------------------------------------
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning=FALSE, 
+                      message = FALSE)
+graphics.off()
+
+library(tidyverse)
+library(sf)
+library(terra)
+library(tmap)
+library(spatstat)
+
+options(tigris_use_cache = TRUE)
+
+```
+
+# Making maps
+
+## LIBRARIES NEEDED
+
+You need the tmap and basemaps libraries in your code chunk.
+
+## Example Data
+
+In this example, I'm making a case study of Texas redistricting data and using that to make some tmaps.
+
+First lets see if my data file has layers using `st_layers()`.
+
+Note, I seem to have a computer address in my commands. "./index_data/TmapData/.." The dot means "start with the project folder", then it will look inside the subfolders I tell it to until it finds the data.
+
+```{r}
+# I use the sf package for this  
+st_layers("./index_data/TmapData/TexasRedistricting.gdb")
+```
+
+It does! We can use st_read() to read in each layer and save it as a different variable.
+
+```{r}
+# Yep! (see the Environment tab)
+districts108_2002    <-   st_read("./index_data/TmapData/TexasRedistricting.gdb", layer="districts108_2002")
+newDistricts2003     <-   st_read("./index_data/TmapData/TexasRedistricting.gdb", layer="newDistricts2003")
+tx_counties          <-   st_read("./index_data/TmapData/TexasRedistricting.gdb", layer="tx_counties")
+tx_largerCities      <-   st_read("./index_data/TmapData/TexasRedistricting.gdb", layer="tx_largerCities")
+tx_voting108         <-   st_read("./index_data/TmapData/TexasRedistricting.gdb", layer="tx_voting108")
+tx_votingcenters     <-   st_read("./index_data/TmapData/TexasRedistricting.gdb", layer="tx_voting108_centers")
+mycatlookslikeabat     <-   st_read("./index_data/TmapData/TexasRedistricting.gdb", layer="tx_voting108_centers")
+```
+
+Now let's check it worked! I can now refer to that dataset by the name I gave it.
+
+```{r}
+# Check it worked! I can now refer to that dataset by the name I gave it
+summary(districts108_2002)
+```
+
+It's also up to you to choose sensible variable names. This works, but I have no idea what it is
+
+```{r}
+head(mycatlookslikeabat)
+```
+
+<br><br>
+
+## Quick thematic map (qtm)
+
+I use this for a first quick look but its has many more options.
+
+- Type ?qtm into the console to bring up the help file
+- Or give your command to chatGPT/claude and as it to change the color etc.
+
+STOP IF IT STARTS GETTING COMPLICATED! Thats what the main tmap code is for.
+
+```{r}
+# This makes a quick map. I normally use this to check that the data isn't messed up
+qtm(districts108_2002)
+```
+
+```{r}
+# and you can add a column fill, by adding any column name with " "
+tmap_mode("view")
+qtm(districts108_2002,"RepMaj")
+```
+
+```{r}
+# It will now stay on interactive mode until you turn it off.
+# tmap_mode plot turns it back to static mode
+tmap_mode("plot")
+qtm(districts108_2002, "DISTRICT")
+```
+
+<br><br>
+
+## Basic Tmap
+
+Once you get past quick looks, ditch qtm. Instead, use the formal tmap structure
+
+- Load a variable name with tm_shape(),
+- Then decide how to plot it (e.g. borders, points, lines, polygons etc.
+- Connect each line with +
+
+IMPORTANT - this means that tmap commands are long on several lines! Highlight everything from the first tm_shape until you reach the end of the + then ctrl-enter/cmd-enter to run. Or run the entire code chunk. If you only highlight part of the command, you will get a + in the console. This means that R knows there is more command to come and its waiting for you to add it (esc gets out of this)
+
+```{r}
+
+tm_shape(districts108_2002)  +  # Choose the variable districts108_2002
+  tm_polygons(fill="RepMaj") +  # Plot as polygons filled with a color scale from the RepMaj column
+tm_shape(tx_largerCities)    +  # Choose the variable tx_largerCities
+  tm_dots(size=.5)           +  # Add the cities as dots
+tm_check_fix()                  
+
+# Useful command to add at the end, it refreshes the gis data before making the plot
+
+```
+
+<br><br>
+
+## Start adding tmap options
+
+You need the tmap and basemaps libraries in your top code chunk (and have run it)
+
+You can do as much with tmap as you can with ESRI/ARC/GIS software.
+
+For example, here is an "ugly map", with a load of options added so you can identify them. I've written this code twice! Once with just the command and the other with many comments to explain what I did.
+
+```{r}
+# This is all one command!  Look for the + symbol
+
+# add an ESRI basemap
+tm_basemap() +                
+  
+# POLYGONS (Filled shapes)
+# Districts   
+tm_shape(districts108_2002) +  
+   tm_polygons(fill="RepMaj",  
+               col = "grey", 
+               fill.scale = tm_scale_intervals(values = "viridis",  
+                                               style = "jenks"),
+               fill.alpha = .5,
+               fill.legend = tm_legend(title = "Hello!") ) +
+   
+  
+# POINTS (symbols)
+# Add cities as symbols
+tm_shape(tx_largerCities) +   
+  tm_symbols(fill = "#f0daed",
+             col="magenta", 
+             shape=23, 
+             fill.alpha=.5,
+             col.legend = tm_legend(title = "Cities in Texas!") ) +
+   
+   
+# POINTS (dots)
+# Add voting centres as transparent dots filled with republican vote numbers
+tm_shape(tx_votingcenters) +   
+  tm_dots(fill = "REP", 
+          size=.4,
+          fill.alpha=.8,
+          fill.scale = tm_scale_intervals(values = "Spectral",  
+                                          style = "quantile"),
+          fill.legend = tm_legend(title = "Republican votes") ) +
+   
+  
+# POLYGONS (borders)
+# add new voting districts as red borders (e.g. no fill)
+tm_shape(newDistricts2003) +
+  tm_borders(col = "red") +
+   
+    
+# POLYGONS (borders)
+# add new voting districts as red borders (e.g. no fill)
+tm_shape(newDistricts2003) +
+  tm_borders(col = "red") +
+
+# EXTRAS   
+# move legend
+tm_layout(legend.outside = TRUE, legend.outside.position = "right")+
+
+# Scalebar
+tm_scalebar(position = c("left", "bottom")) +
+   
+# Add compass
+tm_compass(position = c("right", "bottom"), type = "arrow") +
+   
+# Add credits
+tm_credits("You can write anything here", 
+             position = c("left", "bottom"), 
+             alpha = .8, size = 0.6) 
+
+```
+
+<br><br>
+
+## Nicer example
+
+Below this section, I put a load of tmap components so you can customise your own, although I would often start by asking chatGPT (ASK FOR TMAP VERSION 4 CODE) to help
+
+```{r}
+
+
+#==========================================================================
+# [4] MY VERSION (after programming in R for 20+ years) 
+# I also asked ChatGPT for the tmap VERSION 4 code to add in any feature I wanted 
+# Then asked it "is there a simpler way to write that code" - there often is
+#
+# because I play with fonts, it will look weird if your plot window is small.
+# I normally make the window larger by draging around the central dividers let it resize, and re-run when i am happy
+# If you get a label.style error, quit Rstudio, reopen and REINSTALL TMAP 
+# (your version is out of date - this is a new feature as of 3 weeks ago)
+
+# To see more basemap codes, see here for the full list and copy their name into the command
+# https://leaflet-extras.github.io/leaflet-providers/preview/ 
+#==========================================================================
+
+# Add basemap
+tm_basemap("CartoDB.Positron") +
+   
+   # Voter gradient polygons with custom breaks and legend
+   tm_shape(districts108_2002, unit = "km") +
+   tm_polygons(fill = "RepMaj", 
+               lwd = .5, fill_alpha = .75, col_alpha = .8,
+               fill.scale = tm_scale_intervals(values = "-brewer.rd_bu",
+                                               midpoint = 0,
+                                               style = "fixed",
+                                               breaks = c(-150000,-100000,
+                                                          -50000, 0, 50000,
+                                                          100000,150000),
+                                               label.style = "continuous"),
+               fill.legend = tm_legend(title = "Republican Majority \nin the 2002 \nCongressional \nelections",
+                                       group_id = "main_legend",
+                                       frame = FALSE,
+                                       reverse = TRUE,
+                                       text.size = 0.8,
+                                       title.align = "left",
+                                       title.size = 1.15,
+                                       col = "black",
+                                       lwd = 1.5,
+                                       ticks.lwd = 0,
+                                       title.padding = c(.25, 0, 1, 0))) +
+   
+   # City dots with a slightly lower custom legend the "white" dots are invisible to make it move lower on the page.
+   tm_shape(st_geometry(tx_largerCities), unit = "km") +
+   tm_dots(size = .18, fill_alpha = .5, col = grey(0.8)) +
+   tm_add_legend(type = "symbols",
+                 group_id = "main_legend",
+                 fill = c("white", "black"), col = c("white", "black"),
+                 shape = c(21, 21), size = c(0.2, .25),
+                 labels = c(" ", "Urban Centre"), title = "",
+                 frame = FALSE, text.size = .9) +
+   
+   # Add standard map components
+   tm_layout(legend.outside = TRUE, legend.outside.position = "right")+
+   tm_scalebar(position = c("left", "bottom")) +
+   tm_compass(position = c("right", "bottom"), type = "arrow") +
+   tm_credits("Basemap: CartoDB Positron. © OpenStreetMap contributors © CARTO", 
+              position = c("left", "bottom"), 
+              alpha = .8, size = 0.6) +
+   tm_credits("Cartography: Dr. Helen Greatrex, Penn State, 2026",
+              position = c("left", "bottom"), 
+              alpha = .8, size = 0.6) +
+   tm_credits("Data: Provided as class example",
+              position = c("left", "bottom"), 
+              alpha = .8, size = 0.6)
+
+
+
+```
+
+<br><br>
+
+## Tmap components
+
+### tmap_mode()
+
+To switch between a static map and an interactive, zoomable map, run `tmap_mode("plot")` or `tmap_mode("view")` BEFORE your map code.
+
+THIS DOES NOT NEED A PLUS SIGN. ITS A SEPARATE COMMAND TO THE COMPUTER
+
+<br>
+
+### Colour palettes
+
+There are many colour palettes available. You choose one using `values =` inside a scale function (see the layer sections below).
+
+- Examples of palette names are `"viridis"`, `"Spectral"` and `"brewer.set2"`.
+- To see all the palettes,
+  - run `cols4all::c4a_gui()`, which opens an interactive viewer,
+  - or `cols4all::c4a_palettes()`, which prints the names.
+- To reverse a palette, put a minus sign in front of the name, e.g. `values = "-viridis"`.
+- To use your own colours, give a vector using the c command, e.g. `values = c("white", "darkred")`.
+
+<br>
+
+### The + sign
+
+Every layer is connected with a `+` sign. Each bullet below is a "lego brick". Copy the code into your map and change the parts in CAPITALS to match your own data.\
+
+<br>
+
+### tm_basemap()
+
+This adds a background map, such as streets or satellite imagery, underneath your data. It normally goes first.
+
+- To add the default basemap (a light grey map), use `tm_basemap()`.
+- There are many basemaps available. To choose one, put its name in quotes, e.g.
+  - `tm_basemap("OpenStreetMap")`
+  - `tm_basemap("Esri.WorldImagery")` for satellite imagery, or `tm_basemap("Esri.WorldTopoMap")` for a topographic map.
+- To see all the basemap options,
+  - run `names(leaflet::providers)` in the console,
+  - or browse them visually at <https://leaflet-extras.github.io/leaflet-providers/preview/>
+- To make the basemap fainter, add alpha (0 = invisible, 1 = solid), e.g.
+  - `tm_basemap("OpenStreetMap", alpha = 0.5)`.
+  - 
+
+<br>
+
+### IMPORTANT tm_shape()
+
+This MUST come before each layer you want to plot. It is how you load that dataset to map.
+
+- To load a layer, use `tm_shape(YOUR_DATA) +`
+
+  - Then the next command says how you want to plot it\
+    <br>
+
+- To zoom the map to the extent of a different layer, use `tm_shape(YOUR_DATA, bbox = OTHER_LAYER)`.
+
+- By default the first `tm_shape()` sets the map extent and projection. To choose a different layer for this, use `tm_shape(YOUR_DATA, is.main = TRUE)`.
+
+<br>
+
+### tm_dots()
+
+These are small, simple points.
+
+- To change the size, use `size`. E.g. `tm_dots(size = 0.5)`.
+  - To size the dots by a numeric column, use `tm_dots(size = "NUMERIC_COLUMN")`.
+  - This can be annoying and can range from 0.04 to 2 depending on how you want the final map to look
+
+- To fill with a single colour, use `fill` e.g.
+
+  - `tm_dots(fill = "blue")`.
+
+  \
+
+- To fill using colors from a categorical column, use this
+
+  - `tm_dots(fill = "COLUMN_NAME", fill.scale = tm_scale_intervals(values = "brewer.set2", style="jenks"))`.
+    - Where values is your color palette (see above)
+    - and style is one of `"cat"`, `"sd"`, `"pretty"`, `"kmeans"`, `"hclust"`, `"bclust"`, `"fisher"`, `"jenks"`, `"dpih"` and `"headtails"` \
+
+<!-- -->
+
+- To fill using a numeric column split into classes, use
+  - `tm_dots(fill = "NUMERIC_COLUMN", fill.scale = tm_scale_intervals(values = "Spectral", style = "jenks", n = 5))`.
+  - Other options for `style` include `"quantile"`, `"equal"`, `"pretty"`, `"log10_pretty"` and `"fixed"`.\
+
+<!-- -->
+
+- OR to fill using colors from a continuous column, use this
+
+  - `tm_dots(fill = "COLUMN_NAME", fill.scale = tm_scale_continuous(values = "brewer.blues"))`.
+    - Where values is your color palette (see above)
+
+    - There are also many other options. You can scale both size and color e.g.
+
+      ```         
+      tm_scale_continuous(
+            midpoint = 1000,
+            limits   = c(0, 12e6), 
+            ticks    = c(1e5, 3e5, 8e5, 4e6), 
+            labels   = c("0-200K", "200-500K", "500-1000K", "1mil or more"), 
+            outliers.trunc = c(TRUE, TRUE)))
+      ```
+
+- To add transparency (0 = invisible, 1 = solid), use `fill_alpha` e.g. `fill_alpha = 0.5`
+
+- To give the legend a title, add
+
+  - `fill.legend = tm_legend(title = "My title")`.
+  - For size legends, use `size.legend = tm_legend(title = "My title")`.
+
+- To hide the legend, add `fill.legend = tm_legend_hide()`.
+
+### tm_symbols()
+
+These are points with a shape, a fill colour and a border colour.
+
+- To set a single fill and border colour, use `tm_symbols(fill = "pink", col = "magenta")`.
+
+- SHAPE: There are many shapes available, set by number, e.g. `tm_symbols(shape = 23)`. Shapes 21 to 25 have a separate fill and border colour. To see the shape numbers, run `?pch` in the console.
+
+- SIZE: To change the size, use `size`. E.g. `tm_dots(size = 0.5)`.
+
+  - To size the dots by a numeric column, use `tm_dots(size = "NUMERIC_COLUMN")`.
+  - This can be annoying and can range from 0.04 to 2 depending on how you want the final map to look
+
+- To fill the symbols using a column, use the same `fill` and `fill.scale` code as in `tm_dots()`.
+
+- To change the border thickness, use `tm_symbols(lwd = 2)`. where you change the number
+
+- To add transparency, use `tm_symbols(fill_alpha = 0.5, col_alpha = 0.8)`.
+
+- To give the legend a title, use `fill.legend`, `size.legend` or `shape.legend`, depending on what you mapped to a column, e.g. `shape.legend = tm_legend(title = "Type")`.
+
+<br>
+
+### tm_borders()
+
+These are polygon outlines with no fill.
+
+- To set a single colour, use `tm_borders(col = "red")`.
+- To change the line thickness, use `tm_borders(col = "red", lwd = 2)`.
+- To make dashed or dotted lines, use `tm_borders(col = "red", lty = "dashed")` or `lty = "dotted"`.
+- To add transparency, use `tm_borders(col = "red", col_alpha = 0.5)`.
+- To colour the borders using a column, use `tm_borders(col = "CATEGORY_COLUMN", col.legend = tm_legend(title = "My title"))`.
+
+<br>
+
+### tm_polygons()
+
+These are filled shapes with borders.
+
+- To fill with a single colour, use `tm_polygons(fill = "lightblue")`.
+- To fill using a categorical column, use `tm_polygons(fill = "CATEGORY_COLUMN", fill.scale = tm_scale_categorical(values = "brewer.set2"))`.
+- To fill using a numeric column with a smooth colour ramp, use `tm_polygons(fill = "RepMaj", fill.scale = tm_scale_continuous(values = "viridis"))`.
+- To fill using a numeric column split into classes, use `tm_polygons(fill = "RepMaj", fill.scale = tm_scale_intervals(values = "viridis", style = "jenks", n = 5))`.
+- To choose your own class breaks, use `fill.scale = tm_scale_intervals(breaks = c(0, 25, 50, 75, 100), values = "viridis")`.
+- To change the border colour and width, use `tm_polygons(fill = "RepMaj", col = "grey", lwd = 0.5)`.
+- To remove the borders, use `tm_polygons(fill = "RepMaj", col = NA)`.
+- To add transparency, use `tm_polygons(fill = "RepMaj", fill_alpha = 0.5)`.
+- To give the legend a title, add `fill.legend = tm_legend(title = "My title")`.
+- To hide the legend, add `fill.legend = tm_legend_hide()`.
+
+A legend only appears when something is linked to a column, e.g. `fill = "RepMaj"`. A single colour such as `fill = "blue"` gets no legend.
+
+<br>
+
+### Extras
+
+- To add a title, use `tm_title("My map title")`.
+- To put all the legends outside the map on the right, add `tm_place_legends_right()`. There are also `tm_place_legends_left()`, `tm_place_legends_top()`, `tm_place_legends_bottom()` and `tm_place_legends_inside()`.
+- To move one legend inside the map, add `fill.legend = tm_legend(position = tm_pos_in("left", "top"))` to that layer.
+- To remove the frame around the map, use `tm_layout(frame = FALSE)`.
+- To change the background colour, use `tm_layout(bg.color = "lightgrey")`.
+- To add a scalebar, use `tm_scalebar(position = c("left", "bottom"))`. To set the distances shown, add e.g. `breaks = c(0, 100, 200)`.
+- To add a compass, use `tm_compass(type = "arrow", position = c("right", "bottom"))`. Other types are `"4star"`, `"8star"`, `"radar"` and `"rose"`.
+- To add credits or a data source, use `tm_credits("Data: US Census", position = c("left", "bottom"), size = 0.6)`.
+- To add text labels from a column, use `tm_shape(YOUR_DATA) + tm_text("NAME_COLUMN", size = 0.6)`.
+- To save a map, first save it as a variable, e.g. `mymap <- tm_shape(YOUR_DATA) + tm_polygons()`, then run `tmap_save(mymap, "mymap.png")`.
+
+## 
