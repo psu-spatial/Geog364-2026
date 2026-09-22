@@ -17,11 +17,11 @@
 <meta name="twitter:description" content="2.1 IMPORTANT TAKE AWAY ‘Packages’ are like apps for R. They add new functions and datasets that R can make use of. Read more about what they are here: What are packages There are two things you...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
@@ -62,6 +62,7 @@
 <li class="book-part">LAB INSTRUCTIONS</li>
 <li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li><a class="" href="Lab_3.html">Homework 3</a></li>
+<li><a class="" href="Project1.html">Project 1</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -78,6 +79,7 @@
 <li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
 <li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
 <li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">14</span> Spatial data</a></li>
+<li><a class="" href="making-maps.html"><span class="header-section-number">15</span> Making maps</a></li>
 </ul>
 
         <div class="book-extra">
@@ -181,7 +183,7 @@
 </h4>
 <p>You can also install a package by typing the “app-store” command into the console.</p>
 <p>This is <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>, where you put the name of the package you want to install in quotes. For example, this command will install the <code>palmerpenguins</code> package (a teaching dataset on penguins).</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"palmerpenguins"</span><span class="op">)</span></span></code></pre></div>
 <p><u><strong>IMPORTANT!</strong></u> <strong>NEVER put the install.packages() command into your script or markdown report</strong>. Otherwise you force the computer to revisit the app store, which sometimes crashes R and is generally bad form. Instead, always go to the app-store manually or type this command into R.</p>
 <p><br></p>
@@ -196,7 +198,7 @@
 <p><strong>I will tell you which packages you need for each lab, but if R tells you it wants a package at any point, please install it AND load it.</strong></p>
 <p>This can be done with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command.</p>
 <p>For example, here’s how to load the <code>palmerpenguins</code> package (which contains the Palmer Penguins teaching dataset (<a href="https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1" class="uri">https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1</a>).<br></p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span></code></pre></div>
 <p><em>Remember, if you want to try this yourself, you first install the palmerpenguins package using the instructions above.</em></p>
 <p><br></p>
@@ -210,7 +212,7 @@
 <p>Sometimes several packages name a command the same word and you want to specify which package you want to use.</p>
 <p>You can do this using the :: symbol. For example, many different packages have a command called filter and R can get confused about which one to use.</p>
 <p>This command <em>forces</em> the computer to use the ‘dplyr package’ version of the filter command.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <hr>
@@ -315,7 +317,7 @@ Figure 2.1: Tidyverse install messages
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-16.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

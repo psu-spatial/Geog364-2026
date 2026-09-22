@@ -1,7 +1,7 @@
 ---
 title: "GEOG364 Lab Book 2026"
 author: "Dr Helen Greatrex"
-date: "2026-09-16"
+date: "2026-09-22"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

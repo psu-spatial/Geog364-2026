@@ -117,6 +117,8 @@ tm_check_fix()
 
 ## Start adding tmap options
 
+You can also check this online guide: [https://r-tmap.github.io/tmap-book/layers.html](https://r-tmap.github.io/tmap-book/layers.html)
+
 You need the tmap and basemaps libraries in your top code chunk (and have run it)
 
 You can do as much with tmap as you can with ESRI/ARC/GIS software.

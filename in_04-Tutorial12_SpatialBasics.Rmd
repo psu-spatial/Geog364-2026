@@ -360,7 +360,7 @@ Even more interestingly, you can make the map interactive by adding tmap_mode("v
 
 ```{r}
 tmap_mode("view")
-qtm(medicaldata_sf,"Description" )
+qtm(medicaldata_sf , size=.5)
 ```
 
 
