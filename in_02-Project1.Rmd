@@ -330,7 +330,6 @@ A spatial polygon dataset of Census **block groups** in Santa Cruz County, Calif
   - **`geometry`** — polygon geometry for the Census block group.
     - *Coordinate Reference System: California Albers, EPSG:3310.*
 
-<!-- -->
 
 - 
 
@@ -406,6 +405,7 @@ Summarise and reflect on what you found.
 <br><br>
 
 ## WHAT TO SUBMIT {.unnumbered}
+
 
 <br>
 

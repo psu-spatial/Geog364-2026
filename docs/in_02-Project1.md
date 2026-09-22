@@ -139,9 +139,7 @@ library(readxl)    # Read from excel files
 
 <br><br>
 
-
 ## PART 2A: IN-CLASS - DATA DETECTIVE (25 MARKS) {.unnumbered}
-
 
 YOU CAN WORK IN GROUPS
 
@@ -151,70 +149,64 @@ I recently found two ‘mystery files’ on my computer that I had forgotten to 
 
 I know they must be from two out of these four experiments:
 
-* **COVID-19 Clusters in Central Pennsylvania**. <br> The local government has asked for help identifying clusters of COVID-19 cases across central PA. The aim is to prioritize mobile testing units and health messaging in affected towns.
+- **COVID-19 Clusters in Central Pennsylvania**. <br> The local government has asked for help identifying clusters of COVID-19 cases across central PA. The aim is to prioritize mobile testing units and health messaging in affected towns.
 
-* **Mediterranean Vineyard Clusters**. <br> An international agricultural group is funding a study of vineyard clustering in two Mediterranean islands, aiming to evaluate whether specific micro-climates or land use policies are influencing planting decisions.
+- **Mediterranean Vineyard Clusters**. <br> An international agricultural group is funding a study of vineyard clustering in two Mediterranean islands, aiming to evaluate whether specific micro-climates or land use policies are influencing planting decisions.
 
-* **Smooth-Hound Shark Hot-spots**. <br> You are working with the regional fishing board to identify hot-spots for Smooth-Hound Shark activity. The goal is to define seasonal no-fishing zones to support sustainable stock management. The data represents tagged shark locations in the last month.
+- **Smooth-Hound Shark Hot-spots**. <br> You are working with the regional fishing board to identify hot-spots for Smooth-Hound Shark activity. The goal is to define seasonal no-fishing zones to support sustainable stock management. The data represents tagged shark locations in the last month.
 
-* **Polar Bear Cluster Study in the Arctic**. <br> PSU ecologists are investigating polar bear movement patterns across the Arctic. Using GPS collar data, they are analyzing seasonal hot-spots for foraging and denning, particularly in response to changing sea ice patterns.
-
-<br>
-
-### STEP 8 Get the data: 
-
-1. Check your setup
-
-* If you haven't already, GO AND DO THE SET-UP SECTION. You should now have your project running, your Project 1 report open, and your library code chunk run.
+- **Polar Bear Cluster Study in the Arctic**. <br> PSU ecologists are investigating polar bear movement patterns across the Arctic. Using GPS collar data, they are analyzing seasonal hot-spots for foraging and denning, particularly in response to changing sea ice patterns.
 
 <br>
 
-2. Read in the data
+### STEP 8 Get the data:
 
-* Create a heading called **Mystery Data**.
-* Create a code chunk and use the `st_read()` command to read each dataset into R. Remember the tutorials on the left (spatial basics or see your last lab)
+1.  Check your setup
 
-
-<br>
-
-### STEP 9 Map the data: 
-
-3. Map the data
-
-* In your lab report, explore and map the data using qtm. New mapping tutorial at the end!  You can also check this online guide: [https://r-tmap.github.io/tmap-book/layers.html](https://r-tmap.github.io/tmap-book/layers.html)
+- If you haven't already, GO AND DO THE SET-UP SECTION. You should now have your project running, your Project 1 report open, and your library code chunk run.
 
 <br>
 
-<br>
+2.  Read in the data
 
-### STEP 10 Map the data: 
-
-* Using your maps, work out which experiment each dataset matches (see the exercise intro).
-* Explain your reasoning in your report, providing common-sense evidence to support your explanation of the non-uniformity of space.
-  *Hint: this isn't meant to be a trick – it should be fairly straightforward.*
+- Create a heading called **Mystery Data**.
+- Create a code chunk and use the `st_read()` command to read each dataset into R. Remember the tutorials on the left (spatial basics or see your last lab). <https://psu-spatial.github.io/Geog364-2026/T5_VectorSpatial.html#T5_st_read>
 
 <br>
 
+### STEP 9 Map the data:
+
+3.  Map the data
+
+- In your lab report, explore and map the data using qtm. <https://psu-spatial.github.io/Geog364-2026/T5_VectorSpatial.html#T5_qtmmaps>
+
+<br>
+
+<br>
+
+### STEP 10 Map the data:
+
+- Using your maps, work out which experiment each dataset matches (see the exercise intro).
+- Explain your reasoning in your report, providing common-sense evidence to support your explanation of the non-uniformity of space. *Hint: this isn't meant to be a trick – it should be fairly straightforward.*
+
+<br>
 
 ### STEP 11 Choose a domain
 
-* For the OCEAN scenario, describe what you think would be a good spatial domain (study area) **given the aim of the research project at the start of the question!**.
-* Consider both the geography and the research question: What area makes sense to include? What might be too broad or too narrow? Does the non uniformity of space, locational fallacy or edge effects impact your choice. Does your domain have "holes" or is it a solid shape? 
-* Then describe in words whether the points in your dataset seem **clustered**, **dispersed**, or **uniformly** distributed given your domain.
-* Explain your reasoning in your own words.
-
+- For the OCEAN scenario, describe what you think would be a good spatial domain (study area) **given the aim of the research project at the start of the question!**.
+- Consider both the geography and the research question: What area makes sense to include? What might be too broad or too narrow? Does the non uniformity of space, locational fallacy or edge effects impact your choice. Does your domain have "holes" or is it a solid shape?
+- Then describe in words whether the points in your dataset seem **clustered**, **dispersed**, or **uniformly** distributed given your domain.
+- Explain your reasoning in your own words.
 
 ## PART 2B: Summarise notes (10 MARKS) {.unnumbered}
 
 <br>
 
-
 ### STEP 11 Summarise notes.
 
--  On the canvas page, you will see this week's reading which supplements the recent lectures (unwin).
+- On the canvas page, you will see this week's reading which supplements the recent lectures (unwin).
 
--  Summarise at least 5 things you learned from this reading, including at least one that was not in the lecture ntoes
-
+- Summarise at least 5 things you learned from this reading, including at least one that was not in the lecture ntoes
 
 <br><br>
 
@@ -222,15 +214,188 @@ I know they must be from two out of these four experiments:
 
 In this lab, you will work with wildfire occurrence data from Santa Cruz County, California. You will start with an Excel spreadsheet containing fire locations and attributes, convert it to spatial `sf` data, explore the spatial pattern of fires, and aggregate the fire locations to census tracts.
 
-**Will be updated for the second part of the lab**. This time it's on purpose! I want you to really think about the discussion questions above. 
+Battalion Chief Dana Reyes works for the CAL FIRE San Mateo–Santa Cruz Unit (CZU), which provides wildfire protection across the Santa Cruz Mountains. In August 2020, lightning started the CZU Lightning Complex, which burned 86,509 acres and destroyed 1,490 structures before it was controlled. Imagine you are her GIS analyst who has recently been given some new data.
+
+<br>
+
+### AVAILABLE DATA
+
+#### 1. Point Fire occurrence: `santa_cruz_fires.xlsx`
+
+A point table of 615 reported [wildfire discovery occurrences]{.underline} in Santa Cruz County, California, from 2015–2024. The original records come from the US Forest Service Fire Program Analysis Fire-Occurrence Database (FPA-FOD).
+
+[US Forest Service FPA-FOD data and metadata](https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_FireOccurrenceCurrentEdition_01/MapServer/0?utm_source=chatgpt.com)
+
+- **Object of analysis:** "A fire occurrence" AKA, a point marking the reported origin of one wildfire, located at least as precisely as a 1-square-mile Public Land Survey System section".
+
+- Note, A large fire complex may have been started with several smaller fires. So each one of those smaller fires will be recorded separately here as a separate record. So the big fire of 2020 lightning complex fire was split up into many smaller fires
+
+- **Statistical population:** ALL FPA-FOD fire occurrences from 2015–2024 whose recorded point location falls inside Santa Cruz County.
+
+- **Variables**
+
+  - **`fire_id`** — unique FPA-FOD identifier for the fire occurrence.
+
+  - **`fire_name`** — reported name of the fire, where one was recorded.
+
+  - **`fire_year`** — calendar year in which the fire was discovered.
+
+  - **`discovery_date`** — date on which the fire was discovered or reported.
+
+  - **`cause_type`** — broad NWCG cause classification, such as Human or Natural.
+
+  - **`cause`** — more detailed reported cause, such as Natural, Recreation and ceremony, Equipment and vehicle use, or Arson/incendiarism.
+
+  - **`fire_size`** — reported final fire size. *Units: acres.*
+
+  - **`fire_size_class`** — FPA-FOD/NWCG categorical fire-size class.
+
+  - **`county`** — county recorded in the original fire report.
+
+  - **`elevation_ft`** — estimated elevation at the recorded fire location.
+
+  - **`tree_density`** — mean percentage tree-canopy cover within **1 mile** of the recorded fire location. *Units: percent canopy cover.*
+
+    - *Note - to make this, Dr G created a one-mile buffer around each fire and averaged the cells from the **2019 NLCD Tree Canopy Cover** raster inside the buffer. `tree_density` is therefore canopy percentage, not a count of trees per unit area. FedData provides access to the NLCD canopy product.\
+      [NLCD / MRLC land-cover data](https://www.mrlc.gov/data?utm_source=chatgpt.com)*
+
+  - **`distance_to_road`** — shortest straight-line distance from the fire point to the nearest drivable road. *Units: miles.*
+
+    - *Note, Dr G calculated this using OpenStreetMap roads classified as `motorway`, `trunk`, `primary`, `secondary`, or `tertiary`. [OpenStreetMap US road-classification guide](https://wiki.openstreetmap.org/wiki/United_States/Highway_classification?utm_source=chatgpt.com)*
+
+  - `discovery_month`**:** The month the fire was started (taken from the date)
+
+  - **`longitude`** — east-west coordinate of the recorded fire point in WGS84. *Units: decimal degrees.*
+
+  - **`latitude`** — north-south coordinate of the recorded fire point in WGS84.\
+    *Units: decimal degrees.*
+
+  - **`geometry`** — point geometry for the Census block group.
+
+#### 1. Census tract data: `TEACHING_santacruz_fire_lab.gpkg`
+
+A spatial polygon dataset of Census tracts in Santa Cruz County, California. Population data come from the **2024 American Community Survey 5-year estimates**, and tract boundaries/land area come from the US Census Bureau.
+
+[US Census Bureau ACS](https://data.census.gov/)\
+[US Census Bureau TIGER/Line data](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
+
+- LAYER: tract
+- **Object of analysis:** one Census tract.
+- **Statistical population:** All Census tracts in Santa Cruz County included in the 2024 Census/ACS geography.
+- **Variables**
+  - **`GEOID`** — unique Census identifier for the block group.
+  - **`name`** — Census name of the block group.
+  - **`population`** — estimated resident population of the block group.
+  - **`area_sq_miles`** — land area of the block group. *Units: square miles.*
+    - *Note - this uses the Census `ALAND` field, so water area is excluded.*
+  - **`pop_density`** — estimated population divided by land area. *Units: people per square mile of land.*
+  - **`fire_density`** — density of all recorded wildfire occurrences from 2015–2024 whose points fall inside the block group. *Units: fires per square mile of land.*
+  - **`elevation_ft`** — mean elevation across the block group. *Units: feet above sea level.*
+  - **`tree_density`** — mean percentage tree-canopy cover across the block group. *Units: percent canopy cover.*
+  - **`geometry`** — polygon geometry for the Census block group.
+    - *Coordinate Reference System: California Albers, EPSG:3310.*
+
+------------------------------------------------------------------------
+
+#### 3. Census block group dataset: `TEACHING_santacruz_fire_lab.gpkg`
+
+A spatial polygon dataset of Census **block groups** in Santa Cruz County, California. Block groups are smaller subdivisions of Census tracts, so this dataset gives you the same study area at a finer spatial scale. Population data come from the **2024 American Community Survey 5-year estimates**, and boundaries/land area come from the US Census Bureau.
+
+[US Census Bureau ACS](https://data.census.gov/)\
+[US Census Bureau TIGER/Line data](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
+
+- LAYER: BLOCK GROUPS
+- **Object of analysis:** one Census block group.
+- **Statistical population:** All Census block groups in Santa Cruz County included in the 2024 Census/ACS geography.
+- **Variables**
+  - **`GEOID`** — unique Census identifier for the block group.
+  - **`name`** — Census name of the block group.
+  - **`population`** — estimated resident population of the block group.
+  - **`area_sq_miles`** — land area of the block group. *Units: square miles.*
+    - *Note - this uses the Census `ALAND` field, so water area is excluded.*
+  - **`pop_density`** — estimated population divided by land area. *Units: people per square mile of land.*
+  - **`fire_density`** — density of all recorded wildfire occurrences from 2015–2024 whose points fall inside the block group. *Units: fires per square mile of land.*
+  - **`elevation_ft`** — mean elevation across the block group. *Units: feet above sea level.*
+  - **`tree_density`** — mean percentage tree-canopy cover across the block group. *Units: percent canopy cover.*
+  - **`geometry`** — polygon geometry for the Census block group.
+    - *Coordinate Reference System: California Albers, EPSG:3310.*
 
 
+- 
 
-**Congrats! Finished!**
+------------------------------------------------------------------------
+
+#### 3. Roads `TEACHING_santacruz_fire_lab.gpkg`
+
+A spatial line file of major roads from open street map
+
+- layer: roads
+- **`geometry`** — polygon geometry for the Census block group.
+  - *Coordinate Reference System: California Albers, EPSG:3310.*
+
+### INSTRUCTIONS
+
+The Santa Cruz County Board of Supervisors has asked Chief Reyes to brief them before next fire season. They want to decide where to spend money on fuel reduction, fire lookouts, and public education. Chief Reyes has asked you, as her GIS analyst, to use the national wildfire occurrence database (FPA FOD) and a tree canopy cover map to answer four requests:
+
+1.  How many wildfires are reported in Santa Cruz County each year from 1992 to 2024, and has that number changed over time?
+
+2.  Please make some good maps on the topic using the data provided.
+
+3.  Use your maps and analysis to explain the spatial pattern of where fires start? Are fire occurences clustered, and if so, where?
+
+4.  What other spatial factors seem to overlap with fire occurrence. For example, tree cover, distance to roads, elevation and population density.
+
+5.  How does the picture change if we switch from points, to census blocks (small areas) to census tracts(larger areas)
+
+#### Output
+
+**You need to use the data above, to write up a report for the fire chief that answers their questions, including maps, R output and your reasoning for each point. (e.g. use headings!)**
+
+#### STEP P1. Get the data
+
+- Read in the data. Go to this tutorial: <https://psu-spatial.github.io/Geog364-2026/making-maps.html> and see how I read in different layers.
+- Get the data on canvas and read it into your project.
+
+#### STEP P2. EDA. Set up report
+
+- Summarise and explore what you have
+- Think about what a fire is, and what your object of analysis is in each case. Think about the chief's questions, what can this data tell you and what can't it.
+- Introduce the topic in your report.
+
+#### STEP P3 - How many wildfires 
+
+1.  "How many wildfires are reported in Santa Cruz County each year from 1992 to 2024, and has that number changed over time?"
+
+2.  You could use a histogram/summary statistics?
+
+#### STEP P4 - Maps
+
+1.  Use this tutorial to make some maps <https://psu-spatial.github.io/Geog364-2026/making-maps.html> of different aspects of your data to answer the other questions in your text.
+
+#### STEP P5 - Write up about fallacies
+
+1.  In your write up, make sure to talk about
+
+    1.  The non uniformity of space (lecture 5a)
+
+    2.  The spatial representation of your data (lectures 4 and 5)
+
+    3.  Edge effects (covered in lecture 5B)
+
+    4.  The modifiable area unit problem (lecture 5B/6A)
+
+    5.  The locational fallacy
+
+    6.  and any other nuances you can think of
+
+#### STEP P6 - Conclusion
+
+Summarise and reflect on what you found.
 
 <br><br>
 
 ## WHAT TO SUBMIT {.unnumbered}
+
 
 <br>
 
@@ -238,7 +403,7 @@ In this lab, you will work with wildfire occurrence data from Santa Cruz County,
 
 Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
 
-Find the html and RmD files in your Lab 1 folder on your computer. Double click the html file to open it in your browser and check it's the one you want to submit.
+Find the html and RmD files in your Project 1 folder on your computer. Double click the html file to open it in your browser and check it's the one you want to submit.
 
 **You need to submit BOTH of these files on the relevant Canvas assignment page.**
 
@@ -270,14 +435,4 @@ You can also add comments to your submission as needed on the canvas page, or yo
 
 <br>
 
-## CHECK YOUR GRADE! {#CheckGradeP1 .unnumbered}
-
-### RUBRIC {.unnumbered}
-
-This is how you will be graded (plus any in-class components)
-
-25/25: You made a good effort and answered all the questions. If you came to the lab, there's probably about 10-15 mins additional work. CHECK EACH PART OF QUESTION 10 AND 11.
-
-15/25: You attempted most of the lab and explained where you got stuck.
-
-5/15: Any attempt! A single word or a canvas comment to say hi will get you 5 points even if you haven't attended lab, because I want to know people who are simply dropping a lab compared to people who are really struggling.
+##  {#CheckGradeP1 .unnumbered}
