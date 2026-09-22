@@ -18,7 +18,7 @@ YOU HAVE TWO WEEKS! The maximum time it should take is about 4-6 hrs of your tim
 
 The aim of this lab is to showcase your spatial analysis. <br>
 
-### Need help?
+### Need help? {.unnumbered}
 
 REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN **ALL** YOUR CODE CHUNKS. The easiest way to do this is to press the "Run All" button, in the "Run" menu at the top right of your screen
 
@@ -169,7 +169,7 @@ I know they must be from two out of these four experiments:
 
 <br>
 
-### STEP 8 Get the data:
+### STEP 8 Get the data: {.unnumbered}
 
 1.  Check your setup
 
@@ -184,9 +184,7 @@ I know they must be from two out of these four experiments:
 
 <br>
 
-### STEP 9 Map the data:
-
-3.  Map the data
+### STEP 9 Map the data: {.unnumbered}
 
 - In your lab report, explore and map the data using qtm. <https://psu-spatial.github.io/Geog364-2026/T5_VectorSpatial.html#T5_qtmmaps>
 
@@ -194,14 +192,14 @@ I know they must be from two out of these four experiments:
 
 <br>
 
-### STEP 10 Map the data:
+### STEP 10 Match the experiments {.unnumbered}
 
 - Using your maps, work out which experiment each dataset matches (see the exercise intro).
 - Explain your reasoning in your report, providing common-sense evidence to support your explanation of the non-uniformity of space. *Hint: this isn't meant to be a trick – it should be fairly straightforward.*
 
 <br>
 
-### STEP 11 Choose a domain
+### STEP 11 Choose a domain {.unnumbered}
 
 - For the OCEAN scenario, describe what you think would be a good spatial domain (study area) **given the aim of the research project at the start of the question!**.
 - Consider both the geography and the research question: What area makes sense to include? What might be too broad or too narrow? Does the non uniformity of space, locational fallacy or edge effects impact your choice. Does your domain have "holes" or is it a solid shape?
@@ -212,11 +210,15 @@ I know they must be from two out of these four experiments:
 
 <br>
 
-### STEP 11 Summarise notes.
+### STEP 11 Summarise notes. {.unnumbered}
 
 - On the canvas page, you will see this week's reading which supplements the recent lectures (unwin).
 
-- Summarise at least 5 things you learned from this reading, including at least one that was not in the lecture ntoes
+- Make a new heading called Notes
+
+- Summarise at least 5 things you learned from this reading, including at least one that was not in the lecture notes.  
+
+- PLEASE INCLUDE THIS WRITE UP IN YOUR LAB REPORT!
 
 <br><br>
 
@@ -228,9 +230,9 @@ Battalion Chief Dana Reyes works for the CAL FIRE San Mateo–Santa Cruz Unit (C
 
 <br>
 
-### AVAILABLE DATA
+### Available data {.unnumbered}
 
-#### 1. Point Fire occurrence: `santa_cruz_fires.xlsx`
+#### 1. Point Fire occurrence: `santa_cruz_fires.xlsx` {.unnumbered}
 
 A point table of 615 reported [wildfire discovery occurrences]{.underline} in Santa Cruz County, California, from 2015–2024. The original records come from the US Forest Service Fire Program Analysis Fire-Occurrence Database (FPA-FOD).
 
@@ -281,8 +283,10 @@ A point table of 615 reported [wildfire discovery occurrences]{.underline} in Sa
     *Units: decimal degrees.*
 
   - **`geometry`** — point geometry for the Census block group.
+  
+  <br>
 
-#### 1. Census tract data: `TEACHING_santacruz_fire_lab.gpkg`
+#### Census tract data: `TEACHING_santacruz_fire_lab.gpkg` {.unnumbered}
 
 A spatial polygon dataset of Census tracts in Santa Cruz County, California. Population data come from the **2024 American Community Survey 5-year estimates**, and tract boundaries/land area come from the US Census Bureau.
 
@@ -305,9 +309,10 @@ A spatial polygon dataset of Census tracts in Santa Cruz County, California. Pop
   - **`geometry`** — polygon geometry for the Census block group.
     - *Coordinate Reference System: California Albers, EPSG:3310.*
 
-------------------------------------------------------------------------
 
-#### 3. Census block group dataset: `TEACHING_santacruz_fire_lab.gpkg`
+<br>
+
+#### Census block group dataset: `TEACHING_santacruz_fire_lab.gpkg` {.unnumbered}
 
 A spatial polygon dataset of Census **block groups** in Santa Cruz County, California. Block groups are smaller subdivisions of Census tracts, so this dataset gives you the same study area at a finer spatial scale. Population data come from the **2024 American Community Survey 5-year estimates**, and boundaries/land area come from the US Census Bureau.
 
@@ -331,19 +336,19 @@ A spatial polygon dataset of Census **block groups** in Santa Cruz County, Calif
     - *Coordinate Reference System: California Albers, EPSG:3310.*
 
 
-- 
+<br>
 
-------------------------------------------------------------------------
-
-#### 3. Roads `TEACHING_santacruz_fire_lab.gpkg`
+#### Roads `TEACHING_santacruz_fire_lab.gpkg` {.unnumbered}
 
 A spatial line file of major roads from open street map
 
 - layer: roads
 - **`geometry`** — polygon geometry for the Census block group.
   - *Coordinate Reference System: California Albers, EPSG:3310.*
+  
+<br><br>
 
-### INSTRUCTIONS
+### INSTRUCTIONS {.unnumbered}
 
 The Santa Cruz County Board of Supervisors has asked Chief Reyes to brief them before next fire season. They want to decide where to spend money on fuel reduction, fire lookouts, and public education. Chief Reyes has asked you, as her GIS analyst, to use the national wildfire occurrence database (FPA FOD) and a tree canopy cover map to answer four requests:
 
@@ -357,34 +362,67 @@ The Santa Cruz County Board of Supervisors has asked Chief Reyes to brief them b
 
 5.  How does the picture change if we switch from points, to census blocks (small areas) to census tracts(larger areas)
 
-#### Output
+<br>
 
-**You need to use the data above, to write up a report for the fire chief that answers their questions, including maps, R output and your reasoning for each point. (e.g. use headings!)**
+#### What you need to do/submit {.unnumbered}
 
-#### STEP P1. Get the data
+**You need to use the data above, to write up a report for the fire chief that answers their questions, including maps, R output and your reasoning for each point. (e.g. use headings!).**
+
+This can be the same report as parts 1 and 2 of this lab.  You will submit the final rmd and html file.
+
+<br>
+
+#### STEP P1. Get the data {.unnumbered}
 
 - Read in the data. Go to this tutorial: <https://psu-spatial.github.io/Geog364-2026/making-maps.html> and see how I read in different layers.
 - Get the data on canvas and read it into your project.
 
-#### STEP P2. EDA. Set up report
+#### STEP P2. EDA. Introduction / summary analysis {.unnumbered}
 
-- Summarise and explore what you have
-- Think about what a fire is, and what your object of analysis is in each case. Think about the chief's questions, what can this data tell you and what can't it.
-- Introduce the topic in your report.
+Explore the data I provided above, making summaries and initial plots in R. 
 
-#### STEP P3 - How many wildfires 
+Then write up your report introduction.  Within this, 
+-   Explain what the first chief is interested in
+-   Introduce the topic & the dataset.
+-   Make sure to describe any data you use in the text. e.g. your object of analysis, variables, inferred population etc. 
+-   Reflect on the the chief's questions, explaining what this data is able to tell you, and what this data is NOT able to tell you  
+   
+   
+<br>    
+   
+Then answer the 5 questions the chief asked you, providing evidence and writing up your results in full sentences WITH UNITS. Some hints in the steps below.
 
-1.  "How many wildfires are reported in Santa Cruz County each year from 1992 to 2024, and has that number changed over time?"
+**STYLE:** Its up to you to use your own heading/sub-heading structure, and it should be clear to the teaching staff (or any reader) what question you are trying to answer (e.g. consider putting them into your report!)
 
-2.  You could use a histogram/summary statistics?
 
-#### STEP P4 - Maps
+<br>
 
-1.  Use this tutorial to make some maps <https://psu-spatial.github.io/Geog364-2026/making-maps.html> of different aspects of your data to answer the other questions in your text.
+#### STEP P3 - How many wildfires  {.unnumbered}
 
-#### STEP P5 - Write up about fallacies
+"How many wildfires are reported in Santa Cruz County each year from 1992 to 2024, and has that number changed over time?"
 
-1.  In your write up, make sure to talk about
+2.  You could use a histogram?  And/or the summary command, and/or the table command? and write up your findings in a sentence or two under your code/plots. 
+
+<br>
+
+#### STEP P4 - Maps {.unnumbered}
+
+- Use this tutorial to make some maps <https://psu-spatial.github.io/Geog364-2026/making-maps.html> of different aspects of your data to answer the other questions in your text.
+
+<br>
+
+#### STEP P5 - Other questions & discussion {.unnumbered}
+
+-  Use that analysis to answer the other questions the chief asked
+
+
+<br>
+
+
+
+#### STEP P6 - Write up about fallacies  {.unnumbered}
+
+ Add a discussion where you make sure to talk about
 
     1.  The non uniformity of space (lecture 5a)
 
@@ -394,15 +432,24 @@ The Santa Cruz County Board of Supervisors has asked Chief Reyes to brief them b
 
     4.  The modifiable area unit problem (lecture 5B/6A)
 
-    5.  The locational fallacy
+    5.  The locational fallacy (lecture 5a)
 
     6.  and any other nuances you can think of
+    
+<br> 
 
-#### STEP P6 - Conclusion
+#### STEP P7 - Conclusion {.unnumbered}
+
 
 Summarise and reflect on what you found.
 
 <br><br>
+
+Finished!
+
+
+<br><br>
+
 
 ## WHAT TO SUBMIT {.unnumbered}
 
@@ -443,4 +490,3 @@ You can also add comments to your submission as needed on the canvas page, or yo
 
 <br>
 
-##  {#CheckGradeP1 .unnumbered}

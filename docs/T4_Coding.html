@@ -133,7 +133,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h2>
 <p>Most commands need some information from you, which you put inside the parentheses <code>( )</code>. These are called arguments. You separate them with a comma and you can find out whats available using the help file.</p>
 <p>For example, the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function tells R to round numbers to a pre-specified number of decimal places.</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">1.6722615</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.672</code></pre>
 <p>Here we have told R to round the number 1.6722615 to three decimal places:</p>
@@ -143,9 +143,9 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p><code>digits = 3</code> is the second argument; we want to round to three decimal places</p></li>
 </ul>
 <p>As a second example</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1]  9.991907  9.091669 13.719890 11.358014 11.697798</code></pre>
+<pre><code>## [1] 11.306524 13.631821  8.714725  8.192057 10.975632</code></pre>
 <p>Here we have told R: to randomly select <code>5</code> values from a normal distribution that has a mean of <code>10</code>, and a standard deviation of <code>2</code>.</p>
 <ul>
 <li><p>The command/function is <code>rnorm</code>()`</p></li>
@@ -167,7 +167,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>R doesn’t look for the end of the line to know when a command is finished, it looks for the closing ).</p>
 <p>So this will run fine for example, and is often a way of making your code more readable:</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># make 20 random numbers from a normal distribution with mean=10 and sd=3, then save them as the variable output.</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">20</span>,</span>
 <span>                mean<span class="op">=</span><span class="fl">10</span>,sd<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
@@ -179,7 +179,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>All R commands have a help file, some more complex than others! This always tells you the name and purpose of the command, then has a list of variables (and the default value if you choose to not type anything). Sometimes it also adds in several related commands into one help file.</p>
 <p>For example, take a look at the rnorm help file by typing its name into the console with a ? in front.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">rnorm</span></span></code></pre></div>
 <p>You should see this. Exactly what the commands do is often hidden in the description! In this case you can see that</p>
 <ul>
@@ -202,7 +202,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>Some functions don’t need any extra information from you. These are a special case where the parentheses can be left empty. Even though there is nothing inside the parentheses, <strong>you still need the <code>( )</code></strong> because these are functions.</p>
 <p>For example, try typing these exactly into your console</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/file.choose.html">file.choose</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -223,9 +223,9 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p>This FIRST generates 5 numbers from a normal distribution with mean=10 and sd=2.</p></li>
 <li><p>THEN it rounds each of those 5 numbers to 3 decimal places</p></li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1] 10.335 11.001 12.124 11.013  9.172</code></pre>
+<pre><code>## [1] 11.354 11.743  7.924 12.326 12.124</code></pre>
 <p><br></p>
 </div>
 <div id="T4_applyingonecolumn" class="section level2" number="4.5">
