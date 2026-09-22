@@ -150,7 +150,7 @@ library(readxl)    # Read from excel files
 <br><br>
 
 
-## PART 2: IN-CLASS - DATA DETECTIVE (25 MARKS) {.unnumbered}
+## PART 2A: IN-CLASS - DATA DETECTIVE (25 MARKS) {.unnumbered}
 
 
 YOU CAN WORK IN GROUPS
@@ -171,6 +171,8 @@ I know they must be from two out of these four experiments:
 
 <br>
 
+### STEP 8 Get the data: 
+
 1. Check your setup
 
 * If you haven't already, GO AND DO THE SET-UP SECTION. You should now have your project running, your Project 1 report open, and your library code chunk run.
@@ -185,13 +187,17 @@ I know they must be from two out of these four experiments:
 
 <br>
 
+### STEP 9 Map the data: 
+
 3. Map the data
 
-* In your lab report, explore and map the data. New mapping tutorial at the end!  You can also check this online guide: [https://r-tmap.github.io/tmap-book/layers.html](https://r-tmap.github.io/tmap-book/layers.html)
+* In your lab report, explore and map the data using qtm. New mapping tutorial at the end!  You can also check this online guide: [https://r-tmap.github.io/tmap-book/layers.html](https://r-tmap.github.io/tmap-book/layers.html)
 
 <br>
 
-4. Match the data to the experiment
+<br>
+
+### STEP 10 Map the data: 
 
 * Using your maps, work out which experiment each dataset matches (see the exercise intro).
 * Explain your reasoning in your report, providing common-sense evidence to support your explanation of the non-uniformity of space.
@@ -199,15 +205,28 @@ I know they must be from two out of these four experiments:
 
 <br>
 
-5. Choose an appropriate spatial domain
 
-* For **each** of your two chosen scenarios, describe what you think would be a good spatial domain (study area) **given the aim of the research project at the start of the question!**.
+### STEP 11 Choose a domain
+
+* For the OCEAN scenario, describe what you think would be a good spatial domain (study area) **given the aim of the research project at the start of the question!**.
 * Consider both the geography and the research question: What area makes sense to include? What might be too broad or too narrow? Does the non uniformity of space, locational fallacy or edge effects impact your choice. Does your domain have "holes" or is it a solid shape? 
 * Then describe in words whether the points in your dataset seem **clustered**, **dispersed**, or **uniformly** distributed given your domain.
 * Explain your reasoning in your own words.
 
 
+## PART 2B: Summarise notes (10 MARKS) {.unnumbered}
 
+<br>
+
+
+### STEP 11 Summarise notes.
+
+-  On the canvas page, you will see this week's reading which supplements the recent lectures (unwin).
+
+-  Summarise at least 5 things you learned from this reading, including at least one that was not in the lecture ntoes
+
+
+<br><br>
 
 ## PART 3: MAIN PROJECT {.unnumbered}
 

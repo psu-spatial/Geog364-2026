@@ -298,3 +298,9 @@ tm_borders
 tm_polygons
 extras
 section-2
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
+step-8-get-the-data
+step-9-map-the-data
+step-10-map-the-data
+step-11-choose-a-domain
+step-11-summarise-notes.
