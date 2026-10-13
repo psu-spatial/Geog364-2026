@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Homework 4 | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="Aim Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Homework 4 | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/Lab_4B.html">
+<meta property="og:description" content="Aim Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Homework 4 | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="Aim Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
+<li><a class="" href="Lab_3.html">Homework 3</a></li>
+<li><a class="" href="Project1.html">Project 1</a></li>
+<li><a class="active" href="Lab_4B.html">Homework 4</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
+<li><a class="" href="making-maps.html"><span class="header-section-number">13</span> Making maps</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Lab_4B" class="section level1 unnumbered">
+<h1>Homework 4<a class="anchor" aria-label="anchor" href="#Lab_4B"><i class="fas fa-link"></i></a>
+</h1>
+<div id="aim-2" class="section level3 unnumbered">
+<h3>Aim<a class="anchor" aria-label="anchor" href="#aim-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3 hrs of your time.</p>
+<p><br></p>
+</div>
+<div id="need-help-2" class="section level3" number="0.1.5">
+<h3>
+<span class="header-section-number">0.1.5</span> Need help?<a class="anchor" aria-label="anchor" href="#need-help-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN <strong>ALL</strong> YOUR CODE CHUNKS. The easiest way to do this is to press the “Run All” button, in the “Run” menu at the top right of your screen</p>
+<p><br><br></p>
+</div>
+<div id="part-1-lab-set-up" class="section level2 unnumbered">
+<h2>PART 1: LAB SET-UP<a class="anchor" aria-label="anchor" href="#part-1-lab-set-up"><i class="fas fa-link"></i></a>
+</h2>
+<div id="step-1-create-your-project-download-datareports" class="section level3 unnumbered">
+<h3>STEP 1: Create your project &amp; download data/reports<a class="anchor" aria-label="anchor" href="#step-1-create-your-project-download-datareports"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>[1A]</strong> If you don’t already have a folder on your computer for Homework/Lab 4, make one inside your GEOG364 folder.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[1B]</strong> Go to Canvas and download both the data and the lab report template. Put them in your HW4 folder and rename the lab template to include your email ID.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[1C]</strong> Open R-Studio and make a project for Homework 4 in the existing HW4 folder (<a href="T1_Projects.html#T1_Projects">Project Tutorial here</a>)</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[1D]</strong> Go to the files quadrant/tab and open the RmD Lab report. If you are running your project it should be right there. If it’s not, ask a teacher/TA.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[1E]</strong> Optional. You are welcome and encouraged to change the YAML code or use different themes.</p>
+<ul>
+<li>(Changing the theme to be personal to you does make grading easier! You can see them here - <a href="https://github.com/juba/rmdformats" class="uri">https://github.com/juba/rmdformats</a>). <em>Note, unlike last week, we are using the rmdformats package which allows you to make quick professional themes, I still tend to copy/paste</em>.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+</div>
+<div id="step-2-adjust-your-knit-options" class="section level3 unnumbered">
+<h3>STEP 2: Adjust your knit options<a class="anchor" aria-label="anchor" href="#step-2-adjust-your-knit-options"><i class="fas fa-link"></i></a>
+</h3>
+<p>Look at the first code chunk below the YAML code. The <code>knitr::opts_chunk$set(echo = TRUE)</code> command is from the knitr package and allows us to set general options for the entire report.</p>
+<ul>
+<li>
+<strong>[2A]</strong> Add in two more options, warning=FALSE and message=FALSE as shown below.</li>
+<li>knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)</li>
+</ul>
+<p><br></p>
+</div>
+<div id="step-3-knit-and-check-libraries" class="section level3 unnumbered">
+<h3>STEP 3: Knit and check libraries<a class="anchor" aria-label="anchor" href="#step-3-knit-and-check-libraries"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<p><strong>[3A]</strong> Press save and try to knit. If any packages are missing you will see</p>
+<ul>
+<li>EITHER a little yellow bar at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br>
+</li>
+<li>OR an error saying that it can’t find that library (it might also be a spelling mistake if you are sure it’s installed). In this case, you have to go to the app store and download it (Packages/Install) - see tutorial on left. <br>
+</li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+</div>
+</div>
+<div id="part-2-in-class-emergent-phenomena" class="section level2 unnumbered">
+<h2>PART 2: IN-CLASS EMERGENT PHENOMENA<a class="anchor" aria-label="anchor" href="#part-2-in-class-emergent-phenomena"><i class="fas fa-link"></i></a>
+</h2>
+<p>You are allowed and encouraged to work in groups for this section</p>
+<div id="step-5-check-progress" class="section level3 unnumbered">
+<h3>STEP 5: Check progress<a class="anchor" aria-label="anchor" href="#step-5-check-progress"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>[5A]</strong> Follow the instructions on canvas and write up your results and add your screenshot in the Emergent Phenomena section of your lab report.</li>
+</ul>
+<p><br><br></p>
+</div>
+</div>
+<div id="part-3-deforestation-fragmentation-background" class="section level2 unnumbered">
+<h2>PART 3: DEFORESTATION &amp; FRAGMENTATION BACKGROUND<a class="anchor" aria-label="anchor" href="#part-3-deforestation-fragmentation-background"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<div id="step-6-read-the-text-in-this-section" class="section level3 unnumbered">
+<h3>STEP 6: Read the text in this section!<a class="anchor" aria-label="anchor" href="#step-6-read-the-text-in-this-section"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this week’s lectures, we explored how different geographical processes can produce different spatial patterns. We also discussed why some patterns are much more complicated than others, and how fractal geometry can help us describe this complexity.</p>
+<p>In this lab, we will investigate the spatial structure of landscapes using R. We will start with a real land-cover dataset, calculate statistics that describe its spatial pattern, and then experiment with how changing the arrangement of land-cover cells changes those statistics.</p>
+<p><br><br></p>
+<div id="a.-background-why-do-landscape-patterns-matter" class="section level4" number="0.1.5.1">
+<h4>
+<span class="header-section-number">0.1.5.1</span> A. Background: Why do landscape patterns matter?<a class="anchor" aria-label="anchor" href="#a.-background-why-do-landscape-patterns-matter"><i class="fas fa-link"></i></a>
+</h4>
+<div class="figure">
+<span style="display:block;" id="fig:L4-Forest"></span>
+<img src="index_images/im_L4_Landscape.png" alt="Different forestscapes" width="100%"><p class="caption">
+Figure 0.9: Different forestscapes
+</p>
+</div>
+<p>Imagine two regions, each containing 40% forest. In the first region, almost all the forest is contained within one large, continuous area. In the second, the forest is divided into hundreds of small patches surrounded by agricultural land. Although the two regions contain the same amount of forest, their spatial patterns are very different.</p>
+<p>This distinction is important for understanding biodiversity, wildlife movement, forest management, wildfire risk and habitat fragmentation.</p>
+<p>Geographers commonly distinguish between two characteristics of landscapes:</p>
+<ul>
+<li><p>Composition: What is present in the landscape, and in what proportions?</p></li>
+<li><p>Configuration: How are those features arranged spatially?</p></li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="b-deforestation-in-the-brazilian-amazon" class="section level4" number="0.1.5.2">
+<h4>
+<span class="header-section-number">0.1.5.2</span> B Deforestation in the Brazilian Amazon<a class="anchor" aria-label="anchor" href="#b-deforestation-in-the-brazilian-amazon"><i class="fas fa-link"></i></a>
+</h4>
+<p>The Amazon rainforest is one of the largest remaining areas of tropical forest in the world. It plays an important role in global biodiversity, carbon storage and regional climate processes. However, substantial areas of the Brazilian Amazon have been converted to other land uses, particularly agriculture and pasture. Deforestation is not distributed randomly across the landscape. Clearing often follows roads, settlements and areas where agricultural expansion is economically attractive. This can produce distinctive spatial patterns,</p>
+</div>
+<div id="c.-forest-loss-versus-forest-fragmentation" class="section level4" number="0.1.5.3">
+<h4>
+<span class="header-section-number">0.1.5.3</span> C. Forest loss versus forest fragmentation<a class="anchor" aria-label="anchor" href="#c.-forest-loss-versus-forest-fragmentation"><i class="fas fa-link"></i></a>
+</h4>
+<p>Forest loss and forest fragmentation are related, but they are not the same thing.</p>
+<ul>
+<li><p><strong>Forest loss</strong> refers to a reduction in the total area occupied by forest.</p></li>
+<li><p><strong>Forest fragmentation</strong> refers to changes in the spatial arrangement of forest, particularly the division of larger continuous areas into smaller or more separated patches.</p></li>
+</ul>
+<p>This impacts</p>
+<ul>
+<li><p><strong>Habitat connectivity:</strong> A continuous forest may allow organisms to move through a landscape more easily than a collection of isolated patches. However, connectivity also depends on the species and its ability to move through non-forest areas.</p></li>
+<li><p><strong>Edge effects:</strong> Conditions near the boundary between forest and non-forest may differ from conditions within the forest interior. Forest edges can experience different temperatures, humidity, wind exposure and ecological interactions.</p></li>
+<li><p><strong>Patch size:</strong> Larger patches may contain more interior habitat, while smaller patches may have a greater proportion of their area near an edge.</p></li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="b-measuring-patchclasslandscape-patterns" class="section level3" number="0.1.6">
+<h3>
+<span class="header-section-number">0.1.6</span> B Measuring patch/class/landscape patterns<a class="anchor" aria-label="anchor" href="#b-measuring-patchclasslandscape-patterns"><i class="fas fa-link"></i></a>
+</h3>
+<div class="figure">
+<span style="display:block;" id="fig:L4-Patch"></span>
+<img src="index_images/im_L4_Patches.png" alt="Three scales of analysis" width="100%"><p class="caption">
+Figure 0.10: Three scales of analysis
+</p>
+</div>
+<p><strong>WHAT IS A PATCH?</strong> A <em>patch</em> is a contiguous area belonging to the same land-cover class. For example, a continuous area of forest surrounded by grassland forms a forest patch.We can describe a landscape using statistics calculated at three different levels.</p>
+<ul>
+<li><p><strong>Patch-level metrics.</strong> Patch level metrics are metrics that describe properties of each individual patch. If you run a patch-level metric you will get as many lines of output as there are patches on the map.</p></li>
+<li><p><strong>Class-level metrics.</strong> Class level metrics are metrics that describe patterns at each class (class= landcover type). For example, in a simple map that shows forest, agriculture and urban pixels, a class level metric might describe average patch size for each of those 3 classes. If you run a class-level metric, you will get as many lines of output as there are classes on the map.</p></li>
+<li><p><strong>Landscape-level metrics.</strong> Landscape metrics are numerical measurements used to describe the composition and spatial configuration of an entire landscape. If you run a landscape-level metric you get one line of output. See below for more!</p></li>
+</ul>
+<div id="landscape-level-metrics" class="section level4" number="0.1.6.1">
+<h4>
+<span class="header-section-number">0.1.6.1</span> Landscape level metrics<a class="anchor" aria-label="anchor" href="#landscape-level-metrics"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can distinguish between two broad types of information.</p>
+<ul>
+<li><p><strong>Composition</strong> describes what the landscape contains, such as the percentage occupied by forest.</p></li>
+<li><p><strong>Configuration</strong> describes how those land-cover classes are arranged, including the number, size and boundaries of forest patches.</p></li>
+</ul>
+<p>In this lab, we will calculate four metrics: Each metric describes a different aspect of the landscape. None provides a complete description by itself.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th>Metric</th>
+<th>What it measures</th>
+<th>Units</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Percentage of landscape (PLAND)</td>
+<td>Percentage of the landscape occupied by forest</td>
+<td>%</td>
+</tr>
+<tr class="even">
+<td>Number of patches (NP)</td>
+<td>Number of separate forest patches</td>
+<td>Count</td>
+</tr>
+<tr class="odd">
+<td>Mean patch area (AREA_MN)</td>
+<td>Average area of forest patches</td>
+<td>Hectares</td>
+</tr>
+<tr class="even">
+<td>Edge density (ED)</td>
+<td>Length of forest edge relative to landscape area</td>
+<td>Metres per hectare</td>
+</tr>
+</tbody>
+</table></div>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="part-4-deforestation-fragmentation-example" class="section level2 unnumbered">
+<h2>PART 4: DEFORESTATION &amp; FRAGMENTATION EXAMPLE<a class="anchor" aria-label="anchor" href="#part-4-deforestation-fragmentation-example"><i class="fas fa-link"></i></a>
+</h2>
+<div id="step-7-read-about-the-dataset-and-study-area" class="section level3 unnumbered">
+<h3>STEP 7: Read about the dataset and study area<a class="anchor" aria-label="anchor" href="#step-7-read-about-the-dataset-and-study-area"><i class="fas fa-link"></i></a>
+</h3>
+<p>We will examine an area around Novo Progresso, in the Brazilian state of Pará. The dataset is derived from the MapBiomas Brazil annual land-cover classification. MapBiomas uses satellite imagery and classification methods to map land cover across Brazil.</p>
+<p>For this exercise, the original land-cover categories have been simplified into two classes:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Value</th>
+<th>Classification</th>
+<th>Colour</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>Non-forest</td>
+<td>Light grey</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Forest</td>
+<td>Dark green</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><p>In this dataset, <strong>forest refers specifically to the MapBiomas class Forest Formation (code 3)</strong>. Other MapBiomas vegetation classes are included in the non-forest category. Therefore, our results describe changes in <em>Forest Formation</em>, rather than every type of tree-covered land.</p></li>
+<li><p>The raster contains three layers representing 1985, 2005 and 2025.</p></li>
+<li><p>Each cell measures 30 m × 30 m, so one cell represents 900 m², or 0.09 hectares.</p></li>
+<li><p>The data have been projected into WGS 84 / UTM zone 21S (EPSG:32721), allowing us to calculate distances and areas in metres.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="step-8-load-the-data-into-r" class="section level3 unnumbered">
+<h3>STEP 8: Load the data into R<a class="anchor" aria-label="anchor" href="#step-8-load-the-data-into-r"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>[8A]</strong> Make sure the novo_progresso_forest_1985_2025.tif file is in your Lab4 folder. In your lab report, make a new code chunk then read it in using the tif command,</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">forest</span> <span class="op">&lt;-</span> <span class="fu">rast</span><span class="op">(</span><span class="st">"novo_progresso_forest_1985_2025.tif"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<strong>[8B]</strong> Explore the dataset. As you can see this is a raster! You can type its name in a code chunk to see the overall summary
+<ul>
+<li>A <code>SpatRaster</code> can contain several layers. Here, each layer represents the same geographic area at a different point in time.</li>
+<li>Inspect the dataset using commands like</li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span>
+<span><span class="fu">nlyr</span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span>
+<span><span class="fu">crs</span><span class="op">(</span><span class="va">forest</span>, describe <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">res</span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<strong>[8C]</strong> In your lab report, write up these three questions
+<ul>
+<li>How many raster layers are in the dataset, and what does each one represent?</li>
+<li>What is the spatial resolution of the raster?</li>
+<li>Why is it useful to have the raster in a “projected coordinate system” when calculating landscape metrics? (we’re using UTM)</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+</div>
+<div id="step-9-plot-the-forest-maps" class="section level3 unnumbered">
+<h3>STEP 9: Plot the forest maps<a class="anchor" aria-label="anchor" href="#step-9-plot-the-forest-maps"><i class="fas fa-link"></i></a>
+</h3>
+<p>We will plot the three years using the same colours, so that forest and non-forest are represented consistently. Rather than using tmap, for rasters, just the plot command can give some nice output.</p>
+<ul>
+<li>
+<strong>[9A]</strong> Get this command running,</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span></span>
+<span>   <span class="va">forest</span>,</span>
+<span>   col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"grey90"</span>, <span class="st">"darkgreen"</span><span class="op">)</span>,</span>
+<span>   breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span>,</span>
+<span>   main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span>,</span>
+<span>   nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<strong>[9B]</strong> In your lab report, write up these questions
+<ul>
+<li>Describe the spatial distribution of forest in 1985.</li>
+<li>How does the arrangement of the remaining forest in 2025 differ from 1985?</li>
+<li>is this “fishbone clearing” or “geometric clearing” try googling both of these!</li>
+<li>What geographical processes might help explain the shapes of the cleared areas? What additional data would you need to investigate those explanations?</li>
+</ul>
+</li>
+<li>
+<strong>[9B]</strong> Before calculating any statistics, use the maps to predict how the four landscape metrics may have changed in your lab report (e.g. increase/decrease/uncertain and why)
+<ul>
+<li>Forest cover (%)</li>
+<li>Number of forest patches</li>
+<li>Mean forest patch area</li>
+<li>Forest edge density</li>
+</ul>
+</li>
+<li>
+<strong>[9C]</strong> In your lab report, explain which metric do you think will be the most useful for describing the process and pattern in your study area, and why</li>
+</ul>
+<p><br></p>
+<div id="the-rest-will-appear-directly-after-the-lab" class="section level4" number="0.1.6.2">
+<h4>
+<span class="header-section-number">0.1.6.2</span> THE REST WILL APPEAR DIRECTLY AFTER THE LAB<a class="anchor" aria-label="anchor" href="#the-rest-will-appear-directly-after-the-lab"><i class="fas fa-link"></i></a>
+</h4>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="Project1.html">Project 1</a></div>
+<div class="next"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li>
+<a class="nav-link" href="#Lab_4B">Homework 4</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#aim-2">Aim</a></li>
+<li><a class="nav-link" href="#need-help-2"><span class="header-section-number">0.1.5</span> Need help?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#part-1-lab-set-up">PART 1: LAB SET-UP</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1-create-your-project-download-datareports">STEP 1: Create your project &amp; download data/reports</a></li>
+<li><a class="nav-link" href="#step-2-adjust-your-knit-options">STEP 2: Adjust your knit options</a></li>
+<li><a class="nav-link" href="#step-3-knit-and-check-libraries">STEP 3: Knit and check libraries</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#part-2-in-class-emergent-phenomena">PART 2: IN-CLASS EMERGENT PHENOMENA</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#step-5-check-progress">STEP 5: Check progress</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#part-3-deforestation-fragmentation-background">PART 3: DEFORESTATION &amp; FRAGMENTATION BACKGROUND</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-6-read-the-text-in-this-section">STEP 6: Read the text in this section!</a></li>
+<li><a class="nav-link" href="#b-measuring-patchclasslandscape-patterns"><span class="header-section-number">0.1.6</span> B Measuring patch/class/landscape patterns</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#part-4-deforestation-fragmentation-example">PART 4: DEFORESTATION &amp; FRAGMENTATION EXAMPLE</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-7-read-about-the-dataset-and-study-area">STEP 7: Read about the dataset and study area</a></li>
+<li><a class="nav-link" href="#step-8-load-the-data-into-r">STEP 8: Load the data into R</a></li>
+<li><a class="nav-link" href="#step-9-plot-the-forest-maps">STEP 9: Plot the forest maps</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

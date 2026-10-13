@@ -7,7 +7,7 @@
 <title>Chapter 3 R-Markdown | GEOG364 Lab Book 2026</title>
 <meta name="author" content="Dr Helen Greatrex">
 <meta name="description" content="3.1 What is markdown Remind yourself of what Rmarkdown is here https://rmarkdown.rstudio.com via this short video   3.1.1 What are R-Scripts? Read more here: https://rmarkdown.rstudio.com Typing...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
 <meta property="og:title" content="Chapter 3 R-Markdown | GEOG364 Lab Book 2026">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T3_Markdown.html">
@@ -63,6 +63,7 @@
 <li><a class="" href="Lab_2.html">Homework 2</a></li>
 <li><a class="" href="Lab_3.html">Homework 3</a></li>
 <li><a class="" href="Project1.html">Project 1</a></li>
+<li><a class="" href="Lab_4B.html">Homework 4</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -76,10 +77,8 @@
 <li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
 <li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
 <li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
-<li><a class="" href="T11_SLR.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
-<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">13</span> Outliers, high leverage &amp; influential points</a></li>
-<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">14</span> Spatial data</a></li>
-<li><a class="" href="making-maps.html"><span class="header-section-number">15</span> Making maps</a></li>
+<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
+<li><a class="" href="making-maps.html"><span class="header-section-number">13</span> Making maps</a></li>
 </ul>
 
         <div class="book-extra">
@@ -195,18 +194,18 @@ Figure 3.3: Look at the circled button near the top of the two reports
 <p>The basic version is very simple with a title, an author and a self entered date. Let’s add in more options.</p>
 <p>YAML code is annoying to edit, because here, <em>spaces really do matter</em>. Everything has to be perfect or it won’t knit.</p>
 <p><strong>Select everything in my code chunk here and replace your YAML with this (remember the — on line 1 and at the end).</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="T3_Markdown.html#cb18-1" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb18-2"><a href="T3_Markdown.html#cb18-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"GEOG-364 - Lab 2"</span></span>
-<span id="cb18-3"><a href="T3_Markdown.html#cb18-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"hlg5155"</span></span>
-<span id="cb18-4"><a href="T3_Markdown.html#cb18-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
-<span id="cb18-5"><a href="T3_Markdown.html#cb18-5" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb18-6"><a href="T3_Markdown.html#cb18-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb18-7"><a href="T3_Markdown.html#cb18-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb18-8"><a href="T3_Markdown.html#cb18-8" tabindex="-1"></a>    toc_float<span class="sc">:</span> yes</span>
-<span id="cb18-9"><a href="T3_Markdown.html#cb18-9" tabindex="-1"></a>    number_sections<span class="sc">:</span> yes</span>
-<span id="cb18-10"><a href="T3_Markdown.html#cb18-10" tabindex="-1"></a>    theme<span class="sc">:</span> lumen</span>
-<span id="cb18-11"><a href="T3_Markdown.html#cb18-11" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb18-12"><a href="T3_Markdown.html#cb18-12" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="T3_Markdown.html#cb21-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb21-2"><a href="T3_Markdown.html#cb21-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"GEOG-364 - Lab 2"</span></span>
+<span id="cb21-3"><a href="T3_Markdown.html#cb21-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"hlg5155"</span></span>
+<span id="cb21-4"><a href="T3_Markdown.html#cb21-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb21-5"><a href="T3_Markdown.html#cb21-5" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb21-6"><a href="T3_Markdown.html#cb21-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb21-7"><a href="T3_Markdown.html#cb21-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb21-8"><a href="T3_Markdown.html#cb21-8" tabindex="-1"></a>    toc_float<span class="sc">:</span> yes</span>
+<span id="cb21-9"><a href="T3_Markdown.html#cb21-9" tabindex="-1"></a>    number_sections<span class="sc">:</span> yes</span>
+<span id="cb21-10"><a href="T3_Markdown.html#cb21-10" tabindex="-1"></a>    theme<span class="sc">:</span> lumen</span>
+<span id="cb21-11"><a href="T3_Markdown.html#cb21-11" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb21-12"><a href="T3_Markdown.html#cb21-12" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <p>Replace the author ID with your user name, change the title if appropriate.</p>
 <p>The elements we just added are:</p>
 <ul>
@@ -455,7 +454,7 @@ knitr::opts_chunk$set(echo=TRUE,
 <p>For example here’s how I typed that the mean height of the starwars data is 174.6 cm:</p>
 <div class="inline-figure"><img src="index_images/im_T3InlineCode.png" alt="" width="100%" style="display: block; margin: auto;"></div>
 
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># OPTIONS -----------------------------------------------</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>echo <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                      warning<span class="op">=</span><span class="cn">FALSE</span>, </span>
@@ -488,7 +487,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## This message can be suppressed by:
 ##   suppressPackageStartupMessages(library(circlize))
 ## ========================================</code></pre>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## Loading required package: ggplot2</code></pre>
@@ -497,7 +496,7 @@ knitr::opts_chunk$set(echo=TRUE,
 <pre><code>## The following object is masked from 'package:yarrr':
 ## 
 ##     diamonds</code></pre>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.2.1     ✔ readr     2.2.0
@@ -512,7 +511,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## ✖ tidyr::pack()    masks Matrix::pack()
 ## ✖ tidyr::unpack()  masks Matrix::unpack()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Attaching package: 'plotly'
@@ -528,7 +527,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## The following object is masked from 'package:graphics':
 ## 
 ##     layout</code></pre>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
@@ -537,7 +536,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## The following object is masked from 'package:readr':
 ## 
 ##     guess_encoding</code></pre>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://chris-prener.github.io/biscale/">biscale</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://walker-data.com/tidycensus/">tidycensus</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span></code></pre></div>
@@ -547,9 +546,9 @@ knitr::opts_chunk$set(echo=TRUE,
 ## The following object is masked from 'package:lubridate':
 ## 
 ##     stamp</code></pre>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-quantities.github.io/units/">units</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code>## udunits database from /Library/Frameworks/R.framework/Versions/4.6-x86_64/Resources/library/units/share/udunits/udunits2.xml</code></pre>
+<pre><code>## udunits database from /usr/local/share/udunits/udunits2.xml</code></pre>
 </div>
 </div>
 </div>
@@ -618,7 +617,7 @@ knitr::opts_chunk$set(echo=TRUE,
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-09-22.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
