@@ -6,8 +6,8 @@
 
 ## Overall :  Useful commands for looking at a dataset
 
-There are a few commands you will use constantly when working with data.
-
+There are a few commands you will use constantly when working with data.  In this example, I am using the mpg dataset. You can replace mpg with the name of the dataset you want to look at. 
+ 
 ```         
 View(mpg)       # open the dataset in a spreadsheet-style viewer
 glimpse(mpg)    # show the structure of the dataset

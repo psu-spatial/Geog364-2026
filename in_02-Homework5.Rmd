@@ -1,0 +1,313 @@
+
+# Homework 5 {#Lab_5 .unnumbered}
+
+
+```{r, include=FALSE, message=FALSE,warning=FALSE}
+library(readxl)
+library(sf)
+library(tmap)
+library(tidygeocoder)
+library(tidyverse)
+library(osrm)
+
+medical <- read_excel("./index_data/G364_MedicalClinics.xlsx")
+medical_sf <- st_as_sf(medical,coords=c("Longggitude","latitudE"), crs=4326)
+
+house_sf <- st_as_sf(
+  geo("112 Conner Rd, Rolling Fork, MS 39159", method="census"),
+  coords = c("long", "lat"), crs = 4326
+)
+house_sf
+
+medical_sf_mercator <- st_transform(medical_sf, 3857)
+house_sf_mercator <- st_transform(house_sf, 3857)
+
+```
+
+
+### Aim {.unnumbered}
+
+Welcome to Homework 5. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3 hrs of your time.
+
+<br>
+
+### Need help? {.unnumbered}
+
+REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN **ALL** YOUR CODE CHUNKS. The easiest way to do this is to press the "Run All" button, in the "Run" menu at the top right of your screen
+
+<br><br>
+
+## PART 1: Lab Setup {.unnumbered}
+
+### STEP 1: Create your project & download data/reports {.unnumbered}
+
+- **[1A]** If you don't already have a folder on your computer for Homework/Lab 5, make one inside your GEOG364 folder. ([Instructions here if you have forgottoen how: Project Tutorial](#T1_Projects))
+
+<br>
+
+- **[1B]** Go to Canvas and download both the data and the lab report template. Put them in your HW5 folder and rename the lab template to include your email ID.
+
+<br>
+
+- **[1C]** Open R-Studio and make a project for Homework 4 in the existing HW5 folder ([Instructions here if you have forgotten how: Project Tutorial](#T1_Projects))
+
+<br>
+
+- **[1D]** Go to the files quadrant/tab and open the RmD Lab report. If you are running your project it should be right there. If it's not, ask a teacher/TA.
+
+<br>
+
+- **[1E]** Optional. You are welcome and encouraged to change the YAML code or use different themes.
+
+  - (Changing the theme to be personal to you does make grading easier! You can see them here - <https://github.com/juba/rmdformats> (scroll down) and all you need to do is change the name of the output in the yaml to that theme name). *Note, unlike last week, we are using the rmdformats package which allows you to make quick professional themes - the website also provides examples you can copy/paste*.
+
+<br>
+
+### STEP 2: Adjust your knit options {.unnumbered}
+
+Look at the first code chunk below the YAML code. The `knitr::opts_chunk$set(echo = TRUE)` command is from the knitr package and allows us to set general options for the entire report.
+
+- **[2A]** Add in two more options, warning=FALSE and message=FALSE as shown below.
+- `knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)`
+
+<br>
+
+### STEP 3: Libraries and knitting {.unnumbered}
+
+
+- **[3A]** You need to install a new library for this to work
+
+
+
+- **[3A]** Press save and try to knit. **You should see that you are missing the tidygeocoder package.**.  To address this, we need to install it EITHER BY  
+
+  - A little yellow bar will appear at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br>
+  - OR when you press knit, you will get an error saying that it can't find that library. In this case, you have to go to the app store and download the tidygeocoderpackage ([Instructions here: Packages tutorial](#T2_Libraries_install)) <br>
+
+<br><br>
+
+## PART 2: IN-CLASS {.unnumbered}
+
+In this part of the class, we are going to build on the concept of distance and explore how you can record distances in a spatial weights matrix. You can work as a group and we will go over answers in class to help, but you will be graded/submit this as part of your lab report.
+
+### STEP 4: Load the data and make it spatial {.unnumbered}
+
+You are going to be looking at real data for health care facilities in the Mississippi area.
+
+- **[4A]** Remember to run the library code chunk! In the 'Distances' section of your report, make a new level 2 sub-heading called 'Loading data'.
+
+<br>
+
+- **[4B]** You should have placed the `G364_MedicalClinics.xlsx` in your Lab 5 folder.  Use the read_excel command to load the `G364_MedicalClinics.xlsx` file and save it to a variable called medical  ([Instructions here: Excel tutorial](#T4_load_excel))
+
+<br>
+  
+- **[4C]** View the dataset. There are MANY ways to do this: You can click on its name in "Environment",can type its name in the console, using the names(medical) or glimpse(medical) or head(medical) commands, or using the View(medical) command in the console. <br><br> Try several, and in the text in your report, explain what information each option provides then write down the pros and cons of different approaches for you personally (everyone is different!). 
+
+<br>
+
+- **[4D]**  The hospital data has the crs code 4326 as its coordinates are stored as longitude and latitude. Use this information and the st_as_sf() command to make the data 'Spatial' and call the resulting variable something like medical_sf <br><br> 
+HINT! I am bad at spelling.. ([This is the actual dataset I used in the st_as_sf tutorial, so you can follow that directly if you are unsure](#T5_st_as_sf)). 
+
+<br>
+
+- **[4E]** CHECKPOINT. Now type the name of the spatial dataset into the console. You should see that the long/lat columns have disappeared and that R now understands the data is point data. If not, talk to a teacher!
+
+<br><br>
+  
+  
+### STEP 5: Quick Exploratory data analysis {.unnumbered}
+
+- **[5A]** Now make another subheading called EDA.  
+
+<br>
+
+- **[5B]** Within this section, add code to explore the hospitals_sf dataset. See tutorial 5 or your past labs if you are stuck.
+
+Use that output to help you write a bullet point list which explains:
+  + The object of analysis 
+  + The variables (with units).
+  + The mean number of doctors per hospital
+  + Make a frequency table showing how many medical facilities are hospitals and how many are clinics ([Tutorial here](#T5_Tables))
+
+<br>
+
+- **[5C]** Make an nice looking interactive map where the color of each dot shows whether the medical facility is a hospital or a clinic. ([QTM reminder here](#T13A_QTM) and [Tmap reminder here](#T13A_TMap) - your choice which route you take) 
+
+
+<br>
+
+- **[5C]** In the text underneath, in about 50 words, explain the spatial pattern that you see of medical facilites and what might cause it.
+
+<br><br>
+ 
+  
+### STEP 6: Adding in your house data {.unnumbered}
+
+Imagine you are staying in Rolling Fork Missassippi. We are going to calculate the distance from your house to different medical clinics, using different definitions of "distance".
+
+
+- **[6A]**  First, you can get the location of your house by using the geo command from the tidygeocoder package. Get this code working in your report. <br> (*you can try it on your home address too! there are alternative methods to census if you live abroad, see ?geo *)
+
+```{r, eval=FALSE}
+house_sf <- st_as_sf(
+  geo("112 Conner Rd, Rolling Fork, MS 39159", method="census"),
+  coords = c("long", "lat"), crs = 4326
+)
+house_sf
+```
+
+- **[6B]**  Make a new map with the hospitals AND your house marked in red e.g. copy/paste your map code from above, add a + at the end so you can add a new layer, then add something like <br> `tm_shape(house_sf) + tm_dots("red", size=1)` . 
+
+<br><br>
+
+### STEP 7: Re-projecting the data {.unnumbered}
+
+We now have two spatial datasets (your house and the medical facilities), but they are currently stored as longitude and latitude. As discussed in class, we know that projecting this to a flat map might introduce distortions. In this step we are going to transform both datasets into three different projected coordinate systems to see how they change the distances.
+
+- **[7A]** Add a new level 2 sub-heading called 'Map projections'. Look up these three coordinate reference systems (CRS) and in the text, write down their names, units and what each projection was designed for:
+  + `3857` (Web Mercator)
+  + `32615` (WGS 84 / UTM Zone 15N)
+  + `5070` (NAD83 / Conus Albers Equal Area)
+
+<br>
+
+- **[7B]** Use `st_transform()` to re-project the **medical facilities** into all three CRS and save them as new variable names. Here is how to make the first one:
+
+```{r, eval=FALSE}
+medical_sf_mercator <- st_transform(medical_sf, 3857)
+house_sf_mercator <- st_transform(house_sf, 3857)
+```
+
+Now do the other two yourself, giving each a name that makes sense to you. 
+
+<br>
+
+- **[7C]** CHECKPOINT. You should end up with a house dataset and a medical facilities dataset in **each** of the three projections. In a sentence, explain why the house and medical facilities should be in the **same** CRS before calculating a Cartesian distance.
+
+<br><br>
+
+### STEP 8: Calculating Cartesian Distances {.unnumbered}
+
+Cartesian distance is the length of a straight line between two points on a flat map. We will calculate it three times to see how much the choice of projection changes the answer.
+
+- **[8A]** Make another level 2 sub-heading called 'Cartesian distances'. Use `st_distance()` to calculate the straight-line distance from your house to **every** medical facility, starting with the Web Mercator datasets:
+
+```{r, eval=FALSE}
+
+# Add a new column with the distance to the house
+medical_sf_mercator$HouseDist <- st_distance(medical_sf_mercator, house_sf_mercator)
+
+# convert from m to km
+medical_sf_mercator$HouseDist <- medical_sf_mercator$HouseDist/1000
+
+```
+
+This assumes you called your projected house `house_sf_mercator` in Step 7. Now repeat the calculation using **UTM Zone 15N** and **Albers Equal Area**.
+
+
+<br>
+
+- **[8B]** You can look at the distances by looking at medical_sf_mercator and the other two files e.g. in View, you can order the spreadsheet by the housedist column, or by a command like 
+
+```{r, eval=FALSE}
+medical_sf_mercator %>%
+     arrange(HouseDist)
+```
+
+
+<br> 
+
+- **[8C]** For each of the three map projections, find the distance to the nearest medical facility.  Write the name of the facility and the distance in km, with precision to the nearest metre.
+
+<br>
+
+- **[8D]** In about 50 words, explain why the three answers are not exactly the same. E.g. Explain which answer you think is most appropriate for measuring straight-line distances in this part of Mississippi, and why.
+
+
+<br>
+
+- **[8E]** For your favourite projection, write the distance to the THREE nearest medical facilities.  Write the name of the facility and the distance in km, with precision to the nearest metre.
+
+
+
+<br><br>
+
+### STEP 9: Calculating Network Distances {.unnumbered}
+
+A patient cannot usually travel in a straight line from their house to a clinic. We can also measure distance **along roads**, and estimate how long the journey would take by car.
+
+- **[9A]** Add a new level 2 sub-heading called 'Network distances'. Load the `osrm` package. We will use the Open Source Routing Machine (OSRM), which finds routes using a road network. This step needs an internet connection. 
+
+<br>
+
+- **[9B]** The `osrmTable()` command can calculate the driving distance and travel time between your house and the medical facilities. This actually WANTS the long/lat as input, so we use the medical_sf and house_sf inputs. Here is the code. You just need to make it run.
+
+```{r, eval=FALSE}
+driving <- osrmTable(
+  src = house_sf,
+  dst = medical_sf,
+  measure = c("distance", "duration")
+)
+```
+
+Look inside `driving` to find the distances and travel times. The distances are in **metres** and the times are in **minutes**.
+
+<br>
+
+- **[9C]** Write the THREE closest driving distances (in kilometres) and driving times (in minutes). Compare to your output from step 8. Is the closest clinic by straight-line distance also the closest by road?
+
+<br>
+
+- **[9D]** In about 50 words, explain what is going on and how your definiton of distance and the non-uniformity of space impacts the assessment of the healthcare facilities in this area. 
+
+
+<br><br>
+
+
+
+## PART 3: HOMEWORK (Join Counts) {.unnumbered}
+
+To be posted at the end of the lab. 
+
+
+
+#### **Congrats! Finished!** {.unnumbered}
+
+## WHAT TO SUBMIT {.unnumbered}
+
+<br>
+
+### If you are using your own computer {.unnumbered}
+
+1.  Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
+
+2.  Find the html and RmD files in your Lab 4 folder on your computer. Double click the html file to open it in your browser and check it's the one you want to submit.
+
+3.  **You need to submit BOTH of these files on the relevant Canvas assignment page.**
+
+```{r, L5-Submit, echo=FALSE, fig.cap="Find them in your GEOG364 folder on your computer", out.width="100%"}
+knitr::include_graphics('./index_images/im_T1_WhattoSubmit.png')
+```
+
+<br>
+
+### If you are using Posit Cloud online {.unnumbered}
+
+1.  Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
+
+2.  Go to the files tab an click on the little check-box by the RmD file. Then click the blue "more button" and press export. Save onto your computer.
+
+3.  Uncheck the .RmD box and click the box by the html file. Then click the blue "more button" and press export. Save onto your computer.
+
+4.  **You need to submit BOTH of these files on the relevant Canvas assignment page.**
+
+```{r, L5-CloudDownload, echo=FALSE, fig.cap="How do download the files from PositCloud", out.width="100%"}
+knitr::include_graphics('./index_images/im_T1_CloudSubmit.png')
+```
+
+<br><br>
+
+## CHECK YOUR GRADE! {#CheckGradeL5 .unnumbered}
+
+### RUBRIC {.unnumbered}

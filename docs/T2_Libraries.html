@@ -7,7 +7,7 @@
 <title>Chapter 2 Libraries/Packages | GEOG364 Lab Book 2026</title>
 <meta name="author" content="Dr Helen Greatrex">
 <meta name="description" content="2.1 IMPORTANT TAKE AWAY ‘Packages’ are like apps for R. They add new functions and datasets that R can make use of. Read more about what they are here: What are packages There are two things you...">
-<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Libraries/Packages | GEOG364 Lab Book 2026">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T2_Libraries.html">
@@ -64,6 +64,7 @@
 <li><a class="" href="Lab_3.html">Homework 3</a></li>
 <li><a class="" href="Project1.html">Project 1</a></li>
 <li><a class="" href="Lab_4B.html">Homework 4</a></li>
+<li><a class="" href="Lab_5.html">Homework 5</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -78,7 +79,7 @@
 <li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
 <li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
 <li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
-<li><a class="" href="making-maps.html"><span class="header-section-number">13</span> Making maps</a></li>
+<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
 </ul>
 
         <div class="book-extra">
@@ -182,7 +183,7 @@
 </h4>
 <p>You can also install a package by typing the “app-store” command into the console.</p>
 <p>This is <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>, where you put the name of the package you want to install in quotes. For example, this command will install the <code>palmerpenguins</code> package (a teaching dataset on penguins).</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"palmerpenguins"</span><span class="op">)</span></span></code></pre></div>
 <p><u><strong>IMPORTANT!</strong></u> <strong>NEVER put the install.packages() command into your script or markdown report</strong>. Otherwise you force the computer to revisit the app store, which sometimes crashes R and is generally bad form. Instead, always go to the app-store manually or type this command into R.</p>
 <p><br></p>
@@ -197,7 +198,7 @@
 <p><strong>I will tell you which packages you need for each lab, but if R tells you it wants a package at any point, please install it AND load it.</strong></p>
 <p>This can be done with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command.</p>
 <p>For example, here’s how to load the <code>palmerpenguins</code> package (which contains the Palmer Penguins teaching dataset (<a href="https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1" class="uri">https://www.rdocumentation.org/packages/palmerpenguins/versions/0.1.1</a>).<br></p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span></code></pre></div>
 <p><em>Remember, if you want to try this yourself, you first install the palmerpenguins package using the instructions above.</em></p>
 <p><br></p>
@@ -211,7 +212,7 @@
 <p>Sometimes several packages name a command the same word and you want to specify which package you want to use.</p>
 <p>You can do this using the :: symbol. For example, many different packages have a command called filter and R can get confused about which one to use.</p>
 <p>This command <em>forces</em> the computer to use the ‘dplyr package’ version of the filter command.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <hr>
@@ -316,7 +317,7 @@ Figure 2.1: Tidyverse install messages
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-13.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

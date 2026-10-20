@@ -66,11 +66,23 @@ This will name each column V1, V2 etc. You can then rename your columns using th
 
 #### Excel files (.xlsx, .xls) — `read_excel()` {#T4_load_excel}
 
-Requires the `readxl` package. Install it once via the Packages tab, then add `library(readxl)` to your library code chunk.
+Requires the `readxl` package. Install it once via the Packages tab, then add `library(readxl)` to your library code chunk. 
+
 
 ```{r, eval=FALSE}
 mydata <- read_excel("filename.xlsx")
 ```
+
+Remember you don't need to call the resulting variable "mydata"! You choose the name you save it as. Choose more sensible names for your data than my examples! 
+
+
+```{r, eval=FALSE}
+
+# This does EXACTLY THE SAME as above, but instead I'm saving it to a variable called "IHateThisDataset"
+IHateThisDataset <- read_excel("filename.xlsx")
+
+```
+
 
 If you want to read in a specific sheet from your Excel file, add the `sheet` argument:
 

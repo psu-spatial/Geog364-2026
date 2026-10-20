@@ -7,7 +7,7 @@
 <title>Chapter 4 Coding | GEOG364 Lab Book 2026</title>
 <meta name="author" content="Dr Helen Greatrex">
 <meta name="description" content="4.1 Quick reminder mean()         FUNCTION: something R does mean(mpg$year)     ARGUMENT: tell the function what to use Sys.Date()       SPECIAL CASE: a function that needs no argument COMMANDS...">
-<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
 <meta property="og:title" content="Chapter 4 Coding | GEOG364 Lab Book 2026">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T4_Coding.html">
@@ -64,6 +64,7 @@
 <li><a class="" href="Lab_3.html">Homework 3</a></li>
 <li><a class="" href="Project1.html">Project 1</a></li>
 <li><a class="" href="Lab_4B.html">Homework 4</a></li>
+<li><a class="" href="Lab_5.html">Homework 5</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -78,7 +79,7 @@
 <li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
 <li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
 <li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
-<li><a class="" href="making-maps.html"><span class="header-section-number">13</span> Making maps</a></li>
+<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
 </ul>
 
         <div class="book-extra">
@@ -132,7 +133,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h2>
 <p>Most commands need some information from you, which you put inside the parentheses <code>( )</code>. These are called arguments. You separate them with a comma and you can find out whats available using the help file.</p>
 <p>For example, the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function tells R to round numbers to a pre-specified number of decimal places.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">1.6722615</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.672</code></pre>
 <p>Here we have told R to round the number 1.6722615 to three decimal places:</p>
@@ -142,9 +143,9 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p><code>digits = 3</code> is the second argument; we want to round to three decimal places</p></li>
 </ul>
 <p>As a second example</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1]  9.784406  7.828870 11.297266 10.216462  9.630445</code></pre>
+<pre><code>## [1]  7.774280 12.309017  7.466739 10.827043 12.197981</code></pre>
 <p>Here we have told R: to randomly select <code>5</code> values from a normal distribution that has a mean of <code>10</code>, and a standard deviation of <code>2</code>.</p>
 <ul>
 <li><p>The command/function is <code>rnorm</code>()`</p></li>
@@ -166,7 +167,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>R doesn’t look for the end of the line to know when a command is finished, it looks for the closing ).</p>
 <p>So this will run fine for example, and is often a way of making your code more readable:</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># make 20 random numbers from a normal distribution with mean=10 and sd=3, then save them as the variable output.</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">20</span>,</span>
 <span>                mean<span class="op">=</span><span class="fl">10</span>,sd<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
@@ -178,7 +179,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>All R commands have a help file, some more complex than others! This always tells you the name and purpose of the command, then has a list of variables (and the default value if you choose to not type anything). Sometimes it also adds in several related commands into one help file.</p>
 <p>For example, take a look at the rnorm help file by typing its name into the console with a ? in front.</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">?</span><span class="va">rnorm</span></span></code></pre></div>
 <p>You should see this. Exactly what the commands do is often hidden in the description! In this case you can see that</p>
 <ul>
@@ -201,7 +202,7 @@ mean_year &lt;- mean(...) &lt;- : save the result
 </h3>
 <p>Some functions don’t need any extra information from you. These are a special case where the parentheses can be left empty. Even though there is nothing inside the parentheses, <strong>you still need the <code>( )</code></strong> because these are functions.</p>
 <p>For example, try typing these exactly into your console</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/file.choose.html">file.choose</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -222,9 +223,9 @@ mean_year &lt;- mean(...) &lt;- : save the result
 <li><p>This FIRST generates 5 numbers from a normal distribution with mean=10 and sd=2.</p></li>
 <li><p>THEN it rounds each of those 5 numbers to 3 decimal places</p></li>
 </ul>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1] 12.778  8.282 12.118 12.536 11.367</code></pre>
+<pre><code>## [1] 10.600 11.839 10.721  9.062 12.909</code></pre>
 <p><br></p>
 </div>
 <div id="T4_applyingonecolumn" class="section level2" number="4.5">
@@ -313,7 +314,7 @@ random_numbers &lt;- rnorm(20)</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-13.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

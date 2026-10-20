@@ -15,7 +15,7 @@ options(tigris_use_cache = TRUE)
 
 ```
 
-# Making maps
+# Making maps {#T13_Maps}
 
 ## LIBRARIES NEEDED
 
@@ -62,7 +62,7 @@ head(mycatlookslikeabat)
 
 <br><br>
 
-## Quick thematic map (qtm)
+## Quick thematic map (qtm) {#T13A_QTM}
 
 I use this for a first quick look but its has many more options.
 
@@ -91,7 +91,7 @@ qtm(districts108_2002, "DISTRICT")
 
 <br><br>
 
-## Basic Tmap
+## Basic Tmap {#T13A_TMap}
 
 Once you get past quick looks, ditch qtm. Instead, use the formal tmap structure
 

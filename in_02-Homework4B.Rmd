@@ -6,7 +6,7 @@ Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowe
 
 <br>
 
-### Need help?
+### Need help? {.unnumbered}
 
 REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN **ALL** YOUR CODE CHUNKS. The easiest way to do this is to press the "Run All" button, in the "Run" menu at the top right of your screen
 
@@ -76,7 +76,7 @@ In this lab, we will investigate the spatial structure of landscapes using R. We
 
 <br><br>
 
-#### Background: Why do landscape patterns matter?
+#### Background: Why do landscape patterns matter? {.unnumbered}
 
 ```{r, L4-Forest, echo=FALSE, fig.cap="Different forestscapes", out.width="100%"}
 knitr::include_graphics('./index_images/im_L4_Landscape.png')
@@ -94,7 +94,7 @@ Geographers commonly distinguish between two characteristics of landscapes:
 
 <br><br>
 
-#### Deforestation in the Brazilian Amazon
+#### Deforestation in the Brazilian Amazon {.unnumbered}
 
 The Amazon rainforest is one of the largest remaining areas of tropical forest in the world. It plays an important role in global biodiversity, carbon storage and regional climate processes. However, substantial areas of the Brazilian Amazon have been converted to other land uses, particularly agriculture and pasture. Deforestation is not distributed randomly across the landscape. Clearing often follows roads, settlements and areas where agricultural expansion is economically attractive. This can produce distinctive spatial patterns,
 
@@ -112,7 +112,7 @@ This impacts
 
 <br>
 
-#### Measuring patch/class/landscape patterns
+#### Measuring patch/class/landscape patterns {.unnumbered}
 
 We can distinguish between two broad types of information when looking at landscape
 
@@ -246,7 +246,7 @@ tm_basemap("OpenStreetMap") +
 
 <br><br>
 
-### STEP 10: Data wrangling
+### STEP 10: Data wrangling {.unnumbered}
 
 In step 11, you will use the `landscapemetrics` package to calculate numerical measures of forest composition and configuration. First, we have to deal with an issue. At the moment, our rasters have "1" for forest and "0" for non forest.
 
@@ -318,7 +318,7 @@ There are MANY global metrics we could apply from the `landscapemetrics` package
 
 <br>
 
-### STEP 11: Calculate the percentage of the landscape that's forest
+### STEP 11: Calculate the percentage of the landscape that's forest {.unnumbered}
 
 **METRIC TUTORIAL: PLAND - Percentage of landscape** `lsm_c_pland()`
 
@@ -355,7 +355,7 @@ pland85
 
 <br><br>
 
-### STEP 12: Calculate the number of patches
+### STEP 12: Calculate the number of patches {.unnumbered}
 
 Our second metric is the *number of patches* (NP). AKA How many separate forest areas are there.
 
@@ -375,7 +375,7 @@ numberpatch85
 
 <br><br>
 
-### STEP 13: Calculate the average patch size
+### STEP 13: Calculate the average patch size {.unnumbered}
 
 Our third metric is *mean patch area* (AREA_MN). This measures the average area of patches belonging to a particular class.
 
@@ -397,7 +397,7 @@ MeanPatchArea85 <- lsm_c_area_mn(forest[["1985"]])
 
 <br><br>
 
-### STEP 14: Calculate the edge density
+### STEP 14: Calculate the edge density {.unnumbered}
 
 Our fourth metric is *edge density* (ED). Edge density measures the total length of boundaries between a class and other land-cover classes, relative to the landscape area
 
@@ -433,7 +433,7 @@ To interpret, imagine your study area was 100 hectares (ours is different, thats
 
 <br><br>
 
-## PART 6: Summary
+## PART 6: Summary {.unnumbered}
 
 You have now calculated four different global measurements of the same landscape for 1985, 2005 and 2025.
 
@@ -447,7 +447,7 @@ You have now calculated four different global measurements of the same landscape
 
 <br>
 
-### STEP 15: Summarise your findings
+### STEP 15: Summarise your findings {.unnumbered}
 
 - **[16A]** Summarise your findings at the end of your report, e.g. you could include a table or bullet point list of the numbers (AND UNITS) - just to make it easy to compare across them.
 
@@ -461,7 +461,7 @@ You have now calculated four different global measurements of the same landscape
 
 <br><br>
 
-## **Congrats! Finished!**
+### **Congrats! Finished!** {.unnumbered}
 
 Note there are MANY metrics we could have chosen. This is just scratching the surface of landscapemetrics. If you're interested, there are good tutorials here.
 
@@ -521,9 +521,9 @@ knitr::include_graphics('./index_images/im_T1_CloudSubmit.png')
 
 <!-- -->
 
-- **Deforestation (15 points)**
+- **Deforestation (15 points)** 
 
-  - 15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.  \
+  - 15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts. \
 
   - 14/15: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.\
 
@@ -531,4 +531,4 @@ knitr::include_graphics('./index_images/im_T1_CloudSubmit.png')
 
     9/15: Shows some understanding, but several answers are incorrect, incomplete, or unclear
 
-    5/15: Any attempt!   A single word or a canvas comment to say hi will get you 5 points even if you haven't attended lab,  because I want to know people who are simply dropping a lab compared to people who are really struggling.
+    5/15: Any attempt! A single word or a canvas comment to say hi will get you 5 points even if you haven't attended lab, because I want to know people who are simply dropping a lab compared to people who are really struggling.

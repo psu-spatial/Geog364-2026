@@ -6,13 +6,13 @@ Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowe
 
 <br>
 
-### Need help?
+### Need help? {.unnumbered}
 
 REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN **ALL** YOUR CODE CHUNKS. The easiest way to do this is to press the "Run All" button, in the "Run" menu at the top right of your screen
 
 <br><br>
 
-## PART 1: LAB SET-UP {.unnumbered}
+## PART 1: Lab Setup {.unnumbered}
 
 ### STEP 1: Create your project & download data/reports {.unnumbered}
 
@@ -56,19 +56,17 @@ Look at the first code chunk below the YAML code. The `knitr::opts_chunk$set(ech
 
 <br><br>
 
-## PART 2: IN-CLASS EMERGENT PHENOMENA {.unnumbered}
+## PART 2: IN-CLASS Emergent Phenomena {.unnumbered}
 
 You are allowed and encouraged to work in groups for this section
 
-### STEP 5: Check progress {.unnumbered}
+### STEP 5: Write up results {.unnumbered}
 
 - **[5A]** Follow the instructions on canvas and write up your results and add your screenshot in the Emergent Phenomena section of your lab report.
 
 <br><br>
 
-## PART 3: LANDSCAPEMETRICS {.unnumbered}
-
-<br>
+## PART 3: Landscape metrics {.unnumbered}
 
 ### STEP 6: Read the text in this section! {.unnumbered}
 
@@ -78,7 +76,7 @@ In this lab, we will investigate the spatial structure of landscapes using R. We
 
 <br><br>
 
-#### Background: Why do landscape patterns matter?
+#### Background: Why do landscape patterns matter? {.unnumbered}
 
 <div class="figure">
 <img src="./index_images/im_L4_Landscape.png" alt="Different forestscapes" width="100%" />
@@ -97,7 +95,7 @@ Geographers commonly distinguish between two characteristics of landscapes:
 
 <br><br>
 
-#### Deforestation in the Brazilian Amazon
+#### Deforestation in the Brazilian Amazon {.unnumbered}
 
 The Amazon rainforest is one of the largest remaining areas of tropical forest in the world. It plays an important role in global biodiversity, carbon storage and regional climate processes. However, substantial areas of the Brazilian Amazon have been converted to other land uses, particularly agriculture and pasture. Deforestation is not distributed randomly across the landscape. Clearing often follows roads, settlements and areas where agricultural expansion is economically attractive. This can produce distinctive spatial patterns,
 
@@ -115,7 +113,7 @@ This impacts
 
 <br>
 
-#### Measuring patch/class/landscape patterns
+#### Measuring patch/class/landscape patterns {.unnumbered}
 
 We can distinguish between two broad types of information when looking at landscape
 
@@ -140,9 +138,9 @@ This means we can describe a landscape using statistics calculated at three diff
 
 <br><br>
 
-## PART 4: EXPLORATORY DATA ANALYSIS {.unnumbered}
+## PART 4: Exploratory analysis {.unnumbered}
 
-### STEP 7: Read about the dataset and study area {.unnumbered}
+### STEP 7: Learn about the dataset   {.unnumbered}
 
 The Amazon rainforest is one of the largest remaining areas of tropical forest in the world. It plays an important role in global biodiversity, carbon storage and regional climate processes. However, substantial areas of the Brazilian Amazon have been converted to other land uses, particularly agriculture and pasture. Deforestation is not distributed randomly across the landscape. Clearing often follows roads, settlements and areas where agricultural expansion is economically attractive. This can produce distinctive spatial patterns,
 
@@ -250,7 +248,7 @@ tm_basemap("OpenStreetMap") +
 
 <br><br>
 
-### STEP 10: Data wrangling
+### STEP 10: Data wrangling {.unnumbered}
 
 In step 11, you will use the `landscapemetrics` package to calculate numerical measures of forest composition and configuration. First, we have to deal with an issue. At the moment, our rasters have "1" for forest and "0" for non forest.
 
@@ -306,7 +304,7 @@ tm_shape(forest) + tm_raster("2025", col_alpha=.7)
 
 <br><br>
 
-## PART 5: GLOBAL METRICS {.unnumbered}
+## PART 5: Global metrics {.unnumbered}
 
 **A global metric is one where there is a single value per map e.g. the mean patch size.**
 
@@ -323,7 +321,7 @@ There are MANY global metrics we could apply from the `landscapemetrics` package
 
 <br>
 
-### STEP 11: Calculate the percentage of the landscape that's forest
+### STEP 11: Calculate the percentage of the landscape that's forest {.unnumbered}
 
 **METRIC TUTORIAL: PLAND - Percentage of landscape** `lsm_c_pland()`
 
@@ -361,7 +359,7 @@ pland85
 
 <br><br>
 
-### STEP 12: Calculate the number of patches
+### STEP 12: Calculate the number of patches {.unnumbered}
 
 Our second metric is the *number of patches* (NP). AKA How many separate forest areas are there.
 
@@ -382,7 +380,7 @@ numberpatch85
 
 <br><br>
 
-### STEP 13: Calculate the average patch size
+### STEP 13: Calculate the average patch size {.unnumbered}
 
 Our third metric is *mean patch area* (AREA_MN). This measures the average area of patches belonging to a particular class.
 
@@ -390,7 +388,7 @@ Our third metric is *mean patch area* (AREA_MN). This measures the average area 
 
 For example, a landscape with 100 hectares of forest divided into 10 equal patches would have a mean patch area of 10 hectares.
 
-You calculate this using `lsm_c_area_mn``()` which has a similar output to PLAND
+You calculate this using ``` lsm_c_area_mn``() ``` which has a similar output to PLAND
 
 
 ``` r
@@ -404,7 +402,7 @@ MeanPatchArea85 <- lsm_c_area_mn(forest[["1985"]])
 
 <br><br>
 
-### STEP 14: Calculate the edge density
+### STEP 14: Calculate the edge density {.unnumbered}
 
 Our fourth metric is *edge density* (ED). Edge density measures the total length of boundaries between a class and other land-cover classes, relative to the landscape area
 
@@ -441,9 +439,7 @@ To interpret, imagine your study area was 100 hectares (ours is different, thats
 
 <br><br>
 
-<br><br>
-
-## PART 6: SUMMARY
+## PART 6: Summary {.unnumbered}
 
 You have now calculated four different global measurements of the same landscape for 1985, 2005 and 2025.
 
@@ -457,7 +453,7 @@ You have now calculated four different global measurements of the same landscape
 
 <br>
 
-### STEP 15: Summarise your findings
+### STEP 15: Summarise your findings {.unnumbered}
 
 - **[16A]** Summarise your findings at the end of your report, e.g. you could include a table or bullet point list of the numbers (AND UNITS) - just to make it easy to compare across them.
 
@@ -471,11 +467,11 @@ You have now calculated four different global measurements of the same landscape
 
 <br><br>
 
-## **Congrats! Finished!**
+### **Congrats! Finished!** {.unnumbered}
 
 Note there are MANY metrics we could have chosen. This is just scratching the surface of landscapemetrics. If you're interested, there are good tutorials here.
 
-- [https://nlboreal.github.io/LandscapeMetrics/intro.html ](#0){.uri}
+- [https://nlboreal.github.io/LandscapeMetrics/intro.html](#0){.uri}
 
 - <https://bookdown.org/hhwagner1/LandGenCourse_book/index.html>\
   \
@@ -516,13 +512,13 @@ Note there are MANY metrics we could have chosen. This is just scratching the su
 
 <br><br>
 
-## CHECK YOUR GRADE! {#CheckGradeL1 .unnumbered}
+## CHECK YOUR GRADE! {#CheckGradeL4 .unnumbered}
 
 ### RUBRIC {.unnumbered}
 
 - **Emergent Phenomena (10 points)**
 
-  - 10/10: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.  
+  - 10/10: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.
 
   - 8/10: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.
 
@@ -533,9 +529,9 @@ Note there are MANY metrics we could have chosen. This is just scratching the su
 
 <!-- -->
 
-- **Deforestation (15 points)**
+- **Deforestation (15 points)** 
 
-  - 15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.  \
+  - 15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts. \
 
   - 14/15: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.\
 
@@ -543,4 +539,4 @@ Note there are MANY metrics we could have chosen. This is just scratching the su
 
     9/15: Shows some understanding, but several answers are incorrect, incomplete, or unclear
 
-    5/15: Any attempt!   A single word or a canvas comment to say hi will get you 5 points even if you haven't attended lab,  because I want to know people who are simply dropping a lab compared to people who are really struggling.
+    5/15: Any attempt! A single word or a canvas comment to say hi will get you 5 points even if you haven't attended lab, because I want to know people who are simply dropping a lab compared to people who are really struggling.

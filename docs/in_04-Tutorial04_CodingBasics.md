@@ -153,7 +153,7 @@ library(units)
 ```
 
 ```
-## udunits database from /usr/local/share/udunits/udunits2.xml
+## udunits database from /Library/Frameworks/R.framework/Versions/4.6-x86_64/Resources/library/units/share/udunits/udunits2.xml
 ```
 
 # Coding {#T4_Coding}
@@ -229,7 +229,7 @@ rnorm(n = 5, mean = 10, sd = 2)
 ```
 
 ```
-## [1]  9.784406  7.828870 11.297266 10.216462  9.630445
+## [1]  7.774280 12.309017  7.466739 10.827043 12.197981
 ```
 
 Here we have told R: to randomly select `5` values from a normal distribution that has a mean of `10`, and a standard deviation of `2`.
@@ -324,7 +324,7 @@ round(rnorm(n = 5, mean = 10, sd = 2), digits=3)
 ```
 
 ```
-## [1] 12.778  8.282 12.118 12.536 11.367
+## [1] 10.600 11.839 10.721  9.062 12.909
 ```
 
 <br>
