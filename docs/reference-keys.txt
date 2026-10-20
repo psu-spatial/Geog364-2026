@@ -12,6 +12,7 @@ fig:L4-Patch
 fig:L4-Edge
 fig:L4-Submit
 fig:L4-CloudDownload
+fig:L5-Neighbors
 fig:L5-Submit
 fig:L5-CloudDownload
 fig:im-T1-ProjectCloud
