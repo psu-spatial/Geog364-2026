@@ -578,7 +578,7 @@ knitr::include_graphics('./index_images/im_T1_WhattoSubmit.png')
 
 ### If you are using Posit Cloud online {.unnumbered}
 
-1.  Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
+1.  Press knit one final time.You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
 
 2.  Go to the files tab an click on the little check-box by the RmD file. Then click the blue "more button" and press export. Save onto your computer.
 
