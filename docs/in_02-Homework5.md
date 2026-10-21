@@ -479,7 +479,8 @@ nb_as_matrix(medical_band)
 
 <br>
 
-- **[13D]** Find the **Sharkey Issaquena Community Hospital** in your dataset. Using a distance band of 20km, write down which other medical facilities count as its neighbours.
+- **[13D]** Find the **Sharkey Issaquena Community Hospital** in your dataset. Using a distance band of **50km**, write down which other medical facilities count as its neighbours.  
+**NOTE, THIS USED TO BE 20km BUT BECAUSE THERE ARE SOME OTHER HOSPITAL PAIRS THAT DON'T HAVE SUB-20km NEIGHBOURS, THE CODE WOULDN'T RUN AS IT NEEDED ALL THE VALUES IN THE SPATIAL WEIGHTS MATRIX. I have therefore updated the threshold to 50km **
 
 <br><br>
 
@@ -526,7 +527,7 @@ Create a new heading called reflection and answer these questions
 
 ### If you are using Posit Cloud online {.unnumbered}
 
-1.  Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
+1.  Press knit one final time.You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
 
 2.  Go to the files tab an click on the little check-box by the RmD file. Then click the blue "more button" and press export. Save onto your computer.
 

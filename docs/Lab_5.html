@@ -586,7 +586,8 @@ Figure 0.14: Three ways of thinking about neighbors
 <p><br></p>
 <ul>
 <li>
-<strong>[13D]</strong> Find the <strong>Sharkey Issaquena Community Hospital</strong> in your dataset. Using a distance band of 20km, write down which other medical facilities count as its neighbours.</li>
+<strong>[13D]</strong> Find the <strong>Sharkey Issaquena Community Hospital</strong> in your dataset. Using a distance band of <strong>50km</strong>, write down which other medical facilities count as its neighbours.<br><strong>NOTE, THIS USED TO BE 20km BUT BECAUSE THERE ARE SOME OTHER HOSPITAL PAIRS THAT DON’T HAVE SUB-20km NEIGHBOURS, THE CODE WOULDN’T RUN AS IT NEEDED ALL THE VALUES IN THE SPATIAL WEIGHTS MATRIX. I have therefore updated the threshold to 50km </strong>
+</li>
 </ul>
 <p><br><br></p>
 </div>
@@ -651,7 +652,7 @@ Figure 0.15: Find them in your GEOG364 folder on your computer
 <h3>If you are using Posit Cloud online<a class="anchor" aria-label="anchor" href="#if-you-are-using-posit-cloud-online-4"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
-<li><p>Press knit one final time. You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
+<li><p>Press knit one final time.You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
 <li><p>Go to the files tab an click on the little check-box by the RmD file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
 <li><p>Uncheck the .RmD box and click the box by the html file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
 <li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
@@ -746,7 +747,7 @@ Figure 0.16: How do download the files from PositCloud
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-20.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
