@@ -269,4 +269,3 @@ step-4-computing-the-morans-i-statistic
 step-5-performing-a-hypothesis-test
 analytical-method
 monte-carlo-method
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
