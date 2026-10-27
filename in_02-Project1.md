@@ -1,0 +1,484 @@
+
+
+# Project 1 {#Project1 .unnumbered}
+
+### Aim {.unnumbered}
+
+Welcome to Project-1. This is worth 100 points! You can drop your lowest score out of the three projects.
+
+YOU HAVE TWO WEEKS! The maximum time it should take is about 4-6 hrs of your time, plus both lab times.
+
+The aim of this lab is to showcase your spatial analysis. <br>
+
+### Need help? {.unnumbered}
+
+REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN **ALL** YOUR CODE CHUNKS. The easiest way to do this is to press the "Run All" button, in the "Run" menu at the top right of your screen
+
+<br>
+
+<br>
+
+------------------------------------------------------------------------
+
+## PART 1: LAB SET-UP (Important!) {.unnumbered}
+
+### STEP 1: Create your R-project for Project-1 {.unnumbered}
+
+- **[1A]** Make a project for Project-1 (tutorial here) [Projects](#T1_Projects)
+
+- **[1B]** Open your Project-1 R-project in R-Studio (see screenshot below).
+
+<div class="figure">
+<img src="./index_images/im_T1_Projectcheck.png" alt="Yours should look like this but say the name of your Project-1 project" width="100%" />
+<p class="caption">(\#fig:L3-Projectcheck)Yours should look like this but say the name of your Project-1 project</p>
+</div>
+
+<br>
+
+------------------------------------------------------------------------
+
+### STEP 2: Create your lab report structure & YAML code {.unnumbered}
+
+- **[2A]** Make a new RMarkdown Report ([Tutorial here](#T31_NewMarkdown)) <br>
+
+- **[2B]** As we discussed last week, your YAML code at the top of your script tells R how to make the final report. It lives between the --- lines. CAREFULLY replace the YAML code with this code (remember to only have one set of ---) and press knit.
+
+
+``` r
+---
+title: "GEOG-364 - Project-1"
+author: "CHANGE TO YOUR E-MAIL ID"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: yes
+    number_sections: yes
+    theme: journal
+    df_print: paged
+---
+```
+
+It should look like this.
+
+<div class="figure">
+<img src="./index_images/L3B_YAMLcode.png" alt="Remember the ---! This is easier in source mode" width="100%" />
+<p class="caption">(\#fig:L3-YAML)Remember the ---! This is easier in source mode</p>
+</div>
+
+<br>
+
+------------------------------------------------------------------------
+
+### STEP 3: Change the theme {.unnumbered}
+
+There are many easy themes you can select to change the look of your report.
+
+- **[3A]** In your YAML code, try changing the theme line to one of these, then press knit to see how it looks (some don't work in some versions of R). YOU DON'T NEED THE QUOTES.
+
+- “bootstrap”, “cerulean”, “cosmo”, “darkly”, “flatly”, “journal”, “lumen”, “paper”, “readable”, “sandstone”, “simplex”, “spacelab”, “united”, “yeti”
+
+- Choose a theme of your choice.
+
+<br>
+
+### STEP 4: Adjust your knit options {.unnumbered}
+
+When you press knit when you have packages, a load of library loading text will appear. This makes it hard to find your answers and makes your labs less professional. Although this was addressed in earlier labs, here's how to fix this issue.
+
+- **[4A]** Look at the first code chunk below the YAML code. The `opts_chunk$set()` command allows us to set general knit options for the entire report.
+
+```         
+   knitr::opts_chunk$set(echo = TRUE)
+```
+
+- Add in two more options, warning=FALSE and message=FALSE.
+
+```         
+   knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+- When you press knit for now, nothing should happen (but no errors. )
+
+<br>
+
+### STEP 5: Tidy up {.unnumbered}
+
+- **[5A]** Delete all "the friendly welcome text", below the knitr::opts_chunk so you have a nice clean report:
+
+<img src="./index_images/im_L2_SetupReport.png" alt="" width="100%" style="display: block; margin: auto;" />
+
+<br>
+
+### STEP 6: Finally.. sort out libraries {.unnumbered}
+
+It's good practice to have a single code chunk near the top of the script containing all your library commands. This is to stop duplicated code and to make it easy to see what you are loading before running your labs.
+
+- **[6A]** Add a new code chunk under the opts one, and add the code inside it to load the packages.
+
+
+``` r
+library(tidyverse) # Lots of data processing commands
+library(knitr)     # Helps make pretty output files
+library(ggplot2)   # Output plots
+library(sf)        # Spatial commands
+library(tmap)      # Mapping commands
+library(readxl)    # Read from excel files
+```
+
+- **[6B]** Then press save or try to knit. If any packages are missing you will see
+
+  - EITHER a little yellow bar at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br>
+  - OR an error saying that it can't find that library (it might also be a spelling mistake if you are sure it's installed). In this case, you have to go to the app store and download it (Packages/Install). <br>\
+
+<br><br>
+
+### STEP 7: Check progress {.unnumbered}
+
+- OK - so by now, you should be running the project for Project-1, you have created your lab report, the YAML code works and your libraries work. If not, STOP, go back and redo the tutorials or talk to Dr G/Samrin
+
+<br><br>
+
+## PART 2A: IN-CLASS - DATA DETECTIVE (25 MARKS) {.unnumbered}
+
+YOU CAN WORK IN GROUPS
+
+<br>
+
+I recently found two ‘mystery files’ on my computer that I had forgotten to name correctly.
+
+I know they must be from two out of these four experiments:
+
+- **COVID-19 Clusters in Central Pennsylvania**. <br> The local government has asked for help identifying clusters of COVID-19 cases across central PA. The aim is to prioritize mobile testing units and health messaging in affected towns.
+
+- **Mediterranean Vineyard Clusters**. <br> An international agricultural group is funding a study of vineyard clustering in two Mediterranean islands, aiming to evaluate whether specific micro-climates or land use policies are influencing planting decisions.
+
+- **Smooth-Hound Shark Hot-spots**. <br> You are working with the regional fishing board to identify hot-spots for Smooth-Hound Shark activity. The goal is to define seasonal no-fishing zones to support sustainable stock management. The data represents tagged shark locations in the last month.
+
+- **Polar Bear Cluster Study in the Arctic**. <br> PSU ecologists are investigating polar bear movement patterns across the Arctic. Using GPS collar data, they are analyzing seasonal hot-spots for foraging and denning, particularly in response to changing sea ice patterns.
+
+<br>
+
+### STEP 8 Get the data: {.unnumbered}
+
+1.  Check your setup
+
+- If you haven't already, GO AND DO THE SET-UP SECTION. You should now have your project running, your Project 1 report open, and your library code chunk run.
+
+<br>
+
+2.  Read in the data
+
+- Create a heading called **Mystery Data**.
+- Create a code chunk and use the `st_read()` command to read each dataset into R. Remember the tutorials on the left (spatial basics or see your last lab). <https://psu-spatial.github.io/Geog364-2026/T5_VectorSpatial.html#T5_st_read>
+
+<br>
+
+### STEP 9 Map the data: {.unnumbered}
+
+- In your lab report, explore and map the data using qtm. <https://psu-spatial.github.io/Geog364-2026/T5_VectorSpatial.html#T5_qtmmaps>
+
+<br>
+
+<br>
+
+### STEP 10 Match the experiments {.unnumbered}
+
+- Using your maps, work out which experiment each dataset matches (see the exercise intro).
+- Explain your reasoning in your report, providing common-sense evidence to support your explanation of the non-uniformity of space. *Hint: this isn't meant to be a trick – it should be fairly straightforward.*
+
+<br>
+
+### STEP 11 Choose a domain {.unnumbered}
+
+- For the OCEAN scenario, describe what you think would be a good spatial domain (study area) **given the aim of the research project at the start of the question!**.
+- Consider both the geography and the research question: What area makes sense to include? What might be too broad or too narrow? Does the non uniformity of space, locational fallacy or edge effects impact your choice. Does your domain have "holes" or is it a solid shape?
+- Then describe in words whether the points in your dataset seem **clustered**, **dispersed**, or **uniformly** distributed given your domain.
+- Explain your reasoning in your own words.
+
+## PART 2B: Summarise notes (10 MARKS) {.unnumbered}
+
+<br>
+
+### STEP 11 Summarise notes. {.unnumbered}
+
+- On the canvas page, you will see this week's reading which supplements the recent lectures (unwin).
+
+- Make a new heading called Notes
+
+- Summarise at least 5 things you learned from this reading, including at least one that was not in the lecture notes.  
+
+- PLEASE INCLUDE THIS WRITE UP IN YOUR LAB REPORT!
+
+<br><br>
+
+## PART 3: MAIN PROJECT {.unnumbered}
+
+In this lab, you will work with wildfire occurrence data from Santa Cruz County, California. You will start with an Excel spreadsheet containing fire locations and attributes, convert it to spatial `sf` data, explore the spatial pattern of fires, and aggregate the fire locations to census tracts.
+
+Battalion Chief Dana Reyes works for the CAL FIRE San Mateo–Santa Cruz Unit (CZU), which provides wildfire protection across the Santa Cruz Mountains. In August 2020, lightning started the CZU Lightning Complex, which burned 86,509 acres and destroyed 1,490 structures before it was controlled. Imagine you are her GIS analyst who has recently been given some new data.
+
+<br>
+
+### Available data {.unnumbered}
+
+#### 1. Point Fire occurrence: `santa_cruz_fires.xlsx` {.unnumbered}
+
+A point table of 615 reported [wildfire discovery occurrences]{.underline} in Santa Cruz County, California, from 2015–2024. The original records come from the US Forest Service Fire Program Analysis Fire-Occurrence Database (FPA-FOD).
+
+[US Forest Service FPA-FOD data and metadata](https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_FireOccurrenceCurrentEdition_01/MapServer/0?utm_source=chatgpt.com)
+
+- **Object of analysis:** "A fire occurrence" AKA, a point marking the reported origin of one wildfire, located at least as precisely as a 1-square-mile Public Land Survey System section".
+
+- Note, A large fire complex may have been started with several smaller fires. So each one of those smaller fires will be recorded separately here as a separate record. So the big fire of 2020 lightning complex fire was split up into many smaller fires
+
+- **Statistical population:** ALL FPA-FOD fire occurrences from 2015–2024 whose recorded point location falls inside Santa Cruz County.
+
+- **Variables**
+
+  - **`fire_id`** — unique FPA-FOD identifier for the fire occurrence.
+
+  - **`fire_name`** — reported name of the fire, where one was recorded.
+
+  - **`fire_year`** — calendar year in which the fire was discovered.
+
+  - **`discovery_date`** — date on which the fire was discovered or reported.
+
+  - **`cause_type`** — broad NWCG cause classification, such as Human or Natural.
+
+  - **`cause`** — more detailed reported cause, such as Natural, Recreation and ceremony, Equipment and vehicle use, or Arson/incendiarism.
+
+  - **`fire_size`** — reported final fire size. *Units: acres.*
+
+  - **`fire_size_class`** — FPA-FOD/NWCG categorical fire-size class.
+
+  - **`county`** — county recorded in the original fire report.
+
+  - **`elevation_ft`** — estimated elevation at the recorded fire location.
+
+  - **`tree_density`** — mean percentage tree-canopy cover within **1 mile** of the recorded fire location. *Units: percent canopy cover.*
+
+    - *Note - to make this, Dr G created a one-mile buffer around each fire and averaged the cells from the **2019 NLCD Tree Canopy Cover** raster inside the buffer. `tree_density` is therefore canopy percentage, not a count of trees per unit area. FedData provides access to the NLCD canopy product.\
+      [NLCD / MRLC land-cover data](https://www.mrlc.gov/data?utm_source=chatgpt.com)*
+
+  - **`distance_to_road`** — shortest straight-line distance from the fire point to the nearest drivable road. *Units: miles.*
+
+    - *Note, Dr G calculated this using OpenStreetMap roads classified as `motorway`, `trunk`, `primary`, `secondary`, or `tertiary`. [OpenStreetMap US road-classification guide](https://wiki.openstreetmap.org/wiki/United_States/Highway_classification?utm_source=chatgpt.com)*
+
+  - `discovery_month`**:** The month the fire was started (taken from the date)
+
+  - **`longitude`** — east-west coordinate of the recorded fire point in WGS84. *Units: decimal degrees.*
+
+  - **`latitude`** — north-south coordinate of the recorded fire point in WGS84.\
+    *Units: decimal degrees.*
+
+  - **`geometry`** — point geometry for the Census block group.
+  
+  <br>
+
+#### Census tract data: `TEACHING_santacruz_fire_lab.gpkg` {.unnumbered}
+
+A spatial polygon dataset of Census tracts in Santa Cruz County, California. Population data come from the **2024 American Community Survey 5-year estimates**, and tract boundaries/land area come from the US Census Bureau.
+
+[US Census Bureau ACS](https://data.census.gov/)\
+[US Census Bureau TIGER/Line data](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
+
+- LAYER: tract
+- **Object of analysis:** one Census tract.
+- **Statistical population:** All Census tracts in Santa Cruz County included in the 2024 Census/ACS geography.
+- **Variables**
+  - **`GEOID`** — unique Census identifier for the block group.
+  - **`name`** — Census name of the block group.
+  - **`population`** — estimated resident population of the block group.
+  - **`area_sq_miles`** — land area of the block group. *Units: square miles.*
+    - *Note - this uses the Census `ALAND` field, so water area is excluded.*
+  - **`pop_density`** — estimated population divided by land area. *Units: people per square mile of land.*
+  - **`fire_density`** — density of all recorded wildfire occurrences from 2015–2024 whose points fall inside the block group. *Units: fires per square mile of land.*
+  - **`elevation_ft`** — mean elevation across the block group. *Units: feet above sea level.*
+  - **`tree_density`** — mean percentage tree-canopy cover across the block group. *Units: percent canopy cover.*
+  - **`geometry`** — polygon geometry for the Census block group.
+    - *Coordinate Reference System: California Albers, EPSG:3310.*
+
+
+<br>
+
+#### Census block group dataset: `TEACHING_santacruz_fire_lab.gpkg` {.unnumbered}
+
+A spatial polygon dataset of Census **block groups** in Santa Cruz County, California. Block groups are smaller subdivisions of Census tracts, so this dataset gives you the same study area at a finer spatial scale. Population data come from the **2024 American Community Survey 5-year estimates**, and boundaries/land area come from the US Census Bureau.
+
+[US Census Bureau ACS](https://data.census.gov/)\
+[US Census Bureau TIGER/Line data](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
+
+- LAYER: BLOCK GROUPS
+- **Object of analysis:** one Census block group.
+- **Statistical population:** All Census block groups in Santa Cruz County included in the 2024 Census/ACS geography.
+- **Variables**
+  - **`GEOID`** — unique Census identifier for the block group.
+  - **`name`** — Census name of the block group.
+  - **`population`** — estimated resident population of the block group.
+  - **`area_sq_miles`** — land area of the block group. *Units: square miles.*
+    - *Note - this uses the Census `ALAND` field, so water area is excluded.*
+  - **`pop_density`** — estimated population divided by land area. *Units: people per square mile of land.*
+  - **`fire_density`** — density of all recorded wildfire occurrences from 2015–2024 whose points fall inside the block group. *Units: fires per square mile of land.*
+  - **`elevation_ft`** — mean elevation across the block group. *Units: feet above sea level.*
+  - **`tree_density`** — mean percentage tree-canopy cover across the block group. *Units: percent canopy cover.*
+  - **`geometry`** — polygon geometry for the Census block group.
+    - *Coordinate Reference System: California Albers, EPSG:3310.*
+
+
+<br>
+
+#### Roads `TEACHING_santacruz_fire_lab.gpkg` {.unnumbered}
+
+A spatial line file of major roads from open street map
+
+- layer: roads
+- **`geometry`** — polygon geometry for the Census block group.
+  - *Coordinate Reference System: California Albers, EPSG:3310.*
+  
+<br><br>
+
+### INSTRUCTIONS {.unnumbered}
+
+The Santa Cruz County Board of Supervisors has asked Chief Reyes to brief them before next fire season. They want to decide where to spend money on fuel reduction, fire lookouts, and public education. Chief Reyes has asked you, as her GIS analyst, to use the national wildfire occurrence database (FPA FOD) and a tree canopy cover map to answer four requests:
+
+1.  How many wildfires are reported in Santa Cruz County each year from 1992 to 2024, and has that number changed over time?
+
+2.  Please make some good maps on the topic using the data provided.
+
+3.  Use your maps and analysis to explain the spatial pattern of where fires start? Are fire occurences clustered, and if so, where?
+
+4.  What other spatial factors seem to overlap with fire occurrence. For example, tree cover, distance to roads, elevation and population density.
+
+5.  How does the picture change if we switch from points, to census blocks (small areas) to census tracts(larger areas)
+
+<br>
+
+#### What you need to do/submit {.unnumbered}
+
+**You need to use the data above, to write up a report for the fire chief that answers their questions, including maps, R output and your reasoning for each point. (e.g. use headings!).**
+
+This can be the same report as parts 1 and 2 of this lab.  You will submit the final rmd and html file.
+
+<br>
+
+#### STEP P1. Get the data {.unnumbered}
+
+- Read in the data. Go to this tutorial: <https://psu-spatial.github.io/Geog364-2026/making-maps.html> and see how I read in different layers.
+- Get the data on canvas and read it into your project.
+
+#### STEP P2. EDA. Introduction / summary analysis {.unnumbered}
+
+Explore the data I provided above, making summaries and initial plots in R. 
+
+Then write up your report introduction.  Within this, 
+-   Explain what the first chief is interested in
+-   Introduce the topic & the dataset.
+-   Make sure to describe any data you use in the text. e.g. your object of analysis, variables, inferred population etc. 
+-   Reflect on the the chief's questions, explaining what this data is able to tell you, and what this data is NOT able to tell you  
+   
+   
+<br>    
+   
+Then answer the 5 questions the chief asked you, providing evidence and writing up your results in full sentences WITH UNITS. Some hints in the steps below.
+
+**STYLE:** Its up to you to use your own heading/sub-heading structure, and it should be clear to the teaching staff (or any reader) what question you are trying to answer (e.g. consider putting them into your report!)
+
+
+<br>
+
+#### STEP P3 - How many wildfires  {.unnumbered}
+
+"How many wildfires are reported in Santa Cruz County each year from 1992 to 2024, and has that number changed over time?"
+
+2.  You could use a histogram?  And/or the summary command, and/or the table command? and write up your findings in a sentence or two under your code/plots. 
+
+<br>
+
+#### STEP P4 - Maps {.unnumbered}
+
+- Use this tutorial to make some maps <https://psu-spatial.github.io/Geog364-2026/making-maps.html> of different aspects of your data to answer the other questions in your text.
+
+<br>
+
+#### STEP P5 - Other questions & discussion {.unnumbered}
+
+-  Use that analysis to answer the other questions the chief asked
+
+
+<br>
+
+
+
+#### STEP P6 - Write up about fallacies  {.unnumbered}
+
+ Add a discussion where you make sure to talk about
+
+    1.  The non uniformity of space (lecture 5a)
+
+    2.  The spatial representation of your data (lectures 4 and 5)
+
+    3.  Edge effects (covered in lecture 5B)
+
+    4.  The modifiable area unit problem (lecture 5B/6A)
+
+    5.  The locational fallacy (lecture 5a)
+
+    6.  and any other nuances you can think of
+    
+<br> 
+
+#### STEP P7 - Conclusion {.unnumbered}
+
+
+Summarise and reflect on what you found.
+
+<br><br>
+
+Finished!
+
+
+<br><br>
+
+
+## WHAT TO SUBMIT {.unnumbered}
+
+
+<br>
+
+### If you are using your own computer {.unnumbered}
+
+Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
+
+Find the html and RmD files in your Project 1 folder on your computer. Double click the html file to open it in your browser and check it's the one you want to submit.
+
+**You need to submit BOTH of these files on the relevant Canvas assignment page.**
+
+You can also add comments to your submission as needed on the canvas page, or you can message Dr G.
+
+<div class="figure">
+<img src="./index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%" />
+<p class="caption">(\#fig:L1-Submit)Find them in your GEOG364 folder on your computer</p>
+</div>
+
+<br>
+
+### If you are using Posit Cloud online {.unnumbered}
+
+1.  Press knit one final time. You will have created two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
+
+2.  Go to the files tab an click on the little check-box by the RmD file. Then click the blue "more button" and press export. Save onto your computer.
+
+<div class="figure">
+<img src="./index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%" />
+<p class="caption">(\#fig:L1-CloudDownload)How do download the files from PositCloud</p>
+</div>
+
+2.  Uncheck the .RmD box and click the box by the html file. Then click the blue "more button" and press export. Save onto your computer.
+
+**You need to submit BOTH of these files on the relevant Canvas assignment page.**
+
+You can also add comments to your submission as needed on the canvas page, or you can message Dr G.
+
+<br>
+

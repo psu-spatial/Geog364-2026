@@ -1,41 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Homework 5 | GEOG364 Lab Book 2026</title>
-<meta name="author" content="Dr Helen Greatrex">
-<meta name="description" content="Aim Welcome to Homework 5 - where we focus on distance and neighbourhood. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
-<meta property="og:title" content="Homework 5 | GEOG364 Lab Book 2026">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/Lab_5.html">
-<meta property="og:description" content="Aim Welcome to Homework 5 - where we focus on distance and neighbourhood. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Homework 5 | GEOG364 Lab Book 2026">
-<meta name="twitter:description" content="Aim Welcome to Homework 5 - where we focus on distance and neighbourhood. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
-<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Homework 5 | GEOG364 Lab Book 2026</title>
+
+    <meta name="author" content="Dr Helen Greatrex" />
+  
+   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Homework 5 | GEOG364 Lab Book 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
+  
+  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Homework 5 | GEOG364 Lab Book 2026" />
+  
+  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.12.0/transition.js"></script>
+    <script src="libs/bs3compat-0.12.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.12.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.12.1/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
+    <script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+    <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+    
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -47,434 +83,333 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
-<li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li><a class="" href="Help.html">HELP!</a></li>
-<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
-<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
-<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
-<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="" href="Lab_2.html">Homework 2</a></li>
-<li><a class="" href="Lab_3.html">Homework 3</a></li>
-<li><a class="" href="Project1.html">Project 1</a></li>
-<li><a class="" href="Lab_4B.html">Homework 4</a></li>
-<li><a class="active" href="Lab_5.html">Homework 5</a></li>
-<li class="book-part">.</li>
-<li class="book-part">TUTORIALS</li>
-<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
-<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
-<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
-<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
-<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
-<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
-<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
-<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
-<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
-<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
-<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
-<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Lab_5" class="section level1 unnumbered">
-<h1>Homework 5<a class="anchor" aria-label="anchor" href="#Lab_5"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="Lab_5" class="section level1 unnumbered">
+<h1>Homework 5</h1>
 <div id="aim-3" class="section level3 unnumbered">
-<h3>Aim<a class="anchor" aria-label="anchor" href="#aim-3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Aim</h3>
 <p>Welcome to Homework 5 - where we focus on distance and neighbourhood. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3 hrs of your time.</p>
 <p><br></p>
 </div>
 <div id="need-help-3" class="section level3 unnumbered">
-<h3>Need help?<a class="anchor" aria-label="anchor" href="#need-help-3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Need help?</h3>
 <p>REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN <strong>ALL</strong> YOUR CODE CHUNKS. The easiest way to do this is to press the “Run All” button, in the “Run” menu at the top right of your screen</p>
 <p><br><br></p>
 </div>
 <div id="part-1-lab-setup-1" class="section level2 unnumbered">
-<h2>PART 1: Lab Setup<a class="anchor" aria-label="anchor" href="#part-1-lab-setup-1"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 1: Lab Setup</h2>
 <div id="step-1-create-your-project-download-datareports-1" class="section level3 unnumbered">
-<h3>STEP 1: Create your project &amp; download data/reports<a class="anchor" aria-label="anchor" href="#step-1-create-your-project-download-datareports-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 1: Create your project &amp; download data/reports</h3>
 <ul>
-<li>
-<strong>[1A]</strong> If you don’t already have a folder on your computer for Homework/Lab 5, make one inside your GEOG364 folder. (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgottoen how: Project Tutorial</a>)</li>
+<li><strong>[1A]</strong> If you don’t already have a folder on your computer for Homework/Lab 5, make one inside your GEOG364 folder. (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgottoen how: Project Tutorial</a>)</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[1B]</strong> Go to Canvas and download both the data and the lab report template. Put them in your HW5 folder and rename the lab template to include your email ID.</li>
+<li><strong>[1B]</strong> Go to Canvas and download both the data and the lab report template. Put them in your HW5 folder and rename the lab template to include your email ID.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[1C]</strong> Open R-Studio and make a project for Homework 4 in the existing HW5 folder (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgotten how: Project Tutorial</a>)</li>
+<li><strong>[1C]</strong> Open R-Studio and make a project for Homework 4 in the existing HW5 folder (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgotten how: Project Tutorial</a>)</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[1D]</strong> Go to the files quadrant/tab and open the RmD Lab report. If you are running your project it should be right there. If it’s not, ask a teacher/TA.</li>
+<li><strong>[1D]</strong> Go to the files quadrant/tab and open the RmD Lab report. If you are running your project it should be right there. If it’s not, ask a teacher/TA.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<p><strong>[1E]</strong> Optional. You are welcome and encouraged to change the YAML code or use different themes.</p>
+<li><p><strong>[1E]</strong> Optional. You are welcome and encouraged to change the YAML code or use different themes.</p>
 <ul>
 <li>(Changing the theme to be personal to you does make grading easier! You can see them here - <a href="https://github.com/juba/rmdformats" class="uri">https://github.com/juba/rmdformats</a> (scroll down) and all you need to do is change the name of the output in the yaml to that theme name). <em>Note, unlike last week, we are using the rmdformats package which allows you to make quick professional themes - the website also provides examples you can copy/paste</em>.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><br></p>
 </div>
 <div id="step-2-adjust-your-knit-options-1" class="section level3 unnumbered">
-<h3>STEP 2: Adjust your knit options<a class="anchor" aria-label="anchor" href="#step-2-adjust-your-knit-options-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 2: Adjust your knit options</h3>
 <p>Look at the first code chunk below the YAML code. The <code>knitr::opts_chunk$set(echo = TRUE)</code> command is from the knitr package and allows us to set general options for the entire report.</p>
 <ul>
-<li>
-<strong>[2A]</strong> Add in two more options, warning=FALSE and message=FALSE as shown below.</li>
+<li><strong>[2A]</strong> Add in two more options, warning=FALSE and message=FALSE as shown below.</li>
 <li><code>knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)</code></li>
 </ul>
 <p><br></p>
 </div>
 <div id="step-3-libraries-and-knitting" class="section level3 unnumbered">
-<h3>STEP 3: Libraries and knitting<a class="anchor" aria-label="anchor" href="#step-3-libraries-and-knitting"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 3: Libraries and knitting</h3>
 <ul>
 <li><p><strong>[3A]</strong> You need to install a new library for this to work</p></li>
-<li>
-<p><strong>[3A]</strong> Press save and try to knit. <strong>You should see that you are missing the tidygeocoder package.</strong>. To address this, we need to install it EITHER BY</p>
+<li><p><strong>[3A]</strong> Press save and try to knit. <strong>You should see that you are missing the tidygeocoder package.</strong>. To address this, we need to install it EITHER BY</p>
 <ul>
-<li>A little yellow bar will appear at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br>
-</li>
-<li>OR when you press knit, you will get an error saying that it can’t find that library. In this case, you have to go to the app store and download the <code>tidygeocoderpackage</code> (<a href="T2_Libraries.html#T2_Libraries_install">Instructions here: Packages tutorial</a>) <br>
-</li>
-</ul>
-</li>
+<li>A little yellow bar will appear at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br></li>
+<li>OR when you press knit, you will get an error saying that it can’t find that library. In this case, you have to go to the app store and download the <code>tidygeocoderpackage</code> (<a href="T2_Libraries.html#T2_Libraries_install">Instructions here: Packages tutorial</a>) <br></li>
+</ul></li>
 </ul>
 <p><br><br></p>
 </div>
 </div>
 <div id="part-2-in-class" class="section level2 unnumbered">
-<h2>PART 2: IN-CLASS<a class="anchor" aria-label="anchor" href="#part-2-in-class"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 2: IN-CLASS</h2>
 <p>In this part of the class, we are going to build on the concept of distance and explore how you can record distances in a spatial weights matrix. You can work as a group and we will go over answers in class to help, but you will be graded/submit this as part of your lab report.</p>
 <div id="step-4-load-the-data-and-make-it-spatial" class="section level3 unnumbered">
-<h3>STEP 4: Load the data and make it spatial<a class="anchor" aria-label="anchor" href="#step-4-load-the-data-and-make-it-spatial"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 4: Load the data and make it spatial</h3>
 <p>You are going to be looking at real data for health care facilities in the Mississippi area.</p>
 <ul>
-<li>
-<strong>[4A]</strong> Remember to run the library code chunk! In the ‘Distances’ section of your report, make a new level 2 sub-heading called ‘Loading data’.</li>
+<li><strong>[4A]</strong> Remember to run the library code chunk! In the ‘Distances’ section of your report, make a new level 2 sub-heading called ‘Loading data’.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[4B]</strong> You should have placed the <code>G364_MedicalClinics.xlsx</code> in your Lab 5 folder. Use the read_excel command to load the <code>G364_MedicalClinics.xlsx</code> file and save it to a variable called medical (<a href="T4_ReadingData.html#T4_load_excel">Instructions here: Excel tutorial</a>)</li>
+<li><strong>[4B]</strong> You should have placed the <code>G364_MedicalClinics.xlsx</code> in your Lab 5 folder. Use the read_excel command to load the <code>G364_MedicalClinics.xlsx</code> file and save it to a variable called medical (<a href="T4_ReadingData.html#T4_load_excel">Instructions here: Excel tutorial</a>)</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[4C]</strong> View the dataset. There are MANY ways to do this: You can click on its name in “Environment”,can type its name in the console, using the names(medical) or glimpse(medical) or head(medical) commands, or using the View(medical) command in the console. <br><br> Try several, and in the text in your report, explain what information each option provides then write down the pros and cons of different approaches for you personally (everyone is different!).</li>
+<li><strong>[4C]</strong> View the dataset. There are MANY ways to do this: You can click on its name in “Environment”,can type its name in the console, using the names(medical) or glimpse(medical) or head(medical) commands, or using the View(medical) command in the console. <br><br> Try several, and in the text in your report, explain what information each option provides then write down the pros and cons of different approaches for you personally (everyone is different!).</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[4D]</strong> The hospital data has the crs code 4326 as its coordinates are stored as longitude and latitude. Use this information and the <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf()</a></code> command to make the data ‘Spatial’ and call the resulting variable something like medical_sf <br><br> HINT! I am bad at spelling.. (<a href="T5_VectorSpatial.html#T5_st_as_sf">This is the actual dataset I used in the st_as_sf tutorial, so you can follow that directly if you are unsure</a>).</li>
+<li><strong>[4D]</strong> The hospital data has the crs code 4326 as its coordinates are stored as longitude and latitude. Use this information and the <code>st_as_sf()</code> command to make the data ‘Spatial’ and call the resulting variable something like medical_sf <br><br> HINT! I am bad at spelling.. (<a href="T5_VectorSpatial.html#T5_st_as_sf">This is the actual dataset I used in the st_as_sf tutorial, so you can follow that directly if you are unsure</a>).</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[4E]</strong> CHECKPOINT. Now type the name of the spatial dataset into the console. You should see that the long/lat columns have disappeared and that R now understands the data is point data. If not, talk to a teacher!</li>
+<li><strong>[4E]</strong> CHECKPOINT. Now type the name of the spatial dataset into the console. You should see that the long/lat columns have disappeared and that R now understands the data is point data. If not, talk to a teacher!</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-5-quick-exploratory-data-analysis" class="section level3 unnumbered">
-<h3>STEP 5: Quick Exploratory data analysis<a class="anchor" aria-label="anchor" href="#step-5-quick-exploratory-data-analysis"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 5: Quick Exploratory data analysis</h3>
 <ul>
-<li>
-<strong>[5A]</strong> Now make another subheading called EDA.</li>
+<li><strong>[5A]</strong> Now make another subheading called EDA.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[5B]</strong> Within this section, add code to explore the <code>medical_sf</code> dataset. See tutorial 5 or your past labs if you are stuck. Use that output to help you write a bullet point list which explains:
+<li><strong>[5B]</strong> Within this section, add code to explore the <code>medical_sf</code> dataset. See tutorial 5 or your past labs if you are stuck. Use that output to help you write a bullet point list which explains:
 <ul>
 <li>The object of analysis</li>
 <li>The variables (with units).</li>
 <li>The mean number of doctors per hospital</li>
 <li>A frequency table showing how many medical facilities are hospitals and how many are clinics (<a href="T5_Summarising.html#T5_Tables">Tutorial here</a>)</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<ul>
-<li>
-<strong>[5C]</strong> Make an nice looking interactive map where the color of each dot shows whether the medical facility is a hospital or a clinic. (<a href="T13_Maps.html#T13A_QTM">QTM reminder here</a> and <a href="T13_Maps.html#T13A_TMap">Tmap reminder here</a> - your choice which route you take)</li>
+</ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[5C]</strong> In the text underneath, in about 50 words, explain the spatial pattern that you see of medical facilites and what might cause it.</li>
+<li><strong>[5C]</strong> Make an nice looking interactive map where the color of each dot shows whether the medical facility is a hospital or a clinic. (<a href="T13_Maps.html#T13A_QTM">QTM reminder here</a> and <a href="T13_Maps.html#T13A_TMap">Tmap reminder here</a> - your choice which route you take)</li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>[5C]</strong> In the text underneath, in about 50 words, explain the spatial pattern that you see of medical facilites and what might cause it.</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-6-adding-in-your-house-data" class="section level3 unnumbered">
-<h3>STEP 6: Adding in your house data<a class="anchor" aria-label="anchor" href="#step-6-adding-in-your-house-data"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 6: Adding in your house data</h3>
 <p>Imagine you are staying in Rolling Fork Mississippi. We are going to calculate the distance from your house to different medical clinics, using different definitions of distance.</p>
 <ul>
-<li>
-<strong>[6A]</strong> First, you can get the location of your house by using the <code>geo()</code> command from the <code>tidygeocoder</code> package. Get this code working in your report. <br> (<em>you can try it on your home address too! there are alternative methods to census if you live abroad, see ?geo</em> )</li>
+<li><strong>[6A]</strong> First, you can get the location of your house by using the <code>geo()</code> command from the <code>tidygeocoder</code> package. Get this code working in your report. <br> (<em>you can try it on your home address too! there are alternative methods to census if you live abroad, see ?geo</em> )</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">house_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span></span>
-<span>  <span class="fu">geo</span><span class="op">(</span><span class="st">"112 Conner Rd, Rolling Fork, MS 39159"</span>, method<span class="op">=</span><span class="st">"census"</span><span class="op">)</span>,</span>
-<span>  coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"long"</span>, <span class="st">"lat"</span><span class="op">)</span>, crs <span class="op">=</span> <span class="fl">4326</span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">house_sf</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="Lab_5.html#cb24-1" tabindex="-1"></a>house_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(</span>
+<span id="cb24-2"><a href="Lab_5.html#cb24-2" tabindex="-1"></a>  <span class="fu">geo</span>(<span class="st">&quot;112 Conner Rd, Rolling Fork, MS 39159&quot;</span>, <span class="at">method=</span><span class="st">&quot;census&quot;</span>),</span>
+<span id="cb24-3"><a href="Lab_5.html#cb24-3" tabindex="-1"></a>  <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;long&quot;</span>, <span class="st">&quot;lat&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span></span>
+<span id="cb24-4"><a href="Lab_5.html#cb24-4" tabindex="-1"></a>)</span>
+<span id="cb24-5"><a href="Lab_5.html#cb24-5" tabindex="-1"></a>house_sf</span></code></pre></div>
 <ul>
-<li>
-<strong>[6B]</strong> Make a new map with the hospitals AND your house marked in red e.g. copy/paste your map code from above, add a + at the end so you can add a new layer, then add something like <br><code>tm_shape(house_sf) + tm_dots("red", size=1)</code> .</li>
+<li><strong>[6B]</strong> Make a new map with the hospitals AND your house marked in red e.g. copy/paste your map code from above, add a + at the end so you can add a new layer, then add something like <br> <code>tm_shape(house_sf) + tm_dots("red", size=1)</code> .</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-7-re-projecting-the-data" class="section level3 unnumbered">
-<h3>STEP 7: Re-projecting the data<a class="anchor" aria-label="anchor" href="#step-7-re-projecting-the-data"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 7: Re-projecting the data</h3>
 <p>We now have two spatial datasets (your house and the medical facilities), but they are currently stored as longitude and latitude. As discussed in class, we know that projecting Longitude and Latitude to a flat map might introduce distortions.</p>
 <p>So In this step we are going to transform both datasets into three different projected coordinate systems to see how they change the distances.</p>
 <ul>
-<li>
-<strong>[7A]</strong> Add a new level 2 sub-heading called ‘Map projections’. Look up these three coordinate reference systems (CRS) and in the text, write down their names, units and what each projection was designed for:
+<li><strong>[7A]</strong> Add a new level 2 sub-heading called ‘Map projections’. Look up these three coordinate reference systems (CRS) and in the text, write down their names, units and what each projection was designed for:
 <ul>
-<li>
-<code>3857</code> (Web Mercator)</li>
-<li>
-<code>32615</code> (WGS 84 / UTM Zone 15N)</li>
-<li>
-<code>5070</code> (NAD83 / Conus Albers Equal Area)</li>
-</ul>
-</li>
+<li><code>3857</code> (Web Mercator)</li>
+<li><code>32615</code> (WGS 84 / UTM Zone 15N)</li>
+<li><code>5070</code> (NAD83 / Conus Albers Equal Area)</li>
+</ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[7B]</strong> Use <code><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform()</a></code> to re-project the <strong>medical facilities</strong> into all three CRS and save them as new variable names. Here is how to make the first one:</li>
+<li><strong>[7B]</strong> Use <code>st_transform()</code> to re-project the <strong>medical facilities</strong> into all three CRS and save them as new variable names. Here is how to make the first one:</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">medical_sf_mercator</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span><span class="va">medical_sf</span>, <span class="fl">3857</span><span class="op">)</span></span>
-<span><span class="va">house_sf_mercator</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span><span class="va">house_sf</span>, <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Lab_5.html#cb25-1" tabindex="-1"></a>medical_sf_mercator <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(medical_sf, <span class="dv">3857</span>)</span>
+<span id="cb25-2"><a href="Lab_5.html#cb25-2" tabindex="-1"></a>house_sf_mercator <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(house_sf, <span class="dv">3857</span>)</span></code></pre></div>
 <p>Now do the other two yourself, giving each a name that makes sense to you.</p>
 <p><br></p>
 <ul>
-<li>
-<strong>[7C]</strong> CHECKPOINT. You should end up with a house dataset and a medical facilities dataset in <strong>each</strong> of the three projections. In a sentence, explain why the house and medical facilities should be in the <strong>same</strong> CRS before calculating a Cartesian distance.</li>
+<li><strong>[7C]</strong> CHECKPOINT. You should end up with a house dataset and a medical facilities dataset in <strong>each</strong> of the three projections. In a sentence, explain why the house and medical facilities should be in the <strong>same</strong> CRS before calculating a Cartesian distance.</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-8-calculating-cartesian-distances" class="section level3 unnumbered">
-<h3>STEP 8: Calculating Cartesian Distances<a class="anchor" aria-label="anchor" href="#step-8-calculating-cartesian-distances"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 8: Calculating Cartesian Distances</h3>
 <p>Cartesian distance is the length of a straight line between two points on a flat map. We will calculate it three times to see how much the choice of projection changes the answer.</p>
 <ul>
-<li>
-<strong>[8A]</strong> Make another level 2 sub-heading called ‘Cartesian distances’. Use <code><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_distance()</a></code> to calculate the straight-line distance from your house to <strong>every</strong> medical facility, starting with the Web Mercator datasets.</li>
+<li><strong>[8A]</strong> Make another level 2 sub-heading called ‘Cartesian distances’. Use <code>st_distance()</code> to calculate the straight-line distance from your house to <strong>every</strong> medical facility, starting with the Web Mercator datasets.</li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Add a new column with the distance to the house</span></span>
-<span><span class="va">medical_sf_mercator</span><span class="op">$</span><span class="va">HouseDist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_distance</a></span><span class="op">(</span><span class="va">medical_sf_mercator</span>, <span class="va">house_sf_mercator</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># convert from m to km, it will still say the [m] in the output table (long story), </span></span>
-<span><span class="co"># but it REALLY IS IN KM IF YOU HAVE DIVIDED BY 1000!</span></span>
-<span><span class="va">medical_sf_mercator</span><span class="op">$</span><span class="va">HouseDist</span> <span class="op">&lt;-</span> <span class="va">medical_sf_mercator</span><span class="op">$</span><span class="va">HouseDist</span><span class="op">/</span><span class="fl">1000</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="Lab_5.html#cb26-1" tabindex="-1"></a><span class="co"># Add a new column with the distance to the house</span></span>
+<span id="cb26-2"><a href="Lab_5.html#cb26-2" tabindex="-1"></a>medical_sf_mercator<span class="sc">$</span>HouseDist <span class="ot">&lt;-</span> <span class="fu">st_distance</span>(medical_sf_mercator, house_sf_mercator)</span>
+<span id="cb26-3"><a href="Lab_5.html#cb26-3" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="Lab_5.html#cb26-4" tabindex="-1"></a><span class="co"># convert from m to km, it will still say the [m] in the output table (long story), </span></span>
+<span id="cb26-5"><a href="Lab_5.html#cb26-5" tabindex="-1"></a><span class="co"># but it REALLY IS IN KM IF YOU HAVE DIVIDED BY 1000!</span></span>
+<span id="cb26-6"><a href="Lab_5.html#cb26-6" tabindex="-1"></a>medical_sf_mercator<span class="sc">$</span>HouseDist <span class="ot">&lt;-</span> medical_sf_mercator<span class="sc">$</span>HouseDist<span class="sc">/</span><span class="dv">1000</span></span></code></pre></div>
 <p>Note that in the second step, I divide by 1000 to go from metres to km. However, you will notice that the column in the table still says [m] after each number. This is because we are using a shortcut (the “units” package used to formally change units is buggy). So <strong><em>we know</em></strong> that the distances are now in km because we divided by 1000, but R-Studio still thinks it’s in m (and that you divided by 1000 for some other reason).</p>
 <p>Now repeat the calculation using <strong>UTM Zone 15N</strong> and <strong>Albers Equal Area</strong>.</p>
 <p><br></p>
 <ul>
-<li>
-<strong>[8B]</strong> You can look at the distances by looking at <code>medical_sf_mercator</code> and the other two files e.g. in View, you can order the spreadsheet by the <code>housedist</code> column, or by a command like</li>
+<li><strong>[8B]</strong> You can look at the distances by looking at <code>medical_sf_mercator</code> and the other two files e.g. in View, you can order the spreadsheet by the <code>housedist</code> column, or by a command like</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">medical_sf_mercator</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">HouseDist</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Lab_5.html#cb27-1" tabindex="-1"></a>medical_sf_mercator <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="Lab_5.html#cb27-2" tabindex="-1"></a>     <span class="fu">arrange</span>(HouseDist)</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[8C]</strong> For each of the three map projections, find the distance to the nearest medical facility. Write the name of the facility and the distance in km, with precision to the nearest metre.</li>
+<li><strong>[8C]</strong> For each of the three map projections, find the distance to the nearest medical facility. Write the name of the facility and the distance in km, with precision to the nearest metre.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[8D]</strong> In about 50 words, explain why the three answers are not the same, Explain which projection you think is most appropriate for measuring straight-line distances in this part of Mississippi, and why. (you might need to do some googling)</li>
+<li><strong>[8D]</strong> In about 50 words, explain why the three answers are not the same, Explain which projection you think is most appropriate for measuring straight-line distances in this part of Mississippi, and why. (you might need to do some googling)</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[8E]</strong> For your favourite projection, write the distance to the THREE nearest medical facilities. Write the name of the facility and the distance in km, with precision to the nearest metre.</li>
+<li><strong>[8E]</strong> For your favourite projection, write the distance to the THREE nearest medical facilities. Write the name of the facility and the distance in km, with precision to the nearest metre.</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-9-calculating-network-distances" class="section level3 unnumbered">
-<h3>STEP 9: Calculating Network Distances<a class="anchor" aria-label="anchor" href="#step-9-calculating-network-distances"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 9: Calculating Network Distances</h3>
 <p>A patient cannot usually travel in a straight line from their house to a clinic. We can also measure distance <strong>along roads</strong>, and estimate how long the journey would take by car.</p>
 <ul>
-<li>
-<strong>[9A]</strong> Add a new level 2 sub-heading called ‘Network distances’. Load the <code>osrm</code> package. We will use the Open Source Routing Machine (OSRM), which finds routes using a road network. This step needs an internet connection.</li>
+<li><strong>[9A]</strong> Add a new level 2 sub-heading called ‘Network distances’. Load the <code>osrm</code> package. We will use the Open Source Routing Machine (OSRM), which finds routes using a road network. This step needs an internet connection.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[9B]</strong> The <code>osrmTable()</code> command can calculate the driving distance and travel time between your house and the medical facilities. This actually WANTS the long/lat as input, so we use the medical_sf and house_sf inputs. Here is the code. You just need to make it run.</li>
+<li><strong>[9B]</strong> The <code>osrmTable()</code> command can calculate the driving distance and travel time between your house and the medical facilities. This actually WANTS the long/lat as input, so we use the medical_sf and house_sf inputs. Here is the code. You just need to make it run.</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">driving</span> <span class="op">&lt;-</span> <span class="fu">osrmTable</span><span class="op">(</span></span>
-<span>  src <span class="op">=</span> <span class="va">house_sf</span>,</span>
-<span>  dst <span class="op">=</span> <span class="va">medical_sf</span>,</span>
-<span>  measure <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"distance"</span>, <span class="st">"duration"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="Lab_5.html#cb28-1" tabindex="-1"></a>driving <span class="ot">&lt;-</span> <span class="fu">osrmTable</span>(</span>
+<span id="cb28-2"><a href="Lab_5.html#cb28-2" tabindex="-1"></a>  <span class="at">src =</span> house_sf,</span>
+<span id="cb28-3"><a href="Lab_5.html#cb28-3" tabindex="-1"></a>  <span class="at">dst =</span> medical_sf,</span>
+<span id="cb28-4"><a href="Lab_5.html#cb28-4" tabindex="-1"></a>  <span class="at">measure =</span> <span class="fu">c</span>(<span class="st">&quot;distance&quot;</span>, <span class="st">&quot;duration&quot;</span>)</span>
+<span id="cb28-5"><a href="Lab_5.html#cb28-5" tabindex="-1"></a>)</span></code></pre></div>
 <p>Look inside <code>driving</code> to find the distances and travel times. The distances are in <strong>metres</strong> and the times are in <strong>minutes</strong>.</p>
 <p><br></p>
 <ul>
-<li>
-<strong>[9C]</strong> Write the THREE closest driving distances (in kilometres) and driving times (in minutes). Compare to your output from step 8. Is the closest clinic by straight-line distance also the closest by road? You can click on points on any of your maps to identify which hospitals they refer to.</li>
+<li><strong>[9C]</strong> Write the THREE closest driving distances (in kilometres) and driving times (in minutes). Compare to your output from step 8. Is the closest clinic by straight-line distance also the closest by road? You can click on points on any of your maps to identify which hospitals they refer to.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[9D]</strong> In about 50 words, explain what is going on and how your definition of distance and the non-uniformity of space impacts the assessment of the healthcare facilities in this area.</li>
+<li><strong>[9D]</strong> In about 50 words, explain what is going on and how your definition of distance and the non-uniformity of space impacts the assessment of the healthcare facilities in this area.</li>
 </ul>
 <p><br><br></p>
 </div>
 </div>
 <div id="part-3-homework-spatial-weights" class="section level2 unnumbered">
-<h2>PART 3: HOMEWORK (Spatial weights)<a class="anchor" aria-label="anchor" href="#part-3-homework-spatial-weights"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 3: HOMEWORK (Spatial weights)</h2>
 <div id="step-10-plotting-routes" class="section level3 unnumbered">
-<h3>STEP 10: Plotting routes<a class="anchor" aria-label="anchor" href="#step-10-plotting-routes"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 10: Plotting routes</h3>
 <p>I just found out how to plot each of these routes to the hospitals so that you can actually compare them on the map, so I wanted you to also have the code to to do this. The <code>osrmTable()</code> command gives the distance to each medical facility. You can use the <code>orsmRoute()</code> command to actually map the route.</p>
 <ul>
-<li>
-<strong>[10A]</strong> You will need three more libraries (sorry!). Add these to your library code chunk at the top and re-run. If you get an error, install them from the packages app store</li>
+<li><strong>[10A]</strong> You will need three more libraries (sorry!). Add these to your library code chunk at the top and re-run. If you get an error, install them from the packages app store</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/spdep/">spdep</a></span><span class="op">)</span> </span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sfdep.josiahparry.com">sfdep</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">pheatmap</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Lab_5.html#cb29-1" tabindex="-1"></a><span class="fu">library</span>(spdep) </span>
+<span id="cb29-2"><a href="Lab_5.html#cb29-2" tabindex="-1"></a><span class="fu">library</span>(sfdep)</span>
+<span id="cb29-3"><a href="Lab_5.html#cb29-3" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[10B]</strong> Get this code working below in a single code chunk. Then change the code to look at least at one other medical clinic, and see if it can help you better explain your results from step 9. You’re also welcome to change the plot if you have a favourite style.</li>
+<li><strong>[10B]</strong> Get this code working below in a single code chunk. Then change the code to look at least at one other medical clinic, and see if it can help you better explain your results from step 9. You’re also welcome to change the plot if you have a favourite style.</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># All you have to change is the name of the medical clinic you want to see</span></span>
-<span><span class="va">chosenhospital</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">medical_sf</span>, <span class="va">Name</span> <span class="op">==</span> <span class="st">"Madison Parish Hospital"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># And driving distance </span></span>
-<span><span class="va">Distance_Driving</span> <span class="op">&lt;-</span> <span class="fu">osrmRoute</span><span class="op">(</span>src <span class="op">=</span> <span class="va">house_sf</span>,</span>
-<span>                              dst <span class="op">=</span> <span class="va">chosenhospital</span>,</span>
-<span>                              overview <span class="op">=</span> <span class="st">"full"</span>,osrm.profile<span class="op">=</span><span class="st">"car"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Create a manual straight line between them</span></span>
-<span><span class="va">line_between</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_cast.html">st_cast</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="va">house_sf</span>, <span class="va">chosenhospital</span><span class="op">)</span>, <span class="st">"LINESTRING"</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Step 4: Plot both lines and annotate them</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">line_between</span><span class="op">)</span>     <span class="op">+</span> </span>
-<span>   <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_lines.html">tm_lines</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"red"</span>,  lwd <span class="op">=</span> <span class="fl">2</span>, title.col <span class="op">=</span> <span class="st">"Euclidean Line"</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">Distance_Driving</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>   <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_lines.html">tm_lines</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"blue"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, title.col <span class="op">=</span> <span class="st">"Driving Line"</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">house_sf</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>   <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_symbols.html">tm_dots</a></span><span class="op">(</span><span class="st">"red"</span>,size<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">+</span> </span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">medical_sf</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>   <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_symbols.html">tm_dots</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">.5</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="Lab_5.html#cb30-1" tabindex="-1"></a><span class="co"># All you have to change is the name of the medical clinic you want to see</span></span>
+<span id="cb30-2"><a href="Lab_5.html#cb30-2" tabindex="-1"></a>chosenhospital <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(medical_sf, Name <span class="sc">==</span> <span class="st">&quot;Madison Parish Hospital&quot;</span>)</span>
+<span id="cb30-3"><a href="Lab_5.html#cb30-3" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="Lab_5.html#cb30-4" tabindex="-1"></a><span class="co"># And driving distance </span></span>
+<span id="cb30-5"><a href="Lab_5.html#cb30-5" tabindex="-1"></a>Distance_Driving <span class="ot">&lt;-</span> <span class="fu">osrmRoute</span>(<span class="at">src =</span> house_sf,</span>
+<span id="cb30-6"><a href="Lab_5.html#cb30-6" tabindex="-1"></a>                              <span class="at">dst =</span> chosenhospital,</span>
+<span id="cb30-7"><a href="Lab_5.html#cb30-7" tabindex="-1"></a>                              <span class="at">overview =</span> <span class="st">&quot;full&quot;</span>,<span class="at">osrm.profile=</span><span class="st">&quot;car&quot;</span>)</span>
+<span id="cb30-8"><a href="Lab_5.html#cb30-8" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="Lab_5.html#cb30-9" tabindex="-1"></a><span class="co"># Create a manual straight line between them</span></span>
+<span id="cb30-10"><a href="Lab_5.html#cb30-10" tabindex="-1"></a>line_between <span class="ot">&lt;-</span> <span class="fu">st_cast</span>(<span class="fu">st_union</span>(house_sf, chosenhospital), <span class="st">&quot;LINESTRING&quot;</span>)</span>
+<span id="cb30-11"><a href="Lab_5.html#cb30-11" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="Lab_5.html#cb30-12" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="Lab_5.html#cb30-13" tabindex="-1"></a><span class="co"># Step 4: Plot both lines and annotate them</span></span>
+<span id="cb30-14"><a href="Lab_5.html#cb30-14" tabindex="-1"></a><span class="fu">tm_shape</span>(line_between)     <span class="sc">+</span> </span>
+<span id="cb30-15"><a href="Lab_5.html#cb30-15" tabindex="-1"></a>   <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">&quot;red&quot;</span>,  <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">title.col =</span> <span class="st">&quot;Euclidean Line&quot;</span>) <span class="sc">+</span></span>
+<span id="cb30-16"><a href="Lab_5.html#cb30-16" tabindex="-1"></a><span class="fu">tm_shape</span>(Distance_Driving) <span class="sc">+</span> </span>
+<span id="cb30-17"><a href="Lab_5.html#cb30-17" tabindex="-1"></a>   <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">title.col =</span> <span class="st">&quot;Driving Line&quot;</span>) <span class="sc">+</span></span>
+<span id="cb30-18"><a href="Lab_5.html#cb30-18" tabindex="-1"></a><span class="fu">tm_shape</span>(house_sf) <span class="sc">+</span> </span>
+<span id="cb30-19"><a href="Lab_5.html#cb30-19" tabindex="-1"></a>   <span class="fu">tm_dots</span>(<span class="st">&quot;red&quot;</span>,<span class="at">size=</span>.<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb30-20"><a href="Lab_5.html#cb30-20" tabindex="-1"></a><span class="fu">tm_shape</span>(medical_sf) <span class="sc">+</span> </span>
+<span id="cb30-21"><a href="Lab_5.html#cb30-21" tabindex="-1"></a>   <span class="fu">tm_dots</span>(<span class="at">size=</span>.<span class="dv">5</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 <div id="step-11-spatial-distance-matrices" class="section level3 unnumbered">
-<h3>STEP 11: Spatial distance matrices<a class="anchor" aria-label="anchor" href="#step-11-spatial-distance-matrices"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 11: Spatial distance matrices</h3>
 <p>So far, we’ve been looking at which medical facilities are closest to our house. However, in spatial analysis, we are often interested in the relationships between all the objects in our dataset. For example, are our hospitals clustered together, or are they spread out evenly across the region? Is there some sort of spatial pattern, and what processes might explain it?</p>
 <p>We can record the results in a spatial weights matrix. This is a look-up table telling us which objects are considered neighbours, and sometimes how strongly they are connected.</p>
 <ul>
-<li>
-<p><strong>[11A]</strong> To look at the distances between each of the hospitals, we can simply use the same commands, but without the house_sf bit. Get the code working below which calculates the cartesian distance between each of the medical facilities. <br><br></p>
-<p>To interpret, both the top and side numbers correspond to the row numbers in medical_sf e.g. Row 1 = Madison Parish and Row 6 = South Sunflower, so the distance between those two hospitals is 127172.07m, so 127.1 km.</p>
-</li>
+<li><p><strong>[11A]</strong> To look at the distances between each of the hospitals, we can simply use the same commands, but without the house_sf bit. Get the code working below which calculates the cartesian distance between each of the medical facilities. <br><br></p>
+<p>To interpret, both the top and side numbers correspond to the row numbers in medical_sf e.g. Row 1 = Madison Parish and Row 6 = South Sunflower, so the distance between those two hospitals is 127172.07m, so 127.1 km.</p></li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># If you don't put a second argument it assumes it wants the distance between each row  </span></span>
-<span><span class="va">cartesian_dist_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_distance</a></span><span class="op">(</span><span class="va">medical_sf_utm</span><span class="op">)</span><span class="op">/</span><span class="fl">1000</span></span>
-<span></span>
-<span><span class="co"># Remove the units so we can do maths on the answer</span></span>
-<span><span class="va">cartesian_dist_matrix</span> <span class="op">&lt;-</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/drop_units.html">drop_units</a></span><span class="op">(</span><span class="va">cartesian_dist_matrix</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#and print</span></span>
-<span><span class="va">cartesian_dist_matrix</span> </span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="Lab_5.html#cb31-1" tabindex="-1"></a><span class="co"># If you don&#39;t put a second argument it assumes it wants the distance between each row  </span></span>
+<span id="cb31-2"><a href="Lab_5.html#cb31-2" tabindex="-1"></a>cartesian_dist_matrix <span class="ot">&lt;-</span> <span class="fu">st_distance</span>(medical_sf_utm)<span class="sc">/</span><span class="dv">1000</span></span>
+<span id="cb31-3"><a href="Lab_5.html#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="Lab_5.html#cb31-4" tabindex="-1"></a><span class="co"># Remove the units so we can do maths on the answer</span></span>
+<span id="cb31-5"><a href="Lab_5.html#cb31-5" tabindex="-1"></a>cartesian_dist_matrix <span class="ot">&lt;-</span> units<span class="sc">::</span><span class="fu">drop_units</span>(cartesian_dist_matrix)</span>
+<span id="cb31-6"><a href="Lab_5.html#cb31-6" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="Lab_5.html#cb31-7" tabindex="-1"></a><span class="co">#and print</span></span>
+<span id="cb31-8"><a href="Lab_5.html#cb31-8" tabindex="-1"></a>cartesian_dist_matrix </span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<p><strong>[11B]</strong> Explain in your report why there are many zeros in the output.</p>
-<p><br></p>
-</li>
+<li><p><strong>[11B]</strong> Explain in your report why there are many zeros in the output.</p>
+<p><br></p></li>
 </ul>
 <p><strong>STEPS 11C AND 11D ARE OPTIONAL!</strong>. You don’t get credit for them, but it shows how you could use this information if you were actually doing spatial analysis.</p>
 <ul>
-<li>
-<strong>[11C]</strong> We can do something similar for driving distances. Get this code running in your report</li>
+<li><strong>[11C]</strong> We can do something similar for driving distances. Get this code running in your report</li>
 </ul>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span>  <span class="co"># calculate the driving distance between each hospitals with all the other hospitals</span></span>
-<span>  <span class="va">driving_distances</span> <span class="op">&lt;-</span> <span class="fu">osrmTable</span><span class="op">(</span></span>
-<span>     src <span class="op">=</span> <span class="va">medical_sf</span>,</span>
-<span>     dst <span class="op">=</span> <span class="va">medical_sf</span>,</span>
-<span>     measure <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"distance"</span>, <span class="st">"duration"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span> <span class="co"># convert to km</span></span>
-<span> <span class="va">driving_dist_matrix</span> <span class="op">&lt;-</span> <span class="va">driving_distances</span><span class="op">$</span><span class="va">distances</span><span class="op">/</span><span class="fl">1000</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="Lab_5.html#cb32-1" tabindex="-1"></a>  <span class="co"># calculate the driving distance between each hospitals with all the other hospitals</span></span>
+<span id="cb32-2"><a href="Lab_5.html#cb32-2" tabindex="-1"></a>  driving_distances <span class="ot">&lt;-</span> <span class="fu">osrmTable</span>(</span>
+<span id="cb32-3"><a href="Lab_5.html#cb32-3" tabindex="-1"></a>     <span class="at">src =</span> medical_sf,</span>
+<span id="cb32-4"><a href="Lab_5.html#cb32-4" tabindex="-1"></a>     <span class="at">dst =</span> medical_sf,</span>
+<span id="cb32-5"><a href="Lab_5.html#cb32-5" tabindex="-1"></a>     <span class="at">measure =</span> <span class="fu">c</span>(<span class="st">&quot;distance&quot;</span>, <span class="st">&quot;duration&quot;</span>))</span>
+<span id="cb32-6"><a href="Lab_5.html#cb32-6" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="Lab_5.html#cb32-7" tabindex="-1"></a> <span class="co"># convert to km</span></span>
+<span id="cb32-8"><a href="Lab_5.html#cb32-8" tabindex="-1"></a> driving_dist_matrix <span class="ot">&lt;-</span> driving_distances<span class="sc">$</span>distances<span class="sc">/</span><span class="dv">1000</span></span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[11D]</strong> This will allow us to see which pairs of hospitals act very differently if you drive compare to direct distances. To visualise this, we first take the difference between the two datasets (e.g. we want the DIFFERENCE between driving and the direct distance). We can then plot it as a heatmap. You will probably need a new package <code><a href="https://rdrr.io/r/base/library.html">library(pheatmap)</a></code> for this to work</li>
+<li><strong>[11D]</strong> This will allow us to see which pairs of hospitals act very differently if you drive compare to direct distances. To visualise this, we first take the difference between the two datasets (e.g. we want the DIFFERENCE between driving and the direct distance). We can then plot it as a heatmap. You will probably need a new package <code>library(pheatmap)</code> for this to work</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Then take the difference. This now shows us how much further we have to go if we drive</span></span>
-<span><span class="va">differences</span> <span class="op">&lt;-</span>   <span class="va">driving_dist_matrix</span> <span class="op">-</span>  <span class="va">cartesian_dist_matrix</span></span>
-<span></span>
-<span><span class="co"># and make a heatmap, You might need to install/load the pheatmap package for this to work</span></span>
-<span><span class="fu">pheatmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pheatmap/man/pheatmap.html">pheatmap</a></span><span class="op">(</span><span class="va">differences</span>,</span>
-<span>         cluster_rows <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>         cluster_cols <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>         display_numbers <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>         number_format <span class="op">=</span> <span class="st">"%.0f"</span>,</span>
-<span>         color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.colors</a></span><span class="op">(</span><span class="fl">100</span>, <span class="st">"Viridis"</span><span class="op">)</span>,</span>
-<span>         main <span class="op">=</span> <span class="st">"How many more km do you have to drive between medical facilities \n compared to going directly (by helecopter?) "</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="Lab_5.html#cb33-1" tabindex="-1"></a><span class="co"># Then take the difference. This now shows us how much further we have to go if we drive</span></span>
+<span id="cb33-2"><a href="Lab_5.html#cb33-2" tabindex="-1"></a>differences <span class="ot">&lt;-</span>   driving_dist_matrix <span class="sc">-</span>  cartesian_dist_matrix</span>
+<span id="cb33-3"><a href="Lab_5.html#cb33-3" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="Lab_5.html#cb33-4" tabindex="-1"></a><span class="co"># and make a heatmap, You might need to install/load the pheatmap package for this to work</span></span>
+<span id="cb33-5"><a href="Lab_5.html#cb33-5" tabindex="-1"></a>pheatmap<span class="sc">::</span><span class="fu">pheatmap</span>(differences,</span>
+<span id="cb33-6"><a href="Lab_5.html#cb33-6" tabindex="-1"></a>         <span class="at">cluster_rows =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb33-7"><a href="Lab_5.html#cb33-7" tabindex="-1"></a>         <span class="at">cluster_cols =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb33-8"><a href="Lab_5.html#cb33-8" tabindex="-1"></a>         <span class="at">display_numbers =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb33-9"><a href="Lab_5.html#cb33-9" tabindex="-1"></a>         <span class="at">number_format =</span> <span class="st">&quot;%.0f&quot;</span>,</span>
+<span id="cb33-10"><a href="Lab_5.html#cb33-10" tabindex="-1"></a>         <span class="at">color =</span> <span class="fu">hcl.colors</span>(<span class="dv">100</span>, <span class="st">&quot;Viridis&quot;</span>),</span>
+<span id="cb33-11"><a href="Lab_5.html#cb33-11" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;How many more km do you have to drive between medical facilities </span><span class="sc">\n</span><span class="st"> compared to going directly (by helecopter?) &quot;</span>)</span></code></pre></div>
 <p><strong>Q to Dr G. What are you looking for in the heatmap above?</strong> I’m looking for variation. In a region where there wasn’t a river cutting the domain in half, most cartesian distances would look pretty similar to driving distances, and I would be comfortable using cartesian as my distance measurement for things like analysing clustering. In this case, looking at driving distance <em>drastically</em> changes the output, - some hospitals are over 100km further if you drive compared to going direct.</p>
 <p>`</p>
 <p><br><br></p>
 </div>
 <div id="step-12-closeness-nearest-neighbours" class="section level3 unnumbered">
-<h3>STEP 12: Closeness (nearest neighbours)<a class="anchor" aria-label="anchor" href="#step-12-closeness-nearest-neighbours"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 12: Closeness (nearest neighbours)</h3>
 <p>I hope it’s now clear that your choice of distance matters when thinking about spatial analysis. Once you are happy with that, we then need to think about the concept of “neighbourhood”. e.g. which hospitals are “close”/“neighbours” with each other.</p>
 <p>As always, there are several ways to think about this, depending on the context and the type of data you have:</p>
-<div class="figure">
-<span style="display:block;" id="fig:L5-Neighbors"></span>
-<img src="index_images/im_L5_Neighbours.png" alt="Three ways of thinking about neighbors" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:L5-Neighbors"></span>
+<img src="index_images/im_L5_Neighbours.png" alt="Three ways of thinking about neighbors" width="100%" />
+<p class="caption">
 Figure 0.14: Three ways of thinking about neighbors
 </p>
 </div>
@@ -483,183 +418,158 @@ Figure 0.14: Three ways of thinking about neighbors
 <p><strong>Please use sub-headings as necessary to make your report tidy and easy to follow</strong></p>
 <p><br></p>
 <ul>
-<li>
-<strong>[12A]: Cartesian Nearest Neighbours</strong> The st_knn command looks through your dataset and works the nearest neighbours for every hospital (using cartesian distance.). You decide how many nearest neighbours using the k argument inside st_knn.</li>
+<li><strong>[12A]: Cartesian Nearest Neighbours</strong> The st_knn command looks through your dataset and works the nearest neighbours for every hospital (using cartesian distance.). You decide how many nearest neighbours using the k argument inside st_knn.</li>
 </ul>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># i've chosen the UTM data, you can choose your favourite.</span></span>
-<span><span class="co"># Find the 2 nearest neighbours (k = 2)</span></span>
-<span><span class="va">medical_nn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sfdep/man/st_knn.html">st_knn</a></span><span class="op">(</span><span class="va">medical_sf_utm</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">medical_nn</span></span>
-<span></span>
-<span><span class="co"># See the entire grid of nearest neighbours</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sfdep/man/wt_as_matrix.html">nb_as_matrix</a></span><span class="op">(</span><span class="va">medical_nn</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="Lab_5.html#cb34-1" tabindex="-1"></a><span class="co"># i&#39;ve chosen the UTM data, you can choose your favourite.</span></span>
+<span id="cb34-2"><a href="Lab_5.html#cb34-2" tabindex="-1"></a><span class="co"># Find the 2 nearest neighbours (k = 2)</span></span>
+<span id="cb34-3"><a href="Lab_5.html#cb34-3" tabindex="-1"></a>medical_nn <span class="ot">&lt;-</span> <span class="fu">st_knn</span>(medical_sf_utm, <span class="at">k =</span> <span class="dv">2</span>)</span>
+<span id="cb34-4"><a href="Lab_5.html#cb34-4" tabindex="-1"></a>medical_nn</span>
+<span id="cb34-5"><a href="Lab_5.html#cb34-5" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="Lab_5.html#cb34-6" tabindex="-1"></a><span class="co"># See the entire grid of nearest neighbours</span></span>
+<span id="cb34-7"><a href="Lab_5.html#cb34-7" tabindex="-1"></a><span class="fu">nb_as_matrix</span>(medical_nn)</span></code></pre></div>
 <p>Get this running. Then <strong>edit</strong> <strong>the code and re-run</strong> to work out the THREE nearest neighbours to the Sharkey Issaquena community hospital and write down your answer in the text (hint, find which row the sharkey hospital is on in the dataset then use that to interpret the output).</p>
 <p><br></p>
 <ul>
-<li>
-<strong>[12B]</strong> Also get this code working to plot the data</li>
+<li><strong>[12B]</strong> Also get this code working to plot the data</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Convert nearest-neighbour relationships into lines</span></span>
-<span><span class="va">medical_lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sfdep/man/st_as_edges.html">st_as_edges</a></span><span class="op">(</span></span>
-<span>                      <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">medical_sf_utm</span><span class="op">)</span>, <span class="va">medical_nn</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Map the lines and hospital locations</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">medical_lines</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_lines.html">tm_lines</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"steelblue"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">medical_sf_utm</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_symbols.html">tm_dots</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"black"</span>, size <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="Lab_5.html#cb35-1" tabindex="-1"></a><span class="co"># Convert nearest-neighbour relationships into lines</span></span>
+<span id="cb35-2"><a href="Lab_5.html#cb35-2" tabindex="-1"></a>medical_lines <span class="ot">&lt;-</span> <span class="fu">st_as_edges</span>(</span>
+<span id="cb35-3"><a href="Lab_5.html#cb35-3" tabindex="-1"></a>                      <span class="fu">st_geometry</span>(medical_sf_utm), medical_nn)</span>
+<span id="cb35-4"><a href="Lab_5.html#cb35-4" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="Lab_5.html#cb35-5" tabindex="-1"></a><span class="co"># Map the lines and hospital locations</span></span>
+<span id="cb35-6"><a href="Lab_5.html#cb35-6" tabindex="-1"></a><span class="fu">tm_shape</span>(medical_lines) <span class="sc">+</span></span>
+<span id="cb35-7"><a href="Lab_5.html#cb35-7" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb35-8"><a href="Lab_5.html#cb35-8" tabindex="-1"></a><span class="fu">tm_shape</span>(medical_sf_utm) <span class="sc">+</span></span>
+<span id="cb35-9"><a href="Lab_5.html#cb35-9" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[12C] Network/Driving based nearest neighbours</strong>. There isn’t actually easy code to work out the nearest neighbours according to a network (say driving distance). So for this section, get the code working, then change k from k=2, to k=3,4,5 etc. and explain in the text what you see and how the pattern differs from the cartesian nearest neighbour</li>
+<li><strong>[12C] Network/Driving based nearest neighbours</strong>. There isn’t actually easy code to work out the nearest neighbours according to a network (say driving distance). So for this section, get the code working, then change k from k=2, to k=3,4,5 etc. and explain in the text what you see and how the pattern differs from the cartesian nearest neighbour</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># choose the number of nearest driving neighbours</span></span>
-<span><span class="va">k</span> <span class="op">=</span> <span class="fl">2</span></span>
-<span></span>
-<span><span class="co"># Driving distances between every pair of hospitals (metres)</span></span>
-<span><span class="va">drive_distTable</span> <span class="op">&lt;-</span> <span class="fu">osrmTable</span><span class="op">(</span>loc <span class="op">=</span> <span class="va">medical_sf_utm</span>,measure <span class="op">=</span> <span class="st">"distance"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Extract just the distance matrix</span></span>
-<span><span class="va">drive_dist</span> <span class="op">&lt;-</span> <span class="va">drive_distTable</span><span class="op">$</span><span class="va">distances</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Exclude each hospital's distance to itself by setting that to infinity</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">drive_dist</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">Inf</span></span>
-<span></span>
-<span><span class="co"># Identify the 2 closest hospitals by road</span></span>
-<span><span class="co"># Programmers/mathematicians, see if you can work out what i'm doing in this code!</span></span>
-<span><span class="va">medical_nn_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">drive_dist</span>, <span class="fl">1</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op">(</span><span class="va">x</span>, ties.method <span class="op">=</span> <span class="st">"first"</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="va">k</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Convert matrix into a neighbours list</span></span>
-<span><span class="va">medical_nn_driving</span> <span class="op">&lt;-</span> <span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/mat2listw.html">mat2listw</a></span><span class="op">(</span></span>
-<span>  <span class="va">medical_nn_matrix</span>, style <span class="op">=</span> <span class="st">"B"</span></span>
-<span><span class="op">)</span><span class="op">$</span><span class="va">neighbours</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Then the rest is identical to before</span></span>
-<span><span class="va">medical_nn_driving</span></span>
-<span></span>
-<span><span class="co"># Binary neighbours matrix (0 and 1)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sfdep/man/wt_as_matrix.html">nb_as_matrix</a></span><span class="op">(</span><span class="va">medical_nn_driving</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># and plot</span></span>
-<span><span class="co"># Convert neighbours into spatial lines</span></span>
-<span><span class="va">medical_lines_driving</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sfdep/man/st_as_edges.html">st_as_edges</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">medical_sf_utm</span><span class="op">)</span>,</span>
-<span>  <span class="va">medical_nn_driving</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Map the lines and hospital locations</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">medical_lines_driving</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_lines.html">tm_lines</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">medical_sf_utm</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_symbols.html">tm_dots</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"black"</span>, size <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="Lab_5.html#cb36-1" tabindex="-1"></a><span class="co"># choose the number of nearest driving neighbours</span></span>
+<span id="cb36-2"><a href="Lab_5.html#cb36-2" tabindex="-1"></a>k <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb36-3"><a href="Lab_5.html#cb36-3" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="Lab_5.html#cb36-4" tabindex="-1"></a><span class="co"># Driving distances between every pair of hospitals (metres)</span></span>
+<span id="cb36-5"><a href="Lab_5.html#cb36-5" tabindex="-1"></a>drive_distTable <span class="ot">&lt;-</span> <span class="fu">osrmTable</span>(<span class="at">loc =</span> medical_sf_utm,<span class="at">measure =</span> <span class="st">&quot;distance&quot;</span>)</span>
+<span id="cb36-6"><a href="Lab_5.html#cb36-6" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="Lab_5.html#cb36-7" tabindex="-1"></a><span class="co"># Extract just the distance matrix</span></span>
+<span id="cb36-8"><a href="Lab_5.html#cb36-8" tabindex="-1"></a>drive_dist <span class="ot">&lt;-</span> drive_distTable<span class="sc">$</span>distances</span>
+<span id="cb36-9"><a href="Lab_5.html#cb36-9" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="Lab_5.html#cb36-10" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="Lab_5.html#cb36-11" tabindex="-1"></a><span class="co"># Exclude each hospital&#39;s distance to itself by setting that to infinity</span></span>
+<span id="cb36-12"><a href="Lab_5.html#cb36-12" tabindex="-1"></a><span class="fu">diag</span>(drive_dist) <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
+<span id="cb36-13"><a href="Lab_5.html#cb36-13" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="Lab_5.html#cb36-14" tabindex="-1"></a><span class="co"># Identify the 2 closest hospitals by road</span></span>
+<span id="cb36-15"><a href="Lab_5.html#cb36-15" tabindex="-1"></a><span class="co"># Programmers/mathematicians, see if you can work out what i&#39;m doing in this code!</span></span>
+<span id="cb36-16"><a href="Lab_5.html#cb36-16" tabindex="-1"></a>medical_nn_matrix <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">apply</span>(drive_dist, <span class="dv">1</span>, <span class="cf">function</span>(x)</span>
+<span id="cb36-17"><a href="Lab_5.html#cb36-17" tabindex="-1"></a>  <span class="fu">as.integer</span>(<span class="fu">rank</span>(x, <span class="at">ties.method =</span> <span class="st">&quot;first&quot;</span>) <span class="sc">&lt;=</span> k)))</span>
+<span id="cb36-18"><a href="Lab_5.html#cb36-18" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="Lab_5.html#cb36-19" tabindex="-1"></a></span>
+<span id="cb36-20"><a href="Lab_5.html#cb36-20" tabindex="-1"></a><span class="co"># Convert matrix into a neighbours list</span></span>
+<span id="cb36-21"><a href="Lab_5.html#cb36-21" tabindex="-1"></a>medical_nn_driving <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">mat2listw</span>(</span>
+<span id="cb36-22"><a href="Lab_5.html#cb36-22" tabindex="-1"></a>  medical_nn_matrix, <span class="at">style =</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb36-23"><a href="Lab_5.html#cb36-23" tabindex="-1"></a>)<span class="sc">$</span>neighbours</span>
+<span id="cb36-24"><a href="Lab_5.html#cb36-24" tabindex="-1"></a></span>
+<span id="cb36-25"><a href="Lab_5.html#cb36-25" tabindex="-1"></a></span>
+<span id="cb36-26"><a href="Lab_5.html#cb36-26" tabindex="-1"></a><span class="co"># Then the rest is identical to before</span></span>
+<span id="cb36-27"><a href="Lab_5.html#cb36-27" tabindex="-1"></a>medical_nn_driving</span>
+<span id="cb36-28"><a href="Lab_5.html#cb36-28" tabindex="-1"></a></span>
+<span id="cb36-29"><a href="Lab_5.html#cb36-29" tabindex="-1"></a><span class="co"># Binary neighbours matrix (0 and 1)</span></span>
+<span id="cb36-30"><a href="Lab_5.html#cb36-30" tabindex="-1"></a><span class="fu">nb_as_matrix</span>(medical_nn_driving)</span>
+<span id="cb36-31"><a href="Lab_5.html#cb36-31" tabindex="-1"></a></span>
+<span id="cb36-32"><a href="Lab_5.html#cb36-32" tabindex="-1"></a><span class="co"># and plot</span></span>
+<span id="cb36-33"><a href="Lab_5.html#cb36-33" tabindex="-1"></a><span class="co"># Convert neighbours into spatial lines</span></span>
+<span id="cb36-34"><a href="Lab_5.html#cb36-34" tabindex="-1"></a>medical_lines_driving <span class="ot">&lt;-</span> <span class="fu">st_as_edges</span>(</span>
+<span id="cb36-35"><a href="Lab_5.html#cb36-35" tabindex="-1"></a>  <span class="fu">st_geometry</span>(medical_sf_utm),</span>
+<span id="cb36-36"><a href="Lab_5.html#cb36-36" tabindex="-1"></a>  medical_nn_driving</span>
+<span id="cb36-37"><a href="Lab_5.html#cb36-37" tabindex="-1"></a>)</span>
+<span id="cb36-38"><a href="Lab_5.html#cb36-38" tabindex="-1"></a></span>
+<span id="cb36-39"><a href="Lab_5.html#cb36-39" tabindex="-1"></a><span class="co"># Map the lines and hospital locations</span></span>
+<span id="cb36-40"><a href="Lab_5.html#cb36-40" tabindex="-1"></a><span class="fu">tm_shape</span>(medical_lines_driving) <span class="sc">+</span></span>
+<span id="cb36-41"><a href="Lab_5.html#cb36-41" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb36-42"><a href="Lab_5.html#cb36-42" tabindex="-1"></a><span class="fu">tm_shape</span>(medical_sf_utm) <span class="sc">+</span></span>
+<span id="cb36-43"><a href="Lab_5.html#cb36-43" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 <div id="step-13-closeness-distance-bands" class="section level3 unnumbered">
-<h3>STEP 13: Closeness (Distance bands)<a class="anchor" aria-label="anchor" href="#step-13-closeness-distance-bands"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 13: Closeness (Distance bands)</h3>
 <p>Your nearest neighbours might actually be very far away. So a different way to consider “close” or neighbourhood is by looking at how many hospitals are within a particular <strong>distance band</strong>.</p>
 <p>For example, we might decide that all hospitals within 60 km of each other are neighbours. This means that some hospitals might have lots of neighbours, while others might only have one (or even none!). Unlike the nearest-neighbour approach, we are <strong>not</strong> forcing every hospital to have the same number of neighbours.</p>
 <p><br></p>
 <ul>
-<li>
-<strong>[13A]</strong> <strong>Cartesian distance bands</strong>. The <code><a href="https://rdrr.io/pkg/sfdep/man/st_dist_band.html">st_dist_band()</a></code> command finds all the neighbours within a distance that you choose. Because we’re using our UTM data, distances are measured in <strong>metres</strong> (so 60 km = 60,000 m). <br><br> Get this code working in your report. Have a look at the neighbour list and the matrix of 0s and 1s.</li>
+<li><strong>[13A]</strong> <strong>Cartesian distance bands</strong>. The <code>st_dist_band()</code> command finds all the neighbours within a distance that you choose. Because we’re using our UTM data, distances are measured in <strong>metres</strong> (so 60 km = 60,000 m). <br><br> Get this code working in your report. Have a look at the neighbour list and the matrix of 0s and 1s.</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Find all hospitals within 60 km of each other</span></span>
-<span><span class="va">medical_band</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sfdep/man/st_dist_band.html">st_dist_band</a></span><span class="op">(</span><span class="va">medical_sf_utm</span>, upper <span class="op">=</span> <span class="fl">60000</span><span class="op">)</span></span>
-<span><span class="va">medical_band</span></span>
-<span></span>
-<span><span class="co"># See the entire grid of neighbours</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sfdep/man/wt_as_matrix.html">nb_as_matrix</a></span><span class="op">(</span><span class="va">medical_band</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="Lab_5.html#cb37-1" tabindex="-1"></a><span class="co"># Find all hospitals within 60 km of each other</span></span>
+<span id="cb37-2"><a href="Lab_5.html#cb37-2" tabindex="-1"></a>medical_band <span class="ot">&lt;-</span> <span class="fu">st_dist_band</span>(medical_sf_utm, <span class="at">upper =</span> <span class="dv">60000</span>)</span>
+<span id="cb37-3"><a href="Lab_5.html#cb37-3" tabindex="-1"></a>medical_band</span>
+<span id="cb37-4"><a href="Lab_5.html#cb37-4" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="Lab_5.html#cb37-5" tabindex="-1"></a><span class="co"># See the entire grid of neighbours</span></span>
+<span id="cb37-6"><a href="Lab_5.html#cb37-6" tabindex="-1"></a><span class="fu">nb_as_matrix</span>(medical_band)</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[13B]</strong> Now make a map showing the hospitals connected to their distance-band neighbours. You can <strong>copy and adapt the code from [12B]</strong>, using <code><a href="https://rdrr.io/pkg/sfdep/man/st_as_edges.html">st_as_edges()</a></code> to turn your new neighbour list (medical_bands) into lines and <code>tmap</code> to plot them.</li>
+<li><strong>[13B]</strong> Now make a map showing the hospitals connected to their distance-band neighbours. You can <strong>copy and adapt the code from [12B]</strong>, using <code>st_as_edges()</code> to turn your new neighbour list (medical_bands) into lines and <code>tmap</code> to plot them.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[13D]</strong> Find the <strong>Sharkey Issaquena Community Hospital</strong> in your dataset. Using a distance band of <strong>50km</strong>, write down which other medical facilities count as its neighbours.<br><strong>NOTE, THIS USED TO BE 20km BUT BECAUSE THERE ARE SOME OTHER HOSPITAL PAIRS THAT DON’T HAVE SUB-20km NEIGHBOURS, THE CODE WOULDN’T RUN AS IT NEEDED ALL THE VALUES IN THE SPATIAL WEIGHTS MATRIX. I have therefore updated the threshold to 50km </strong>
-</li>
+<li><strong>[13D]</strong> Find the <strong>Sharkey Issaquena Community Hospital</strong> in your dataset. Using a distance band of <strong>50km</strong>, write down which other medical facilities count as its neighbours.<br />
+<strong>NOTE, THIS USED TO BE 20km BUT BECAUSE THERE ARE SOME OTHER HOSPITAL PAIRS THAT DON’T HAVE SUB-20km NEIGHBOURS, THE CODE WOULDN’T RUN AS IT NEEDED ALL THE VALUES IN THE SPATIAL WEIGHTS MATRIX. I have therefore updated the threshold to 50km </strong></li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-14-reflection" class="section level3 unnumbered">
-<h3>STEP 14: Reflection<a class="anchor" aria-label="anchor" href="#step-14-reflection"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 14: Reflection</h3>
 <p>Create a new heading called reflection and answer these questions</p>
 <ul>
-<li>
-<strong>[14A]</strong> Explain what a spatial weights matrix is and why it’s important</li>
+<li><strong>[14A]</strong> Explain what a spatial weights matrix is and why it’s important</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[14B]</strong> For each of these scenarios, explain which definition of “neighbour” (from steps 12 &amp; 13) you would you use and why
+<li><strong>[14B]</strong> For each of these scenarios, explain which definition of “neighbour” (from steps 12 &amp; 13) you would you use and why
 <ul>
-<li>
-<strong>Scenario A:</strong> Which hospitals should each hospital contact first when arranging an ambulance transfer?</li>
-<li>
-<strong>Scenario B</strong>: Which hospitals should each hospital contact first when arranging an helicopter ambulace transfer?</li>
-<li>
-<strong>Scenario C:</strong> Which hospitals are within a helicopter’s maximum flight range and could provide emergency assistance?</li>
-<li>
-<strong>Scenario D:</strong> Which hospitals could send an ambulance or to help within 30 minutes?</li>
-</ul>
-</li>
+<li><strong>Scenario A:</strong> Which hospitals should each hospital contact first when arranging an ambulance transfer?</li>
+<li><strong>Scenario B</strong>: Which hospitals should each hospital contact first when arranging an helicopter ambulace transfer?</li>
+<li><strong>Scenario C:</strong> Which hospitals are within a helicopter’s maximum flight range and could provide emergency assistance?</li>
+<li><strong>Scenario D:</strong> Which hospitals could send an ambulance or to help within 30 minutes?</li>
+</ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[14A].</strong> As I have mentioned a few times in class, common sense can often do better than complex statistics. What I really mean by this is that the non-uniformity of space is incredibly important when considering spatial data and understanding the geography of an area can completely change how we interpret and analyse a dataset. <br><br><strong>Look closely at the map.</strong> Write down any other geographical features can you see that might influence how ‘close’ medical facilities are to one another, particularly when considering how easily they could share resources, staff or patients? Explain your reasoning.</li>
+<li><strong>[14A].</strong> As I have mentioned a few times in class, common sense can often do better than complex statistics. What I really mean by this is that the non-uniformity of space is incredibly important when considering spatial data and understanding the geography of an area can completely change how we interpret and analyse a dataset. <br><br> <strong>Look closely at the map.</strong> Write down any other geographical features can you see that might influence how ‘close’ medical facilities are to one another, particularly when considering how easily they could share resources, staff or patients? Explain your reasoning.</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="congrats-finished-1" class="section level3 unnumbered">
-<h3>
-<strong>Congrats! Finished!</strong><a class="anchor" aria-label="anchor" href="#congrats-finished-1"><i class="fas fa-link"></i></a>
-</h3>
+<h3><strong>Congrats! Finished!</strong></h3>
 </div>
 </div>
 <div id="what-to-submit-4" class="section level2 unnumbered">
-<h2>WHAT TO SUBMIT<a class="anchor" aria-label="anchor" href="#what-to-submit-4"><i class="fas fa-link"></i></a>
-</h2>
+<h2>WHAT TO SUBMIT</h2>
 <p><br></p>
 <div id="if-you-are-using-your-own-computer-4" class="section level3 unnumbered">
-<h3>If you are using your own computer<a class="anchor" aria-label="anchor" href="#if-you-are-using-your-own-computer-4"><i class="fas fa-link"></i></a>
-</h3>
+<h3>If you are using your own computer</h3>
 <ol style="list-style-type: decimal">
 <li><p>Press knit one final time. You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
 <li><p>Find the html and RmD files in your Lab 4 folder on your computer. Double click the html file to open it in your browser and check it’s the one you want to submit.</p></li>
 <li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:L5-Submit"></span>
-<img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:L5-Submit"></span>
+<img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%" />
+<p class="caption">
 Figure 0.15: Find them in your GEOG364 folder on your computer
 </p>
 </div>
 <p><br></p>
 </div>
 <div id="if-you-are-using-posit-cloud-online-4" class="section level3 unnumbered">
-<h3>If you are using Posit Cloud online<a class="anchor" aria-label="anchor" href="#if-you-are-using-posit-cloud-online-4"><i class="fas fa-link"></i></a>
-</h3>
+<h3>If you are using Posit Cloud online</h3>
 <ol style="list-style-type: decimal">
 <li><p>Press knit one final time.You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
 <li><p>Go to the files tab an click on the little check-box by the RmD file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
 <li><p>Uncheck the .RmD box and click the box by the html file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
 <li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:L5-CloudDownload"></span>
-<img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:L5-CloudDownload"></span>
+<img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%" />
+<p class="caption">
 Figure 0.16: How do download the files from PositCloud
 </p>
 </div>
@@ -667,87 +577,38 @@ Figure 0.16: How do download the files from PositCloud
 </div>
 </div>
 <div id="CheckGradeL5" class="section level2 unnumbered">
-<h2>CHECK YOUR GRADE!<a class="anchor" aria-label="anchor" href="#CheckGradeL5"><i class="fas fa-link"></i></a>
-</h2>
+<h2>CHECK YOUR GRADE!</h2>
 <div id="rubric-3" class="section level3 unnumbered">
-<h3>RUBRIC<a class="anchor" aria-label="anchor" href="#rubric-3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>RUBRIC</h3>
 <p>See canvas</p>
 
 </div>
 </div>
 </div>
+  </main>
 
-
-
-
-
-
-  <div class="chapter-nav">
-<div class="prev"><a href="Lab_4B.html">Homework 4</a></div>
-<div class="next"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li>
-<a class="nav-link" href="#Lab_5">Homework 5</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#aim-3">Aim</a></li>
-<li><a class="nav-link" href="#need-help-3">Need help?</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-1-lab-setup-1">PART 1: Lab Setup</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-1-create-your-project-download-datareports-1">STEP 1: Create your project &amp; download data/reports</a></li>
-<li><a class="nav-link" href="#step-2-adjust-your-knit-options-1">STEP 2: Adjust your knit options</a></li>
-<li><a class="nav-link" href="#step-3-libraries-and-knitting">STEP 3: Libraries and knitting</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-2-in-class">PART 2: IN-CLASS</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-4-load-the-data-and-make-it-spatial">STEP 4: Load the data and make it spatial</a></li>
-<li><a class="nav-link" href="#step-5-quick-exploratory-data-analysis">STEP 5: Quick Exploratory data analysis</a></li>
-<li><a class="nav-link" href="#step-6-adding-in-your-house-data">STEP 6: Adding in your house data</a></li>
-<li><a class="nav-link" href="#step-7-re-projecting-the-data">STEP 7: Re-projecting the data</a></li>
-<li><a class="nav-link" href="#step-8-calculating-cartesian-distances">STEP 8: Calculating Cartesian Distances</a></li>
-<li><a class="nav-link" href="#step-9-calculating-network-distances">STEP 9: Calculating Network Distances</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-3-homework-spatial-weights">PART 3: HOMEWORK (Spatial weights)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-10-plotting-routes">STEP 10: Plotting routes</a></li>
-<li><a class="nav-link" href="#step-11-spatial-distance-matrices">STEP 11: Spatial distance matrices</a></li>
-<li><a class="nav-link" href="#step-12-closeness-nearest-neighbours">STEP 12: Closeness (nearest neighbours)</a></li>
-<li><a class="nav-link" href="#step-13-closeness-distance-bands">STEP 13: Closeness (Distance bands)</a></li>
-<li><a class="nav-link" href="#step-14-reflection">STEP 14: Reflection</a></li>
-<li><a class="nav-link" href="#congrats-finished-1">Congrats! Finished!</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#what-to-submit-4">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#if-you-are-using-your-own-computer-4">If you are using your own computer</a></li>
-<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online-4">If you are using Posit Cloud online</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#CheckGradeL5">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric-3">RUBRIC</a></li></ul>
-</li>
-</ul>
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-21.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -755,7 +616,11 @@ Figure 0.16: How do download the files from PositCloud
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -767,7 +632,8 @@ Figure 0.16: How do download the files from PositCloud
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -785,4 +651,5 @@ for (let popover of popovers) {
 }
 </script>
 </body>
+
 </html>

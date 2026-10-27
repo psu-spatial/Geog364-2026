@@ -21,6 +21,7 @@ rmd_files:
     "in_02-Project1.Rmd",
     "in_02-Homework4B.Rmd",
     "in_02-Homework5.Rmd",
+    "in_02-Project2.Rmd",
 
     "in_04-Tutorial01_Projects.Rmd",
     "in_04-Tutorial02_Libraries.Rmd",
@@ -34,7 +35,8 @@ rmd_files:
     "in_04-Tutorial09_DistributionsHypTests.Rmd",
     "in_04-Tutorial10_Correlation.Rmd",
     "in_04-Tutorial12_SpatialBasics.Rmd",
-    "in_04-Tutorial13_Maps.Rmd"
+    "in_04-Tutorial13_Maps.Rmd",
+    "in_04-Tutorial15_Autocorrelation.Rmd"
 
 
   ]

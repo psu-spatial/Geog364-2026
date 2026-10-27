@@ -1,41 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Homework 4 | GEOG364 Lab Book 2026</title>
-<meta name="author" content="Dr Helen Greatrex">
-<meta name="description" content="Aim Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
-<meta property="og:title" content="Homework 4 | GEOG364 Lab Book 2026">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/Lab_4B.html">
-<meta property="og:description" content="Aim Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Homework 4 | GEOG364 Lab Book 2026">
-<meta name="twitter:description" content="Aim Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
-<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Homework 4 | GEOG364 Lab Book 2026</title>
+
+    <meta name="author" content="Dr Helen Greatrex" />
+  
+   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Homework 4 | GEOG364 Lab Book 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
+  
+  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Homework 4 | GEOG364 Lab Book 2026" />
+  
+  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.12.0/transition.js"></script>
+    <script src="libs/bs3compat-0.12.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.12.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.12.1/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
+    <script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+    <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+    
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -47,154 +83,104 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
-<li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li><a class="" href="Help.html">HELP!</a></li>
-<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
-<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
-<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
-<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="" href="Lab_2.html">Homework 2</a></li>
-<li><a class="" href="Lab_3.html">Homework 3</a></li>
-<li><a class="" href="Project1.html">Project 1</a></li>
-<li><a class="active" href="Lab_4B.html">Homework 4</a></li>
-<li><a class="" href="Lab_5.html">Homework 5</a></li>
-<li class="book-part">.</li>
-<li class="book-part">TUTORIALS</li>
-<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
-<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
-<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
-<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
-<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
-<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
-<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
-<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
-<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
-<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
-<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
-<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Lab_4B" class="section level1 unnumbered">
-<h1>Homework 4<a class="anchor" aria-label="anchor" href="#Lab_4B"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="Lab_4B" class="section level1 unnumbered">
+<h1>Homework 4</h1>
 <div id="aim-2" class="section level3 unnumbered">
-<h3>Aim<a class="anchor" aria-label="anchor" href="#aim-2"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Aim</h3>
 <p>Welcome to Homework 4. Overall each lab is worth 4.8% and you can drop your lowest score. This is due the night before your next lab. The maximum time it should take is lab time plus about 2-3 hrs of your time.</p>
 <p><br></p>
 </div>
 <div id="need-help-2" class="section level3 unnumbered">
-<h3>Need help?<a class="anchor" aria-label="anchor" href="#need-help-2"><i class="fas fa-link"></i></a>
-</h3>
+<h3>Need help?</h3>
 <p>REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN <strong>ALL</strong> YOUR CODE CHUNKS. The easiest way to do this is to press the “Run All” button, in the “Run” menu at the top right of your screen</p>
 <p><br><br></p>
 </div>
 <div id="part-1-lab-setup" class="section level2 unnumbered">
-<h2>PART 1: Lab Setup<a class="anchor" aria-label="anchor" href="#part-1-lab-setup"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 1: Lab Setup</h2>
 <div id="step-1-create-your-project-download-datareports" class="section level3 unnumbered">
-<h3>STEP 1: Create your project &amp; download data/reports<a class="anchor" aria-label="anchor" href="#step-1-create-your-project-download-datareports"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 1: Create your project &amp; download data/reports</h3>
 <ul>
-<li>
-<strong>[1A]</strong> If you don’t already have a folder on your computer for Homework/Lab 4, make one inside your GEOG364 folder.</li>
+<li><strong>[1A]</strong> If you don’t already have a folder on your computer for Homework/Lab 4, make one inside your GEOG364 folder.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[1B]</strong> Go to Canvas and download both the data and the lab report template. Put them in your HW4 folder and rename the lab template to include your email ID.</li>
+<li><strong>[1B]</strong> Go to Canvas and download both the data and the lab report template. Put them in your HW4 folder and rename the lab template to include your email ID.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[1C]</strong> Open R-Studio and make a project for Homework 4 in the existing HW4 folder (<a href="T1_Projects.html#T1_Projects">Project Tutorial here</a>)</li>
+<li><strong>[1C]</strong> Open R-Studio and make a project for Homework 4 in the existing HW4 folder (<a href="T1_Projects.html#T1_Projects">Project Tutorial here</a>)</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[1D]</strong> Go to the files quadrant/tab and open the RmD Lab report. If you are running your project it should be right there. If it’s not, ask a teacher/TA.</li>
+<li><strong>[1D]</strong> Go to the files quadrant/tab and open the RmD Lab report. If you are running your project it should be right there. If it’s not, ask a teacher/TA.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<p><strong>[1E]</strong> Optional. You are welcome and encouraged to change the YAML code or use different themes.</p>
+<li><p><strong>[1E]</strong> Optional. You are welcome and encouraged to change the YAML code or use different themes.</p>
 <ul>
 <li>(Changing the theme to be personal to you does make grading easier! You can see them here - <a href="https://github.com/juba/rmdformats" class="uri">https://github.com/juba/rmdformats</a>). <em>Note, unlike last week, we are using the rmdformats package which allows you to make quick professional themes, I still tend to copy/paste</em>.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><br></p>
 </div>
 <div id="step-2-adjust-your-knit-options" class="section level3 unnumbered">
-<h3>STEP 2: Adjust your knit options<a class="anchor" aria-label="anchor" href="#step-2-adjust-your-knit-options"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 2: Adjust your knit options</h3>
 <p>Look at the first code chunk below the YAML code. The <code>knitr::opts_chunk$set(echo = TRUE)</code> command is from the knitr package and allows us to set general options for the entire report.</p>
 <ul>
-<li>
-<strong>[2A]</strong> Add in two more options, warning=FALSE and message=FALSE as shown below.</li>
+<li><strong>[2A]</strong> Add in two more options, warning=FALSE and message=FALSE as shown below.</li>
 <li>knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)</li>
 </ul>
 <p><br></p>
 </div>
 <div id="step-3-knit-and-check-libraries" class="section level3 unnumbered">
-<h3>STEP 3: Knit and check libraries<a class="anchor" aria-label="anchor" href="#step-3-knit-and-check-libraries"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 3: Knit and check libraries</h3>
 <ul>
-<li>
-<p><strong>[3A]</strong> Press save and try to knit. If any packages are missing you will see</p>
+<li><p><strong>[3A]</strong> Press save and try to knit. If any packages are missing you will see</p>
 <ul>
-<li>EITHER a little yellow bar at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br>
-</li>
-<li>OR an error saying that it can’t find that library (it might also be a spelling mistake if you are sure it’s installed). In this case, you have to go to the app store and download it (Packages/Install) - see tutorial on left. <br>
-</li>
-</ul>
-</li>
+<li>EITHER a little yellow bar at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br></li>
+<li>OR an error saying that it can’t find that library (it might also be a spelling mistake if you are sure it’s installed). In this case, you have to go to the app store and download it (Packages/Install) - see tutorial on left. <br></li>
+</ul></li>
 </ul>
 <p><br><br></p>
 </div>
 </div>
 <div id="part-2-in-class-emergent-phenomena" class="section level2 unnumbered">
-<h2>PART 2: IN-CLASS Emergent Phenomena<a class="anchor" aria-label="anchor" href="#part-2-in-class-emergent-phenomena"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 2: IN-CLASS Emergent Phenomena</h2>
 <p>You are allowed and encouraged to work in groups for this section</p>
 <div id="step-5-write-up-results" class="section level3 unnumbered">
-<h3>STEP 5: Write up results<a class="anchor" aria-label="anchor" href="#step-5-write-up-results"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 5: Write up results</h3>
 <ul>
-<li>
-<strong>[5A]</strong> Follow the instructions on canvas and write up your results and add your screenshot in the Emergent Phenomena section of your lab report.</li>
+<li><strong>[5A]</strong> Follow the instructions on canvas and write up your results and add your screenshot in the Emergent Phenomena section of your lab report.</li>
 </ul>
 <p><br><br></p>
 </div>
 </div>
 <div id="part-3-landscape-metrics" class="section level2 unnumbered">
-<h2>PART 3: Landscape metrics<a class="anchor" aria-label="anchor" href="#part-3-landscape-metrics"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 3: Landscape metrics</h2>
 <div id="step-6-read-the-text-in-this-section" class="section level3 unnumbered">
-<h3>STEP 6: Read the text in this section!<a class="anchor" aria-label="anchor" href="#step-6-read-the-text-in-this-section"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 6: Read the text in this section!</h3>
 <p>In this week’s lectures, we explored how different geographical processes can produce different spatial patterns. We also discussed why some patterns are much more complicated than others, and how fractal geometry can help us describe this complexity.</p>
 <p>In this lab, we will investigate the spatial structure of landscapes using R. We will start with a real land-cover dataset, calculate statistics that describe its spatial pattern, and then experiment with how changing the arrangement of land-cover cells changes those statistics.</p>
 <p><br><br></p>
 <div id="background-why-do-landscape-patterns-matter" class="section level4 unnumbered">
-<h4>Background: Why do landscape patterns matter?<a class="anchor" aria-label="anchor" href="#background-why-do-landscape-patterns-matter"><i class="fas fa-link"></i></a>
-</h4>
-<div class="figure">
-<span style="display:block;" id="fig:L4-Forest"></span>
-<img src="index_images/im_L4_Landscape.png" alt="Different forestscapes" width="100%"><p class="caption">
+<h4>Background: Why do landscape patterns matter?</h4>
+<div class="figure"><span style="display:block;" id="fig:L4-Forest"></span>
+<img src="index_images/im_L4_Landscape.png" alt="Different forestscapes" width="100%" />
+<p class="caption">
 Figure 0.9: Different forestscapes
 </p>
 </div>
@@ -208,8 +194,7 @@ Figure 0.9: Different forestscapes
 <p><br><br></p>
 </div>
 <div id="deforestation-in-the-brazilian-amazon" class="section level4 unnumbered">
-<h4>Deforestation in the Brazilian Amazon<a class="anchor" aria-label="anchor" href="#deforestation-in-the-brazilian-amazon"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Deforestation in the Brazilian Amazon</h4>
 <p>The Amazon rainforest is one of the largest remaining areas of tropical forest in the world. It plays an important role in global biodiversity, carbon storage and regional climate processes. However, substantial areas of the Brazilian Amazon have been converted to other land uses, particularly agriculture and pasture. Deforestation is not distributed randomly across the landscape. Clearing often follows roads, settlements and areas where agricultural expansion is economically attractive. This can produce distinctive spatial patterns,</p>
 <ul>
 <li><p><strong>Forest loss</strong> refers to a reduction in the total area occupied by forest.</p></li>
@@ -224,17 +209,16 @@ Figure 0.9: Different forestscapes
 <p><br></p>
 </div>
 <div id="measuring-patchclasslandscape-patterns" class="section level4 unnumbered">
-<h4>Measuring patch/class/landscape patterns<a class="anchor" aria-label="anchor" href="#measuring-patchclasslandscape-patterns"><i class="fas fa-link"></i></a>
-</h4>
+<h4>Measuring patch/class/landscape patterns</h4>
 <p>We can distinguish between two broad types of information when looking at landscape</p>
 <ul>
 <li><p><strong>Composition</strong> describes what the landscape contains, such as the percentage occupied by forest.</p></li>
 <li><p><strong>Configuration</strong> describes how those land-cover classes are arranged, including the number, size and boundaries of forest patches.</p></li>
 </ul>
 <p><strong>WHAT IS A PATCH?</strong> A <em>patch</em> is a contiguous area belonging to the same land-cover class. For example, a continuous area of forest surrounded by grassland forms a forest patch.</p>
-<div class="figure">
-<span style="display:block;" id="fig:L4-Patch"></span>
-<img src="index_images/im_L4_Patches.png" alt="Three scales of analysis" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:L4-Patch"></span>
+<img src="index_images/im_L4_Patches.png" alt="Three scales of analysis" width="100%" />
+<p class="caption">
 Figure 0.10: Three scales of analysis
 </p>
 </div>
@@ -249,20 +233,20 @@ Figure 0.10: Three scales of analysis
 </div>
 </div>
 <div id="part-4-exploratory-analysis" class="section level2 unnumbered">
-<h2>PART 4: Exploratory analysis<a class="anchor" aria-label="anchor" href="#part-4-exploratory-analysis"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 4: Exploratory analysis</h2>
 <div id="step-7-learn-about-the-dataset" class="section level3 unnumbered">
-<h3>STEP 7: Learn about the dataset<a class="anchor" aria-label="anchor" href="#step-7-learn-about-the-dataset"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 7: Learn about the dataset</h3>
 <p>The Amazon rainforest is one of the largest remaining areas of tropical forest in the world. It plays an important role in global biodiversity, carbon storage and regional climate processes. However, substantial areas of the Brazilian Amazon have been converted to other land uses, particularly agriculture and pasture. Deforestation is not distributed randomly across the landscape. Clearing often follows roads, settlements and areas where agricultural expansion is economically attractive. This can produce distinctive spatial patterns,</p>
 <p>We will examine an area around Novo Progresso, in the Brazilian state of Pará. The dataset is derived from the MapBiomas Brazil annual land-cover classification. MapBiomas uses satellite imagery and classification methods to map land cover across Brazil.</p>
 <p>For this exercise, the original land-cover categories have been simplified into two classes:</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<table>
+<thead>
+<tr class="header">
 <th>Value</th>
 <th>Classification</th>
 <th>Colour</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
@@ -275,7 +259,7 @@ Figure 0.10: Three scales of analysis
 <td>Dark green</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <ul>
 <li><p>In this dataset, <strong>forest refers specifically to the MapBiomas class Forest Formation (code 3)</strong>. Other MapBiomas vegetation classes are included in the non-forest category. Therefore, our results describe changes in <em>Forest Formation</em>, rather than every type of tree-covered land.</p></li>
 <li><p>The raster contains three layers representing 1985, 2005 and 2025.</p></li>
@@ -285,111 +269,92 @@ Figure 0.10: Three scales of analysis
 <p><br><br></p>
 </div>
 <div id="step-8-load-the-data-into-r" class="section level3 unnumbered">
-<h3>STEP 8: Load the data into R<a class="anchor" aria-label="anchor" href="#step-8-load-the-data-into-r"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 8: Load the data into R</h3>
 <ul>
-<li>
-<strong>[8A]</strong> Make sure the novo_progresso_forest_1985_2025.tif file is in your Lab4 folder. In your lab report, make a new code chunk then read it in using the tif command,</li>
+<li><strong>[8A]</strong> Make sure the novo_progresso_forest_1985_2025.tif file is in your Lab4 folder. In your lab report, make a new code chunk then read it in using the tif command,</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">forest</span> <span class="op">&lt;-</span> <span class="fu">rast</span><span class="op">(</span><span class="st">"novo_progresso_forest_1985_2025.tif"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="Lab_4B.html#cb14-1" tabindex="-1"></a>forest <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;novo_progresso_forest_1985_2025.tif&quot;</span>)</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[8B]</strong> Explore the dataset. As you can see this is a raster! You can type its name in a code chunk to see the overall summary
+<li><strong>[8B]</strong> Explore the dataset. As you can see this is a raster! You can type its name in a code chunk to see the overall summary
 <ul>
 <li>A <code>SpatRaster</code> can contain several layers. Here, each layer represents the same geographic area at a different point in time.</li>
 <li>Inspect the dataset using commands like</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span>
-<span><span class="fu">nlyr</span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span>
-<span><span class="fu">crs</span><span class="op">(</span><span class="va">forest</span>, describe <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu">res</span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="Lab_4B.html#cb15-1" tabindex="-1"></a><span class="fu">names</span>(forest)</span>
+<span id="cb15-2"><a href="Lab_4B.html#cb15-2" tabindex="-1"></a><span class="fu">nlyr</span>(forest)</span>
+<span id="cb15-3"><a href="Lab_4B.html#cb15-3" tabindex="-1"></a><span class="fu">crs</span>(forest, <span class="at">describe =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-4"><a href="Lab_4B.html#cb15-4" tabindex="-1"></a><span class="fu">res</span>(forest)</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[8C]</strong> In your lab report, write up these three questions
+<li><strong>[8C]</strong> In your lab report, write up these three questions
 <ul>
 <li>How many raster layers are in the dataset, and what does each one represent?</li>
 <li>What is the spatial resolution of the raster?</li>
 <li>Why is it useful to have the raster in a “projected coordinate system” when calculating landscape metrics? (we’re using UTM)</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-9-plot-the-forest-maps" class="section level3 unnumbered">
-<h3>STEP 9: Plot the forest maps<a class="anchor" aria-label="anchor" href="#step-9-plot-the-forest-maps"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 9: Plot the forest maps</h3>
 <p>We will plot the three years using the same colours, so that forest and non-forest are represented consistently. Rather than using tmap, for rasters, just the plot command can give some nice output.</p>
 <ul>
-<li>
-<strong>[9A]</strong> Get the first command running to plot the data. You are also welcome to make your own plots using tmap.</li>
+<li><strong>[9A]</strong> Get the first command running to plot the data. You are also welcome to make your own plots using tmap.</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span></span>
-<span>   <span class="va">forest</span>,</span>
-<span>   col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"grey90"</span>, <span class="st">"darkgreen"</span><span class="op">)</span>,</span>
-<span>   breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span>,</span>
-<span>   main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span>,</span>
-<span>   nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Lab_4B.html#cb16-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb16-2"><a href="Lab_4B.html#cb16-2" tabindex="-1"></a>   forest,</span>
+<span id="cb16-3"><a href="Lab_4B.html#cb16-3" tabindex="-1"></a>   <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>),</span>
+<span id="cb16-4"><a href="Lab_4B.html#cb16-4" tabindex="-1"></a>   <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">1.5</span>),</span>
+<span id="cb16-5"><a href="Lab_4B.html#cb16-5" tabindex="-1"></a>   <span class="at">main =</span> <span class="fu">names</span>(forest),</span>
+<span id="cb16-6"><a href="Lab_4B.html#cb16-6" tabindex="-1"></a>   <span class="at">nc =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>You can also plot individual layers using tmap.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Plotting a single layer of the raster data using tmap, </span></span>
-<span><span class="co"># where you can add any/all options you like!</span></span>
-<span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_mode.html">tmap_mode</a></span><span class="op">(</span><span class="st">"view"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_basemap.html">tm_basemap</a></span><span class="op">(</span><span class="st">"OpenStreetMap"</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>   <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>   <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_raster.html">tm_raster</a></span><span class="op">(</span><span class="st">"1985"</span>, col_alpha<span class="op">=</span><span class="fl">.7</span><span class="op">)</span></span></code></pre></div>
-<p><br><br><br></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Lab_4B.html#cb17-1" tabindex="-1"></a><span class="co"># Plotting a single layer of the raster data using tmap, </span></span>
+<span id="cb17-2"><a href="Lab_4B.html#cb17-2" tabindex="-1"></a><span class="co"># where you can add any/all options you like!</span></span>
+<span id="cb17-3"><a href="Lab_4B.html#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="Lab_4B.html#cb17-4" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
+<span id="cb17-5"><a href="Lab_4B.html#cb17-5" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">&quot;OpenStreetMap&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb17-6"><a href="Lab_4B.html#cb17-6" tabindex="-1"></a>   <span class="fu">tm_shape</span>(forest) <span class="sc">+</span> </span>
+<span id="cb17-7"><a href="Lab_4B.html#cb17-7" tabindex="-1"></a>   <span class="fu">tm_raster</span>(<span class="st">&quot;1985&quot;</span>, <span class="at">col_alpha=</span>.<span class="dv">7</span>)</span></code></pre></div>
+<p><br />
+<br />
+<br></p>
 <ul>
-<li>
-<strong>[9B]</strong> In your lab report, use your maps and googling of the area write up these questions
+<li><strong>[9B]</strong> In your lab report, use your maps and googling of the area write up these questions
 <ul>
 <li>Describe the spatial distribution of forest in 1985.</li>
 <li>How does the arrangement of the remaining forest in 2025 differ from 1985?</li>
 <li>Is this “fishbone clearing” or “geometric/block clearing” try googling both of these!</li>
 <li>What geographical processes might help explain the shapes of the cleared areas? What additional data would you need to investigate those explanations?</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[9B]</strong> Before calculating any statistics, use the maps to predict how the four landscape metrics may have changed in your lab report (e.g. increase/decrease/uncertain and why)
+<li><strong>[9B]</strong> Before calculating any statistics, use the maps to predict how the four landscape metrics may have changed in your lab report (e.g. increase/decrease/uncertain and why)
 <ul>
 <li>Forest cover (%)</li>
 <li>Number of forest patches</li>
 <li>Mean forest patch area</li>
 <li>Forest edge density</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[9C]</strong> In your lab report, explain which metric do you think will be the most useful for describing the process and pattern in your study area, and why</li>
+<li><strong>[9C]</strong> In your lab report, explain which metric do you think will be the most useful for describing the process and pattern in your study area, and why</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-10-data-wrangling" class="section level3 unnumbered">
-<h3>STEP 10: Data wrangling<a class="anchor" aria-label="anchor" href="#step-10-data-wrangling"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 10: Data wrangling</h3>
 <p>In step 11, you will use the <code>landscapemetrics</code> package to calculate numerical measures of forest composition and configuration. First, we have to deal with an issue. At the moment, our rasters have “1” for forest and “0” for non forest.</p>
 <p><br></p>
 <ul>
-<li>
-<p><strong>[10A]</strong> Just like with different columns in your data-table, you can refer to different raster layers using the $ symbol. Try typing <code>forest$</code> and you should get a list of the layers available. Or you can use double square brackets.</p>
-<p>For example, both of these commands would select the 1985 layer of the forest data.</p>
-</li>
+<li><p><strong>[10A]</strong> Just like with different columns in your data-table, you can refer to different raster layers using the $ symbol. Try typing <code>forest$</code> and you should get a list of the layers available. Or you can use double square brackets.</p>
+<p>For example, both of these commands would select the 1985 layer of the forest data.</p></li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">forest</span><span class="op">$</span><span class="va">`1985`</span></span>
-<span><span class="va">forest</span><span class="op">[[</span><span class="st">"1985"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Lab_4B.html#cb18-1" tabindex="-1"></a>forest<span class="sc">$</span><span class="st">`</span><span class="at">1985</span><span class="st">`</span></span>
+<span id="cb18-2"><a href="Lab_4B.html#cb18-2" tabindex="-1"></a>forest[[<span class="st">&quot;1985&quot;</span>]]</span></code></pre></div>
 <ul>
 <li>Using either one of these approaches, apply the <code>ncell()</code> command to the 2025 forest layer to see how many grid-cells there are in that map.</li>
 </ul>
@@ -398,53 +363,53 @@ Figure 0.10: Three scales of analysis
 <li><p><strong>[10B]</strong> We can now use this to make our data categorical. There are faster ways of doing this but I hope this is the clearest for non-coders (students in the class who like coding, see if you can shorten/optimise this code!)</p></li>
 <li><p>Copy this into a new code chunk and run. You can see at the end that we no-longer need all the plot options because we already told it colors and categories.</p></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create a lookup table.</span></span>
-<span><span class="co"># We're saying 0 means non-forest and we want it to be plotted as white.</span></span>
-<span><span class="co"># (coders in the class, see if you can optimise this code!)</span></span>
-<span><span class="va">lookup_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>   ID     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
-<span>   Class  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Non-Forest"</span>, <span class="st">"Forest"</span><span class="op">)</span>,</span>
-<span>   Colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"white"</span>, <span class="st">"#1f8d49"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Convert all three raster layers to factors/categtories</span></span>
-<span><span class="va">forest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Assign category names to each layer</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">forest</span><span class="op">$</span><span class="va">`1985`</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">lookup_table</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ID"</span>, <span class="st">"Class"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">forest</span><span class="op">$</span><span class="va">`2005`</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">lookup_table</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ID"</span>, <span class="st">"Class"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">forest</span><span class="op">$</span><span class="va">`2025`</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">lookup_table</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ID"</span>, <span class="st">"Class"</span><span class="op">)</span><span class="op">]</span></span>
-<span></span>
-<span><span class="co"># Assign colors to each layer</span></span>
-<span><span class="fu">coltab</span><span class="op">(</span><span class="va">forest</span><span class="op">$</span><span class="va">`1985`</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">lookup_table</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ID"</span>, <span class="st">"Colour"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="fu">coltab</span><span class="op">(</span><span class="va">forest</span><span class="op">$</span><span class="va">`2005`</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">lookup_table</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ID"</span>, <span class="st">"Colour"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="fu">coltab</span><span class="op">(</span><span class="va">forest</span><span class="op">$</span><span class="va">`2025`</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">lookup_table</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ID"</span>, <span class="st">"Colour"</span><span class="op">)</span><span class="op">]</span></span>
-<span></span>
-<span><span class="co"># and plot</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span></span>
-<span><span class="co"># or</span></span>
-<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">forest</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_raster.html">tm_raster</a></span><span class="op">(</span><span class="st">"2025"</span>, col_alpha<span class="op">=</span><span class="fl">.7</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Lab_4B.html#cb19-1" tabindex="-1"></a><span class="co"># Create a lookup table.</span></span>
+<span id="cb19-2"><a href="Lab_4B.html#cb19-2" tabindex="-1"></a><span class="co"># We&#39;re saying 0 means non-forest and we want it to be plotted as white.</span></span>
+<span id="cb19-3"><a href="Lab_4B.html#cb19-3" tabindex="-1"></a><span class="co"># (coders in the class, see if you can optimise this code!)</span></span>
+<span id="cb19-4"><a href="Lab_4B.html#cb19-4" tabindex="-1"></a>lookup_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb19-5"><a href="Lab_4B.html#cb19-5" tabindex="-1"></a>   <span class="at">ID     =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb19-6"><a href="Lab_4B.html#cb19-6" tabindex="-1"></a>   <span class="at">Class  =</span> <span class="fu">c</span>(<span class="st">&quot;Non-Forest&quot;</span>, <span class="st">&quot;Forest&quot;</span>),</span>
+<span id="cb19-7"><a href="Lab_4B.html#cb19-7" tabindex="-1"></a>   <span class="at">Colour =</span> <span class="fu">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;#1f8d49&quot;</span>)</span>
+<span id="cb19-8"><a href="Lab_4B.html#cb19-8" tabindex="-1"></a>)</span>
+<span id="cb19-9"><a href="Lab_4B.html#cb19-9" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="Lab_4B.html#cb19-10" tabindex="-1"></a><span class="co"># Convert all three raster layers to factors/categtories</span></span>
+<span id="cb19-11"><a href="Lab_4B.html#cb19-11" tabindex="-1"></a>forest <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(forest)</span>
+<span id="cb19-12"><a href="Lab_4B.html#cb19-12" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="Lab_4B.html#cb19-13" tabindex="-1"></a><span class="co"># Assign category names to each layer</span></span>
+<span id="cb19-14"><a href="Lab_4B.html#cb19-14" tabindex="-1"></a><span class="fu">levels</span>(forest<span class="sc">$</span><span class="st">`</span><span class="at">1985</span><span class="st">`</span>) <span class="ot">&lt;-</span> lookup_table[<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Class&quot;</span>)]</span>
+<span id="cb19-15"><a href="Lab_4B.html#cb19-15" tabindex="-1"></a><span class="fu">levels</span>(forest<span class="sc">$</span><span class="st">`</span><span class="at">2005</span><span class="st">`</span>) <span class="ot">&lt;-</span> lookup_table[<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Class&quot;</span>)]</span>
+<span id="cb19-16"><a href="Lab_4B.html#cb19-16" tabindex="-1"></a><span class="fu">levels</span>(forest<span class="sc">$</span><span class="st">`</span><span class="at">2025</span><span class="st">`</span>) <span class="ot">&lt;-</span> lookup_table[<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Class&quot;</span>)]</span>
+<span id="cb19-17"><a href="Lab_4B.html#cb19-17" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="Lab_4B.html#cb19-18" tabindex="-1"></a><span class="co"># Assign colors to each layer</span></span>
+<span id="cb19-19"><a href="Lab_4B.html#cb19-19" tabindex="-1"></a><span class="fu">coltab</span>(forest<span class="sc">$</span><span class="st">`</span><span class="at">1985</span><span class="st">`</span>) <span class="ot">&lt;-</span> lookup_table[<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Colour&quot;</span>)]</span>
+<span id="cb19-20"><a href="Lab_4B.html#cb19-20" tabindex="-1"></a><span class="fu">coltab</span>(forest<span class="sc">$</span><span class="st">`</span><span class="at">2005</span><span class="st">`</span>) <span class="ot">&lt;-</span> lookup_table[<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Colour&quot;</span>)]</span>
+<span id="cb19-21"><a href="Lab_4B.html#cb19-21" tabindex="-1"></a><span class="fu">coltab</span>(forest<span class="sc">$</span><span class="st">`</span><span class="at">2025</span><span class="st">`</span>) <span class="ot">&lt;-</span> lookup_table[<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Colour&quot;</span>)]</span>
+<span id="cb19-22"><a href="Lab_4B.html#cb19-22" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="Lab_4B.html#cb19-23" tabindex="-1"></a><span class="co"># and plot</span></span>
+<span id="cb19-24"><a href="Lab_4B.html#cb19-24" tabindex="-1"></a><span class="fu">plot</span>(forest)</span>
+<span id="cb19-25"><a href="Lab_4B.html#cb19-25" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb19-26"><a href="Lab_4B.html#cb19-26" tabindex="-1"></a><span class="fu">tm_shape</span>(forest) <span class="sc">+</span> <span class="fu">tm_raster</span>(<span class="st">&quot;2025&quot;</span>, <span class="at">col_alpha=</span>.<span class="dv">7</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="part-5-global-metrics" class="section level2 unnumbered">
-<h2>PART 5: Global metrics<a class="anchor" aria-label="anchor" href="#part-5-global-metrics"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 5: Global metrics</h2>
 <p><strong>A global metric is one where there is a single value per map e.g. the mean patch size.</strong></p>
 <p>There are MANY global metrics we could apply from the <code>landscapemetrics</code> package (linked with the fragstats package). In this lab, we will calculate four metrics:</p>
-<div class="inline-table"><table class="table table-sm">
+<table>
 <caption>The way you do this is similar, so the first step has a more detailed example:</caption>
 <colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Metric</th>
 <th>What it measures</th>
 <th>Units</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td>Percentage of landscape (PLAND)</td>
@@ -467,23 +432,20 @@ Figure 0.10: Three scales of analysis
 <td>Metres per hectare</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p><br></p>
 <div id="step-11-calculate-the-percentage-of-the-landscape-thats-forest" class="section level3 unnumbered">
-<h3>STEP 11: Calculate the percentage of the landscape that’s forest<a class="anchor" aria-label="anchor" href="#step-11-calculate-the-percentage-of-the-landscape-thats-forest"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 11: Calculate the percentage of the landscape that’s forest</h3>
 <p><strong>METRIC TUTORIAL: PLAND - Percentage of landscape</strong> <code>lsm_c_pland()</code></p>
 <p>This measures the percentage of the landscape occupied by a particular class. So a PLAND value of 80 means that forest occupies 80% of the landscape.</p>
 <p><span class="math display">\[
 PLAND = \frac{Forest Area}{Total Landscape Area} × 100
 \]</span></p>
 <p>The code to calculate and print out PLAND for 1985 is:</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pland85</span> <span class="op">&lt;-</span> <span class="fu">lsm_c_pland</span><span class="op">(</span><span class="va">forest</span><span class="op">[[</span><span class="st">"1985"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="va">pland85</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="Lab_4B.html#cb20-1" tabindex="-1"></a>pland85 <span class="ot">&lt;-</span> <span class="fu">lsm_c_pland</span>(forest[[<span class="st">&quot;1985&quot;</span>]])</span>
+<span id="cb20-2"><a href="Lab_4B.html#cb20-2" tabindex="-1"></a>pland85</span></code></pre></div>
 <ul>
-<li>
-<p>The output of this is a table with</p>
+<li><p>The output of this is a table with</p>
 <ul>
 <li><p><code>layer:</code> Which raster layer was analysed</p></li>
 <li><p><code>level:</code> Whether the metric describes the landscape, a class or a patch</p></li>
@@ -491,69 +453,59 @@ PLAND = \frac{Forest Area}{Total Landscape Area} × 100
 <li><p><code>id:</code> The identifier of an individual patch, where applicable</p></li>
 <li><p><code>metric:</code>The landscape metric calculated</p></li>
 <li><p><code>value:</code> The resulting value</p></li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[11A]</strong> Use the tutorial above to calculate the percentage forest cover in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
+<li><strong>[11A]</strong> Use the tutorial above to calculate the percentage forest cover in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-12-calculate-the-number-of-patches" class="section level3 unnumbered">
-<h3>STEP 12: Calculate the number of patches<a class="anchor" aria-label="anchor" href="#step-12-calculate-the-number-of-patches"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 12: Calculate the number of patches</h3>
 <p>Our second metric is the <em>number of patches</em> (NP). AKA How many separate forest areas are there.</p>
 <p>A forest patch is a group of connected forest cells. A landscape with one continuous forest area may have only one large patch, while a more fragmented landscape may contain many separate patches.</p>
 <p>You calculate this using <code>lsm_c_np()</code> which has a similar output to PLAND</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># So there were 293 forest patches in 1985 </span></span>
-<span><span class="va">numberpatch85</span> <span class="op">&lt;-</span> <span class="fu">lsm_c_np</span><span class="op">(</span><span class="va">forest</span><span class="op">[[</span><span class="st">"1985"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="va">numberpatch85</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Lab_4B.html#cb21-1" tabindex="-1"></a><span class="co"># So there were 293 forest patches in 1985 </span></span>
+<span id="cb21-2"><a href="Lab_4B.html#cb21-2" tabindex="-1"></a>numberpatch85 <span class="ot">&lt;-</span> <span class="fu">lsm_c_np</span>(forest[[<span class="st">&quot;1985&quot;</span>]])</span>
+<span id="cb21-3"><a href="Lab_4B.html#cb21-3" tabindex="-1"></a>numberpatch85</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[12A]</strong> Use the tutorial above to calculate the number of forest patches in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
+<li><strong>[12A]</strong> Use the tutorial above to calculate the number of forest patches in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-13-calculate-the-average-patch-size" class="section level3 unnumbered">
-<h3>STEP 13: Calculate the average patch size<a class="anchor" aria-label="anchor" href="#step-13-calculate-the-average-patch-size"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 13: Calculate the average patch size</h3>
 <p>Our third metric is <em>mean patch area</em> (AREA_MN). This measures the average area of patches belonging to a particular class.</p>
 <p><strong>It has a unit of hectares</strong></p>
 <p>For example, a landscape with 100 hectares of forest divided into 10 equal patches would have a mean patch area of 10 hectares.</p>
 <p>You calculate this using <code>lsm_c_area_mn``()</code> which has a similar output to PLAND</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># So the average area of a patch in 1985 was 1289 square hectares</span></span>
-<span><span class="va">MeanPatchArea85</span> <span class="op">&lt;-</span> <span class="fu">lsm_c_area_mn</span><span class="op">(</span><span class="va">forest</span><span class="op">[[</span><span class="st">"1985"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Lab_4B.html#cb22-1" tabindex="-1"></a><span class="co"># So the average area of a patch in 1985 was 1289 square hectares</span></span>
+<span id="cb22-2"><a href="Lab_4B.html#cb22-2" tabindex="-1"></a>MeanPatchArea85 <span class="ot">&lt;-</span> <span class="fu">lsm_c_area_mn</span>(forest[[<span class="st">&quot;1985&quot;</span>]])</span></code></pre></div>
 <p><br></p>
 <ul>
-<li>
-<strong>[13A]</strong> Use the tutorial above to calculate the mean patch area in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
+<li><strong>[13A]</strong> Use the tutorial above to calculate the mean patch area in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="step-14-calculate-the-edge-density" class="section level3 unnumbered">
-<h3>STEP 14: Calculate the edge density<a class="anchor" aria-label="anchor" href="#step-14-calculate-the-edge-density"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 14: Calculate the edge density</h3>
 <p>Our fourth metric is <em>edge density</em> (ED). Edge density measures the total length of boundaries between a class and other land-cover classes, relative to the landscape area</p>
 <p>For forest, it describes the amount of forest edge per unit of landscape area.</p>
 <ul>
 <li><p>A continuous forest with a relatively simple boundary may have less edge than the same amount of forest divided into many smaller, irregular patches. Edge density is therefore useful for examining one aspect of fragmentation.</p></li>
 <li><p><strong>It has an output unit of Meters per hectare.</strong></p></li>
 </ul>
-<div class="figure">
-<span style="display:block;" id="fig:L4-Edge"></span>
-<img src="index_images/im_L4_Edge.png" alt="Edge density" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:L4-Edge"></span>
+<img src="index_images/im_L4_Edge.png" alt="Edge density" width="100%" />
+<p class="caption">
 Figure 0.11: Edge density
 </p>
 </div>
 <p>You calculate this using <code>lsm_c_area_mn()</code> which has a similar output to PLAND.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># So the edge density of our region in 1985 was 7.09 metres per hectare</span></span>
-<span><span class="va">EdgeDensity85</span> <span class="op">&lt;-</span> <span class="fu">lsm_c_ed</span><span class="op">(</span><span class="va">forest</span><span class="op">[[</span><span class="st">"1985"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Lab_4B.html#cb23-1" tabindex="-1"></a><span class="co"># So the edge density of our region in 1985 was 7.09 metres per hectare</span></span>
+<span id="cb23-2"><a href="Lab_4B.html#cb23-2" tabindex="-1"></a>EdgeDensity85 <span class="ot">&lt;-</span> <span class="fu">lsm_c_ed</span>(forest[[<span class="st">&quot;1985&quot;</span>]])</span></code></pre></div>
 <p>To interpret, imagine your study area was 100 hectares (ours is different, thats why we use density so we can compare across forests)</p>
 <ul>
 <li><p>Total area = 100 hectares (1 km²).</p></li>
@@ -562,15 +514,13 @@ Figure 0.11: Edge density
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[14A]</strong> Use the tutorial above to calculate the edge density in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
+<li><strong>[14A]</strong> Use the tutorial above to calculate the edge density in 1985, 2005 and 2015. Show your code and write up your answers neatly in your report (remember full sentences/units! bullet point lists are fine)</li>
 </ul>
 <p><br><br></p>
 </div>
 </div>
 <div id="part-6-summary" class="section level2 unnumbered">
-<h2>PART 6: Summary<a class="anchor" aria-label="anchor" href="#part-6-summary"><i class="fas fa-link"></i></a>
-</h2>
+<h2>PART 6: Summary</h2>
 <p>You have now calculated four different global measurements of the same landscape for 1985, 2005 and 2025.</p>
 <ul>
 <li><p>PLAND measures the percentage of the area as forest.</p></li>
@@ -580,67 +530,60 @@ Figure 0.11: Edge density
 </ul>
 <p><br></p>
 <div id="step-15-summarise-your-findings" class="section level3 unnumbered">
-<h3>STEP 15: Summarise your findings<a class="anchor" aria-label="anchor" href="#step-15-summarise-your-findings"><i class="fas fa-link"></i></a>
-</h3>
+<h3>STEP 15: Summarise your findings</h3>
 <ul>
-<li>
-<strong>[16A]</strong> Summarise your findings at the end of your report, e.g. you could include a table or bullet point list of the numbers (AND UNITS) - just to make it easy to compare across them.</li>
+<li><strong>[16A]</strong> Summarise your findings at the end of your report, e.g. you could include a table or bullet point list of the numbers (AND UNITS) - just to make it easy to compare across them.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[16B]</strong> Using these results, describe how forest composition and configuration changed between 1985 and 2025. Explain if all four metrics support the same interpretation, or do they reveal different aspects of landscape change.</li>
+<li><strong>[16B]</strong> Using these results, describe how forest composition and configuration changed between 1985 and 2025. Explain if all four metrics support the same interpretation, or do they reveal different aspects of landscape change.</li>
 </ul>
 <p><br></p>
 <ul>
-<li>
-<strong>[16C]</strong> Describe the strengths and weaknesses of using global metrics to assess pattern.</li>
+<li><strong>[16C]</strong> Describe the strengths and weaknesses of using global metrics to assess pattern.</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="congrats-finished" class="section level3 unnumbered">
-<h3>
-<strong>Congrats! Finished!</strong><a class="anchor" aria-label="anchor" href="#congrats-finished"><i class="fas fa-link"></i></a>
-</h3>
+<h3><strong>Congrats! Finished!</strong></h3>
 <p>Note there are MANY metrics we could have chosen. This is just scratching the surface of landscapemetrics. If you’re interested, there are good tutorials here.</p>
 <ul>
 <li><p><a href="#id_0" class="uri">https://nlboreal.github.io/LandscapeMetrics/intro.html</a></p></li>
-<li><p><a href="https://bookdown.org/hhwagner1/LandGenCourse_book/index.html" class="uri">https://bookdown.org/hhwagner1/LandGenCourse_book/index.html</a><br><br></p></li>
+<li><p><a href="https://bookdown.org/hhwagner1/LandGenCourse_book/index.html" class="uri">https://bookdown.org/hhwagner1/LandGenCourse_book/index.html</a><br />
+<br />
+</p></li>
 </ul>
 </div>
 </div>
 <div id="what-to-submit-3" class="section level2 unnumbered">
-<h2>WHAT TO SUBMIT<a class="anchor" aria-label="anchor" href="#what-to-submit-3"><i class="fas fa-link"></i></a>
-</h2>
+<h2>WHAT TO SUBMIT</h2>
 <p><br></p>
 <div id="if-you-are-using-your-own-computer-3" class="section level3 unnumbered">
-<h3>If you are using your own computer<a class="anchor" aria-label="anchor" href="#if-you-are-using-your-own-computer-3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>If you are using your own computer</h3>
 <ol style="list-style-type: decimal">
 <li><p>Press knit one final time. You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
 <li><p>Find the html and RmD files in your Lab 4 folder on your computer. Double click the html file to open it in your browser and check it’s the one you want to submit.</p></li>
 <li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:L4-Submit"></span>
-<img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:L4-Submit"></span>
+<img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%" />
+<p class="caption">
 Figure 0.12: Find them in your GEOG364 folder on your computer
 </p>
 </div>
 <p><br></p>
 </div>
 <div id="if-you-are-using-posit-cloud-online-3" class="section level3 unnumbered">
-<h3>If you are using Posit Cloud online<a class="anchor" aria-label="anchor" href="#if-you-are-using-posit-cloud-online-3"><i class="fas fa-link"></i></a>
-</h3>
+<h3>If you are using Posit Cloud online</h3>
 <ol style="list-style-type: decimal">
 <li><p>Press knit one final time. You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
 <li><p>Go to the files tab an click on the little check-box by the RmD file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
 <li><p>Uncheck the .RmD box and click the box by the html file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
 <li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:L4-CloudDownload"></span>
-<img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:L4-CloudDownload"></span>
+<img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%" />
+<p class="caption">
 Figure 0.13: How do download the files from PositCloud
 </p>
 </div>
@@ -648,112 +591,61 @@ Figure 0.13: How do download the files from PositCloud
 </div>
 </div>
 <div id="CheckGradeL4" class="section level2 unnumbered">
-<h2>CHECK YOUR GRADE!<a class="anchor" aria-label="anchor" href="#CheckGradeL4"><i class="fas fa-link"></i></a>
-</h2>
+<h2>CHECK YOUR GRADE!</h2>
 <div id="rubric-2" class="section level3 unnumbered">
-<h3>RUBRIC<a class="anchor" aria-label="anchor" href="#rubric-2"><i class="fas fa-link"></i></a>
-</h3>
+<h3>RUBRIC</h3>
 <ul>
-<li>
-<p><strong>Emergent Phenomena (10 points)</strong></p>
+<li><p><strong>Emergent Phenomena (10 points)</strong></p>
 <ul>
 <li><p>10/10: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.</p></li>
 <li><p>8/10: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.</p></li>
 <li><p>6/10: Mostly accurate and shows a good understanding, but with some errors, omissions, or weaker explanations</p></li>
-<li><p>4/10: Shows some understanding, but several answers are incorrect, incomplete, or unclear<br><br></p></li>
+<li><p>4/10: Shows some understanding, but several answers are incorrect, incomplete, or unclear<br />
+<br />
+</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<!-- --><ul>
-<li>
-<p><strong>Deforestation (15 points)</strong></p>
+<!-- -->
 <ul>
-<li><p>15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.<br></p></li>
-<li><p>14/15: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.<br></p></li>
-<li>
-<p>12/15: Mostly accurate and shows a good understanding, but with some errors, omissions, or weaker explanations</p>
+<li><p><strong>Deforestation (15 points)</strong></p>
+<ul>
+<li><p>15/15: Exceptional! Hard to get! You understood the nuance of all the questions and have a very clear understanding of the concepts.<br />
+</p></li>
+<li><p>14/15: Thoughtful, accurate, and shows a clear understanding of the concepts, with only very minor errors or omissions.<br />
+</p></li>
+<li><p>12/15: Mostly accurate and shows a good understanding, but with some errors, omissions, or weaker explanations</p>
 <p>9/15: Shows some understanding, but several answers are incorrect, incomplete, or unclear</p>
-<p>5/15: Any attempt! A single word or a canvas comment to say hi will get you 5 points even if you haven’t attended lab, because I want to know people who are simply dropping a lab compared to people who are really struggling.</p>
-</li>
+<p>5/15: Any attempt! A single word or a canvas comment to say hi will get you 5 points even if you haven’t attended lab, because I want to know people who are simply dropping a lab compared to people who are really struggling.</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
+
 </div>
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="Project1.html">Project 1</a></div>
-<div class="next"><a href="Lab_5.html">Homework 5</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li>
-<a class="nav-link" href="#Lab_4B">Homework 4</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#aim-2">Aim</a></li>
-<li><a class="nav-link" href="#need-help-2">Need help?</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-1-lab-setup">PART 1: Lab Setup</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-1-create-your-project-download-datareports">STEP 1: Create your project &amp; download data/reports</a></li>
-<li><a class="nav-link" href="#step-2-adjust-your-knit-options">STEP 2: Adjust your knit options</a></li>
-<li><a class="nav-link" href="#step-3-knit-and-check-libraries">STEP 3: Knit and check libraries</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-2-in-class-emergent-phenomena">PART 2: IN-CLASS Emergent Phenomena</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#step-5-write-up-results">STEP 5: Write up results</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#part-3-landscape-metrics">PART 3: Landscape metrics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#step-6-read-the-text-in-this-section">STEP 6: Read the text in this section!</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#part-4-exploratory-analysis">PART 4: Exploratory analysis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-7-learn-about-the-dataset">STEP 7: Learn about the dataset</a></li>
-<li><a class="nav-link" href="#step-8-load-the-data-into-r">STEP 8: Load the data into R</a></li>
-<li><a class="nav-link" href="#step-9-plot-the-forest-maps">STEP 9: Plot the forest maps</a></li>
-<li><a class="nav-link" href="#step-10-data-wrangling">STEP 10: Data wrangling</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-5-global-metrics">PART 5: Global metrics</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-11-calculate-the-percentage-of-the-landscape-thats-forest">STEP 11: Calculate the percentage of the landscape that’s forest</a></li>
-<li><a class="nav-link" href="#step-12-calculate-the-number-of-patches">STEP 12: Calculate the number of patches</a></li>
-<li><a class="nav-link" href="#step-13-calculate-the-average-patch-size">STEP 13: Calculate the average patch size</a></li>
-<li><a class="nav-link" href="#step-14-calculate-the-edge-density">STEP 14: Calculate the edge density</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-6-summary">PART 6: Summary</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-15-summarise-your-findings">STEP 15: Summarise your findings</a></li>
-<li><a class="nav-link" href="#congrats-finished">Congrats! Finished!</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#what-to-submit-3">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#if-you-are-using-your-own-computer-3">If you are using your own computer</a></li>
-<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online-3">If you are using Posit Cloud online</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#CheckGradeL4">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric-2">RUBRIC</a></li></ul>
-</li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-21.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -761,7 +653,11 @@ Figure 0.13: How do download the files from PositCloud
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -773,7 +669,8 @@ Figure 0.13: How do download the files from PositCloud
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -791,4 +688,5 @@ for (let popover of popovers) {
 }
 </script>
 </body>
+
 </html>

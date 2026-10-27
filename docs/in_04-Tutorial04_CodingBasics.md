@@ -229,7 +229,7 @@ rnorm(n = 5, mean = 10, sd = 2)
 ```
 
 ```
-## [1] 12.72102 13.00264 10.51963 11.39425  8.24625
+## [1]  9.476565 11.689394  8.892788 10.182134 10.886189
 ```
 
 Here we have told R: to randomly select `5` values from a normal distribution that has a mean of `10`, and a standard deviation of `2`.
@@ -324,7 +324,7 @@ round(rnorm(n = 5, mean = 10, sd = 2), digits=3)
 ```
 
 ```
-## [1] 10.801 10.082  8.136  6.362  8.424
+## [1] 11.743 13.053 11.629 12.653  7.681
 ```
 
 <br>

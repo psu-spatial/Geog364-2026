@@ -1,41 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 9 Data Filtering | GEOG364 Lab Book 2026</title>
-<meta name="author" content="Dr Helen Greatrex">
-<meta name="description" content="9.1 Introduction &amp; packages This tutorial explains how to filter, select, and wrangle data in R using both Tidyverse and Base R approaches. Both approaches are valid, but they differ in syntax and...">
-<meta name="generator" content="bookdown 0.47 with bs4_book()">
-<meta property="og:title" content="Chapter 9 Data Filtering | GEOG364 Lab Book 2026">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T8_Wrangle.html">
-<meta property="og:description" content="9.1 Introduction &amp; packages This tutorial explains how to filter, select, and wrangle data in R using both Tidyverse and Base R approaches. Both approaches are valid, but they differ in syntax and...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 9 Data Filtering | GEOG364 Lab Book 2026">
-<meta name="twitter:description" content="9.1 Introduction &amp; packages This tutorial explains how to filter, select, and wrangle data in R using both Tidyverse and Base R approaches. Both approaches are valid, but they differ in syntax and...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
-<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 9 Data Filtering | GEOG364 Lab Book 2026</title>
+
+    <meta name="author" content="Dr Helen Greatrex" />
+  
+   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 9 Data Filtering | GEOG364 Lab Book 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
+  
+  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Data Filtering | GEOG364 Lab Book 2026" />
+  
+  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.12.0/transition.js"></script>
+    <script src="libs/bs3compat-0.12.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.12.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.12.1/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
+    <script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+    <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+    
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -47,104 +83,60 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
-<li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li><a class="" href="Help.html">HELP!</a></li>
-<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
-<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
-<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
-<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="" href="Lab_2.html">Homework 2</a></li>
-<li><a class="" href="Lab_3.html">Homework 3</a></li>
-<li><a class="" href="Project1.html">Project 1</a></li>
-<li><a class="" href="Lab_4B.html">Homework 4</a></li>
-<li><a class="" href="Lab_5.html">Homework 5</a></li>
-<li class="book-part">.</li>
-<li class="book-part">TUTORIALS</li>
-<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
-<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
-<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
-<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
-<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
-<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
-<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
-<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
-<li><a class="active" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
-<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
-<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
-<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T8_Wrangle" class="section level1" number="9">
-<h1>
-<span class="header-section-number">9</span> Data Filtering<a class="anchor" aria-label="anchor" href="#T8_Wrangle"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="T8_Wrangle" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Data Filtering</h1>
 <div id="introduction-packages" class="section level2" number="9.1">
-<h2>
-<span class="header-section-number">9.1</span> Introduction &amp; packages<a class="anchor" aria-label="anchor" href="#introduction-packages"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">9.1</span> Introduction &amp; packages</h2>
 <p>This tutorial explains how to filter, select, and wrangle data in R using both <strong>Tidyverse</strong> and <strong>Base R</strong> approaches.</p>
 <p>Both approaches are valid, but they differ in syntax and philosophy. <strong>Tidyverse</strong> functions (from <code>dplyr</code>) use a pipeline-based approach, whereas <strong>Base R</strong> relies on indexing and built-in functions.</p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Load necessary packages</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>  <span class="co"># Core data wrangling</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span> <span class="co"># Example dataset</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op">)</span>  <span class="co"># Quick summary stats</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span>  <span class="co"># Pair plots</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co"># Visualization</span></span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="T8_Wrangle.html#cb226-1" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
+<span id="cb226-2"><a href="T8_Wrangle.html#cb226-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Core data wrangling</span></span>
+<span id="cb226-3"><a href="T8_Wrangle.html#cb226-3" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins) <span class="co"># Example dataset</span></span>
+<span id="cb226-4"><a href="T8_Wrangle.html#cb226-4" tabindex="-1"></a><span class="fu">library</span>(skimr)  <span class="co"># Quick summary stats</span></span>
+<span id="cb226-5"><a href="T8_Wrangle.html#cb226-5" tabindex="-1"></a><span class="fu">library</span>(GGally)  <span class="co"># Pair plots</span></span>
+<span id="cb226-6"><a href="T8_Wrangle.html#cb226-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># Visualization</span></span></code></pre></div>
 <p>We will use the <strong>penguins</strong> dataset from the <code>palmerpenguins</code> package to demonstrate data wrangling techniques.</p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"penguins"</span><span class="op">)</span>  <span class="co"># Load dataset</span></span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="T8_Wrangle.html#cb227-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;penguins&quot;</span>)  <span class="co"># Load dataset</span></span></code></pre></div>
 <p><br><br></p>
 </div>
 <div id="selecting-columns" class="section level2" number="9.2">
-<h2>
-<span class="header-section-number">9.2</span> Selecting COLUMNS<a class="anchor" aria-label="anchor" href="#selecting-columns"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">9.2</span> Selecting COLUMNS</h2>
 <div id="selecting-a-specific-column-using" class="section level3" number="9.2.1">
-<h3>
-<span class="header-section-number">9.2.1</span> Selecting a specific column using $<a class="anchor" aria-label="anchor" href="#selecting-a-specific-column-using"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">9.2.1</span> Selecting a specific column using $</h3>
 <p>Sometimes we want to deal with only one specific column in our dataset, for example applying the mean command to say just one column.</p>
 <p>To do this, we use the $ symbol. For example, here I’m simply selecting the data in the elevation column only and saving it to a new variable called elevationdata.</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mean_mass</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">$</span><span class="va">body_mass_g</span> </span>
-<span></span>
-<span><span class="va">mean_mass</span></span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="T8_Wrangle.html#cb228-1" tabindex="-1"></a>mean_mass <span class="ot">&lt;-</span> penguins<span class="sc">$</span>body_mass_g </span>
+<span id="cb228-2"><a href="T8_Wrangle.html#cb228-2" tabindex="-1"></a></span>
+<span id="cb228-3"><a href="T8_Wrangle.html#cb228-3" tabindex="-1"></a>mean_mass</span></code></pre></div>
 <p>Try it yourself. You should have seen that as you typed the $, it gave you all the available column names to choose from. This means we can now easily summarise specific columns. For example:</p>
 <ul>
-<li>
-<code>summary(penguins)</code> will create a summary of the whole spreadsheet,</li>
-<li>
-<code>summary(penguins$Price)</code> will only summarise the Price column.</li>
-<li>
-<code>mean(penguins$Price)</code> will take the mean of the Price column in the HousesNY dataframe.</li>
+<li><code>summary(penguins)</code> will create a summary of the whole spreadsheet,</li>
+<li><code>summary(penguins$Price)</code> will only summarise the Price column.</li>
+<li><code>mean(penguins$Price)</code> will take the mean of the Price column in the HousesNY dataframe.</li>
 </ul>
 <p><br><br></p>
 </div>
 <div id="selecting-multiple-columns" class="section level3" number="9.2.2">
-<h3>
-<span class="header-section-number">9.2.2</span> Selecting multiple columns<a class="anchor" aria-label="anchor" href="#selecting-multiple-columns"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">9.2.2</span> Selecting multiple columns</h3>
 <p>Remember you have the names() command to help find these and that the names are CASE SENSITIVE. If we want to work with several specific columns (e.g., <code>species</code>, <code>bill_length_mm</code>, and <code>flipper_length_mm</code>), we can extract them like this:</p>
 <div id="tidyverse-approach" class="section level4 unnumbered">
-<h4>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach"><i class="fas fa-link"></i></a>
-</h4>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">selected_data</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selected_data</span><span class="op">)</span></span></code></pre></div>
+<h4>Tidyverse Approach</h4>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="T8_Wrangle.html#cb229-1" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(species, bill_length_mm, flipper_length_mm)</span>
+<span id="cb229-2"><a href="T8_Wrangle.html#cb229-2" tabindex="-1"></a><span class="fu">head</span>(selected_data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   species bill_length_mm flipper_length_mm
 ##   &lt;fct&gt;            &lt;dbl&gt;             &lt;int&gt;
@@ -156,11 +148,9 @@
 ## 6 Adelie            39.3               190</code></pre>
 </div>
 <div id="base-r-approach" class="section level4 unnumbered">
-<h4>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach"><i class="fas fa-link"></i></a>
-</h4>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">selected_data</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"species"</span>, <span class="st">"bill_length_mm"</span>, <span class="st">"flipper_length_mm"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">selected_data</span><span class="op">)</span></span></code></pre></div>
+<h4>Base R Approach</h4>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="T8_Wrangle.html#cb231-1" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> penguins[, <span class="fu">c</span>(<span class="st">&quot;species&quot;</span>, <span class="st">&quot;bill_length_mm&quot;</span>, <span class="st">&quot;flipper_length_mm&quot;</span>)]</span>
+<span id="cb231-2"><a href="T8_Wrangle.html#cb231-2" tabindex="-1"></a><span class="fu">head</span>(selected_data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   species bill_length_mm flipper_length_mm
 ##   &lt;fct&gt;            &lt;dbl&gt;             &lt;int&gt;
@@ -175,9 +165,7 @@
 </div>
 </div>
 <div id="selecting-specific-cells" class="section level2" number="9.3">
-<h2>
-<span class="header-section-number">9.3</span> SELECTING SPECIFIC CELLS<a class="anchor" aria-label="anchor" href="#selecting-specific-cells"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">9.3</span> SELECTING SPECIFIC CELLS</h2>
 <p>Sometimes, we do not want to analyse at the entire data.frame. Instead, we would like to only look at one (or more) columns or rows.</p>
 <p>There are several ways we can select data.</p>
 <ul>
@@ -189,249 +177,170 @@ tablename [ ROWS , COLUMNS ]
 \]</span>
 <br></p>
 <p>Some examples:</p>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># This will select the data in the 5th row and 7th column</span></span>
-<span><span class="va">penguins</span><span class="op">[</span><span class="fl">5</span>,<span class="fl">7</span><span class="op">]</span></span>
-<span></span>
-<span><span class="co"># This will select the 2nd row and ALL the columns </span></span>
-<span><span class="va">penguins</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span></span>
-<span></span>
-<span><span class="co"># This will select the 3rd column and ALL the rows</span></span>
-<span><span class="va">penguins</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span></span>
-<span><span class="co"># similar to using its name</span></span>
-<span><span class="va">penguins</span><span class="op">$</span><span class="va">island</span></span>
-<span></span>
-<span><span class="co"># We can combine our commands, this will print the 13th row of the body mass column </span></span>
-<span><span class="co"># (no comma as we're only looking at one column)</span></span>
-<span><span class="va">penguins</span><span class="op">$</span><span class="va">body_mass_g</span><span class="op">[</span><span class="fl">13</span><span class="op">]</span> </span>
-<span></span>
-<span><span class="co"># The : symbol lets you choose a sequence of numbers e.g. 1:5 is 1 2 3 4 5</span></span>
-<span><span class="co"># So this prints out rows 11 to 15 and all the columns</span></span>
-<span><span class="va">penguins</span><span class="op">[</span><span class="fl">11</span><span class="op">:</span><span class="fl">15</span>,<span class="op">]</span></span>
-<span></span>
-<span><span class="co"># The "c" command allows you to enter whatever numbers you like.  </span></span>
-<span><span class="co"># So this will print out rows 4,3,7 and the "Elevation" and "Dist_to_Coast" columns</span></span>
-<span><span class="va">penguins</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">7</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"island"</span>,<span class="st">"body_mass_g"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="T8_Wrangle.html#cb233-1" tabindex="-1"></a><span class="co"># This will select the data in the 5th row and 7th column</span></span>
+<span id="cb233-2"><a href="T8_Wrangle.html#cb233-2" tabindex="-1"></a>penguins[<span class="dv">5</span>,<span class="dv">7</span>]</span>
+<span id="cb233-3"><a href="T8_Wrangle.html#cb233-3" tabindex="-1"></a></span>
+<span id="cb233-4"><a href="T8_Wrangle.html#cb233-4" tabindex="-1"></a><span class="co"># This will select the 2nd row and ALL the columns </span></span>
+<span id="cb233-5"><a href="T8_Wrangle.html#cb233-5" tabindex="-1"></a>penguins[<span class="dv">2</span>,]</span>
+<span id="cb233-6"><a href="T8_Wrangle.html#cb233-6" tabindex="-1"></a></span>
+<span id="cb233-7"><a href="T8_Wrangle.html#cb233-7" tabindex="-1"></a><span class="co"># This will select the 3rd column and ALL the rows</span></span>
+<span id="cb233-8"><a href="T8_Wrangle.html#cb233-8" tabindex="-1"></a>penguins[,<span class="dv">3</span>]</span>
+<span id="cb233-9"><a href="T8_Wrangle.html#cb233-9" tabindex="-1"></a><span class="co"># similar to using its name</span></span>
+<span id="cb233-10"><a href="T8_Wrangle.html#cb233-10" tabindex="-1"></a>penguins<span class="sc">$</span>island</span>
+<span id="cb233-11"><a href="T8_Wrangle.html#cb233-11" tabindex="-1"></a></span>
+<span id="cb233-12"><a href="T8_Wrangle.html#cb233-12" tabindex="-1"></a><span class="co"># We can combine our commands, this will print the 13th row of the body mass column </span></span>
+<span id="cb233-13"><a href="T8_Wrangle.html#cb233-13" tabindex="-1"></a><span class="co"># (no comma as we&#39;re only looking at one column)</span></span>
+<span id="cb233-14"><a href="T8_Wrangle.html#cb233-14" tabindex="-1"></a>penguins<span class="sc">$</span>body_mass_g[<span class="dv">13</span>] </span>
+<span id="cb233-15"><a href="T8_Wrangle.html#cb233-15" tabindex="-1"></a></span>
+<span id="cb233-16"><a href="T8_Wrangle.html#cb233-16" tabindex="-1"></a><span class="co"># The : symbol lets you choose a sequence of numbers e.g. 1:5 is 1 2 3 4 5</span></span>
+<span id="cb233-17"><a href="T8_Wrangle.html#cb233-17" tabindex="-1"></a><span class="co"># So this prints out rows 11 to 15 and all the columns</span></span>
+<span id="cb233-18"><a href="T8_Wrangle.html#cb233-18" tabindex="-1"></a>penguins[<span class="dv">11</span><span class="sc">:</span><span class="dv">15</span>,]</span>
+<span id="cb233-19"><a href="T8_Wrangle.html#cb233-19" tabindex="-1"></a></span>
+<span id="cb233-20"><a href="T8_Wrangle.html#cb233-20" tabindex="-1"></a><span class="co"># The &quot;c&quot; command allows you to enter whatever numbers you like.  </span></span>
+<span id="cb233-21"><a href="T8_Wrangle.html#cb233-21" tabindex="-1"></a><span class="co"># So this will print out rows 4,3,7 and the &quot;Elevation&quot; and &quot;Dist_to_Coast&quot; columns</span></span>
+<span id="cb233-22"><a href="T8_Wrangle.html#cb233-22" tabindex="-1"></a>penguins[<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">7</span>), <span class="fu">c</span>(<span class="st">&quot;island&quot;</span>,<span class="st">&quot;body_mass_g&quot;</span>)]</span></code></pre></div>
 <div id="deleting-data" class="section level3" number="9.3.1">
-<h3>
-<span class="header-section-number">9.3.1</span> Deleting data<a class="anchor" aria-label="anchor" href="#deleting-data"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">9.3.1</span> Deleting data</h3>
 <p>Or if you know the row or column number you can use the minus - sign to remove. Or use filter..</p>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># remove row 6 and and overwrite</span></span>
-<span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="op">-</span><span class="fl">6</span> ,<span class="op">]</span></span>
-<span></span>
-<span><span class="co"># remove columns 4 and 2 and save result to newdata </span></span>
-<span><span class="va">newdata</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span>, <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span> <span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="T8_Wrangle.html#cb234-1" tabindex="-1"></a><span class="co"># remove row 6 and and overwrite</span></span>
+<span id="cb234-2"><a href="T8_Wrangle.html#cb234-2" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins[<span class="sc">-</span><span class="dv">6</span> ,]</span>
+<span id="cb234-3"><a href="T8_Wrangle.html#cb234-3" tabindex="-1"></a></span>
+<span id="cb234-4"><a href="T8_Wrangle.html#cb234-4" tabindex="-1"></a><span class="co"># remove columns 4 and 2 and save result to newdata </span></span>
+<span id="cb234-5"><a href="T8_Wrangle.html#cb234-5" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> penguins[, <span class="sc">-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>) ]</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="T8_RowSelect" class="section level2" number="9.4">
-<h2>
-<span class="header-section-number">9.4</span> Selecting ROWS<a class="anchor" aria-label="anchor" href="#T8_RowSelect"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">9.4</span> Selecting ROWS</h2>
 <p>Filtering means selecting only the rows that meet certain conditions.</p>
 <ul>
-<li>
-<code><a href="https://rdrr.io/r/base/which.html">which()</a></code> helps find row numbers that match a condition.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> (from <code>dplyr</code> tidyverse) allows for clear, intuitive filtering of data.</li>
+<li><code>which()</code> helps find row numbers that match a condition.</li>
+<li><code>filter()</code> (from <code>dplyr</code> tidyverse) allows for clear, intuitive filtering of data.</li>
 <li>Logical operators (<code>&amp;</code>, <code>|</code>, <code>!=</code>, <code>%in%</code>) provide additional flexibility in specifying conditions.</li>
 </ul>
 <p><br></p>
 <div id="random-sampling" class="section level3" number="9.4.1">
-<h3>
-<span class="header-section-number">9.4.1</span> Random sampling<a class="anchor" aria-label="anchor" href="#random-sampling"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">9.4.1</span> Random sampling</h3>
 <p>Dplyr’s sample_slice command will do this for us. Here I randomly selected 4 rows.</p>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">penguinsample</span> <span class="op">&lt;-</span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span><span class="va">penguins</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#check it worked</span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">penguinsample</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="T8_Wrangle.html#cb235-1" tabindex="-1"></a>penguinsample <span class="ot">&lt;-</span>  dplyr<span class="sc">::</span><span class="fu">slice_sample</span>(penguins, <span class="at">n=</span><span class="dv">4</span>)</span>
+<span id="cb235-2"><a href="T8_Wrangle.html#cb235-2" tabindex="-1"></a></span>
+<span id="cb235-3"><a href="T8_Wrangle.html#cb235-3" tabindex="-1"></a><span class="co">#check it worked</span></span>
+<span id="cb235-4"><a href="T8_Wrangle.html#cb235-4" tabindex="-1"></a><span class="fu">glimpse</span>(penguinsample)</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="tidyversedplyr-filter-command" class="section level3" number="9.4.2">
-<h3>
-<span class="header-section-number">9.4.2</span> Tidyverse/dplyr filter command<a class="anchor" aria-label="anchor" href="#tidyversedplyr-filter-command"><i class="fas fa-link"></i></a>
-</h3>
-<p>We can also use the tidyverse approach, the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code> function. All the condition symbols e.g. !=NOT etc also work for the which command,</p>
+<h3><span class="header-section-number">9.4.2</span> Tidyverse/dplyr filter command</h3>
+<p>We can also use the tidyverse approach, the <code>dplyr::filter()</code> function. All the condition symbols e.g. !=NOT etc also work for the which command,</p>
 <p>Selecting all <code>Adelie</code> penguins:</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="T8_Wrangle.html#cb236-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>)</span></code></pre></div>
 <p>Selecting multiple species using <code>%in%</code>:</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="T8_Wrangle.html#cb237-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(penguins, species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Chinstrap&quot;</span>))</span></code></pre></div>
 <p>Excluding a species using <code>!=</code>:</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">species</span> <span class="op">!=</span> <span class="st">"Gentoo"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="T8_Wrangle.html#cb238-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(penguins, species <span class="sc">!=</span> <span class="st">&quot;Gentoo&quot;</span>)</span></code></pre></div>
 <p>Filtering penguins with a flipper length greater than 200 mm:</p>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="T8_Wrangle.html#cb239-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(penguins, flipper_length_mm <span class="sc">&gt;</span> <span class="dv">200</span>)</span></code></pre></div>
 <p>Filtering penguins with a body mass less than or equal to 3000 g:</p>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">light_penguins</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">body_mass_g</span> <span class="op">&lt;=</span> <span class="fl">3000</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">light_penguins</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="T8_Wrangle.html#cb240-1" tabindex="-1"></a>light_penguins <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(penguins, body_mass_g <span class="sc">&lt;=</span> <span class="dv">3000</span>)</span>
+<span id="cb240-2"><a href="T8_Wrangle.html#cb240-2" tabindex="-1"></a><span class="fu">summary</span>(light_penguins)</span></code></pre></div>
 <p>Filtering with multiple conditions:</p>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">180</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="T8_Wrangle.html#cb241-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(penguins, flipper_length_mm <span class="sc">&gt;</span> <span class="dv">180</span> <span class="sc">&amp;</span> species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>)</span></code></pre></div>
 <p>Using <code>|</code> (OR condition) to select penguins with either a <code>bill_depth_mm</code> greater than 18 or <code>flipper_length_mm</code> longer than 210 mm:</p>
 </div>
 <div id="baser-which-command" class="section level3" number="9.4.3">
-<h3>
-<span class="header-section-number">9.4.3</span> BaseR <code>which()</code> command<a class="anchor" aria-label="anchor" href="#baser-which-command"><i class="fas fa-link"></i></a>
-</h3>
-<p>The <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> command helps us identify row indices that meet a condition.</p>
+<h3><span class="header-section-number">9.4.3</span> BaseR <code>which()</code> command</h3>
+<p>The <code>which()</code> command helps us identify row indices that meet a condition.</p>
 <p>For example, identifying numbers greater than 107 in a sequence:</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">100</span><span class="op">:</span><span class="fl">110</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="fl">107</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="T8_Wrangle.html#cb242-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">100</span><span class="sc">:</span><span class="dv">110</span></span>
+<span id="cb242-2"><a href="T8_Wrangle.html#cb242-2" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">&gt;</span> <span class="dv">107</span>)</span></code></pre></div>
 <p>I like it because you can read the command as a sentence e.g. which numbers in “a” are greater than 107, Or which penguins have a <code>body_mass_g</code> less than or equal to 3000g:</p>
-<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">outlier_rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">body_mass_g</span> <span class="op">&lt;=</span> <span class="fl">3000</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="T8_Wrangle.html#cb243-1" tabindex="-1"></a>outlier_rows <span class="ot">&lt;-</span> <span class="fu">which</span>(penguins<span class="sc">$</span>body_mass_g <span class="sc">&lt;=</span> <span class="dv">3000</span>)</span></code></pre></div>
 <p>To find the row corresponding to the penguin with the smallest bill length:</p>
-<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">row_number</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">smallest_bill</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="va">row_number</span>, <span class="op">]</span></span>
-<span><span class="va">smallest_bill</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="T8_Wrangle.html#cb244-1" tabindex="-1"></a>row_number <span class="ot">&lt;-</span> <span class="fu">which</span>(penguins<span class="sc">$</span>bill_length_mm <span class="sc">==</span> <span class="fu">min</span>(penguins<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb244-2"><a href="T8_Wrangle.html#cb244-2" tabindex="-1"></a>smallest_bill <span class="ot">&lt;-</span> penguins[row_number, ]</span>
+<span id="cb244-3"><a href="T8_Wrangle.html#cb244-3" tabindex="-1"></a>smallest_bill</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="saving-data-to-new-columns" class="section level2" number="9.5">
-<h2>
-<span class="header-section-number">9.5</span> Saving data to new columns<a class="anchor" aria-label="anchor" href="#saving-data-to-new-columns"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">9.5</span> Saving data to new columns</h2>
 <p>Lets say you wanted to find the ratio between two columns of data, then save your answer as a new column</p>
 <div id="base-r-approach-1" class="section level3 unnumbered">
-<h3>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach-1"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_ratio</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">penguins</span><span class="op">$</span><span class="va">bill_depth_mm</span></span></code></pre></div>
+<h3>Base R Approach</h3>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="T8_Wrangle.html#cb245-1" tabindex="-1"></a>penguins<span class="sc">$</span>bill_ratio <span class="ot">&lt;-</span> penguins<span class="sc">$</span>bill_length_mm <span class="sc">/</span> penguins<span class="sc">$</span>bill_depth_mm</span></code></pre></div>
 </div>
 <div id="tidyverse-approach-1" class="section level3 unnumbered">
-<h3>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach-1"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>bill_ratio <span class="op">=</span> <span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">bill_depth_mm</span><span class="op">)</span></span></code></pre></div>
+<h3>Tidyverse Approach</h3>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="T8_Wrangle.html#cb246-1" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bill_ratio =</span> bill_length_mm <span class="sc">/</span> bill_depth_mm)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="sorting-data" class="section level2" number="9.6">
-<h2>
-<span class="header-section-number">9.6</span> Sorting Data<a class="anchor" aria-label="anchor" href="#sorting-data"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">9.6</span> Sorting Data</h2>
 <p>Sorting the data allows us to find the highest and lowest values in a dataset.</p>
 <p>Sort by body mass (ascending):</p>
 <div id="tidyverse-approach-2" class="section level3 unnumbered">
-<h3>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach-2"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">body_mass_g</span><span class="op">)</span></span></code></pre></div>
+<h3>Tidyverse Approach</h3>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="T8_Wrangle.html#cb247-1" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">arrange</span>(penguins, body_mass_g)</span></code></pre></div>
 <p>Sort by descending order:</p>
-<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">flipper_length_mm</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="T8_Wrangle.html#cb248-1" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">arrange</span>(penguins, <span class="fu">desc</span>(flipper_length_mm))</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="base-r-approach-2" class="section level3 unnumbered">
-<h3>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach-2"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">body_mass_g</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
-<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">penguins</span><span class="op">$</span><span class="va">flipper_length_mm</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
+<h3>Base R Approach</h3>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="T8_Wrangle.html#cb249-1" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins[<span class="fu">order</span>(penguins<span class="sc">$</span>body_mass_g), ]</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="T8_Wrangle.html#cb250-1" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins[<span class="fu">order</span>(<span class="sc">-</span>penguins<span class="sc">$</span>flipper_length_mm), ]</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="combining-everything" class="section level2" number="9.7">
-<h2>
-<span class="header-section-number">9.7</span> Combining Everything<a class="anchor" aria-label="anchor" href="#combining-everything"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">9.7</span> Combining Everything</h2>
 <p>We can combine multiple operations into a single pipeline. The tidyverse is designed for this.</p>
 <div id="tidyverse-approach-3" class="section level3 unnumbered">
-<h3>Tidyverse Approach<a class="anchor" aria-label="anchor" href="#tidyverse-approach-3"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">final_result</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">180</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>bill_ratio <span class="op">=</span> <span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">bill_depth_mm</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span>, <span class="va">bill_ratio</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">bill_ratio</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<h3>Tidyverse Approach</h3>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="T8_Wrangle.html#cb251-1" tabindex="-1"></a>final_result <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb251-2"><a href="T8_Wrangle.html#cb251-2" tabindex="-1"></a>  <span class="fu">filter</span>(flipper_length_mm <span class="sc">&gt;</span> <span class="dv">180</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb251-3"><a href="T8_Wrangle.html#cb251-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bill_ratio =</span> bill_length_mm <span class="sc">/</span> bill_depth_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb251-4"><a href="T8_Wrangle.html#cb251-4" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_length_mm, flipper_length_mm, bill_ratio) <span class="sc">%&gt;%</span></span>
+<span id="cb251-5"><a href="T8_Wrangle.html#cb251-5" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bill_ratio))</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="base-r-approach-3" class="section level3 unnumbered">
-<h3>Base R Approach<a class="anchor" aria-label="anchor" href="#base-r-approach-3"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">filtered</span> <span class="op">&lt;-</span> <span class="va">penguins</span><span class="op">[</span><span class="va">penguins</span><span class="op">$</span><span class="va">flipper_length_mm</span> <span class="op">&gt;</span> <span class="fl">180</span>, <span class="op">]</span></span>
-<span><span class="va">filtered</span><span class="op">$</span><span class="va">bill_ratio</span> <span class="op">&lt;-</span> <span class="va">filtered</span><span class="op">$</span><span class="va">bill_length_mm</span> <span class="op">/</span> <span class="va">filtered</span><span class="op">$</span><span class="va">bill_depth_mm</span></span>
-<span></span>
-<span><span class="va">filtered</span> <span class="op">&lt;-</span> <span class="va">filtered</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">filtered</span><span class="op">$</span><span class="va">bill_ratio</span><span class="op">)</span>,</span>
-<span>                     <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"species"</span>, <span class="st">"bill_length_mm"</span>, </span>
-<span>                       <span class="st">"flipper_length_mm"</span>, <span class="st">"bill_ratio"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">filtered</span><span class="op">)</span></span></code></pre></div>
+<h3>Base R Approach</h3>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="T8_Wrangle.html#cb252-1" tabindex="-1"></a>filtered <span class="ot">&lt;-</span> penguins[penguins<span class="sc">$</span>flipper_length_mm <span class="sc">&gt;</span> <span class="dv">180</span>, ]</span>
+<span id="cb252-2"><a href="T8_Wrangle.html#cb252-2" tabindex="-1"></a>filtered<span class="sc">$</span>bill_ratio <span class="ot">&lt;-</span> filtered<span class="sc">$</span>bill_length_mm <span class="sc">/</span> filtered<span class="sc">$</span>bill_depth_mm</span>
+<span id="cb252-3"><a href="T8_Wrangle.html#cb252-3" tabindex="-1"></a></span>
+<span id="cb252-4"><a href="T8_Wrangle.html#cb252-4" tabindex="-1"></a>filtered <span class="ot">&lt;-</span> filtered[<span class="fu">order</span>(<span class="sc">-</span>filtered<span class="sc">$</span>bill_ratio),</span>
+<span id="cb252-5"><a href="T8_Wrangle.html#cb252-5" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="st">&quot;species&quot;</span>, <span class="st">&quot;bill_length_mm&quot;</span>, </span>
+<span id="cb252-6"><a href="T8_Wrangle.html#cb252-6" tabindex="-1"></a>                       <span class="st">&quot;flipper_length_mm&quot;</span>, <span class="st">&quot;bill_ratio&quot;</span>)]</span>
+<span id="cb252-7"><a href="T8_Wrangle.html#cb252-7" tabindex="-1"></a><span class="fu">head</span>(filtered)</span></code></pre></div>
 
 </div>
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></div>
-<div class="next"><a href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#T8_Wrangle"><span class="header-section-number">9</span> Data Filtering</a></li>
-<li><a class="nav-link" href="#introduction-packages"><span class="header-section-number">9.1</span> Introduction &amp; packages</a></li>
-<li>
-<a class="nav-link" href="#selecting-columns"><span class="header-section-number">9.2</span> Selecting COLUMNS</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#selecting-a-specific-column-using"><span class="header-section-number">9.2.1</span> Selecting a specific column using $</a></li>
-<li><a class="nav-link" href="#selecting-multiple-columns"><span class="header-section-number">9.2.2</span> Selecting multiple columns</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#selecting-specific-cells"><span class="header-section-number">9.3</span> SELECTING SPECIFIC CELLS</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#deleting-data"><span class="header-section-number">9.3.1</span> Deleting data</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#T8_RowSelect"><span class="header-section-number">9.4</span> Selecting ROWS</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#random-sampling"><span class="header-section-number">9.4.1</span> Random sampling</a></li>
-<li><a class="nav-link" href="#tidyversedplyr-filter-command"><span class="header-section-number">9.4.2</span> Tidyverse/dplyr filter command</a></li>
-<li><a class="nav-link" href="#baser-which-command"><span class="header-section-number">9.4.3</span> BaseR which() command</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#saving-data-to-new-columns"><span class="header-section-number">9.5</span> Saving data to new columns</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#base-r-approach-1">Base R Approach</a></li>
-<li><a class="nav-link" href="#tidyverse-approach-1">Tidyverse Approach</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#sorting-data"><span class="header-section-number">9.6</span> Sorting Data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tidyverse-approach-2">Tidyverse Approach</a></li>
-<li><a class="nav-link" href="#base-r-approach-2">Base R Approach</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#combining-everything"><span class="header-section-number">9.7</span> Combining Everything</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tidyverse-approach-3">Tidyverse Approach</a></li>
-<li><a class="nav-link" href="#base-r-approach-3">Base R Approach</a></li>
-</ul>
-</li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-21.</p>
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -439,7 +348,11 @@ tablename [ ROWS , COLUMNS ]
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -451,7 +364,8 @@ tablename [ ROWS , COLUMNS ]
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -469,4 +383,5 @@ for (let popover of popovers) {
 }
 </script>
 </body>
+
 </html>

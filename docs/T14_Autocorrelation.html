@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 14 Making maps | GEOG364 Lab Book 2026</title>
+
+    <meta name="author" content="Dr Helen Greatrex" />
+  
+   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 14 Making maps | GEOG364 Lab Book 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
+  
+  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 Making maps | GEOG364 Lab Book 2026" />
+  
+  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.12.0/transition.js"></script>
+    <script src="libs/bs3compat-0.12.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.12.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.12.1/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
+    <script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+    <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="T14_Autocorrelation" class="section level1" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Making maps</h1>
+<p><strong>THIS TUTORIAL WAS ORIGINALLY CREATED BY DR MANNY GIMOND, all I have done is update the code to the new version</strong></p>
+<p>This is a standalone tutorial used in one of my courses. It introduces students to the Moran’s I analysis as well as some basic mapping features using tmap. This exercise also compares ArcMap’s Moran’s I results to those from a Monte Carlo simulation. For an overview of Moran’s I, see my lecture notes.</p>
+<p>We will make use of the following packages: <code>sf</code> for importing the shapefiles, <code>tmap</code> for creating choropleth maps and <code>spdep</code> for implementing the Moran’s I analysis.</p>
+<div id="libraries" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Libraries</h2>
+<p>Make sure these are in your library folder and that you have run the code chunk</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="T14_Autocorrelation.html#cb334-1" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb334-2"><a href="T14_Autocorrelation.html#cb334-2" tabindex="-1"></a><span class="fu">library</span>(spdep)</span>
+<span id="cb334-3"><a href="T14_Autocorrelation.html#cb334-3" tabindex="-1"></a><span class="fu">library</span>(tmap)</span></code></pre></div>
+</div>
+<div id="loading-and-exploring-the-data" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> Loading and exploring the data</h2>
+<p>The following chunk loads the data (as an sf object) from the github site.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="T14_Autocorrelation.html#cb335-1" tabindex="-1"></a><span class="co"># Load the shapefile</span></span>
+<span id="cb335-2"><a href="T14_Autocorrelation.html#cb335-2" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/mgimond/Data/raw/gh-pages/Exercises/nhme.rds&quot;</span>))</span>
+<span id="cb335-3"><a href="T14_Autocorrelation.html#cb335-3" tabindex="-1"></a></span>
+<span id="cb335-4"><a href="T14_Autocorrelation.html#cb335-4" tabindex="-1"></a><span class="co"># This file was saved with an older version of sf: rebuild its coordinate system</span></span>
+<span id="cb335-5"><a href="T14_Autocorrelation.html#cb335-5" tabindex="-1"></a><span class="fu">st_crs</span>(s) <span class="ot">&lt;-</span> <span class="fu">st_crs</span>(s)<span class="sc">$</span>input</span></code></pre></div>
+<p>To list the column names associated with the object’s attribute table, type:</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="T14_Autocorrelation.html#cb336-1" tabindex="-1"></a><span class="fu">names</span>(s)</span></code></pre></div>
+<p>To list the contents of an attribute, affix the dollar sign <code>$</code> to the object name followed by the attribute name. For example, to list the income values, type:</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="T14_Autocorrelation.html#cb337-1" tabindex="-1"></a>s<span class="sc">$</span>Income</span></code></pre></div>
+<p>The Moran’s I statistic is not robust to outliers or strongly skewed datasets. It’s therefore good practice to check the distribution of the attribute values. You can plot the attribute values as follows:</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="T14_Autocorrelation.html#cb338-1" tabindex="-1"></a><span class="fu">hist</span>(s<span class="sc">$</span>Income, <span class="at">main=</span><span class="cn">NULL</span>)</span></code></pre></div>
+<p>or,</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="T14_Autocorrelation.html#cb339-1" tabindex="-1"></a><span class="fu">boxplot</span>(s<span class="sc">$</span>Income, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Other than one outlier, the dataset seems to be well behaved. We’ll forgo any re-expression of the values going forward.</p>
+<p>To symbolize the polygons using the <code>Income</code> attribute we will first define the classification breaks (<code>style = quantile</code> with <code>n = 8</code> breaks) and the symbol colors (<code>palette="Greens"</code>). For the latter, the tmap package makes use of Cynthia Brewer’s color schemes (see her <a href="https://colorbrewer2.org">website</a>).</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="T14_Autocorrelation.html#cb340-1" tabindex="-1"></a><span class="fu">tm_shape</span>(s) <span class="sc">+</span></span>
+<span id="cb340-2"><a href="T14_Autocorrelation.html#cb340-2" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">fill        =</span> <span class="st">&quot;Income&quot;</span>,</span>
+<span id="cb340-3"><a href="T14_Autocorrelation.html#cb340-3" tabindex="-1"></a>          <span class="at">fill.scale  =</span> <span class="fu">tm_scale_intervals</span>(<span class="at">style =</span> <span class="st">&quot;quantile&quot;</span>, <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb340-4"><a href="T14_Autocorrelation.html#cb340-4" tabindex="-1"></a>                                           <span class="at">values =</span> <span class="st">&quot;brewer.greens&quot;</span>),</span>
+<span id="cb340-5"><a href="T14_Autocorrelation.html#cb340-5" tabindex="-1"></a>          <span class="at">fill.legend =</span> <span class="fu">tm_legend</span>(<span class="at">position =</span> <span class="fu">tm_pos_out</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;center&quot;</span>)))</span></code></pre></div>
+</div>
+<div id="morans-i-analysis" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> Moran’s I analysis</h2>
+<div id="step-1-define-neighboring-polygons" class="section level3" number="14.3.1">
+<h3><span class="header-section-number">14.3.1</span> Step 1: Define neighboring polygons</h3>
+<p>The first step in a Moran’s I analysis requires that we define “neighboring” polygons. This could refer to contiguous polygons, polygons within a certain distance, or it could be non-spatial in nature and defined by social, political or cultural “neighbors”.</p>
+<p>Here, we’ll adopt a contiguous neighbor definition. We’ll accept any contiguous polygons that share at least one vertex; this is the “queen” case (if one chooses to adopt the chess analogy) and it’s parameterized as <code>queen = TRUE</code> in the call to <code>poly2nb</code>. If we required that just edges be shared between polygons then we would set <code>queen = FALSE</code> (the rook analogy).</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="T14_Autocorrelation.html#cb341-1" tabindex="-1"></a>nb <span class="ot">&lt;-</span> <span class="fu">poly2nb</span>(s, <span class="at">queen=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>For each polygon in our shape object, <code>nb</code> lists all neighboring polygons. For example, to see the neighbors (by ID number) for the first polygon in the shape object, type:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="T14_Autocorrelation.html#cb342-1" tabindex="-1"></a>nb[<span class="dv">1</span>]</span></code></pre></div>
+<p>Here’s the list of county names and associated IDs:</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="T14_Autocorrelation.html#cb343-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">County =</span> s<span class="sc">$</span>NAME, <span class="at">ID =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(s))))</span></code></pre></div>
+</div>
+<div id="step-2-assign-weights-to-the-neighbors" class="section level3" number="14.3.2">
+<h3><span class="header-section-number">14.3.2</span> Step 2: Assign weights to the neighbors</h3>
+<p>Next, we need to assign weights to each neighboring polygon. In this example, each neighboring polygon will be assigned equal weight when computing the neighboring mean income values.</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="T14_Autocorrelation.html#cb344-1" tabindex="-1"></a>lw <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(nb, <span class="at">style=</span><span class="st">&quot;W&quot;</span>, <span class="at">zero.policy=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>To see the weight of the first polygon’s neighbors type:</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="T14_Autocorrelation.html#cb345-1" tabindex="-1"></a>lw<span class="sc">$</span>weights[<span class="dv">1</span>]</span></code></pre></div>
+<p>These are the weights each neighboring income value will be multiplied by before being summed. If a polygon has 5 neighbors, each neighbor will have a weight of 1/5 or 0.2. This weight will then be used to compute the mean neighbor values as in 0.2(neighbor1) + 0.2(neighbor2) + 0.2(neighbor3) + 0.2(neighbor4) + 0.2(neighbor5). This is equivalent to summing all five income values then dividing by 5.</p>
+</div>
+<div id="step-3-optional-compute-the-weighted-neighbor-mean-income-values" class="section level3" number="14.3.3">
+<h3><span class="header-section-number">14.3.3</span> Step 3 (optional): Compute the (weighted) neighbor mean income values</h3>
+<blockquote>
+<p>NOTE: This step does not need to be performed when running the <code>moran</code> or <code>moran.test</code> functions outlined in Steps 4 and 5. This step is only needed if you wish to generate a scatter plot between the income values and their lagged counterpart.</p>
+</blockquote>
+<p>Next, we’ll have R compute the average neighbor income value for each polygon. These values are often referred to as <strong>spatially lagged</strong> values.</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="T14_Autocorrelation.html#cb346-1" tabindex="-1"></a>inc.lag <span class="ot">&lt;-</span> <span class="fu">lag.listw</span>(lw, s<span class="sc">$</span>Income)</span>
+<span id="cb346-2"><a href="T14_Autocorrelation.html#cb346-2" tabindex="-1"></a>inc.lag</span></code></pre></div>
+<p>You can plot the relationship between income and its spatially lagged counterpart as follows. The fitted blue line added to the plot is the result of an OLS regression model.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="T14_Autocorrelation.html#cb347-1" tabindex="-1"></a><span class="fu">plot</span>(inc.lag <span class="sc">~</span> s<span class="sc">$</span>Income, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">asp=</span><span class="dv">1</span>)</span>
+<span id="cb347-2"><a href="T14_Autocorrelation.html#cb347-2" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(inc.lag <span class="sc">~</span> s<span class="sc">$</span>Income)</span>
+<span id="cb347-3"><a href="T14_Autocorrelation.html#cb347-3" tabindex="-1"></a><span class="fu">abline</span>(M1, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p>The slope of the line is the Moran’s I coefficient. You can extract its value from the model object <code>M1</code> as follows:</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="T14_Autocorrelation.html#cb348-1" tabindex="-1"></a><span class="fu">coef</span>(M1)[<span class="dv">2</span>]</span></code></pre></div>
+<p>The moran’s I coefficient is 0.68. The positive (upward) slope suggests that as the income value of a said polygon increases, so does those of its neighboring polygons. If the slope were negative (i.e. sloping downward), this would suggest a negative relationship whereby increasing values in a said polygon would be surrounded by polygons with decreasing income values.</p>
+</div>
+<div id="step-4-computing-the-morans-i-statistic" class="section level3" number="14.3.4">
+<h3><span class="header-section-number">14.3.4</span> Step 4: Computing the Moran’s I statistic</h3>
+<p>The Moran’s I statistic can be computed using the <code>moran</code> function.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="T14_Autocorrelation.html#cb349-1" tabindex="-1"></a>I <span class="ot">&lt;-</span> <span class="fu">moran</span>(s<span class="sc">$</span>Income, lw, <span class="fu">length</span>(nb), <span class="fu">Szero</span>(lw))[<span class="dv">1</span>]</span>
+<span id="cb349-2"><a href="T14_Autocorrelation.html#cb349-2" tabindex="-1"></a>I</span></code></pre></div>
+<p>Recall that the Moran’s I value is the slope of the line that best fits the relationship between neighboring income values and each polygon’s income in the dataset.</p>
+</div>
+<div id="step-5-performing-a-hypothesis-test" class="section level3" number="14.3.5">
+<h3><span class="header-section-number">14.3.5</span> Step 5: Performing a hypothesis test</h3>
+<p>The hypothesis we are testing states that <em>“the income values are randomly distributed across counties following a completely random process”</em>. There are two methods to testing this hypothesis: an <strong>analytical</strong> method and a <strong>Monte Carlo</strong> method. We’ll explore both approaches in the following examples.</p>
+<div id="analytical-method" class="section level4" number="14.3.5.1">
+<h4><span class="header-section-number">14.3.5.1</span> Analytical method</h4>
+<p>To run the Moran’s I analysis using the analytical method, use the <code>moran.test</code> function.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="T14_Autocorrelation.html#cb350-1" tabindex="-1"></a><span class="fu">moran.test</span>(s<span class="sc">$</span>Income,lw, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<p>The Moran’s I statistic is 0.683 (same value that was computed using the <code>moran</code> function, as expected). The p-value is very small. Usually, when the p-value is very small it’s common practice to report it as &lt; 0.001.</p>
+<p>Note that ArcMap adopts this analytical approach to its hypothesis test however, it implements a two-sided test as opposed to the one-sided test adopted in the above example (i.e. <code>alternative = "greater"</code>). A two-sided p-value is nothing more than twice the one-sided p-value. Unfortunately, ArcMap does not seem to make this important distinction in any of its documentation. This distinction can have important ramifications as shown in the next example (Florida crime data). Fortunately, the income data is so strongly clustered that both a one-sided and two-sided test produce the same outcome (a p-value close to 0).</p>
+</div>
+<div id="monte-carlo-method" class="section level4" number="14.3.5.2">
+<h4><span class="header-section-number">14.3.5.2</span> Monte Carlo method</h4>
+<p>The analytical approach to the Moran’s I analysis benefits from being fast. But it may be sensitive to irregularly distributed polygons. A safer approach to hypothesis testing is to run an MC simulation using the <code>moran.mc()</code> function. The <code>moran.mc</code> function takes an extra argument <code>n</code>, the number of simulations.</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="T14_Autocorrelation.html#cb351-1" tabindex="-1"></a>MC<span class="ot">&lt;-</span> <span class="fu">moran.mc</span>(s<span class="sc">$</span>Income, lw, <span class="at">nsim=</span><span class="dv">999</span>, <span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb351-2"><a href="T14_Autocorrelation.html#cb351-2" tabindex="-1"></a></span>
+<span id="cb351-3"><a href="T14_Autocorrelation.html#cb351-3" tabindex="-1"></a><span class="co"># View results (including p-value)</span></span>
+<span id="cb351-4"><a href="T14_Autocorrelation.html#cb351-4" tabindex="-1"></a>MC</span></code></pre></div>
+<p>The MC simulation generates a very small p-value, 0.001. This is not surprising given that the income values are strongly clustered. We can see the results graphically by passing the Moran’s I model to the plot function:</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="T14_Autocorrelation.html#cb352-1" tabindex="-1"></a><span class="co"># Plot the Null distribution (note that this is a density plot instead of a histogram)</span></span>
+<span id="cb352-2"><a href="T14_Autocorrelation.html#cb352-2" tabindex="-1"></a><span class="fu">plot</span>(MC)</span></code></pre></div>
+<p>The curve shows the distribution of Moran I values we could expect had the incomes been randomly distributed across the counties. Note that our observed statistic, 0.683, falls way to the right of the distribution suggesting that the income values are clustered (a positive Moran’s I value suggests clustering whereas a negative Moran’s I value suggests dispersion).</p>
+<p>Now, had the Moran’s I statistic been negative (suggesting a dispersed pattern), you would probably want to set the <code>alternative</code> argument to <code>less</code> thus giving you the fraction of simulated I values more dispersed than your observed I value.</p>
+<p>A visual exercise that you can perform to assess how “typical” or “atypical” your pattern may be relative to a randomly distributed pattern is to plot your observed pattern alongside a few simulated patterns generated under the null hypothesis.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="T14_Autocorrelation.html#cb353-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">131</span>)</span>
+<span id="cb353-2"><a href="T14_Autocorrelation.html#cb353-2" tabindex="-1"></a>s<span class="sc">$</span>rand1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(s<span class="sc">$</span>Income, <span class="fu">length</span>(s<span class="sc">$</span>Income), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb353-3"><a href="T14_Autocorrelation.html#cb353-3" tabindex="-1"></a>s<span class="sc">$</span>rand2 <span class="ot">&lt;-</span> <span class="fu">sample</span>(s<span class="sc">$</span>Income, <span class="fu">length</span>(s<span class="sc">$</span>Income), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb353-4"><a href="T14_Autocorrelation.html#cb353-4" tabindex="-1"></a>s<span class="sc">$</span>rand3 <span class="ot">&lt;-</span> <span class="fu">sample</span>(s<span class="sc">$</span>Income, <span class="fu">length</span>(s<span class="sc">$</span>Income), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb353-5"><a href="T14_Autocorrelation.html#cb353-5" tabindex="-1"></a></span>
+<span id="cb353-6"><a href="T14_Autocorrelation.html#cb353-6" tabindex="-1"></a><span class="fu">tm_shape</span>(s) <span class="sc">+</span></span>
+<span id="cb353-7"><a href="T14_Autocorrelation.html#cb353-7" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">fill        =</span> <span class="fu">c</span>(<span class="st">&quot;Income&quot;</span>, <span class="st">&quot;rand1&quot;</span>, <span class="st">&quot;rand2&quot;</span>, <span class="st">&quot;rand3&quot;</span>),</span>
+<span id="cb353-8"><a href="T14_Autocorrelation.html#cb353-8" tabindex="-1"></a>          <span class="at">fill.scale  =</span> <span class="fu">tm_scale_intervals</span>(<span class="at">style =</span> <span class="st">&quot;quantile&quot;</span>, <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb353-9"><a href="T14_Autocorrelation.html#cb353-9" tabindex="-1"></a>                                           <span class="at">values =</span> <span class="st">&quot;brewer.greens&quot;</span>),</span>
+<span id="cb353-10"><a href="T14_Autocorrelation.html#cb353-10" tabindex="-1"></a>          <span class="at">fill.legend =</span> <span class="fu">tm_legend_hide</span>(),</span>
+<span id="cb353-11"><a href="T14_Autocorrelation.html#cb353-11" tabindex="-1"></a>          <span class="at">fill.free   =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb353-12"><a href="T14_Autocorrelation.html#cb353-12" tabindex="-1"></a>  <span class="fu">tm_facets_wrap</span>(<span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>Can you tell the difference between our observed income distribution and those generated from a completely random process? The map on the left is our observed distribution. The three maps on the right are realizations of a completely random process.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

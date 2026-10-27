@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Project 2 | GEOG364 Lab Book 2026</title>
+
+    <meta name="author" content="Dr Helen Greatrex" />
+  
+   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Project 2 | GEOG364 Lab Book 2026" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
+  
+  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Project 2 | GEOG364 Lab Book 2026" />
+  
+  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.12.0/transition.js"></script>
+    <script src="libs/bs3compat-0.12.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.12.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.12.1/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
+    <script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+    <script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+    <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="Project2" class="section level1 unnumbered">
+<h1>Project 2</h1>
+<div id="aim-4" class="section level3 unnumbered">
+<h3>Aim</h3>
+<p>Welcome to Project-2. This is worth 100 points! You can drop your lowest score out of the three projects.</p>
+<p>YOU HAVE TWO WEEKS! The maximum time it should take is about 4-6 hrs of your time, plus both lab times.</p>
+<p>The aim of this lab is to showcase your ability to think about spatial EDA, distance/neighbourhood and autocorrelation. <br> <br></p>
+</div>
+<div id="need-help-4" class="section level3 unnumbered">
+<h3>Need help?</h3>
+<p>REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN <strong>ALL</strong> YOUR CODE CHUNKS. The easiest way to do this is to press the “Run All” button, in the “Run” menu at the top right of your screen</p>
+<p><br><br></p>
+</div>
+<div id="part-1-lab-setup-2" class="section level2 unnumbered">
+<h2>PART 1: Lab Setup</h2>
+<div id="step-1-create-your-project-download-datareports-2" class="section level3 unnumbered">
+<h3>STEP 1: Create your project &amp; download data/reports</h3>
+<ul>
+<li><strong>[1A]</strong> If you don’t already have a folder on your computer for Project2, make one inside your GEOG364 folder. (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgottoen how: Project Tutorial</a>)</li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>[1B]</strong> Go to Canvas and download both the data and the lab report template. Put them in your Project2 folder and rename the lab template to include your email ID.</li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>[1C]</strong> Open R-Studio and make a project for Project 2 in the existing Project2 folder (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgotten how: Project Tutorial</a>)</li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>[1D]</strong> Go to the files quadrant/tab and open the RmD Lab report. If you are running your project it should be right there. If it’s not, ask a teacher/TA.</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>[1E]</strong> Optional. You are welcome and encouraged to change the YAML code or use different themes.</p>
+<ul>
+<li>(Changing the theme to be personal to you does make grading easier! You can see them here - <a href="https://github.com/juba/rmdformats" class="uri">https://github.com/juba/rmdformats</a> (scroll down) and all you need to do is change the name of the output in the yaml to that theme name). <em>Note, unlike last week, we are using the rmdformats package which allows you to make quick professional themes - the website also provides examples you can copy/paste</em>.</li>
+</ul></li>
+</ul>
+<p><br></p>
+</div>
+<div id="step-2-adjust-your-knit-options-2" class="section level3 unnumbered">
+<h3>STEP 2: Adjust your knit options</h3>
+<p>Look at the first code chunk below the YAML code. The <code>knitr::opts_chunk$set(echo = TRUE)</code> command is from the knitr package and allows us to set general options for the entire report.</p>
+<ul>
+<li><strong>[2A]</strong> Add in two more options, warning=FALSE and message=FALSE as shown below.</li>
+<li><code>knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)</code></li>
+</ul>
+<p><br></p>
+</div>
+<div id="step-3-libraries-and-knitting-1" class="section level3 unnumbered">
+<h3>STEP 3: Libraries and knitting</h3>
+<ul>
+<li><p><strong>[3A]</strong> Press save and try to knit. If you find you are missing libraries your need to install them EITHER BY</p>
+<ul>
+<li>A little yellow bar will appear at the top of the screen asking if you want to install the libraries. Say yes, wait until the libraries are installed and try again. <br></li>
+<li>OR when you press knit, you will get an error saying that it can’t find that library. In this case, you have to go to the app store and download the missing package (<a href="T2_Libraries.html#T2_Libraries_install">Instructions here: Packages tutorial</a>) <br></li>
+</ul></li>
+</ul>
+<p><br><br></p>
+</div>
+</div>
+<div id="part-2-notes" class="section level2 unnumbered">
+<h2>PART 2: NOTES</h2>
+<p><strong>CREATE A NEW HEADING CALLED NOTES</strong></p>
+<div id="step-4-summarise-notes" class="section level3 unnumbered">
+<h3>STEP 4: Summarise notes</h3>
+<p><strong>Here is your reading - Chapter 13 until 13.4.1 of Dr Girmond’s Spatial Data Science</strong></p>
+<ul>
+<li><p><a href="https://mgimond.github.io/Spatial/13_autocorrelation.html" class="uri">https://mgimond.github.io/Spatial/13_autocorrelation.html</a></p></li>
+<li><p>STOP AT 13.4.2! “Multiple Comparisons and False Discovery Rate”</p></li>
+</ul>
+<p>In your notes, I want you to explain thoughtfully in your own words:</p>
+<ol style="list-style-type: decimal">
+<li><p>Why do geographers care about spatial autocorrelation? Or what would the world be like without it (and what’s the name of the pattern and process from the lecture notes that we describe it)</p></li>
+<li><p>Using the 10A lecture notes/recording from Monday to help, what is Moran’s I? Why is it a global statistic?</p></li>
+<li><p>What does spatial lag mean?</p></li>
+<li><p>What does a positive value of moran’s I represent?</p></li>
+<li><p>What is “Local Moran’s I” (we will discuss on Wednesday)</p></li>
+</ol>
+<p><br><br></p>
+</div>
+<div id="step-5-make-yourself-a-mini-tutorial" class="section level3 unnumbered">
+<h3>STEP 5: Make yourself a mini tutorial</h3>
+<p>I have recreated some of Dr Giramond’s results in Tutorial 14 and given you the code (but not run it).</p>
+<ul>
+<li><p><strong>[5A]</strong> Create a new sub-heading called “Tutorial”.</p></li>
+<li><p><strong>[5B]</strong> Follow the tutorial, putting the code into your own report and running it, then IN YOUR OWN WORDS, explaining what is happening in each code chunk/what the results mean, (An A* report will link this to the class theory above)</p></li>
+<li><p>This stops before we get to LISA as I want to discuss it in class first, but I will use the same data as the class example<br />
+</p></li>
+</ul>
+<p><br><br></p>
+</div>
+</div>
+<div id="part-3-main-project-morans-i" class="section level2 unnumbered">
+<h2>PART 3: MAIN PROJECT (Moran’s I)</h2>
+<p><strong>CREATE A NEW HEADING CALLED CHICAGO PROJECT</strong></p>
+<p>You are an urban planner working for the City of Chicago, tasked with helping decide where to prioritise future investment in urban development, green spaces and tree planting.</p>
+<p>Your office is concerned about geographical inequalities across the city. In particular, you want to understand whether differences in wealth, poverty and housing conditions are becoming more geographically concentrated or dispersed over time, and whether similar patterns exist in the distribution of urban tree cover.</p>
+<p>You have been given census tract data for <strong>2010 and 2018</strong>. Your task is to use spatial statistics, including <strong>Global Moran’s I and LISA</strong>, to investigate how these patterns have changed, identify neighbourhoods where inequalities persist, and consider what your findings might mean for future planning decisions.</p>
+<p><br><br></p>
+<div id="step-5-explain-why-we-care" class="section level3 unnumbered">
+<h3>STEP 5: Explain why we care</h3>
+<ul>
+<li><strong>[5A]</strong> Create a new sub-heading called “Introduction”. Use subheadings within this section to make your answers easy to follow</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>[5B]</strong> Before beginning your analysis, you should to understand why these questions matter to urban planners. Read the following three resources:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>BBC Future:</strong> <a href="https://www.bbc.com/future/article/20240613-how-to-cool-down-urban-heat-islands-in-americas-heatwaves?utm_source=chatgpt.com">How to cool down urban heat islands</a></p></li>
+<li><p><strong>The New York Times:</strong> <a href="https://www.nytimes.com/interactive/2020/08/24/climate/racism-redlining-cities-global-warming.html?utm_source=chatgpt.com">How decades of racist housing policy left neighbourhoods sweltering</a> (you can log in by clicking institutional log in then using your PSU address)</p></li>
+<li><p><strong>The Morton Arboretum:</strong> <a href="https://mortonarb.org/plant-and-protect/chicago-region-trees-initiative/maps-and-data-to-guide-local-action-for-trees/?utm_source=chatgpt.com">Maps and data to guide local action for trees</a></p></li>
+</ol></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>[5C] In your report, in approximately 150 words, explain why your planning office would be interested in the geographical distribution of wealth, poverty and tree cover across Chicago. Refer to the articles above.</strong></p>
+<p>In your answer, consider how historical inequalities might affect present-day living conditions, why tree cover matters for urban communities, and how organisations such as the Morton Arboretum are using geographical data to inform decisions.</p>
+<p>Finally, explain why it might be useful to know whether these geographical patterns are changing over time, rather than simply examining the situation in 2018.</p></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>[5D] In your report, in approximately 50-100 words, explain why your planning office would be interested in the spatial autocorrelation of wealth, poverty and tree cover across Chicago, and how this links to pattern and the underlying processes.</strong></li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="step-6-get-the-data" class="section level3 unnumbered">
+<h3>STEP 6: Get the data</h3>
+<ul>
+<li><p><strong>[6A]</strong> Go to Canvas, download the two datasets and put them into your Project 2 folder.</p></li>
+<li><p><strong>[6B]</strong> Read in each dataset using the <code>st_read()</code> command.</p></li>
+<li><p><strong>[6C]</strong> Using your code from previous labs, explore the data and make some maps of</p>
+<ul>
+<li>Hint, the <code>tmap_arrange()</code> function will let you put two maps together to compare them. I’ll show an example in class.</li>
+</ul>
+<p>TO BE CONTINUED</p></li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="congrats-finished-2" class="section level3 unnumbered">
+<h3><strong>Congrats! Finished!</strong></h3>
+</div>
+</div>
+<div id="what-to-submit-5" class="section level2 unnumbered">
+<h2>WHAT TO SUBMIT</h2>
+<p><br></p>
+<div id="if-you-are-using-your-own-computer-5" class="section level3 unnumbered">
+<h3>If you are using your own computer</h3>
+<ol style="list-style-type: decimal">
+<li><p>Press knit one final time. You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
+<li><p>Find the html and RmD files in your Lab 4 folder on your computer. Double click the html file to open it in your browser and check it’s the one you want to submit.</p></li>
+<li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:P2-Submit"></span>
+<img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%" />
+<p class="caption">
+Figure 0.17: Find them in your GEOG364 folder on your computer
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="if-you-are-using-posit-cloud-online-5" class="section level3 unnumbered">
+<h3>If you are using Posit Cloud online</h3>
+<ol style="list-style-type: decimal">
+<li><p>Press knit one final time.You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
+<li><p>Go to the files tab an click on the little check-box by the RmD file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
+<li><p>Uncheck the .RmD box and click the box by the html file. Then click the blue “more button” and press export. Save onto your computer.</p></li>
+<li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:P2-CloudDownload"></span>
+<img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%" />
+<p class="caption">
+Figure 0.18: How do download the files from PositCloud
+</p>
+</div>
+<p><br><br></p>
+</div>
+</div>
+<div id="CheckGradeP2" class="section level2 unnumbered">
+<h2>CHECK YOUR GRADE!</h2>
+<div id="rubric-4" class="section level3 unnumbered">
+<h3>RUBRIC</h3>
+<p>See canvas</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

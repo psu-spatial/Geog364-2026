@@ -15,6 +15,8 @@ fig:L4-CloudDownload
 fig:L5-Neighbors
 fig:L5-Submit
 fig:L5-CloudDownload
+fig:P2-Submit
+fig:P2-CloudDownload
 fig:im-T1-ProjectCloud
 fig:im-T1-Projectcheck
 fig:im-T2-friendlytext
@@ -255,3 +257,14 @@ tm_borders
 tm_polygons
 extras
 section-2
+T14_Autocorrelation
+libraries
+loading-and-exploring-the-data
+morans-i-analysis
+step-1-define-neighboring-polygons
+step-2-assign-weights-to-the-neighbors
+step-3-optional-compute-the-weighted-neighbor-mean-income-values
+step-4-computing-the-morans-i-statistic
+step-5-performing-a-hypothesis-test
+analytical-method
+monte-carlo-method
