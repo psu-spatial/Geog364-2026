@@ -152,7 +152,39 @@ You have been given census tract data for **2010 and 2018**. Your task is to use
 
 <br><br>
 
-### STEP 6: Get the data {.unnumbered}
+### STEP 6: Explore the data {.unnumbered}
+
+### Dataset: Chicago Census Tracts (2018)
+
+- **The `ChicagoTracts_2018` dataset contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2018.**
+
+- **The `ChicagoTracts_2010` dataset contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2010.**
+
+- In both, each row represents a census tract, with an associated polygon showing its geographical boundaries.
+
+The dataset contains the following variables:
+
+| Variable | Description |
+|----|----|
+| `GEOID` | Unique census tract identifier |
+| `arealand_sqmiles` | Land area of the tract (square miles) |
+| `canopy_2018` | Percentage of the tract covered by tree canopy |
+| `population_2018` | Total population |
+| `pop_density_2018` | Population per square mile |
+| `pct_poverty_2018` | Percentage of residents living below the poverty threshold |
+| `med_income_2018` | Median household income (\$) |
+| `med_rent_2018` | Median monthly rent (\$) |
+| `med_value_2018` | Median home value (\$) |
+| `pct_vacant_2018` | Percentage of housing units that are vacant |
+| `pct_white_2018` | Percentage of residents identified as White |
+| `pct_black_2018` | Percentage of residents identified as Black |
+| `pct_hispanic_2018` | Percentage of residents identified as Hispanic or Latino |
+| `pct_degree_2018` | Percentage of residents with a college degree |
+| `geometry` | Census tract boundaries (MULTIPOLYGON) |
+
+Most variables come from the **2018 American Community Survey (ACS)**, which provides census tract-level estimates of population characteristics, income, poverty, housing and education. Tree canopy coverage was calculated separately using **LiDAR (Light Detection and Ranging)** data.
+
+<br>
 
 - **[6A]** Go to Canvas, download the two datasets and put them into your Project 2 folder.
 
@@ -165,31 +197,26 @@ You have been given census tract data for **2010 and 2018**. Your task is to use
 - **[6C]** Using your code from previous labs, explore the data and make some maps of the variables
 
   - Hint, the `tmap_arrange()` function will let you put two maps together to compare them. I'll show an example in class.
-  
-<br>
-
-
-- **[6D]** Describe any patterns you see, and any potential processes that cause them. Chicago has been studied a lot!  Do some googling :)
 
 <br>
 
-
-- **[6E]** CHOOSE ONE VARIABLE that you think would be interesting to compare between 2010 and 2018.  When I say compare, I mean compare the spatial autocorrelation (e.g. clustering/gridlike patterns).  Clearly write down your choice (make a sub-sub-heading or something)
+- **[6D]** Describe any patterns you see, and any potential processes that cause them. Chicago has been studied a lot! Do some googling :)
 
 <br>
 
+- **[6E]** CHOOSE ONE VARIABLE that you think would be interesting to compare between 2010 and 2018. When I say compare, I mean compare the spatial autocorrelation (e.g. clustering/gridlike patterns). Clearly write down your choice (make a sub-sub-heading or something)
+
+<br>
 
 - **[6E]** Based on the 2010 map for that variable and the 2018 map, make a prediction about whether you think the data has become more clustered, less clustered etc..
 
+<br><br>
+
+### STEP 7: Calculate the change in that variable {.unnumbered}
 
 <br><br>
 
-
-    
-  
-  
-
-<br><br>
+TO BE CONTINUED
 
 ### **Congrats! Finished!** {.unnumbered}
 

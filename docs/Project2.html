@@ -50,39 +50,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
-<li><a class="" href="FAQ.html">Course FAQ</a></li>
-<li><a class="" href="Help.html">HELP!</a></li>
-<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
-<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
-<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
-<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
-<li class="book-part">.</li>
-<li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="" href="Lab_2.html">Homework 2</a></li>
-<li><a class="" href="Lab_3.html">Homework 3</a></li>
-<li><a class="" href="Project1.html">Project 1</a></li>
-<li><a class="" href="Lab_4B.html">Homework 4</a></li>
-<li><a class="" href="Lab_5.html">Homework 5</a></li>
-<li><a class="active" href="Project2.html">Project 2</a></li>
-<li class="book-part">.</li>
-<li class="book-part">TUTORIALS</li>
-<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
-<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
-<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
-<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
-<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
-<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
-<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
-<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
-<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
-<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
-<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
-<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
-<li><a class="" href="T14_Autocorrelation.html"><span class="header-section-number">14</span> Making maps</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html">Project 2</a></li></ul>
 
         <div class="book-extra">
           
@@ -113,7 +81,7 @@
 </h3>
 <ul>
 <li>
-<strong>[1A]</strong> If you don’t already have a folder on your computer for Project2, make one inside your GEOG364 folder. (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgottoen how: Project Tutorial</a>)</li>
+<strong>[1A]</strong> If you don’t already have a folder on your computer for Project2, make one inside your GEOG364 folder. (<a href="#T1_Projects">Instructions here if you have forgottoen how: Project Tutorial</a>)</li>
 </ul>
 <p><br></p>
 <ul>
@@ -123,7 +91,7 @@
 <p><br></p>
 <ul>
 <li>
-<strong>[1C]</strong> Open R-Studio and make a project for Project 2 in the existing Project2 folder (<a href="T1_Projects.html#T1_Projects">Instructions here if you have forgotten how: Project Tutorial</a>)</li>
+<strong>[1C]</strong> Open R-Studio and make a project for Project 2 in the existing Project2 folder (<a href="#T1_Projects">Instructions here if you have forgotten how: Project Tutorial</a>)</li>
 </ul>
 <p><br></p>
 <ul>
@@ -243,21 +211,134 @@
 </ul>
 <p><br><br></p>
 </div>
-<div id="step-6-get-the-data" class="section level3 unnumbered">
-<h3>STEP 6: Get the data<a class="anchor" aria-label="anchor" href="#step-6-get-the-data"><i class="fas fa-link"></i></a>
+<div id="step-6-explore-the-data" class="section level3 unnumbered">
+<h3>STEP 6: Explore the data<a class="anchor" aria-label="anchor" href="#step-6-explore-the-data"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="dataset-chicago-census-tracts-2018" class="section level3" number="1.1.5">
+<h3>
+<span class="header-section-number">1.1.5</span> Dataset: Chicago Census Tracts (2018)<a class="anchor" aria-label="anchor" href="#dataset-chicago-census-tracts-2018"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li><p><strong>[6A]</strong> Go to Canvas, download the two datasets and put them into your Project 2 folder.</p></li>
-<li><p><strong>[6B]</strong> Read in each dataset using the <code><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read()</a></code> command.</p></li>
-<li>
-<p><strong>[6C]</strong> Using your code from previous labs, explore the data and make some maps of</p>
-<ul>
-<li>Hint, the <code><a href="https://r-tmap.github.io/tmap/reference/tmap_arrange.html">tmap_arrange()</a></code> function will let you put two maps together to compare them. I’ll show an example in class.</li>
+<li><p><strong>The <code>ChicagoTracts_2018</code> dataset contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2018.</strong></p></li>
+<li><p><strong>The <code>ChicagoTracts_2010</code> dataset contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2010.</strong></p></li>
+<li><p>In both, each row represents a census tract, with an associated polygon showing its geographical boundaries.</p></li>
 </ul>
-<p>TO BE CONTINUED</p>
+<p>The dataset contains the following variables:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>GEOID</code></td>
+<td>Unique census tract identifier</td>
+</tr>
+<tr class="even">
+<td><code>arealand_sqmiles</code></td>
+<td>Land area of the tract (square miles)</td>
+</tr>
+<tr class="odd">
+<td><code>canopy_2018</code></td>
+<td>Percentage of the tract covered by tree canopy</td>
+</tr>
+<tr class="even">
+<td><code>population_2018</code></td>
+<td>Total population</td>
+</tr>
+<tr class="odd">
+<td><code>pop_density_2018</code></td>
+<td>Population per square mile</td>
+</tr>
+<tr class="even">
+<td><code>pct_poverty_2018</code></td>
+<td>Percentage of residents living below the poverty threshold</td>
+</tr>
+<tr class="odd">
+<td><code>med_income_2018</code></td>
+<td>Median household income ($)</td>
+</tr>
+<tr class="even">
+<td><code>med_rent_2018</code></td>
+<td>Median monthly rent ($)</td>
+</tr>
+<tr class="odd">
+<td><code>med_value_2018</code></td>
+<td>Median home value ($)</td>
+</tr>
+<tr class="even">
+<td><code>pct_vacant_2018</code></td>
+<td>Percentage of housing units that are vacant</td>
+</tr>
+<tr class="odd">
+<td><code>pct_white_2018</code></td>
+<td>Percentage of residents identified as White</td>
+</tr>
+<tr class="even">
+<td><code>pct_black_2018</code></td>
+<td>Percentage of residents identified as Black</td>
+</tr>
+<tr class="odd">
+<td><code>pct_hispanic_2018</code></td>
+<td>Percentage of residents identified as Hispanic or Latino</td>
+</tr>
+<tr class="even">
+<td><code>pct_degree_2018</code></td>
+<td>Percentage of residents with a college degree</td>
+</tr>
+<tr class="odd">
+<td><code>geometry</code></td>
+<td>Census tract boundaries (MULTIPOLYGON)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Most variables come from the <strong>2018 American Community Survey (ACS)</strong>, which provides census tract-level estimates of population characteristics, income, poverty, housing and education. Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detection and Ranging)</strong> data.</p>
+<p><br></p>
+<ul>
+<li>
+<strong>[6A]</strong> Go to Canvas, download the two datasets and put them into your Project 2 folder.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[6B]</strong> Read in each dataset using the <code>st_read()</code> command.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[6C]</strong> Using your code from previous labs, explore the data and make some maps of the variables</p>
+<ul>
+<li>Hint, the <code>tmap_arrange()</code> function will let you put two maps together to compare them. I’ll show an example in class.</li>
+</ul>
 </li>
 </ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[6D]</strong> Describe any patterns you see, and any potential processes that cause them. Chicago has been studied a lot! Do some googling :)</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[6E]</strong> CHOOSE ONE VARIABLE that you think would be interesting to compare between 2010 and 2018. When I say compare, I mean compare the spatial autocorrelation (e.g. clustering/gridlike patterns). Clearly write down your choice (make a sub-sub-heading or something)</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[6E]</strong> Based on the 2010 map for that variable and the 2018 map, make a prediction about whether you think the data has become more clustered, less clustered etc..</li>
+</ul>
 <p><br><br></p>
+</div>
+<div id="step-7-calculate-the-change-in-that-variable" class="section level3 unnumbered">
+<h3>STEP 7: Calculate the change in that variable<a class="anchor" aria-label="anchor" href="#step-7-calculate-the-change-in-that-variable"><i class="fas fa-link"></i></a>
+</h3>
+<p><br><br></p>
+<p>TO BE CONTINUED</p>
 </div>
 <div id="congrats-finished-2" class="section level3 unnumbered">
 <h3>
@@ -280,7 +361,7 @@
 <div class="figure">
 <span style="display:block;" id="fig:P2-Submit"></span>
 <img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%"><p class="caption">
-Figure 0.17: Find them in your GEOG364 folder on your computer
+Figure 1.1: Find them in your GEOG364 folder on your computer
 </p>
 </div>
 <p><br></p>
@@ -297,7 +378,7 @@ Figure 0.17: Find them in your GEOG364 folder on your computer
 <div class="figure">
 <span style="display:block;" id="fig:P2-CloudDownload"></span>
 <img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%"><p class="caption">
-Figure 0.18: How do download the files from PositCloud
+Figure 1.2: How do download the files from PositCloud
 </p>
 </div>
 <p><br><br></p>
@@ -317,51 +398,48 @@ Figure 0.18: How do download the files from PositCloud
 
 
 
+<div id="T1A_ProjectIntro" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> What are projects<a class="anchor" aria-label="anchor" href="#T1A_ProjectIntro"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="T1_ProjectsCloud" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Projects using posit Cloud<a class="anchor" aria-label="anchor" href="#T1_ProjectsCloud"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="T1_ProjectsDesktop" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Projects on your desktop<a class="anchor" aria-label="anchor" href="#T1_ProjectsDesktop"><i class="fas fa-link"></i></a>
+</h2>
+<div id="how-to-check-you-are-running-your-project" class="section level3" number="1.4.1">
+<h3>
+<span class="header-section-number">1.4.1</span> How to check you are running your project<a class="anchor" aria-label="anchor" href="#how-to-check-you-are-running-your-project"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="returning-to-your-lab-project" class="section level3" number="1.4.2">
+<h3>
+<span class="header-section-number">1.4.2</span> Returning to your lab project<a class="anchor" aria-label="anchor" href="#returning-to-your-lab-project"><i class="fas fa-link"></i></a>
+</h3>
+<div id="from-your-computer" class="section level4" number="1.4.2.1">
+<h4>
+<span class="header-section-number">1.4.2.1</span> From your computer<a class="anchor" aria-label="anchor" href="#from-your-computer"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="from-inside-r-studio." class="section level4" number="1.4.2.2">
+<h4>
+<span class="header-section-number">1.4.2.2</span> From inside R-studio.<a class="anchor" aria-label="anchor" href="#from-inside-r-studio."><i class="fas fa-link"></i></a>
+</h4>
 
-
-
-  <div class="chapter-nav">
-<div class="prev"><a href="Lab_5.html">Homework 5</a></div>
-<div class="next"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
+</div>
+</div>
+</div>
+<div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li>
-<a class="nav-link" href="#Project2">Project 2</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#aim-4">Aim</a></li>
-<li><a class="nav-link" href="#need-help-4">Need help?</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-1-lab-setup-2">PART 1: Lab Setup</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-1-create-your-project-download-datareports-2">STEP 1: Create your project &amp; download data/reports</a></li>
-<li><a class="nav-link" href="#step-2-adjust-your-knit-options-2">STEP 2: Adjust your knit options</a></li>
-<li><a class="nav-link" href="#step-3-libraries-and-knitting-1">STEP 3: Libraries and knitting</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-2-notes">PART 2: NOTES</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-4-summarise-notes">STEP 4: Summarise notes</a></li>
-<li><a class="nav-link" href="#step-5-make-yourself-a-mini-tutorial">STEP 5: Make yourself a mini tutorial</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#part-3-main-project-morans-i">PART 3: MAIN PROJECT (Moran’s I)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#step-5-explain-why-we-care">STEP 5: Explain why we care</a></li>
-<li><a class="nav-link" href="#step-6-get-the-data">STEP 6: Get the data</a></li>
-<li><a class="nav-link" href="#congrats-finished-2">Congrats! Finished!</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#what-to-submit-5">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#if-you-are-using-your-own-computer-5">If you are using your own computer</a></li>
-<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online-5">If you are using Posit Cloud online</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#CheckGradeP2">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric-4">RUBRIC</a></li></ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -370,9 +448,13 @@ Figure 0.18: How do download the files from PositCloud
 </div>
     </nav>
 </div>
+</div>
+  
+
+  
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
@@ -385,34 +467,6 @@ Figure 0.18: How do download the files from PositCloud
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>
