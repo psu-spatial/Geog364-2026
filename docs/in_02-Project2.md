@@ -182,9 +182,33 @@ Most variables come from the **2018 American Community Survey (ACS)**, which pro
 
 <br>
 
-- **[6C]** Using your code from previous labs, explore the data and make some maps of the variables
+- **[6C]** Using your code from previous labs, explore the data and make some maps of the variables and write how they change over time.
 
   - Hint, the `tmap_arrange()` function will let you put two maps together to compare them. I'll show an example in class.
+
+
+``` r
+# You need to have run your library code chunk with the tmap library in it. 
+
+
+# You need to change ChicagoTracts_2010 to whatever you called the files.
+treemap_2010 <- tm_shape(ChicagoTracts_2010) +
+   tm_polygons(fill = "canopy_2010",
+               fill.scale  = tm_scale_intervals(style = "quantile", values = "brewer.greens"),
+               fill.legend = tm_legend(title = "Tree cover 2010 (%)"),
+               col = NA)
+
+
+# You need to change ChicagoTracts_2018 to whatever you called the files.
+treemap_2018 <- tm_shape(ChicagoTracts_2018) +
+   tm_polygons(fill = "canopy_2018",
+               fill.scale  = tm_scale_intervals(style = "quantile", values = "brewer.greens"),
+               fill.legend = tm_legend(title = "Tree cover 2018 (%)"),
+               col = NA)
+
+# This will plot the maps together rather than one at a time
+tmap_arrange(treemap_2010,treemap_2018)
+```
 
 <br>
 
@@ -204,7 +228,7 @@ Most variables come from the **2018 American Community Survey (ACS)**, which pro
 
 <br><br>
 
-TO BE CONTINUED
+TO BE CONTINUED - INSTRUCTIONS WILL BE ADDED BEFORE WEDNESDAY 28th. (but know you have done most of the hard coding)
 
 ### **Congrats! Finished!** {.unnumbered}
 
