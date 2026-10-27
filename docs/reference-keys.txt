@@ -32,6 +32,7 @@ everyone-should-sign-up-for-an-account-here-httpsposit.cloud
 what-if-i-run-out-of-free-time
 step-5-initial-questions-hw2_step5-.unnumbered
 need-help
+dataset-chicago-census-tracts-2018
 T1_Projects
 T1A_ProjectIntro
 section
@@ -268,5 +269,3 @@ step-4-computing-the-morans-i-statistic
 step-5-performing-a-hypothesis-test
 analytical-method
 monte-carlo-method
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
-dataset-chicago-census-tracts-2018

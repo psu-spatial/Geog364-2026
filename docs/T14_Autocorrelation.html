@@ -50,7 +50,39 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 14</span> Autocorrelation</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
+<li><a class="" href="Lab_3.html">Homework 3</a></li>
+<li><a class="" href="Project1.html">Project 1</a></li>
+<li><a class="" href="Lab_4B.html">Homework 4</a></li>
+<li><a class="" href="Lab_5.html">Homework 5</a></li>
+<li><a class="" href="Project2.html">Project 2</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
+<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
+<li><a class="active" href="T14_Autocorrelation.html"><span class="header-section-number">14</span> Autocorrelation</a></li>
+</ul>
 
         <div class="book-extra">
           
@@ -69,7 +101,7 @@
 <span class="header-section-number">14.1</span> Libraries<a class="anchor" aria-label="anchor" href="#libraries"><i class="fas fa-link"></i></a>
 </h2>
 <p>Make sure these are in your library folder and that you have run the code chunk</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/spdep/">spdep</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-tmap/tmap">tmap</a></span><span class="op">)</span></span></code></pre></div>
@@ -79,27 +111,27 @@
 <span class="header-section-number">14.2</span> Loading and exploring the data<a class="anchor" aria-label="anchor" href="#loading-and-exploring-the-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>The following chunk loads the data (as an sf object) from the github site.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the shapefile</span></span>
 <span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/connections.html">url</a></span><span class="op">(</span><span class="st">"https://github.com/mgimond/Data/raw/gh-pages/Exercises/nhme.rds"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># This file was saved with an older version of sf: rebuild its coordinate system</span></span>
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span><span class="op">$</span><span class="va">input</span></span></code></pre></div>
 <p>To list the column names associated with the object’s attribute table, type:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code></pre></div>
 <p>To list the contents of an attribute, affix the dollar sign <code>$</code> to the object name followed by the attribute name. For example, to list the income values, type:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">s</span><span class="op">$</span><span class="va">Income</span></span></code></pre></div>
 <p>The Moran’s I statistic is not robust to outliers or strongly skewed datasets. It’s therefore good practice to check the distribution of the attribute values. You can plot the attribute values as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span>, main<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 <p>or,</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span>, horizontal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Other than one outlier, the dataset seems to be well behaved. We’ll forgo any re-expression of the values going forward.</p>
 <p>To symbolize the polygons using the <code>Income</code> attribute we will first define the classification breaks (<code>style = quantile</code> with <code>n = 8</code> breaks) and the symbol colors (<code>palette="Greens"</code>). For the latter, the tmap package makes use of Cynthia Brewer’s color schemes (see her <a href="https://colorbrewer2.org">website</a>).</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span>fill        <span class="op">=</span> <span class="st">"Income"</span>,</span>
 <span>          fill.scale  <span class="op">=</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_scale_intervals.html">tm_scale_intervals</a></span><span class="op">(</span>style <span class="op">=</span> <span class="st">"quantile"</span>, n <span class="op">=</span> <span class="fl">8</span>,</span>
@@ -116,13 +148,13 @@
 </h3>
 <p>The first step in a Moran’s I analysis requires that we define “neighboring” polygons. This could refer to contiguous polygons, polygons within a certain distance, or it could be non-spatial in nature and defined by social, political or cultural “neighbors”.</p>
 <p>Here, we’ll adopt a contiguous neighbor definition. We’ll accept any contiguous polygons that share at least one vertex; this is the “queen” case (if one chooses to adopt the chess analogy) and it’s parameterized as <code>queen = TRUE</code> in the call to <code>poly2nb</code>. If we required that just edges be shared between polygons then we would set <code>queen = FALSE</code> (the rook analogy).</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/poly2nb.html">poly2nb</a></span><span class="op">(</span><span class="va">s</span>, queen<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>For each polygon in our shape object, <code>nb</code> lists all neighboring polygons. For example, to see the neighbors (by ID number) for the first polygon in the shape object, type:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nb</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></code></pre></div>
 <p>Here’s the list of county names and associated IDs:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>County <span class="op">=</span> <span class="va">s</span><span class="op">$</span><span class="va">NAME</span>, ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="step-2-assign-weights-to-the-neighbors" class="section level3" number="14.3.2">
@@ -130,10 +162,10 @@
 <span class="header-section-number">14.3.2</span> Step 2: Assign weights to the neighbors<a class="anchor" aria-label="anchor" href="#step-2-assign-weights-to-the-neighbors"><i class="fas fa-link"></i></a>
 </h3>
 <p>Next, we need to assign weights to each neighboring polygon. In this example, each neighboring polygon will be assigned equal weight when computing the neighboring mean income values.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/nb2listw.html">nb2listw</a></span><span class="op">(</span><span class="va">nb</span>, style<span class="op">=</span><span class="st">"W"</span>, zero.policy<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>To see the weight of the first polygon’s neighbors type:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lw</span><span class="op">$</span><span class="va">weights</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></code></pre></div>
 <p>These are the weights each neighboring income value will be multiplied by before being summed. If a polygon has 5 neighbors, each neighbor will have a weight of 1/5 or 0.2. This weight will then be used to compute the mean neighbor values as in 0.2(neighbor1) + 0.2(neighbor2) + 0.2(neighbor3) + 0.2(neighbor4) + 0.2(neighbor5). This is equivalent to summing all five income values then dividing by 5.</p>
 </div>
@@ -145,16 +177,16 @@
 <p>NOTE: This step does not need to be performed when running the <code>moran</code> or <code>moran.test</code> functions outlined in Steps 4 and 5. This step is only needed if you wish to generate a scatter plot between the income values and their lagged counterpart.</p>
 </blockquote>
 <p>Next, we’ll have R compute the average neighbor income value for each polygon. These values are often referred to as <strong>spatially lagged</strong> values.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb346"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inc.lag</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/lag.listw.html">lag.listw</a></span><span class="op">(</span><span class="va">lw</span>, <span class="va">s</span><span class="op">$</span><span class="va">Income</span><span class="op">)</span></span>
 <span><span class="va">inc.lag</span></span></code></pre></div>
 <p>You can plot the relationship between income and its spatially lagged counterpart as follows. The fitted blue line added to the plot is the result of an OLS regression model.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">inc.lag</span> <span class="op">~</span> <span class="va">s</span><span class="op">$</span><span class="va">Income</span>, pch<span class="op">=</span><span class="fl">16</span>, asp<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">M1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">inc.lag</span> <span class="op">~</span> <span class="va">s</span><span class="op">$</span><span class="va">Income</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">M1</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 <p>The slope of the line is the Moran’s I coefficient. You can extract its value from the model object <code>M1</code> as follows:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">M1</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <p>The moran’s I coefficient is 0.68. The positive (upward) slope suggests that as the income value of a said polygon increases, so does those of its neighboring polygons. If the slope were negative (i.e. sloping downward), this would suggest a negative relationship whereby increasing values in a said polygon would be surrounded by polygons with decreasing income values.</p>
 </div>
@@ -163,7 +195,7 @@
 <span class="header-section-number">14.3.4</span> Step 4: Computing the Moran’s I statistic<a class="anchor" aria-label="anchor" href="#step-4-computing-the-morans-i-statistic"><i class="fas fa-link"></i></a>
 </h3>
 <p>The Moran’s I statistic can be computed using the <code>moran</code> function.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">I</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/moran.html">moran</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span>, <span class="va">lw</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">nb</span><span class="op">)</span>, <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/spweights.constants.html">Szero</a></span><span class="op">(</span><span class="va">lw</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="va">I</span></span></code></pre></div>
 <p>Recall that the Moran’s I value is the slope of the line that best fits the relationship between neighboring income values and each polygon’s income in the dataset.</p>
@@ -178,7 +210,7 @@
 <span class="header-section-number">14.3.5.1</span> Analytical method<a class="anchor" aria-label="anchor" href="#analytical-method"><i class="fas fa-link"></i></a>
 </h4>
 <p>To run the Moran’s I analysis using the analytical method, use the <code>moran.test</code> function.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/moran.test.html">moran.test</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span>,<span class="va">lw</span>, alternative<span class="op">=</span><span class="st">"greater"</span><span class="op">)</span></span></code></pre></div>
 <p>The Moran’s I statistic is 0.683 (same value that was computed using the <code>moran</code> function, as expected). The p-value is very small. Usually, when the p-value is very small it’s common practice to report it as &lt; 0.001.</p>
 <p>Note that ArcMap adopts this analytical approach to its hypothesis test however, it implements a two-sided test as opposed to the one-sided test adopted in the above example (i.e. <code>alternative = "greater"</code>). A two-sided p-value is nothing more than twice the one-sided p-value. Unfortunately, ArcMap does not seem to make this important distinction in any of its documentation. This distinction can have important ramifications as shown in the next example (Florida crime data). Fortunately, the income data is so strongly clustered that both a one-sided and two-sided test produce the same outcome (a p-value close to 0).</p>
@@ -188,19 +220,19 @@
 <span class="header-section-number">14.3.5.2</span> Monte Carlo method<a class="anchor" aria-label="anchor" href="#monte-carlo-method"><i class="fas fa-link"></i></a>
 </h4>
 <p>The analytical approach to the Moran’s I analysis benefits from being fast. But it may be sensitive to irregularly distributed polygons. A safer approach to hypothesis testing is to run an MC simulation using the <code><a href="https://r-spatial.github.io/spdep/reference/moran.mc.html">moran.mc()</a></code> function. The <code>moran.mc</code> function takes an extra argument <code>n</code>, the number of simulations.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">MC</span><span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/moran.mc.html">moran.mc</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span>, <span class="va">lw</span>, nsim<span class="op">=</span><span class="fl">999</span>, alternative<span class="op">=</span><span class="st">"greater"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># View results (including p-value)</span></span>
 <span><span class="va">MC</span></span></code></pre></div>
 <p>The MC simulation generates a very small p-value, 0.001. This is not surprising given that the income values are strongly clustered. We can see the results graphically by passing the Moran’s I model to the plot function:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot the Null distribution (note that this is a density plot instead of a histogram)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">MC</span><span class="op">)</span></span></code></pre></div>
 <p>The curve shows the distribution of Moran I values we could expect had the incomes been randomly distributed across the counties. Note that our observed statistic, 0.683, falls way to the right of the distribution suggesting that the income values are clustered (a positive Moran’s I value suggests clustering whereas a negative Moran’s I value suggests dispersion).</p>
 <p>Now, had the Moran’s I statistic been negative (suggesting a dispersed pattern), you would probably want to set the <code>alternative</code> argument to <code>less</code> thus giving you the fraction of simulated I values more dispersed than your observed I value.</p>
 <p>A visual exercise that you can perform to assess how “typical” or “atypical” your pattern may be relative to a randomly distributed pattern is to plot your observed pattern alongside a few simulated patterns generated under the null hypothesis.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">131</span><span class="op">)</span></span>
 <span><span class="va">s</span><span class="op">$</span><span class="va">rand1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">s</span><span class="op">$</span><span class="va">rand2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">s</span><span class="op">$</span><span class="va">Income</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -219,12 +251,31 @@
 </div>
 </div>
 </div>
+
+
+
+
+
+
   <div class="chapter-nav">
-<div class="empty"></div>
+<div class="prev"><a href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T14_Autocorrelation"><span class="header-section-number">14</span> Autocorrelation</a></li>
+<li><a class="nav-link" href="#libraries"><span class="header-section-number">14.1</span> Libraries</a></li>
+<li><a class="nav-link" href="#loading-and-exploring-the-data"><span class="header-section-number">14.2</span> Loading and exploring the data</a></li>
+<li>
+<a class="nav-link" href="#morans-i-analysis"><span class="header-section-number">14.3</span> Moran’s I analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1-define-neighboring-polygons"><span class="header-section-number">14.3.1</span> Step 1: Define neighboring polygons</a></li>
+<li><a class="nav-link" href="#step-2-assign-weights-to-the-neighbors"><span class="header-section-number">14.3.2</span> Step 2: Assign weights to the neighbors</a></li>
+<li><a class="nav-link" href="#step-3-optional-compute-the-weighted-neighbor-mean-income-values"><span class="header-section-number">14.3.3</span> Step 3 (optional): Compute the (weighted) neighbor mean income values</a></li>
+<li><a class="nav-link" href="#step-4-computing-the-morans-i-statistic"><span class="header-section-number">14.3.4</span> Step 4: Computing the Moran’s I statistic</a></li>
+<li><a class="nav-link" href="#step-5-performing-a-hypothesis-test"><span class="header-section-number">14.3.5</span> Step 5: Performing a hypothesis test</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -248,6 +299,34 @@
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

@@ -218,7 +218,7 @@ Most variables come from the **2018 American Community Survey (ACS)**, which pro
 
 <br><br>
 
-TO BE CONTINUED
+TO BE CONTINUED - INSTRUCTIONS WILL BE ADDED BEFORE WEDNESDAY 28th. (but know you have done most of the hard coding)
 
 ### **Congrats! Finished!** {.unnumbered}
 
