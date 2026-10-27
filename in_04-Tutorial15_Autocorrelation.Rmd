@@ -19,7 +19,7 @@ options(tigris_use_cache = TRUE)
 
 ```
 
-# Making maps {#T14_Autocorrelation}
+# Autocorrelation {#T14_Autocorrelation}
 
 
 **THIS TUTORIAL WAS ORIGINALLY CREATED BY DR MANNY GIMOND, all I have done is update the code to the new version**

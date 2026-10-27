@@ -1,77 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Chapter 10 Probability distributions | GEOG364 Lab Book 2026</title>
-
-    <meta name="author" content="Dr Helen Greatrex" />
-  
-   <meta name="description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
-   <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="Chapter 10 Probability distributions | GEOG364 Lab Book 2026" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/" />
-  
-  <meta property="og:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Probability distributions | GEOG364 Lab Book 2026" />
-  
-  <meta name="twitter:description" content="This is the R-based lab book for Penn State GEOG-364 on spatial analysis." />
-  
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
-    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
-    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-    <script src="libs/bs3compat-0.12.0/transition.js"></script>
-    <script src="libs/bs3compat-0.12.0/tabs.js"></script>
-    <script src="libs/bs3compat-0.12.0/bs3compat.js"></script>
-    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
-    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
-    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-    <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
-    <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
-    <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-    <script src="libs/plotly-binding-4.12.1/plotly.js"></script>
-    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-    <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
-    <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
-    <link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
-    <script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
-    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
-    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-    <script src="libs/proj4-2.6.2/proj4.min.js"></script>
-    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-    <script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
-    <script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
-    <script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
-    <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
-
-  <!-- CSS -->
-  <style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 Probability distributions | GEOG364 Lab Book 2026</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="10.1 What are they? Full info We have talked about several distributions and tests so far in the lab. To see the help files for most of them, see ?Distributions. Expand to see the current list For...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="Chapter 10 Probability distributions | GEOG364 Lab Book 2026">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/probability-distributions.html">
+<meta property="og:description" content="10.1 What are they? Full info We have talked about several distributions and tests so far in the lab. To see the help files for most of them, see ?Distributions. Expand to see the current list For...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 10 Probability distributions | GEOG364 Lab Book 2026">
+<meta name="twitter:description" content="10.1 What are they? Full info We have talked about several distributions and tests so far in the lab. To see the help files for most of them, see ?Distributions. Expand to see the current list For...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-    
 </head>
-
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -83,30 +47,59 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+</form>
 
-      <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
-        <div id="book-toc"></div>
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
+<li><a class="" href="Lab_3.html">Homework 3</a></li>
+<li><a class="" href="Project1.html">Project 1</a></li>
+<li><a class="" href="Lab_4B.html">Homework 4</a></li>
+<li><a class="" href="Lab_5.html">Homework 5</a></li>
+<li><a class="" href="Project2.html">Project 2</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="active" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
+<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
+<li><a class="" href="T14_Autocorrelation.html"><span class="header-section-number">14</span> Making maps</a></li>
+</ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+          
         </div>
       </nav>
-    </div>
-  </header>
-
-  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="probability-distributions" class="section level1" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Probability distributions</h1>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="probability-distributions" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Probability distributions<a class="anchor" aria-label="anchor" href="#probability-distributions"><i class="fas fa-link"></i></a>
+</h1>
 <div id="what-are-they-full-info" class="section level2" number="10.1">
-<h2><span class="header-section-number">10.1</span> What are they? Full info</h2>
-<p>We have talked about several distributions and tests so far in the lab. To see the help files for most of them, see <code>?Distributions</code>.</p>
-<details>
-<summary>
-<span style="color: #1388aa;">Expand to see the current list</span>
-</summary>
-<ul>
+<h2>
+<span class="header-section-number">10.1</span> What are they? Full info<a class="anchor" aria-label="anchor" href="#what-are-they-full-info"><i class="fas fa-link"></i></a>
+</h2>
+<p>We have talked about several distributions and tests so far in the lab. To see the help files for most of them, see <code><a href="https://rdrr.io/r/stats/Distributions.html">?Distributions</a></code>.</p>
+<details><summary><span style="color: #1388aa;">Expand to see the current list</span>
+</summary><ul>
 <li><p><strong>For the normal distribution see <a href="http://127.0.0.1:16033/help/library/stats/help/dnorm"><code>dnorm</code></a>.</strong></p></li>
 <li><p><strong>For the Poisson distribution see <a href="http://127.0.0.1:16033/help/library/stats/help/dpois"><code>dpois</code></a>.</strong></p></li>
 <li><p><strong>For the Student’s t distribution see <a href="http://127.0.0.1:16033/help/library/stats/help/dt"><code>dt</code></a>.</strong></p></li>
@@ -127,11 +120,12 @@
 <li><p>For less common distributions of test statistics see <a href="http://127.0.0.1:16033/help/library/stats/help/pbirthday"><code>pbirthday</code></a>, <a href="http://127.0.0.1:16033/help/library/stats/help/dsignrank"><code>dsignrank</code></a>, <a href="http://127.0.0.1:16033/help/library/stats/help/ptukey"><code>ptukey</code></a> and <a href="http://127.0.0.1:16033/help/library/stats/help/dwilcox"><code>dwilcox</code></a> (and see the ‘See Also’ section of <a href="http://127.0.0.1:16033/help/library/stats/help/cor.test"><code>cor.test</code></a>).</p></li>
 </ul>
 <p><br></p>
-</details>
-<p><br></p>
+</details><p><br></p>
 </div>
 <div id="T5_NormalDist" class="section level2" number="10.2">
-<h2><span class="header-section-number">10.2</span> The normal distribution</h2>
+<h2>
+<span class="header-section-number">10.2</span> The normal distribution<a class="anchor" aria-label="anchor" href="#T5_NormalDist"><i class="fas fa-link"></i></a>
+</h2>
 <p>Remember as we discussed in lectures, we normally state that a variable modelled using by a normal distribution is described by:</p>
 <p>X∼N(μ,σ<sup>2</sup>)</p>
 <p>In this expression:</p>
@@ -145,51 +139,71 @@
 <p><strong>In R commands, you need the standard deviation instead. (you can google how to get the sd from the variance if you have forgotten)</strong></p>
 <p><br></p>
 <div id="help-file" class="section level3" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> Help file</h3>
+<h3>
+<span class="header-section-number">10.2.1</span> Help file<a class="anchor" aria-label="anchor" href="#help-file"><i class="fas fa-link"></i></a>
+</h3>
 <p>To see the help file for all normal related functions:</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="probability-distributions.html#cb253-1" tabindex="-1"></a>?Normal</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">Normal</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div id="generate-a-random-sample" class="section level3" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Generate a random sample</h3>
+<h3>
+<span class="header-section-number">10.2.2</span> Generate a random sample<a class="anchor" aria-label="anchor" href="#generate-a-random-sample"><i class="fas fa-link"></i></a>
+</h3>
 <p>To generate a random sample from a normal distribution we use rnorm:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="probability-distributions.html#cb254-1" tabindex="-1"></a><span class="co"># random sample of size 100</span></span>
-<span id="cb254-2"><a href="probability-distributions.html#cb254-2" tabindex="-1"></a>sample.normal <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># random sample of size 100</span></span>
+<span><span class="va">sample.normal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">100</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div id="calculate-probability-when-given-a-z-score" class="section level3" number="10.2.3">
-<h3><span class="header-section-number">10.2.3</span> Calculate probability when given a z-score</h3>
+<h3>
+<span class="header-section-number">10.2.3</span> Calculate probability when given a z-score<a class="anchor" aria-label="anchor" href="#calculate-probability-when-given-a-z-score"><i class="fas fa-link"></i></a>
+</h3>
 <p>To calculate a z score from your sample/population, you can use R as a calculator.</p>
 <p>To calculate the probability of greater/lesser than a value in a given normal distribution (e.g. you can use this as an interactive table)</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="probability-distributions.html#cb255-1" tabindex="-1"></a><span class="co"># probability of less than 1.7 in a normal distribution with mean 4 and standard deviation = 2 </span></span>
-<span id="cb255-2"><a href="probability-distributions.html#cb255-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.7</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">2</span>,<span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># probability of less than 1.7 in a normal distribution with mean 4 and standard deviation = 2 </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1.7</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.1250719</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="probability-distributions.html#cb257-1" tabindex="-1"></a><span class="co"># probability of GREATER than 1.8 in a normal distribution with mean 4 and VARIANCE = 9</span></span>
-<span id="cb257-2"><a href="probability-distributions.html#cb257-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">1</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># probability of GREATER than 1.8 in a normal distribution with mean 4 and VARIANCE = 9</span></span>
+<span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">3</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.8413447</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="probability-distributions.html#cb259-1" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb259-2"><a href="probability-distributions.html#cb259-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">2</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># or</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.9331928</code></pre>
 <p><br></p>
 </div>
 <div id="calculate-z-score-when-given-a-probability" class="section level3" number="10.2.4">
-<h3><span class="header-section-number">10.2.4</span> Calculate z-score when given a probability</h3>
+<h3>
+<span class="header-section-number">10.2.4</span> Calculate z-score when given a probability<a class="anchor" aria-label="anchor" href="#calculate-z-score-when-given-a-probability"><i class="fas fa-link"></i></a>
+</h3>
 <p>Inversely, to calculate the z-score for a given probability</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="probability-distributions.html#cb261-1" tabindex="-1"></a><span class="co"># what value is less than 60% of the data?</span></span>
-<span id="cb261-2"><a href="probability-distributions.html#cb261-2" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.6</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">2</span>,<span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># what value is less than 60% of the data?</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.6</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 4.506694</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="probability-distributions.html#cb263-1" tabindex="-1"></a><span class="co"># what value is greater than 80% of the data?</span></span>
-<span id="cb263-2"><a href="probability-distributions.html#cb263-2" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.8</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">2</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># what value is greater than 80% of the data?</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.8</span>,mean<span class="op">=</span><span class="fl">4</span>,sd<span class="op">=</span><span class="fl">2</span>,lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 2.316758</code></pre>
 <p><br><br></p>
 </div>
 <div id="testing-normality" class="section level3" number="10.2.5">
-<h3><span class="header-section-number">10.2.5</span> Testing normality</h3>
+<h3>
+<span class="header-section-number">10.2.5</span> Testing normality<a class="anchor" aria-label="anchor" href="#testing-normality"><i class="fas fa-link"></i></a>
+</h3>
 <div id="wilks-shapiro-test-for-normality" class="section level4" number="10.2.5.1">
-<h4><span class="header-section-number">10.2.5.1</span> Wilks Shapiro test for normality</h4>
+<h4>
+<span class="header-section-number">10.2.5.1</span> Wilks Shapiro test for normality<a class="anchor" aria-label="anchor" href="#wilks-shapiro-test-for-normality"><i class="fas fa-link"></i></a>
+</h4>
 <p>To test for normality:</p>
 <p>First, have a look at the histogram! Here is the code for the Shapiro-Wilk test.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="probability-distributions.html#cb265-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(HousesNY<span class="sc">$</span>Price)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -199,42 +213,57 @@
 <p><br></p>
 </div>
 <div id="qq-norm-plot" class="section level4" number="10.2.5.2">
-<h4><span class="header-section-number">10.2.5.2</span> QQ-Norm plot</h4>
+<h4>
+<span class="header-section-number">10.2.5.2</span> QQ-Norm plot<a class="anchor" aria-label="anchor" href="#qq-norm-plot"><i class="fas fa-link"></i></a>
+</h4>
 <p>You can also make a QQ-Norm plot. Instal the ggpubr package, add it to your library code chunk and run.</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="probability-distributions.html#cb267-1" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb267-2"><a href="probability-distributions.html#cb267-2" tabindex="-1"></a><span class="fu">ggqqplot</span>(HousesNY<span class="sc">$</span>Price,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html">ggqqplot</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span>,col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 <p>YOU CAN INTERPRET IT HERE: <a href="https://www.learnbyexample.org/r-quantile-quantile-qq-plot-base-graph/" class="uri">https://www.learnbyexample.org/r-quantile-quantile-qq-plot-base-graph/</a></p>
 <p><br><br></p>
 </div>
 </div>
 </div>
 <div id="TDist" class="section level2" number="10.3">
-<h2><span class="header-section-number">10.3</span> T-distribution</h2>
+<h2>
+<span class="header-section-number">10.3</span> T-distribution<a class="anchor" aria-label="anchor" href="#TDist"><i class="fas fa-link"></i></a>
+</h2>
 <p>What even is this? See this nice resource: <a href="https://365datascience.com/tutorials/statistics-tutorials/students-t-distribution/" class="uri">https://365datascience.com/tutorials/statistics-tutorials/students-t-distribution/</a></p>
 <p>To see the help file for all these:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="probability-distributions.html#cb268-1" tabindex="-1"></a>?TDist</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">TDist</span></span></code></pre></div>
 <div id="calculate-a-probability-given-a-t-statistic" class="section level3" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> Calculate a probability given a T-Statistic</h3>
+<h3>
+<span class="header-section-number">10.3.1</span> Calculate a probability given a T-Statistic<a class="anchor" aria-label="anchor" href="#calculate-a-probability-given-a-t-statistic"><i class="fas fa-link"></i></a>
+</h3>
 <p>To calculate a t-statistic from your sample/population, you can use R as a calculator. To calculate the probability of greater/lesser than a value in a given t-distribution (e.f. you can use this as an interactive t-table)</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="probability-distributions.html#cb269-1" tabindex="-1"></a><span class="co"># probability of seeing less than 1.7 in a  t-distribution </span></span>
-<span id="cb269-2"><a href="probability-distributions.html#cb269-2" tabindex="-1"></a><span class="co"># with 20 degrees of freedom</span></span>
-<span id="cb269-3"><a href="probability-distributions.html#cb269-3" tabindex="-1"></a><span class="fu">pt</span>(<span class="fl">1.55</span>,<span class="at">df=</span><span class="dv">20</span>,<span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># probability of seeing less than 1.7 in a  t-distribution </span></span>
+<span><span class="co"># with 20 degrees of freedom</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">pt</a></span><span class="op">(</span><span class="fl">1.55</span>,df<span class="op">=</span><span class="fl">20</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.9315892</code></pre>
 <p><br></p>
 </div>
 <div id="calculate-a-t-statistic-for-a-given-probability" class="section level3" number="10.3.2">
-<h3><span class="header-section-number">10.3.2</span> Calculate a T-Statistic for a given probability</h3>
+<h3>
+<span class="header-section-number">10.3.2</span> Calculate a T-Statistic for a given probability<a class="anchor" aria-label="anchor" href="#calculate-a-t-statistic-for-a-given-probability"><i class="fas fa-link"></i></a>
+</h3>
 <p>To calculate the value for a given probability</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="probability-distributions.html#cb271-1" tabindex="-1"></a><span class="co"># what value is greater than 90% of the data in a t-distribution with df=25</span></span>
-<span id="cb271-2"><a href="probability-distributions.html#cb271-2" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.9</span>,<span class="at">df=</span><span class="dv">25</span>,<span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># what value is greater than 90% of the data in a t-distribution with df=25</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="fl">0.9</span>,df<span class="op">=</span><span class="fl">25</span>,lower.tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.316345</code></pre>
 <p><br></p>
 </div>
 <div id="Ttest" class="section level3" number="10.3.3">
-<h3><span class="header-section-number">10.3.3</span> T-Test</h3>
+<h3>
+<span class="header-section-number">10.3.3</span> T-Test<a class="anchor" aria-label="anchor" href="#Ttest"><i class="fas fa-link"></i></a>
+</h3>
 <p>To conduct a full t-test on some data:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="probability-distributions.html#cb273-1" tabindex="-1"></a><span class="co"># Conduct a two-sided t-test where we think that the data comes from a T-distribution with mean 100.</span></span>
-<span id="cb273-2"><a href="probability-distributions.html#cb273-2" tabindex="-1"></a><span class="fu">t.test</span>(HousesNY<span class="sc">$</span>Price,<span class="at">mu=</span><span class="dv">100</span>,<span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Conduct a two-sided t-test where we think that the data comes from a T-distribution with mean 100.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span>,mu<span class="op">=</span><span class="fl">100</span>,alternative<span class="op">=</span><span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -252,32 +281,52 @@
 </div>
 </div>
 <div id="others" class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> Others?</h2>
+<h2>
+<span class="header-section-number">10.4</span> Others?<a class="anchor" aria-label="anchor" href="#others"><i class="fas fa-link"></i></a>
+</h2>
 <p>More to come later.. but they all follow the same format</p>
 
 </div>
 </div>
-  </main>
-
-  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+  <div class="chapter-nav">
+<div class="prev"><a href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></div>
+<div class="next"><a href="correlation.html"><span class="header-section-number">11</span> Correlation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#probability-distributions"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="nav-link" href="#what-are-they-full-info"><span class="header-section-number">10.1</span> What are they? Full info</a></li>
+<li>
+<a class="nav-link" href="#T5_NormalDist"><span class="header-section-number">10.2</span> The normal distribution</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#help-file"><span class="header-section-number">10.2.1</span> Help file</a></li>
+<li><a class="nav-link" href="#generate-a-random-sample"><span class="header-section-number">10.2.2</span> Generate a random sample</a></li>
+<li><a class="nav-link" href="#calculate-probability-when-given-a-z-score"><span class="header-section-number">10.2.3</span> Calculate probability when given a z-score</a></li>
+<li><a class="nav-link" href="#calculate-z-score-when-given-a-probability"><span class="header-section-number">10.2.4</span> Calculate z-score when given a probability</a></li>
+<li><a class="nav-link" href="#testing-normality"><span class="header-section-number">10.2.5</span> Testing normality</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#TDist"><span class="header-section-number">10.3</span> T-distribution</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#calculate-a-probability-given-a-t-statistic"><span class="header-section-number">10.3.1</span> Calculate a probability given a T-Statistic</a></li>
+<li><a class="nav-link" href="#calculate-a-t-statistic-for-a-given-probability"><span class="header-section-number">10.3.2</span> Calculate a T-Statistic for a given probability</a></li>
+<li><a class="nav-link" href="#Ttest"><span class="header-section-number">10.3.3</span> T-Test</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#others"><span class="header-section-number">10.4</span> Others?</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
-      </div>
+</div>
     </nav>
-  </div>
+</div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
-  <div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
@@ -288,11 +337,7 @@
   </div>
 
 </div></div>
-</footer>
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -304,8 +349,7 @@
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script>
-<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -323,5 +367,4 @@ for (let popover of popovers) {
 }
 </script>
 </body>
-
 </html>
