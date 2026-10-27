@@ -90,6 +90,8 @@ In your notes, I want you to explain thoughtfully in your own words:
 
 I have recreated some of Dr Giramond's results in Tutorial 14 and given you the code (but not run it).
 
+**HERE IS THE LINK - <https://psu-spatial.github.io/Geog364-2026/T14_Autocorrelation.html>**
+
 - **[5A]** Create a new sub-heading called "Tutorial".
 
 - **[5B]** Follow the tutorial, putting the code into your own report and running it, then IN YOUR OWN WORDS, explaining what is happening in each code chunk/what the results mean, (An A\* report will link this to the class theory above)
