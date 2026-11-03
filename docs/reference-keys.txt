@@ -34,7 +34,6 @@ what-if-i-run-out-of-free-time
 step-5-initial-questions-hw2_step5-.unnumbered
 need-help
 dataset-chicago-census-tracts-2018
-week-2.
 T1_Projects
 T1A_ProjectIntro
 section

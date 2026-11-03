@@ -224,7 +224,7 @@ tmap_arrange(treemap_2010,treemap_2018)
 
 <br><br>
 
-## WEEK 2.
+## WEEK 2 {.unnumbered}
 
 ### MINI UPDATE {.unnumbered}
 
@@ -266,7 +266,9 @@ We now want to calculate the difference between 2010 and 2018, as that might hel
    * A price index tracks the cost of a typical "basket" of goods and services over time. The most common one in the US is the Consumer Price Index (CPI), published by the Bureau of Labor Statistics (BLS).
    * In the ACS 5-year estimates, every dollar value is already adjusted to the LAST year of the survey period. So the 2006-2010 data are in 2010 dollars, and the 2014-2018 data are in 2018 dollars.
    * To put 2010 dollars into 2018 dollars, we multiply the 2010 values by the ratio of the two index values:
-
+   
+   2010ValueIn2018Dollars = 2010Value/2018Value
+ 
 $$
       \text{2010 value in "2018 dollars"} = \text{2010 value} \times \frac{\text{CPI}_{2018}}{\text{CPI}_{2010}}
       
