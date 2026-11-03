@@ -358,7 +358,7 @@ FOR YOUR SPECIFIC VARIABLE: I would like you to:
  
 The EASIEST way to do this is to 
 
-1. go to the end of my new tutorial \ref@T15_AutocorrelationCode (if the link doens't work, tutorial 15 at the end)
+1. go to the end of my new tutorial [Tutorial - "Dr G's Autocorrelation tutorial"](#T15_AutocorrelationCode) (if the link doesn't work, tutorial 15 at the end)
 
 2. Copy all the code into a code chunk and follow the instructions to edit and run
 
