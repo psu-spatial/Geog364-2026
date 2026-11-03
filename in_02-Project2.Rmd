@@ -156,7 +156,7 @@ You have been given census tract data for **2010 and 2018**. Your task is to use
 
 ### STEP 6: Explore the data {.unnumbered}
 
-### Dataset: Chicago Census Tracts (2018)
+#### Dataset: Chicago Census Tracts (2018)
 
 - **The `ChicagoTracts_2018` dataset contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2018.**
 
@@ -238,11 +238,171 @@ tmap_arrange(treemap_2010,treemap_2018)
 
 <br><br>
 
-### STEP 7: Calculate the change in that variable {.unnumbered}
+## WEEK 2.
+
+### MINI UPDATE {.unnumbered}
+
+**Go to the top of your script and look for the top code chunk that starts knitr::.. change cache=TRUE to cache=FALSE. This might help with some of your knitting issues**
 
 <br><br>
 
-TO BE CONTINUED - INSTRUCTIONS WILL BE ADDED BEFORE WEDNESDAY 28th. (but know you have done most of the hard coding)
+
+### STEP 7: Calculate the change in your variables {.unnumbered}
+
+We now want to calculate the difference between 2010 and 2018, as that might help with visualising any changes. This is more complex than it might first appear!
+
+- **Always start with the later time-stamp** (e.g. 2018 - 2010). You want increases to be positive and decreases negative
+
+<br>
+
+- **Use 'percentage points' when comparing percentages** (e.g. percentage tree cover, percent of people in poverty). This becomes an issue when we try to calculate differences, because it's easy to end up with a percentage of a percentage and a lot of confusion (see the cartoon below!). Instead, we tend to use "percentage points".
+  - A percentage point the simple arithmetic difference between two percentage values. \
+    Value1(%) - Value2(%). E.g. if your index of 20% decreases by a percentage point, it means it goes from 20% to 19%.
+  - If you calculated the percentage change (19-20)/20 you would have to say your value fell by 5%. What you *mean* is 5% of the previous percentage of 20% (so 1% overall), but people will have already tuned out.
+  
+
+```{r, P2-XKCD, echo=FALSE, fig.cap="For a more detailed explanation, see https://www.explainxkcd.com/wiki/index.php/985:_Percentage_Points", out.width="60%"}
+knitr::include_graphics('./index_images/im_P2_XKCD985.png')
+```
+
+<br>
+
+- **Use raw values, or percentage change when comparing numeric variables.** Some (like population) are numeric (e.g. the population in 2010 was 1249 and in 2018, the population was 1502). So in this case, we can either
+
+  - Calculate at the raw change (1502 - 1249 = 253 more people), which is simple to understand, but over a whole map, areas where the population was high to start with might swamp any view of what's happening
+  - OR.. we calculate the percentage change. (1502 - 1249)/1249 = 0.203. So the population went up in my made up example by 20%. This is not a percentage point!
+  
+<br>  
+
+- **For monetary variables, such as income, rent or housing value, you must also take inflation into account** (temporal autocorrelation!). If not, all you'll see on the map is that life "became more expensive", which would likely swamp any spatial pattern.  A simple method to achieve this is to convert the 2010 values into 2018 dollars using an inflation adjustment factor, the ratio of a price index. 
+
+   * A price index tracks the cost of a typical "basket" of goods and services over time. The most common one in the US is the Consumer Price Index (CPI), published by the Bureau of Labor Statistics (BLS).
+   * In the ACS 5-year estimates, every dollar value is already adjusted to the LAST year of the survey period. So the 2006-2010 data are in 2010 dollars, and the 2014-2018 data are in 2018 dollars.
+   * To put 2010 dollars into 2018 dollars, we multiply the 2010 values by the ratio of the two index values:
+
+$$
+      \text{2010 value in "2018 dollars"} = \text{2010 value} \times \frac{\text{CPI}_{2018}}{\text{CPI}_{2010}}
+      
+$$
+   * The Census Bureau recommends the "R-CPI-U-RS" index for this (the CPI for all urban consumers, research series), where $\text{CPI}_{2010}$ is the annual average for 2010 and $\text{CPI}_{2018}$ is the annual average for 2018. You can find those numbers here https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf (or by googling the R-CPI-U-RS annual average for a specific year)
+   
+Given all that, here's the summary for our dataset
+
+| Variable type | Our variables | Change to calculate |
+|:--|:--|:--|
+| Percentages | canopy, pct_poverty, pct_vacant, pct_white, pct_black, pct_hispanic, pct_degree | 2018 - 2010, in percentage points |
+| Counts | population (pop_density gives the same percentage change, as the tract area is fixed) | raw change, or percentage change |
+| Money | med_income, med_rent, med_value | adjust 2010 to 2018 dollars, then percentage change |
+
+
+<br>
+
+- **[7A]** Copy the code below into your report, but BEFORE YOU RUN IT, find the correct values for cpi_2010 and cpi_2018 from the resources you just read about, and add them in the appropriate spot. <br><br>
+E.g. replace ANS at the top of the code chunk with the actual numbers from your reading
+<br><br>
+You might also need to replace ChicagoTracts_2010 and ChicagoTracts_2018 with whatever you called them.
+
+
+
+```{r, eval=FALSE}
+
+
+# Get the Consumer price index in 2010 and 2018
+# THIS WILL BREAK UNTIL YOU REPLACE ANS WITH ACTUAL NUMBERS.
+cpi_2010 <- ANS
+cpi_2018 <- ANS 
+
+inflation_adjustment <- cpi_2010/cpi_2018
+
+
+ChicagoTracts_Change <- ChicagoTracts_2018 |>
+   left_join(st_drop_geometry(ChicagoTracts_2010) |> select(-arealand_sqmiles),
+             by = "GEOID") |>
+   mutate(
+      #--- Percentages: 2018 minus 2010, in percentage points
+      # canopy is a percentage, its just not in the variable name
+      chg_canopy      = canopy_2018       - canopy_2010,
+      chg_poverty     = pct_poverty_2018  - pct_poverty_2010,
+      chg_vacant      = pct_vacant_2018   - pct_vacant_2010,
+      chg_white       = pct_white_2018    - pct_white_2010,
+      chg_black       = pct_black_2018    - pct_black_2010,
+      chg_hispanic    = pct_hispanic_2018 - pct_hispanic_2010,
+      chg_degree      = pct_degree_2018   - pct_degree_2010,
+      
+      #--- Counts: percent change
+      chg_population  = 100 * (population_2018 - population_2010) / population_2010,
+      
+      #--- Dollars: percent change after adjusting for inflation
+      chg_income      = 100 * (med_income_2018 / (med_income_2010 * inflation_adjustment) - 1),
+      chg_rent        = 100 * (med_rent_2018   / (med_rent_2010   * inflation_adjustment) - 1),
+      chg_value       = 100 * (med_value_2018  / (med_value_2010  * inflation_adjustment) - 1)
+   ) |>
+   #--- Keep just the ID, land area and the change columns
+   select(GEOID, arealand_sqmiles, starts_with("chg_")) 
+   
+   
+
+
+
+```
+
+
+
+<br>
+
+- **[7B]** Once you have the numbers and this is up and running. Take a look at some of the spatial patterns of the changes from 2010-2018 for at least 3 variables (including your chosen variable) and comment on any differences,
+
+<br><br>
+
+### STEP 8: Calculating the 2018 autocorrelation {.unnumbered}
+
+So now you have three variables (yours might be named differently)
+
+ - ChicagoTracts_2010: The 2010 data
+ - ChicagoTracts_2018: The 2018 data
+ - ChicagoTracts_Change: The difference between them.
+ 
+ 
+**USE THE 2018 DATA**.  
+
+FOR YOUR SPECIFIC VARIABLE: I would like you to:
+
+ - Calculate the spatial weights (Queens 1st order)
+ - Calculate global Moran's I 
+ - Check its effect size and significance using a hypothesis test
+ - Calculate a LISA map 
+ - Interpret
+ 
+The EASIEST way to do this is to 
+
+1. go to the end of my new tutorial \ref@T15_AutocorrelationCode (if the link doens't work, tutorial 15 at the end)
+
+2. Copy all the code into a code chunk and follow the instructions to edit and run
+
+3. Interpret the results in the text below. You can see an example of how to do this in my tutorial or in Dr Giramond's one that you worked through earlier in the lab.
+
+OR
+1. You are welcome to use your own tutorial code from earlier in the lab and edit.
+
+
+<br><br>
+
+
+### STEP 9: Calculating the change autocorrelation {.unnumbered}
+
+Now repeat step 8, but for the CHANGE in your specific variable. e.g. for the code you can copy/paste what you did in step 8, but change ChicagoTracts_2018 to ChicagoTracts_Change
+and change the axis labels/interpretation
+
+<br><br>
+
+
+### STEP 10: Reflection {.unnumbered}
+
+Finally, talk in at least 200 words about the autocorrelation in your 2018 variable, the autocorrelation in the CHANGE in that variable and any processes you think might have caused it (including the likelyhood that this was all caused by random chance).
+
+<br><br>
+
+
 
 ### **Congrats! Finished!** {.unnumbered}
 

@@ -36,7 +36,8 @@ rmd_files:
     "in_04-Tutorial10_Correlation.Rmd",
     "in_04-Tutorial12_SpatialBasics.Rmd",
     "in_04-Tutorial13_Maps.Rmd",
-    "in_04-Tutorial15_Autocorrelation.Rmd"
+    "in_04-Tutorial15_Autocorrelation.Rmd",
+    "in_04-Tutorial16_BetterTutorial.Rmd"
 
 
   ]

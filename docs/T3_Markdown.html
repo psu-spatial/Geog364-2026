@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 3 R-Markdown | GEOG364 Lab Book 2026</title>
+<title>Chapter 3 R-Markdown | R code example</title>
 <meta name="author" content="Dr Helen Greatrex">
 <meta name="description" content="3.1 What is markdown Remind yourself of what Rmarkdown is here https://rmarkdown.rstudio.com via this short video   3.1.1 What are R-Scripts? Read more here: https://rmarkdown.rstudio.com Typing...">
 <meta name="generator" content="bookdown 0.47 with bs4_book()">
-<meta property="og:title" content="Chapter 3 R-Markdown | GEOG364 Lab Book 2026">
+<meta property="og:title" content="Chapter 3 R-Markdown | R code example">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/T3_Markdown.html">
 <meta property="og:description" content="3.1 What is markdown Remind yourself of what Rmarkdown is here https://rmarkdown.rstudio.com via this short video   3.1.1 What are R-Scripts? Read more here: https://rmarkdown.rstudio.com Typing...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 3 R-Markdown | GEOG364 Lab Book 2026">
+<meta name="twitter:title" content="Chapter 3 R-Markdown | R code example">
 <meta name="twitter:description" content="3.1 What is markdown Remind yourself of what Rmarkdown is here https://rmarkdown.rstudio.com via this short video   3.1.1 What are R-Scripts? Read more here: https://rmarkdown.rstudio.com Typing...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+        <a href="index.html" title="">R code example</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -82,6 +82,7 @@
 <li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
 <li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
 <li><a class="" href="T14_Autocorrelation.html"><span class="header-section-number">14</span> Autocorrelation</a></li>
+<li><a class="" href="T15_Autocorrelation.html"><span class="header-section-number">15</span> Dr G’s Autocorrelation Tutorial</a></li>
 </ul>
 
         <div class="book-extra">
@@ -197,18 +198,18 @@ Figure 3.3: Look at the circled button near the top of the two reports
 <p>The basic version is very simple with a title, an author and a self entered date. Let’s add in more options.</p>
 <p>YAML code is annoying to edit, because here, <em>spaces really do matter</em>. Everything has to be perfect or it won’t knit.</p>
 <p><strong>Select everything in my code chunk here and replace your YAML with this (remember the — on line 1 and at the end).</strong></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="T3_Markdown.html#cb43-1" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb43-2"><a href="T3_Markdown.html#cb43-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"GEOG-364 - Lab 2"</span></span>
-<span id="cb43-3"><a href="T3_Markdown.html#cb43-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"hlg5155"</span></span>
-<span id="cb43-4"><a href="T3_Markdown.html#cb43-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
-<span id="cb43-5"><a href="T3_Markdown.html#cb43-5" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb43-6"><a href="T3_Markdown.html#cb43-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb43-7"><a href="T3_Markdown.html#cb43-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb43-8"><a href="T3_Markdown.html#cb43-8" tabindex="-1"></a>    toc_float<span class="sc">:</span> yes</span>
-<span id="cb43-9"><a href="T3_Markdown.html#cb43-9" tabindex="-1"></a>    number_sections<span class="sc">:</span> yes</span>
-<span id="cb43-10"><a href="T3_Markdown.html#cb43-10" tabindex="-1"></a>    theme<span class="sc">:</span> lumen</span>
-<span id="cb43-11"><a href="T3_Markdown.html#cb43-11" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb43-12"><a href="T3_Markdown.html#cb43-12" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="T3_Markdown.html#cb44-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb44-2"><a href="T3_Markdown.html#cb44-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"GEOG-364 - Lab 2"</span></span>
+<span id="cb44-3"><a href="T3_Markdown.html#cb44-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"hlg5155"</span></span>
+<span id="cb44-4"><a href="T3_Markdown.html#cb44-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb44-5"><a href="T3_Markdown.html#cb44-5" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb44-6"><a href="T3_Markdown.html#cb44-6" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb44-7"><a href="T3_Markdown.html#cb44-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb44-8"><a href="T3_Markdown.html#cb44-8" tabindex="-1"></a>    toc_float<span class="sc">:</span> yes</span>
+<span id="cb44-9"><a href="T3_Markdown.html#cb44-9" tabindex="-1"></a>    number_sections<span class="sc">:</span> yes</span>
+<span id="cb44-10"><a href="T3_Markdown.html#cb44-10" tabindex="-1"></a>    theme<span class="sc">:</span> lumen</span>
+<span id="cb44-11"><a href="T3_Markdown.html#cb44-11" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb44-12"><a href="T3_Markdown.html#cb44-12" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <p>Replace the author ID with your user name, change the title if appropriate.</p>
 <p>The elements we just added are:</p>
 <ul>
@@ -453,11 +454,11 @@ knitr::opts_chunk$set(echo=TRUE,
 <span class="header-section-number">3.8.1</span> Tips for adding inline code<a class="anchor" aria-label="anchor" href="#tips-for-adding-inline-code"><i class="fas fa-link"></i></a>
 </h3>
 <p>Inline code is GREAT. Imagine writing your 100 page thesis, but then you realise that your dataset was wrong. If all the numbers in your report are added using inline code, then it will automatically update your entire report.</p>
-<p>The easiest way to do this is to run your commands in a “silent” code chunk with the echo=FALSE and include=FALSE options. Then in the text, I just put the variable name I want to print, sometimes rounding to a better number of decimal places<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You can round in the inline code or the code chunk. Both are fine&lt;/p&gt;"><sup>1</sup></a>.</p>
+<p>The easiest way to do this is to run your commands in a “silent” code chunk with the echo=FALSE and include=FALSE options. Then in the text, I just put the variable name I want to print, sometimes rounding to a better number of decimal places<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You can round in the inline code or the code chunk. Both are fine&lt;/p&gt;"><sup>2</sup></a>.</p>
 <p>For example here’s how I typed that the mean height of the starwars data is 174.6 cm:</p>
 <div class="inline-figure"><img src="index_images/im_T3InlineCode.png" alt="" width="100%" style="display: block; margin: auto;"></div>
 
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># OPTIONS -----------------------------------------------</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>echo <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>                      warning<span class="op">=</span><span class="cn">FALSE</span>, </span>
@@ -490,7 +491,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## This message can be suppressed by:
 ##   suppressPackageStartupMessages(library(circlize))
 ## ========================================</code></pre>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## Loading required package: ggplot2</code></pre>
@@ -499,7 +500,7 @@ knitr::opts_chunk$set(echo=TRUE,
 <pre><code>## The following object is masked from 'package:yarrr':
 ## 
 ##     diamonds</code></pre>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.2.1     ✔ readr     2.2.0
@@ -514,7 +515,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## ✖ tidyr::pack()    masks Matrix::pack()
 ## ✖ tidyr::unpack()  masks Matrix::unpack()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Attaching package: 'plotly'
@@ -530,7 +531,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## The following object is masked from 'package:graphics':
 ## 
 ##     layout</code></pre>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
@@ -539,7 +540,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## The following object is masked from 'package:readr':
 ## 
 ##     guess_encoding</code></pre>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://chris-prener.github.io/biscale/">biscale</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://walker-data.com/tidycensus/">tidycensus</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span></code></pre></div>
@@ -549,7 +550,7 @@ knitr::opts_chunk$set(echo=TRUE,
 ## The following object is masked from 'package:lubridate':
 ## 
 ##     stamp</code></pre>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-quantities.github.io/units/">units</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## udunits database from /Library/Frameworks/R.framework/Versions/4.6-x86_64/Resources/library/units/share/udunits/udunits2.xml</code></pre>
 </div>
@@ -620,7 +621,7 @@ knitr::opts_chunk$set(echo=TRUE,
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
+    <p>"<strong>R code example</strong>" was written by Dr Helen Greatrex. It was last built on 2026-11-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

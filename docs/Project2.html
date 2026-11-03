@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Project 2 | GEOG364 Lab Book 2026</title>
+<title>Project 2 | R code example</title>
 <meta name="author" content="Dr Helen Greatrex">
 <meta name="description" content="Aim Welcome to Project-2. This is worth 100 points! You can drop your lowest score out of the three projects. YOU HAVE TWO WEEKS! The maximum time it should take is about 4-6 hrs of your time,...">
 <meta name="generator" content="bookdown 0.47 with bs4_book()">
-<meta property="og:title" content="Project 2 | GEOG364 Lab Book 2026">
+<meta property="og:title" content="Project 2 | R code example">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/Project2.html">
 <meta property="og:description" content="Aim Welcome to Project-2. This is worth 100 points! You can drop your lowest score out of the three projects. YOU HAVE TWO WEEKS! The maximum time it should take is about 4-6 hrs of your time,...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Project 2 | GEOG364 Lab Book 2026">
+<meta name="twitter:title" content="Project 2 | R code example">
 <meta name="twitter:description" content="Aim Welcome to Project-2. This is worth 100 points! You can drop your lowest score out of the three projects. YOU HAVE TWO WEEKS! The maximum time it should take is about 4-6 hrs of your time,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">GEOG364 Lab Book 2026</a>
+        <a href="index.html" title="">R code example</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -82,6 +82,7 @@
 <li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
 <li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
 <li><a class="" href="T14_Autocorrelation.html"><span class="header-section-number">14</span> Autocorrelation</a></li>
+<li><a class="" href="T15_Autocorrelation.html"><span class="header-section-number">15</span> Dr G’s Autocorrelation Tutorial</a></li>
 </ul>
 
         <div class="book-extra">
@@ -247,11 +248,10 @@
 <div id="step-6-explore-the-data" class="section level3 unnumbered">
 <h3>STEP 6: Explore the data<a class="anchor" aria-label="anchor" href="#step-6-explore-the-data"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="dataset-chicago-census-tracts-2018" class="section level3" number="0.1.5">
-<h3>
-<span class="header-section-number">0.1.5</span> Dataset: Chicago Census Tracts (2018)<a class="anchor" aria-label="anchor" href="#dataset-chicago-census-tracts-2018"><i class="fas fa-link"></i></a>
-</h3>
+<div id="dataset-chicago-census-tracts-2018" class="section level4" number="0.1.4.1">
+<h4>
+<span class="header-section-number">0.1.4.1</span> Dataset: Chicago Census Tracts (2018)<a class="anchor" aria-label="anchor" href="#dataset-chicago-census-tracts-2018"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li><p><strong>The <code>ChicagoTracts_2018</code> dataset contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2018.</strong></p></li>
 <li><p><strong>The <code>ChicagoTracts_2010</code> dataset contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2010.</strong></p></li>
@@ -388,11 +388,186 @@
 </ul>
 <p><br><br></p>
 </div>
-<div id="step-7-calculate-the-change-in-that-variable" class="section level3 unnumbered">
-<h3>STEP 7: Calculate the change in that variable<a class="anchor" aria-label="anchor" href="#step-7-calculate-the-change-in-that-variable"><i class="fas fa-link"></i></a>
+</div>
+</div>
+<div id="week-2." class="section level2" number="0.2">
+<h2>
+<span class="header-section-number">0.2</span> WEEK 2.<a class="anchor" aria-label="anchor" href="#week-2."><i class="fas fa-link"></i></a>
+</h2>
+<div id="mini-update" class="section level3 unnumbered">
+<h3>MINI UPDATE<a class="anchor" aria-label="anchor" href="#mini-update"><i class="fas fa-link"></i></a>
 </h3>
+<p><strong>Go to the top of your script and look for the top code chunk that starts knitr::.. change cache=TRUE to cache=FALSE. This might help with some of your knitting issues</strong></p>
 <p><br><br></p>
-<p>TO BE CONTINUED - INSTRUCTIONS WILL BE ADDED BEFORE WEDNESDAY 28th. (but know you have done most of the hard coding)</p>
+</div>
+<div id="step-7-calculate-the-change-in-your-variables" class="section level3 unnumbered">
+<h3>STEP 7: Calculate the change in your variables<a class="anchor" aria-label="anchor" href="#step-7-calculate-the-change-in-your-variables"><i class="fas fa-link"></i></a>
+</h3>
+<p>We now want to calculate the difference between 2010 and 2018, as that might help with visualising any changes. This is more complex than it might first appear!</p>
+<ul>
+<li>
+<strong>Always start with the later time-stamp</strong> (e.g. 2018 - 2010). You want increases to be positive and decreases negative</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>Use ‘percentage points’ when comparing percentages</strong> (e.g. percentage tree cover, percent of people in poverty). This becomes an issue when we try to calculate differences, because it’s easy to end up with a percentage of a percentage and a lot of confusion (see the cartoon below!). Instead, we tend to use “percentage points”.
+<ul>
+<li>A percentage point the simple arithmetic difference between two percentage values.<br>
+Value1(%) - Value2(%). E.g. if your index of 20% decreases by a percentage point, it means it goes from 20% to 19%.</li>
+<li>If you calculated the percentage change (19-20)/20 you would have to say your value fell by 5%. What you <em>mean</em> is 5% of the previous percentage of 20% (so 1% overall), but people will have already tuned out.</li>
+</ul>
+</li>
+</ul>
+<div class="figure">
+<span style="display:block;" id="fig:P2-XKCD"></span>
+<img src="index_images/im_P2_XKCD985.png" alt="For a more detailed explanation, see https://www.explainxkcd.com/wiki/index.php/985:_Percentage_Points" width="60%"><p class="caption">
+Figure 0.17: For a more detailed explanation, see <a href="https://www.explainxkcd.com/wiki/index.php/985:_Percentage_Points" class="uri">https://www.explainxkcd.com/wiki/index.php/985:_Percentage_Points</a>
+</p>
+</div>
+<p><br></p>
+<ul>
+<li>
+<p><strong>Use raw values, or percentage change when comparing numeric variables.</strong> Some (like population) are numeric (e.g. the population in 2010 was 1249 and in 2018, the population was 1502). So in this case, we can either</p>
+<ul>
+<li>Calculate at the raw change (1502 - 1249 = 253 more people), which is simple to understand, but over a whole map, areas where the population was high to start with might swamp any view of what’s happening</li>
+<li>OR.. we calculate the percentage change. (1502 - 1249)/1249 = 0.203. So the population went up in my made up example by 20%. This is not a percentage point!</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>For monetary variables, such as income, rent or housing value, you must also take inflation into account</strong> (temporal autocorrelation!). If not, all you’ll see on the map is that life “became more expensive”, which would likely swamp any spatial pattern. A simple method to achieve this is to convert the 2010 values into 2018 dollars using an inflation adjustment factor, the ratio of a price index.</p>
+<ul>
+<li>A price index tracks the cost of a typical “basket” of goods and services over time. The most common one in the US is the Consumer Price Index (CPI), published by the Bureau of Labor Statistics (BLS).</li>
+<li>In the ACS 5-year estimates, every dollar value is already adjusted to the LAST year of the survey period. So the 2006-2010 data are in 2010 dollars, and the 2014-2018 data are in 2018 dollars.</li>
+<li>To put 2010 dollars into 2018 dollars, we multiply the 2010 values by the ratio of the two index values:</li>
+</ul>
+</li>
+</ul>
+<p>$$
+= </p>
+<p>$$
+* The Census Bureau recommends the “R-CPI-U-RS” index for this (the CPI for all urban consumers, research series), where <span class="math inline">\(\text{CPI}_{2010}\)</span> is the annual average for 2010 and <span class="math inline">\(\text{CPI}_{2018}\)</span> is the annual average for 2018. You can find those numbers here <a href="https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf" class="uri">https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf</a> (or by googling the R-CPI-U-RS annual average for a specific year)</p>
+<p>Given all that, here’s the summary for our dataset</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Variable type</th>
+<th align="left">Our variables</th>
+<th align="left">Change to calculate</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Percentages</td>
+<td align="left">canopy, pct_poverty, pct_vacant, pct_white, pct_black, pct_hispanic, pct_degree</td>
+<td align="left">2018 - 2010, in percentage points</td>
+</tr>
+<tr class="even">
+<td align="left">Counts</td>
+<td align="left">population (pop_density gives the same percentage change, as the tract area is fixed)</td>
+<td align="left">raw change, or percentage change</td>
+</tr>
+<tr class="odd">
+<td align="left">Money</td>
+<td align="left">med_income, med_rent, med_value</td>
+<td align="left">adjust 2010 to 2018 dollars, then percentage change</td>
+</tr>
+</tbody>
+</table></div>
+<p><br></p>
+<ul>
+<li>
+<strong>[7A]</strong> Copy the code below into your report, but BEFORE YOU RUN IT, find the correct values for cpi_2010 and cpi_2018 from the resources you just read about, and add them in the appropriate spot. <br><br>
+E.g. replace ANS at the top of the code chunk with the actual numbers from your reading
+<br><br>
+You might also need to replace ChicagoTracts_2010 and ChicagoTracts_2018 with whatever you called them.</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Get the Consumer price index in 2010 and 2018</span></span>
+<span><span class="co"># THIS WILL BREAK UNTIL YOU REPLACE ANS WITH ACTUAL NUMBERS.</span></span>
+<span><span class="va">cpi_2010</span> <span class="op">&lt;-</span> <span class="va">ANS</span></span>
+<span><span class="va">cpi_2018</span> <span class="op">&lt;-</span> <span class="va">ANS</span> </span>
+<span></span>
+<span><span class="va">inflation_adjustment</span> <span class="op">&lt;-</span> <span class="va">cpi_2010</span><span class="op">/</span><span class="va">cpi_2018</span></span>
+<span></span>
+<span></span>
+<span><span class="va">ChicagoTracts_Change</span> <span class="op">&lt;-</span> <span class="va">ChicagoTracts_2018</span> <span class="op">|&gt;</span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_drop_geometry</a></span><span class="op">(</span><span class="va">ChicagoTracts_2010</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">arealand_sqmiles</span><span class="op">)</span>,</span>
+<span>             by <span class="op">=</span> <span class="st">"GEOID"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>      <span class="co">#--- Percentages: 2018 minus 2010, in percentage points</span></span>
+<span>      <span class="co"># canopy is a percentage, its just not in the variable name</span></span>
+<span>      chg_canopy      <span class="op">=</span> <span class="va">canopy_2018</span>       <span class="op">-</span> <span class="va">canopy_2010</span>,</span>
+<span>      chg_poverty     <span class="op">=</span> <span class="va">pct_poverty_2018</span>  <span class="op">-</span> <span class="va">pct_poverty_2010</span>,</span>
+<span>      chg_vacant      <span class="op">=</span> <span class="va">pct_vacant_2018</span>   <span class="op">-</span> <span class="va">pct_vacant_2010</span>,</span>
+<span>      chg_white       <span class="op">=</span> <span class="va">pct_white_2018</span>    <span class="op">-</span> <span class="va">pct_white_2010</span>,</span>
+<span>      chg_black       <span class="op">=</span> <span class="va">pct_black_2018</span>    <span class="op">-</span> <span class="va">pct_black_2010</span>,</span>
+<span>      chg_hispanic    <span class="op">=</span> <span class="va">pct_hispanic_2018</span> <span class="op">-</span> <span class="va">pct_hispanic_2010</span>,</span>
+<span>      chg_degree      <span class="op">=</span> <span class="va">pct_degree_2018</span>   <span class="op">-</span> <span class="va">pct_degree_2010</span>,</span>
+<span>      </span>
+<span>      <span class="co">#--- Counts: percent change</span></span>
+<span>      chg_population  <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">population_2018</span> <span class="op">-</span> <span class="va">population_2010</span><span class="op">)</span> <span class="op">/</span> <span class="va">population_2010</span>,</span>
+<span>      </span>
+<span>      <span class="co">#--- Dollars: percent change after adjusting for inflation</span></span>
+<span>      chg_income      <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">med_income_2018</span> <span class="op">/</span> <span class="op">(</span><span class="va">med_income_2010</span> <span class="op">*</span> <span class="va">inflation_adjustment</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>      chg_rent        <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">med_rent_2018</span>   <span class="op">/</span> <span class="op">(</span><span class="va">med_rent_2010</span>   <span class="op">*</span> <span class="va">inflation_adjustment</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>      chg_value       <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">med_value_2018</span>  <span class="op">/</span> <span class="op">(</span><span class="va">med_value_2010</span>  <span class="op">*</span> <span class="va">inflation_adjustment</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>   <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>   <span class="co">#--- Keep just the ID, land area and the change columns</span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">arealand_sqmiles</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"chg_"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<p><br></p>
+<ul>
+<li>
+<strong>[7B]</strong> Once you have the numbers and this is up and running. Take a look at some of the spatial patterns of the changes from 2010-2018 for at least 3 variables (including your chosen variable) and comment on any differences,</li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="step-8-calculating-the-2018-autocorrelation" class="section level3 unnumbered">
+<h3>STEP 8: Calculating the 2018 autocorrelation<a class="anchor" aria-label="anchor" href="#step-8-calculating-the-2018-autocorrelation"><i class="fas fa-link"></i></a>
+</h3>
+<p>So now you have three variables (yours might be named differently)</p>
+<ul>
+<li>ChicagoTracts_2010: The 2010 data</li>
+<li>ChicagoTracts_2018: The 2018 data</li>
+<li>ChicagoTracts_Change: The difference between them.</li>
+</ul>
+<p><strong>USE THE 2018 DATA</strong>.</p>
+<p>FOR YOUR SPECIFIC VARIABLE: I would like you to:</p>
+<ul>
+<li>Calculate the spatial weights (Queens 1st order)</li>
+<li>Calculate global Moran’s I</li>
+<li>Check its effect size and significance using a hypothesis test</li>
+<li>Calculate a LISA map</li>
+<li>Interpret</li>
+</ul>
+<p>The EASIEST way to do this is to</p>
+<ol style="list-style-type: decimal">
+<li><p>go to the end of my new tutorial <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;T15_AutocorrelationCode?&lt;/strong&gt;&lt;/p&gt;"><sup>1</sup></a></span> (if the link doens’t work, tutorial 15 at the end)</p></li>
+<li><p>Copy all the code into a code chunk and follow the instructions to edit and run</p></li>
+<li><p>Interpret the results in the text below. You can see an example of how to do this in my tutorial or in Dr Giramond’s one that you worked through earlier in the lab.</p></li>
+</ol>
+<p>OR
+1. You are welcome to use your own tutorial code from earlier in the lab and edit.</p>
+<p><br><br></p>
+</div>
+<div id="step-9-calculating-the-change-autocorrelation" class="section level3 unnumbered">
+<h3>STEP 9: Calculating the change autocorrelation<a class="anchor" aria-label="anchor" href="#step-9-calculating-the-change-autocorrelation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now repeat step 8, but for the CHANGE in your specific variable. e.g. for the code you can copy/paste what you did in step 8, but change ChicagoTracts_2018 to ChicagoTracts_Change
+and change the axis labels/interpretation</p>
+<p><br><br></p>
+</div>
+<div id="step-10-reflection" class="section level3 unnumbered">
+<h3>STEP 10: Reflection<a class="anchor" aria-label="anchor" href="#step-10-reflection"><i class="fas fa-link"></i></a>
+</h3>
+<p>Finally, talk in at least 200 words about the autocorrelation in your 2018 variable, the autocorrelation in the CHANGE in that variable and any processes you think might have caused it (including the likelyhood that this was all caused by random chance).</p>
+<p><br><br></p>
 </div>
 <div id="congrats-finished-2" class="section level3 unnumbered">
 <h3>
@@ -415,7 +590,7 @@
 <div class="figure">
 <span style="display:block;" id="fig:P2-Submit"></span>
 <img src="index_images/im_T1_WhattoSubmit.png" alt="Find them in your GEOG364 folder on your computer" width="100%"><p class="caption">
-Figure 0.17: Find them in your GEOG364 folder on your computer
+Figure 0.18: Find them in your GEOG364 folder on your computer
 </p>
 </div>
 <p><br></p>
@@ -432,7 +607,7 @@ Figure 0.17: Find them in your GEOG364 folder on your computer
 <div class="figure">
 <span style="display:block;" id="fig:P2-CloudDownload"></span>
 <img src="index_images/im_T1_CloudSubmit.png" alt="How do download the files from PositCloud" width="100%"><p class="caption">
-Figure 0.18: How do download the files from PositCloud
+Figure 0.19: How do download the files from PositCloud
 </p>
 </div>
 <p><br><br></p>
@@ -449,6 +624,7 @@ Figure 0.18: How do download the files from PositCloud
 </div>
 </div>
 </div>
+
 
 
 
@@ -484,8 +660,15 @@ Figure 0.18: How do download the files from PositCloud
 <a class="nav-link" href="#part-3-main-project-morans-i">PART 3: MAIN PROJECT (Moran’s I)</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#step-5-explain-why-we-care">STEP 5: Explain why we care</a></li>
 <li><a class="nav-link" href="#step-6-explore-the-data">STEP 6: Explore the data</a></li>
-<li><a class="nav-link" href="#dataset-chicago-census-tracts-2018"><span class="header-section-number">0.1.5</span> Dataset: Chicago Census Tracts (2018)</a></li>
-<li><a class="nav-link" href="#step-7-calculate-the-change-in-that-variable">STEP 7: Calculate the change in that variable</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#week-2."><span class="header-section-number">0.2</span> WEEK 2.</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mini-update">MINI UPDATE</a></li>
+<li><a class="nav-link" href="#step-7-calculate-the-change-in-your-variables">STEP 7: Calculate the change in your variables</a></li>
+<li><a class="nav-link" href="#step-8-calculating-the-2018-autocorrelation">STEP 8: Calculating the 2018 autocorrelation</a></li>
+<li><a class="nav-link" href="#step-9-calculating-the-change-autocorrelation">STEP 9: Calculating the change autocorrelation</a></li>
+<li><a class="nav-link" href="#step-10-reflection">STEP 10: Reflection</a></li>
 <li><a class="nav-link" href="#congrats-finished-2">Congrats! Finished!</a></li>
 </ul>
 </li>
@@ -514,7 +697,7 @@ Figure 0.18: How do download the files from PositCloud
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>GEOG364 Lab Book 2026</strong>" was written by Dr Helen Greatrex. It was last built on 2026-10-27.</p>
+    <p>"<strong>R code example</strong>" was written by Dr Helen Greatrex. It was last built on 2026-11-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
