@@ -739,7 +739,7 @@ The easiest way to update this is to use ctrl-F, or go to the very top of the en
 
 You will also have to change axis labels (look for the text in quote marks)
 
-```{r}
+```{r, eval=FALSE}
 
 #-----------------------------------------
 # SPATIAL WEIGHTS

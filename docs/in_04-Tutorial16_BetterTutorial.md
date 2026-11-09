@@ -1,6 +1,6 @@
 ---
 title: "R code example"
-date: "2026-11-03"
+date: "2026-11-09"
 output:
   rmdformats::robobook:
     highlight: kate
@@ -827,11 +827,7 @@ matrix.queen.county <- st_contiguity(ACS_county.sf, queen=T)
 # and plot - they look interlinked!
 plot(st_geometry(ACS_county.sf), border = 'grey')
 plot(matrix.queen.county, st_geometry(ACS_county.sf), col = 'black', lwd = 1, cex = .2, add = TRUE)
-```
 
-<img src="in_04-Tutorial16_BetterTutorial_files/figure-html/unnamed-chunk-24-1.png" alt="" width="672" />
-
-``` r
 # calculate the standardised spatial weights
 weights.queen.county <- st_weights(matrix.queen.county, style='B', allow_zero = T)
 
@@ -853,24 +849,15 @@ moran.plot(x = myvariable,
            ylab   = list(title_yaxis,cex=.9),
            cex=.8, cex.axis=.9,
            zero.policy = T)
-```
 
-<img src="in_04-Tutorial16_BetterTutorial_files/figure-html/unnamed-chunk-24-2.png" alt="" width="672" />
 
-``` r
 #-----------------------------------------
 # GLOBAL MORANS I
 #-----------------------------------------
 global_moran(x=ACS_county.sf$income_median,
              nb=matrix.queen.county,
              wt=weights.queen.county)$I
-```
 
-```
-## [1] 0.3717933
-```
-
-``` r
 #-----------------------------------------
 # LISA
 #-----------------------------------------
@@ -915,8 +902,6 @@ tm_shape(ACS_county.sf) +
   tm_title("LISA: % earning > $75K if p<0.05") +
   tm_layout(frame = FALSE)
 ```
-
-<img src="in_04-Tutorial16_BetterTutorial_files/figure-html/unnamed-chunk-24-3.png" alt="" width="672" />
 
 
 

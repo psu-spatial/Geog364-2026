@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Project 2 - IMPROVED INSTRUCTIONS | R code example</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So...">
+<meta name="generator" content="bookdown 0.47 with bs4_book()">
+<meta property="og:title" content="Project 2 - IMPROVED INSTRUCTIONS | R code example">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/project-2---improved-instructions.html">
+<meta property="og:description" content="This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Project 2 - IMPROVED INSTRUCTIONS | R code example">
+<meta name="twitter:description" content="This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.12.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script><script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script><script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script><script src="libs/clipboard-0.0.1/setClipboardText.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R code example</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to GEOG-364!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Lab_2.html">Homework 2</a></li>
+<li><a class="" href="Lab_3.html">Homework 3</a></li>
+<li><a class="" href="Project1.html">Project 1</a></li>
+<li><a class="" href="Lab_4B.html">Homework 4</a></li>
+<li><a class="" href="Lab_5.html">Homework 5</a></li>
+<li><a class="" href="Project2.html">Project 2</a></li>
+<li><a class="active" href="project-2---improved-instructions.html">Project 2 - IMPROVED INSTRUCTIONS</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_Coding.html"><span class="header-section-number">4</span> Coding</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
+<li><a class="" href="T5_Summarising.html"><span class="header-section-number">6</span> Summarising Data</a></li>
+<li><a class="" href="T6B_MissingData.html"><span class="header-section-number">7</span> Missing Data In Depth</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">8</span> Plots</a></li>
+<li><a class="" href="T8_Wrangle.html"><span class="header-section-number">9</span> Data Filtering</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">10</span> Probability distributions</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">11</span> Correlation</a></li>
+<li><a class="" href="T5_VectorSpatial.html"><span class="header-section-number">12</span> Spatial data</a></li>
+<li><a class="" href="T13_Maps.html"><span class="header-section-number">13</span> Making maps</a></li>
+<li><a class="" href="T14_Autocorrelation.html"><span class="header-section-number">14</span> Autocorrelation</a></li>
+<li><a class="" href="T15_Autocorrelation.html"><span class="header-section-number">15</span> Dr G’s Autocorrelation Tutorial</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="project-2---improved-instructions" class="section level1 unnumbered">
+<h1>Project 2 - IMPROVED INSTRUCTIONS<a class="anchor" aria-label="anchor" href="#project-2---improved-instructions"><i class="fas fa-link"></i></a>
+</h1>
+<p>This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So you don’t <em>have</em> to use it, but I hope it is helpful.</p>
+<ul>
+<li><p>If you have already completed the lab, you could read through this and use it as a check-list, adding/tweaking the odd paragraph.</p></li>
+<li><p>If you haven’t started or you’re only partway through the lab, these instructions might be easier to follow.</p></li>
+</ul>
+<p><br><br></p>
+<div id="about-the-lab" class="section level2 unnumbered">
+<h2>About the lab<a class="anchor" aria-label="anchor" href="#about-the-lab"><i class="fas fa-link"></i></a>
+</h2>
+<p>The aim of this lab is to showcase your ability to think about spatial EDA, distance/neighbourhood and autocorrelation.</p>
+<p>This is worth 100 points and you can drop your lowest score out of the three projects.</p>
+<p>Because this is worth 100 points, I expect it to take more time than a standard lab.
+Expect it to take the 4 hours of in class lab time, plus about another 6-10 hours of your own time (so about 2-3 hrs homework per week).</p>
+<p><br></p>
+<p class="comment">
+</p>
+<div id="boxgreen">
+<ul>
+<li><p><strong>This is a THREE WEEK LAB - THE DEADLINE IS NOV-17</strong></p></li>
+<li><p>See <a href="https://psu.instructure.com/courses/2465664/assignments/18709078">the Canvas page</a> for assignment guidelines.</p></li>
+<li><p>You must submit an <code>.Rmd</code> file and its associated <code>.html</code> file.</p></li>
+</ul>
+</div>
+<p><br></p>
+<div id="boxblue">
+<p><strong>Getting help</strong></p>
+<ul>
+<li><p>Samrin (and often Dr G) will be present during your lab sessions.
+This is the easiest way to get help!</p></li>
+<li><p>Dr G AND Samrin have weekly office hours and genuinely enjoy helping you with R.</p></li>
+<li><p>You may send a Canvas message to Samrin or Dr G.</p></li>
+</ul>
+</div>
+<hr>
+<p><br><br></p>
+</div>
+<div id="part-a-lab-setup" class="section level2 unnumbered">
+<h2>PART A: LAB-SETUP<a class="anchor" aria-label="anchor" href="#part-a-lab-setup"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>Create your project &amp; download data/reports</li>
+</ol>
+<ul>
+<li>
+<strong>[1A] Make a Project 2 folder</strong>
+<ul>
+<li>Go to the GEOG364 folder on your computer.</li>
+<li>Make a subfolder called Project2.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[1B] Download the data</strong>
+<ul>
+<li>Go to <a href="https://psu.instructure.com/courses/2465664/assignments/18709078">the Canvas page</a>.</li>
+<li>Download the data and lab report template, and them in your Project2 folder.</li>
+<li>Rename the lab template to include your email ID.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[1C] Make a Project</strong>
+<ul>
+<li>Open R-Studio.</li>
+<li>Go to the File menu and make a New Project in the existing Project2 folder.</li>
+<li>(<a href="T1_Projects.html#T1_Projects">Instructions here if needed: Project Tutorial</a>)</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[1D] Open the lab script</strong>
+<ul>
+<li>Go to the files quadrant/tab and open the RmD Lab report.</li>
+<li>If you are running your project it should be right there. If it’s not, ask a teacher/TA.</li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Adjust your theme and knit options</li>
+</ol>
+<ul>
+<li>
+<p><strong>[2A] Adjust the knit options</strong> <br><em>Your top code chunk allows you to set general options for all the code in your final report. echo=TRUE means show all your code, cache = FALSE tells the computer to freshly download the data when it knits,message=FALSE, warning=FALSE stop the library loading text and any warnings.</em></p>
+<ul>
+<li><p>In your report, find the first code chunk below the YAML code that starts <code>knitr::opts_chunk$set</code>.</p></li>
+<li><p>Adjust your code chunk so that it looks identical to this: <br><code>knitr::opts_chunk$set(echo = TRUE, cache = FALSE, message=FALSE, warning=FALSE)</code></p></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[2B] Change the theme</strong> (Optional but encouraged).
+<br><em>We are using the <code>rmdformats</code> package which has many in-built themes that can be adjusted with a single word. Changing the theme makes your report look unique to you and makes it easier for us to grade.</em></p>
+<ul>
+<li><p>To see the themes, go to <a href="https://github.com/juba/rmdformats" class="uri">https://github.com/juba/rmdformats</a> and scroll down.
+Note the name of the theme you want.</p></li>
+<li><p>Go back to your report and scroll to the very top to look at the YAML code.
+Find the line that starts <code>rmdformats::</code>.</p></li>
+<li><p>Change the word <code>robobook</code> or <code>material</code> to the name of the theme you want, making sure to keep all the colons.
+For example, your line might look like <code>rmdformats::robobook:</code>, <code>rmdformats::downcute:</code>, <code>rmdformats::material:</code>.</p></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Try to knit, check libraries</li>
+</ol>
+<ul>
+<li>
+<p><strong>[3A] Press save and try to knit.</strong></p>
+<ul>
+<li><p>If you find you are missing libraries, or you got your YAML updates wrong, you will get an error.</p></li>
+<li><p>If you are missing libraries, a little yellow bar will probably appear at the top of the screen asking if you want to install them.
+Say yes, wait until the libraries are installed and try again.</p></li>
+<li><p>Occasionally the little yellow bar doesn’t appear and when you press knit, you will get an error saying that it can’t find that library.
+In this case, you go to the “app store” and download the missing package (<a href="T2_Libraries.html#T2_Libraries_install">Instructions here: Packages tutorial</a>) <br></p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><br><br></p>
+</div>
+<div id="part-b-notes-and-tutorials" class="section level2 unnumbered">
+<h2>PART B: NOTES AND TUTORIALS<a class="anchor" aria-label="anchor" href="#part-b-notes-and-tutorials"><i class="fas fa-link"></i></a>
+</h2>
+<ol start="4" style="list-style-type: decimal">
+<li>Summarise your notes</li>
+</ol>
+<ul>
+<li>
+<p><strong>[4A] Read this chapter:</strong> Chapter 13 of Dr Girmond’s Spatial Data Science: <a href="https://mgimond.github.io/Spatial/13_autocorrelation.html" class="uri">https://mgimond.github.io/Spatial/13_autocorrelation.html</a>, from the start until until 13.4.1.
+**</p>
+<ul>
+<li>STOP AT 13.4.2! “Multiple Comparisons and False Discovery Rate”</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[4B] In your report, thoughtfully explain in your own words</strong></p>
+<ul>
+<li><p>[1] Why do geographers care about spatial autocorrelation?</p></li>
+<li><p>[2] Would the world look like without spatial autocorrelation (and what are the formal names of the pattern and process that describe this. (see the lecture notes)</p></li>
+<li><p>[3] Using the 10A lecture notes/recording from Monday to help, Describe Moran’s I and explain why it’s a global statistic.</p></li>
+<li><p>[4] What does spatial lag mean?</p></li>
+<li><p>[5] What does a positive value of moran’s I represent?</p></li>
+<li><p>[6] Describe “Local Moran’s I”</p></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Make yourself a mini tutorial about Moran’s I</li>
+</ol>
+<ul>
+<li><p><strong>[5A] Create a new sub-heading called “Tutorial”.</strong></p></li>
+<li>
+<p><strong>[5B] Reproduce the tutorial with your own commentary</strong> <br>I have recreated some of Dr Giramond’s results in Tutorial 14 and given you the code (but not run it) - see <a href="T14_Autocorrelation.html#T14_Autocorrelation">Tutorial 14: Autocorrelation</a>.</p>
+<ul>
+<li><p><strong>Reproduce the analysis:</strong> Copy the code from Tutorial 14 into your own report and run it.</p></li>
+<li><p><strong>Explain the code:</strong> Describe, in your own words, what each code chunk is doing and why.The more specific the better.</p></li>
+<li><p><strong>Interpret the output:</strong> Explain what the outputs tell you about spatial autocorrelation.
+Demonstrate a deeper understanding by linking the your tutorial to concepts from class and the reading above.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><br><br></p>
+</div>
+<div id="part-c-main-project" class="section level2 unnumbered">
+<h2>PART C: MAIN PROJECT<a class="anchor" aria-label="anchor" href="#part-c-main-project"><i class="fas fa-link"></i></a>
+</h2>
+<div id="P2_Background" class="section level3 unnumbered">
+<h3>Background/introduction<a class="anchor" aria-label="anchor" href="#P2_Background"><i class="fas fa-link"></i></a>
+</h3>
+<p>You are an urban planner working for the City of Chicago, tasked with helping decide where to prioritise future investment in urban development, green spaces and tree planting.</p>
+<p>Your office is concerned about geographical inequalities across the city.
+In particular, you want to understand whether differences in wealth, poverty and housing conditions are becoming more geographically concentrated or dispersed over time, and whether similar patterns exist in the distribution of urban tree cover.</p>
+<p>You have been given census tract data for <strong>2010 and 2018</strong>.
+Your task is to use spatial statistics, including <strong>Global Moran’s I and LISA</strong>, to investigate how these patterns have changed, identify neighbourhoods where inequalities persist, and consider what your findings might mean for future planning decisions.</p>
+<p><strong>Datasets:</strong></p>
+<ul>
+<li><p><strong>The <code>ChicagoTracts_2018</code> dataset</strong> contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2018.</p></li>
+<li><p><strong>The <code>ChicagoTracts_2010</code> dataset</strong> contains demographic, socioeconomic and environmental information for census tracts across Chicago for the year 2010.</p></li>
+<li><p>Most variables come from the <strong>2018 American Community Survey (ACS)</strong>, which provides census tract-level estimates of population characteristics, income, poverty, housing and education.
+Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detection and Ranging)</strong> data.</p></li>
+<li><p>In both, each row represents a census tract, with an associated polygon showing its geographical boundaries.</p></li>
+</ul>
+<p>The dataset contains the following variables:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="37%">
+<col width="62%">
+</colgroup>
+<thead><tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>GEOID</code></td>
+<td>Unique census tract identifier</td>
+</tr>
+<tr class="even">
+<td><code>arealand_sqmiles</code></td>
+<td>Land area of the tract (square miles)</td>
+</tr>
+<tr class="odd">
+<td><code>canopy_2018</code></td>
+<td>Percentage of the tract covered by tree canopy</td>
+</tr>
+<tr class="even">
+<td><code>population_2018</code></td>
+<td>Total population</td>
+</tr>
+<tr class="odd">
+<td><code>pop_density_2018</code></td>
+<td>Population per square mile</td>
+</tr>
+<tr class="even">
+<td><code>pct_poverty_2018</code></td>
+<td>Percentage of residents living below the poverty threshold</td>
+</tr>
+<tr class="odd">
+<td><code>med_income_2018</code></td>
+<td>Median household income ($)</td>
+</tr>
+<tr class="even">
+<td><code>med_rent_2018</code></td>
+<td>Median monthly rent ($)</td>
+</tr>
+<tr class="odd">
+<td><code>med_value_2018</code></td>
+<td>Median home value ($)</td>
+</tr>
+<tr class="even">
+<td><code>pct_vacant_2018</code></td>
+<td>Percentage of housing units that are vacant</td>
+</tr>
+<tr class="odd">
+<td><code>pct_white_2018</code></td>
+<td>Percentage of residents identified as White</td>
+</tr>
+<tr class="even">
+<td><code>pct_black_2018</code></td>
+<td>Percentage of residents identified as Black</td>
+</tr>
+<tr class="odd">
+<td><code>pct_hispanic_2018</code></td>
+<td>Percentage of residents identified as Hispanic or Latino</td>
+</tr>
+<tr class="even">
+<td><code>pct_degree_2018</code></td>
+<td>Percentage of residents with a college degree</td>
+</tr>
+<tr class="odd">
+<td><code>geometry</code></td>
+<td>Census tract boundaries (MULTIPOLYGON)</td>
+</tr>
+</tbody>
+</table></div>
+<p><br></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Project introduction</li>
+</ol>
+<p>Before getting started with data analysis, it’s important to understand the context of the study, or you might miss interesting nuances in the data.</p>
+<ul>
+<li>
+<strong>[6A] Set up your report.</strong> Create a new heading called “Chicago Project”, and underneath, create a new sub-heading called “Study aim and background”.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[6B] Read the following three resources:</strong></p>
+<ul>
+<li><p><strong>BBC Future:</strong> <a href="https://www.bbc.com/future/article/20240613-how-to-cool-down-urban-heat-islands-in-americas-heatwaves">How to cool down urban heat islands</a></p></li>
+<li><p><strong>The New York Times:</strong> <a href="https://www.nytimes.com/interactive/2020/08/24/climate/racism-redlining-cities-global-warming.html">How decades of racist housing policy left neighbourhoods sweltering</a> (you can log in by clicking institutional log in then using your PSU address).</p></li>
+<li><p><strong>The Morton Arboretum:</strong> <a href="https://mortonarb.org/plant-and-protect/chicago-region-trees-initiative/maps-and-data-to-guide-local-action-for-trees/">Maps and data to guide local action for trees</a></p></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[6C] Explain the study aim &amp; why your planning office cares. (100-300 words).</strong> <br> It doesn’t need to follow this structure exactly, but an excellent answer would include
+<ul>
+<li>A summary of the report aim from the <a href="project-2---improved-instructions.html#P2_Background">Lab Background</a>
+</li>
+<li>An explanation of why your planning office would be interested in the geographical distribution of wealth, poverty and tree cover across Chicago, that refers to the three articles above for specific points.</li>
+<li>An explanation of how how historical inequalities might affect present-day living conditions, why tree cover matters for urban communities, and how organisations such as the Morton Arboretum are using geographical data to inform decisions.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[6D] Explain the link to spatial statistics (100-300 words)</strong>. <br> In the next paragraph, explain these two points:
+<ul>
+<li>Why it might be useful to know whether these geographical patterns are changing over time, rather than simply examining the situation in 2018.</li>
+<li>An explanation of what spatial autocorrelation is (including what positive, negative and zero autocorrelation means) and why your planning office would be interested in this to achieve their goals. e.g. how does understanding spatial autocorrelation help officials to describe patterns and understand the processes that cause them.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[6E] Set up the report.</strong> Create a new sub-heading called “Initial Data Analysis”.</li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="P2_Background" class="section level3 unnumbered">
+<h3>Exploratory data analysis<a class="anchor" aria-label="anchor" href="#P2_Background"><i class="fas fa-link"></i></a>
+</h3>
+<p>This was previously “step 6”, I have tried to give much more guidance.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Exploratory data analysis Activity</li>
+</ol>
+<p><strong>This step is exploration only. Your code and maps can stay in your report, but you don’t need to write about them until step 8</strong> Keep notes as you go, because in Step 8 you will turn them into your write-up. If it helps, read step 8 first, so you know what to look out for.</p>
+<p>In this step you will get to know the 2018 data, choose one variable to focus on, and look closely at how it varies across Chicago.</p>
+<p><br></p>
+<ul>
+<li>
+<strong>[7A] Read in the data.</strong> Read in both the 2010 and 2018 datasets using st_read (<a href="T5_Summarising.html#T5_Summarising">Reminder here</a><a href="T4_ReadingData.html#T4_ReadingData">: Loading Data Tutorial</a>).
+<ul>
+<li><em>Side note: For most of this step we will only work with <code>ChicagoTracts_2018</code>, but if you do want to look at the 2010 version, remember it’s easy to adjust the code; simply copy/paste the code and change the 2018s to 2010s (this is why I standardise file/column names.)</em></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7B] Get to know the 2018 dataset.</strong>
+<ul>
+<li>Look at the spreadsheet itself and calculate summary statistics for the 2018 data (<a href="T5_Summarising.html#T5_Summarising">Reminder here: Summary Tutorial</a> ).</li>
+<li>Take 5 minutes to make sure you understand the following. You will write it up in step 8.
+<ul>
+<li>The object of analysis (what one row represents) and how many objects/tracts there are</li>
+<li>What each column represents and its units. Compare your data to the list of variables in the <a href="project-2---improved-instructions.html#P2_Background">Lab Background</a> so that you understand what each column contains and can interpret the numbers.</li>
+<li>Whether there’s anything that might cause problems. For example, missing values, or if values that appear clearly wrong or unrealistic (e.g. a negative number of people, or a rainfall of 999)
+<ul>
+<li>There shouldn’t be any problems in this lab, but in general, this is a good point to fix those issues, using the dplyr::filter command to make a new dataset for the rest of the lab.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Advanced: <em>If you’re finding this lab easy, also note if there are any counties/tracts with very few residents (such as the airport, or large parks or the lake) as they can impact percentage calculations.</em>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7C] Make a variable shortlist.</strong> Think about the study aim from your introduction and the <a href="project-2---improved-instructions.html#P2_Background">Lab Background</a>. Choose 3–4 variables you think matter for the planning office or that you are interested in investigating (i.e. you don’t need to look at every variable in the dataset).</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[7D] Start making some maps &amp; choose your primary variable.</strong> The aim of this is to choose a single variable that supports the needs of the planning office and whose spatial pattern interests you most.</p>
+<ul>
+<li>
+<p>Make an interactive map of your shortlisted variables and look at the patterns.
+To make maps quickly, you could adjust the code below, or use code from your previous labs.
+(there’s also more examples of Tmap code lower down)</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Make the map interactive</span></span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_mode.html">tmap_mode</a></span><span class="op">(</span><span class="st">"view"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Map in a slightly transparent way with no borders</span></span>
+<span><span class="co"># Remember to replace datasetname and columnname with your data</span></span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/qtm.html">qtm</a></span><span class="op">(</span><span class="va">datasetname</span>, fill<span class="op">=</span><span class="st">"columnname"</span>, fill_alpha<span class="op">=</span><span class="fl">.6</span>, col<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+</li>
+<li><p>Choose a variable that supports the needs of the planning office and whose spatial pattern interests you (or will give you interesting results from an autocorrelation perspective.</p></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7E] Make a histogram of your primary variable.</strong>
+<ul>
+<li>Tutorial here if you can’t remember: T7_Histograms</li>
+<li>Look at the result and note if it’s skewed or contains unusual values (not sure what I mean? click here: <a href="https://statisticsbyjim.com/basics/skewed-distribution/" class="uri">https://statisticsbyjim.com/basics/skewed-distribution/</a>). You will write this up in step 8.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7F] Look closely at the map of your primary variable,</strong> You will write this up step 8. <br><ul>
+<li>If you haven’t already, zoom in and out of the map you made above Imagine you had to describe this map to someone on the phone or to someone who is blind. Think about how you could you describe it so that their drawing of the map looks like yours.</li>
+<li>To help with this:
+<ul>
+<li>Explore how your pattern aligns with the background map. e.g. downtown, the lakefront, train lines, parks, industrial areas, or the redlined areas from the New York Times article.
+<ul>
+<li><em>To work out what neighbourhood something is in, I typically zoom in and look for a nearby school or park then google it. I also google things like tourism maps so I can get a sense of a new city and its main neighbourhoods.</em></li>
+</ul>
+</li>
+<li>Look for any interesting spatial features that you see (especially those linked to autocorrelation) and note where they are on the background map.
+<ul>
+<li><em>For example, where are the cold/hotspots, Do you see large smooth clusters? Randomness? a gridlike or chessboard pattern? A smooth gradient? Scattered extremes? (which tracts? where are they).</em></li>
+</ul>
+</li>
+<li>Start thinking about process and ask yourself why you the pattern looks like this. Note anything easy, e.g. your variable gets higher inland, or there’s hotspots downtown or near university</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[7G] Map your variable in 2010 and 2018 and consider about how the pattern changes.</strong></p>
+<ul>
+<li><p>Make maps of your variable in 2010 and 2018.
+You can use your own code or edit my code below (copy the whole code chunk)</p></li>
+<li>
+<p>Look for any changes.
+<em>i.e. has your variable increased/decreased? Has the pattern changed? e.g. poor areas moved north? tree cover got more/less fractured?</em></p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## TWO MAPS WITH THE SAME COLOR SCALE</span></span>
+<span><span class="co">## (you don't need to use this, you can use your own code/existing maps). </span></span>
+<span></span>
+<span><span class="co">#---------------------------------------------------</span></span>
+<span><span class="co"># Copy the entire code chunk into your report</span></span>
+<span><span class="co"># Then change this to match your data/variable</span></span>
+<span><span class="co">#---------------------------------------------------</span></span>
+<span><span class="va">dataset2010</span>    <span class="op">&lt;-</span> <span class="va">ChicagoTracts_2010</span></span>
+<span><span class="va">columnname2010</span> <span class="op">&lt;-</span> <span class="st">"population_2010"</span></span>
+<span><span class="va">dataset2018</span>    <span class="op">&lt;-</span> <span class="va">ChicagoTracts_2018</span></span>
+<span><span class="va">columnname2018</span> <span class="op">&lt;-</span> <span class="st">"population_2018"</span></span>
+<span></span>
+<span><span class="co">#---------------------------------------------------</span></span>
+<span><span class="co"># Optional, change the color palette. </span></span>
+<span><span class="co">#    To see different colour palette names, run this in the console</span></span>
+<span><span class="co">#    cols4all::c4a_palettes(series = "brewer")</span></span>
+<span><span class="co">#    You can see what they look like by googling "brewer colour palettes".</span></span>
+<span><span class="co">#---------------------------------------------------</span></span>
+<span> <span class="va">colorpalette</span> <span class="op">&lt;-</span> <span class="st">"brewer.yl_gn_bu"</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#---------------------------------------------------</span></span>
+<span><span class="co"># Now run the entire code chunk to create the maps </span></span>
+<span><span class="co">#---------------------------------------------------</span></span>
+<span><span class="co"># Manually set the color scale to stretch from the min to max across both datasets</span></span>
+<span><span class="co"># pretty() means choose numbers like 1000, not 927. </span></span>
+<span><span class="va">mybreaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">dataset2010</span><span class="op">[[</span><span class="va">columnname2010</span><span class="op">]</span><span class="op">]</span>,</span>
+<span>                           <span class="va">dataset2018</span><span class="op">[[</span><span class="va">columnname2018</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Make the 2010 map</span></span>
+<span><span class="va">map_2010</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">dataset2010</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_polygons</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">columnname2010</span>, </span>
+<span>              col <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>              fill_alpha <span class="op">=</span> <span class="fl">.6</span>,</span>
+<span>              fill.scale <span class="op">=</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_scale_intervals.html">tm_scale_intervals</a></span><span class="op">(</span>style <span class="op">=</span> <span class="st">"fixed"</span>, </span>
+<span>                                              breaks <span class="op">=</span> <span class="va">mybreaks</span>,</span>
+<span>                                              values <span class="op">=</span> <span class="va">colorpalette</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Make the 2018 map</span></span>
+<span><span class="va">map_2018</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">dataset2018</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_polygons</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">columnname2018</span>, </span>
+<span>               col <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>               fill_alpha <span class="op">=</span> <span class="fl">.6</span>,</span>
+<span>               fill.scale <span class="op">=</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_scale_intervals.html">tm_scale_intervals</a></span><span class="op">(</span>style <span class="op">=</span> <span class="st">"fixed"</span>, </span>
+<span>                                               breaks <span class="op">=</span> <span class="va">mybreaks</span>,</span>
+<span>                                               values <span class="op">=</span> <span class="va">colorpalette</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot the maps side by side. </span></span>
+<span><span class="co"># sync = TRUE makes them zoom and pan together.</span></span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_arrange.html">tmap_arrange</a></span><span class="op">(</span><span class="va">map_2010</span>, <span class="va">map_2018</span>, sync <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[7H] Consider process and find out what is already known about it</strong> (you will write this up in step 8)
+<ul>
+<li>Now you have some initial ideas, search online for existing maps or reports of your variable in Chicago. Lots of people are interested in this topic, and many others have mapped these variables and talk about the processes causing the patterns (even if they use slightly different terminology).
+<ul>
+<li>Spend about 30 mins on this. Stop when you have at least one example you can describe and a source or two that suggests reasons for the pattern you see.</li>
+<li>Some hints:
+<ul>
+<li>Heres how I would google different variables across Chicago:
+<ul>
+<li>
+<em>Chicago [variable name] map causes</em> e.g. “Chicago tree cover map causes”</li>
+</ul>
+</li>
+<li>If I know hotspots/coldspots etc from the the previous step, here’s how I google about a specific place, first checking that the search results are about the place I’m expecting.
+<ul>
+<li>
+<em>“why [high/low] [variable name] near [landmark] Chicago”</em>. e.g. “why high poverty near st augustine’s park, Chicago”</li>
+</ul>
+</li>
+<li>You can ask genAI to get you started,
+<ul>
+<li>You can use a sentence like <em>“what spatial pattern do you think [variable] might have over Chicago, what might cause that pattern and can you find sources/evidence to back up your claims.”</em>
+</li>
+<li>I would then challenge whatever ideas it gives you (e.g. “<em>Are you really sure?” “Whats the evidence for and against this?” “Can you find sources to confirm this?” “But I see the opposite effect in district X”</em> ). For example, when a student and I did this, we had to disagree with the AI and tell it there really was higher poverty in district X before it started giving sensible answers.</li>
+</ul>
+</li>
+<li>BUT REMEMBER.. in your report, you need to check any sources/evidence yourself and in the next section, you should be able to explain what you think is going on <u>in your own words.</u>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<div>
+<p>What should be in your report at this point?
+(this is how we will grade this step)</p>
+<p>Your report should contain at least:</p>
+<ul>
+<li><p>Some summary statistics,</p></li>
+<li><p>A histogram of your primary variable,</p></li>
+<li><p>The side-by-side 2010/2018 maps.
+It’s also fine to keep your earlier exploratory maps, especially if you want to talk about them in the report.</p></li>
+<li><p>You should also have a good idea about what your data shows, ready to write it up in step 8.
+If you wrote notes in your report, you can incorporate those into your answers.</p></li>
+</ul>
+</div>
+<p><br><br></p>
+<ol start="8" style="list-style-type: decimal">
+<li>Write up your Exploratory Data Analysis</li>
+</ol>
+<div>
+<p><strong>Style Guide</strong></p>
+<p>The word counts here are approximate, it’s fine if some are slightly longer and others slightly shorter.</p>
+<p>Its fine if you keep your maps maps/plots/code from step 7 at the start of Exploratory Data Analysis and refer to them in the text, or if you decide to reorder things and merge step 7 &amp; 8</p>
+<p>Please use sub-headings to make it easy for the reader to follow your writing.
+.e.g. “About the data”, “Spatial Description”</p>
+</div>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[8A] Write your aim and introduce the data (100+ words).</strong> An excellent answer would include:</p>
+<ul>
+<li>The source of the data,</li>
+<li>The object of analysis and how many objects there are,</li>
+<li>Remember you can copy/paste the variable list from my instructions! In this case it’s up to you if you include the entire dataset or just the few columns that you are actually focusing on.</li>
+<li>The spatial and temporal domain/the population.</li>
+<li>Name your primary variable and write 1–2 sentences on why this links to for the planning office.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[8B] Describe the numeric distribution of your primary variable, referring back to the histogram and your summary statistics. (100 words).</strong> An excellent answer would include
+<ul>
+<li>A description of the “central value” (e.g. mean/median), and whether the values vary widely (standard deviation, IQR, range, minimum/maximum). You can choose the exact statistics you refer to.</li>
+<li>Put the numbers in context for the planning office. i.e. how does a typical tract compare with the US as a whole?</li>
+<li>Whether the distribution is skewed and what that means, (e.g. <em>“most people are poor, there are one or two very rich areas that dominate the map. These are found in the XXX area of the city”</em> ).</li>
+<li>If there are are any unusual values, potential “bad data” or missing data. There shouldn’t be any in this lab, but in general, this is a good point to fix those issues using the dplyr::filter command and to make a new dataset for the rest of the lab.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[8C] Referring to your maps from 7, describe the spatial pattern in the 2018 data (100-200 words).</strong> Focus on what is interesting and relevant to your aim. You do not need to describe every pattern. An excellent answer should
+<ul>
+<li>Describe the pattern in enough detail that someone who cannot see your map could draw a rough version of it from your words.</li>
+<li>Describe the shape, scale and location of the spatial features. Throughout, link what you describe to real places in Chicago: neighbourhoods, downtown, the lakefront, rivers, parks, rail lines or expressways. A planner reading your report should be able to work out where each aspect of the pattern is.</li>
+<li>To see what I mean, expand the drop down for a ‘professor level’ description of a map of population density across Philadelphia.</li>
+</ul>
+</li>
+</ul>
+<details><summary>
+Expand this for Dr G’s example map description
+</summary><p><br></p>
+<p><em>Here is the map I am describing (from <a href="https://giequity.org/philadelphia/" class="uri">https://giequity.org/philadelphia/</a> ). My description is much longer than I’m asking you for, but I wanted to give you a sense of the types of things you could say. Your answers might focus more on the bold text with one or two explaining details</em></p>
+<p><a href="https://giequity.org/philadelphia/"><img src="Philly-Pop-Density.png" style="width:70.0%"></a></p>
+<p><strong>The map shows 2018 population density for Philadelphia census tracts, bounded by the city limits.</strong> <strong>As in most cities, we see higher population densities towards the city centre, with lower densities towards the suburbs and outskirts of the city.</strong> Note, census tracts tend to be smaller near the city centre and larger towards the edges, making it important to think about MAUP in any analysis.</p>
+<p>There is notable spatial variability within this overall pattern.</p>
+<ul>
+<li><p><strong>Large clusters of higher than average population density, although there may be problems with edge effects,</strong> There is a broad, irregular band of high values extending from South Philadelphia, through Center City (downtown), then north, where it splits into two arms.
+One runs north through North Philadelphia, and the other northeast through Kensington and Frankford.
+Because the land between the two arms lies outside the city, we cannot tell from this dataset if there is one single large cluster of high population density or two separate clusters in the north and north east.
+A second large cluster of high-density tracts occurs in West Philadelphia, immediately west of the Schuylkill River.
+The cut off at the map boundary also makes it unclear how large this cluster is.</p></li>
+<li><p><strong>Population density decreases smoothly in the north/west, sharply in the south and is complicated in the east</strong>.
+In the north and north east, there is a gradual decrease in population density as we move towards the suburbs.
+This does not occur in the south, A few miles south of Center City, the density changes abruptly from densely populated residential tracts to a large area of very low values, which correspond to the stadium district, Navy Yard and other industrial areas.
+There are also a line of small industrial areas and green spaces alongside the river, which contrasts with the densely populated districts next to them.</p></li>
+</ul>
+<p><strong>There is one small cluster of extremely high population densities due to residential luxury skyscrapers, also seen in the extreme values in the histogram</strong>.
+Most high-density tracts tend to contain row homes (densities of ~20,000–40,000 people per square mile), but there are also a few small tracts with almost double that density.
+These are tiny census tracts containing downtown luxury high-rise apartment blocks (tracts 8.03 and 8.04, with 60,000–80,000 people per square mile).
+<strong>Looking across the map, there are several scattered tracts with much lower population densities than their immediate neighbours.</strong> These either tend to correspond to public parks, golf courses and other green spaces; or to industrial districts.
+For example, the prominent white square in the centre of the map contains the Industrial and warehouse district around Feltonville and Hunting Park.
+The tracts following the rivers tend to correspond to public parks.</p>
+</details><p><br></p>
+<ul>
+<li>
+<strong>[8D] Describe the trend over time (100+ words).</strong>
+<ul>
+<li>Describe any changes you can see between 2010 and 2018, referring to your maps from 7. Differentiate between general changes (<em>it gets richer</em>) and changes in the spatial pattern (<em>the poor areas expand</em>, <em>the tree cover becomes more fractured..</em>).</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[8E] Suggest processes (150+ words).</strong>
+<ul>
+<li>Suggest at least TWO processes that might explain the patterns you described above. Cite at least one source to support your discussion.</li>
+<li>Some hints:
+<ul>
+<li>Make clear what you saw on the map (the pattern) and what you are inferring/guessing (the process).</li>
+<li>Saying <em>“The 2008 housing crisis is a process”</em> on its own is too vague. To count for credit you need to explain why the housing crisis would cause this spatial pattern. E.g. why it might raise vacancy in one part of the city and leave another part unaffected (pointing out those places).</li>
+<li>This should be based on your reading/investigation in Step 6B. If you’re stuck, see if you can see if some of these might be linked to the pattern you see.
+<ul>
+<li>Distance to the river/city centre, redlining, the 2008 housing crisis, transportation links, the 2016 announcement of the Obama Presidential Centre location, random chance, another variable in your dataset (e.g. maybe wealth correlates with tree cover?)</li>
+</ul>
+</li>
+<li>There is no single right answer. You are graded on how well you link processes to places and support them with evidence.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[8F] Summarise and predict (2–3 sentences).</strong></p>
+<ul>
+<li>Briefly summarise what you found in a sentence or two,</li>
+<li>Then explain if in your opinion, your 2018 variable looks positively autocorrelated (similar values next to each other), negatively autocorrelated (a chessboard of high and low values), or not autocorrelated at all. You will test your prediction with Moran’s I and LISA later.</li>
+</ul>
+<p><br><br></p>
+</li>
+</ul>
+</div>
+<div id="week-2-1" class="section level3 unnumbered">
+<h3>WEEK 2<a class="anchor" aria-label="anchor" href="#week-2-1"><i class="fas fa-link"></i></a>
+</h3>
+<ol start="9" style="list-style-type: decimal">
+<li>Calculate the change in your variables (previously step 7) {.unnumbered}</li>
+</ol>
+<div>
+<p><strong>Side note, why am I doing this after I wrote up my EDA?</strong></p>
+<p>You’re right to be confused! If you were doing this analysis for real, this code would have appeared somewhere in step 7, before you wrote up your EDA. Its here to try and balance the workload across the lab but I know it will feel slightly out of sync in terms of the data analysis process</p>
+</div>
+<p>We now want to formally calculate the difference between 2010 and 2018. Calculating differences is however, slightly more complex than it might first appear. Expand each of these to read the rules for different data types (you will need this info in step 9A):</p>
+<p><u>Firstly, always start with the later time-stamp (e.g. 2018 - 2010)</u>.
+You want increases to be positive and decreases negative</p>
+<details><summary><u>Use ‘percentage points’ when comparing percentages. Expand to read more</u>
+</summary><p><br></p>
+<p>If you are comparing two percentages e.g. how does the percentage-tree-cover change over time, then you need to use <u>percentage points.</u></p>
+<ul>
+<li>A <u>percentage point</u> is the the simple arithmetic difference between two percentage values.<br>
+Value1(%) - Value2(%). E.g. if your index of 20% increases by two percentage points, it means it goes from 20% to 22%.</li>
+<li>The <em>percentage change</em> is the actual percentage your value fell by. E.g. if your index of 20% increased by 2%, then you’re saying it has gone from 20% to (20*1.02)%. AKA 20% to 20.4%. AKA it has increased by 2% of 20%.</li>
+<li>This is one way people “lie with statistics”</li>
+</ul>
+<p><br></p>
+</details><details><summary><strong>Use raw differences or percentage change when comparing numeric variables.</strong> Expand to read more
+</summary><p><br></p>
+<p>Some variables, like population, are numeric (e.g. the population in 2010 was 1249 and in 2018, the population was 1502).
+In this case, we can either</p>
+<ul>
+<li>Calculate at the raw difference (1502 - 1249 = 253 more people). This is simple to understand, but over a whole map, areas where the population was high to start with might swamp any view of what’s happening</li>
+<li>OR.. we calculate the <em>percentage change</em>. (1502 - 1249)/1249 = 0.203. So the population increased by 20%.</li>
+</ul>
+<p><br></p>
+</details><details><summary><strong>For monetary variables, its useful to also take inflation into account.</strong> Expand to read more
+</summary><p><br></p>
+<p>Inflation tends to mean that things get more expensive over time.
+If we don’t take this into account, all you see on a map of differences is that life “became more expensive”, which would likely swamp any spatial pattern.</p>
+<p>A simple method to achieve this is to convert the 2010 values into 2018 dollars using an inflation adjustment factor (more details here - <a href="https://www.bls.gov/cpi/" class="uri">https://www.bls.gov/cpi/</a>).</p>
+<p><u>What do I mean by this?</u></p>
+<ul>
+<li><p>Take the 2010 Consumer Price Index (the cost of a standardised “basket” of goods and services e.g. a bottle of milk, a gallon of fuel), and divide it by the 2018 CPI (the cost of the same “basket” of goods and services in 2018)</p></li>
+<li><p>So the Inflation adjustment factor for 2010-2018 is `2010CPI / 2018CPI`</p></li>
+<li><p>Example: If you bought a car in 2010 and wanted to know how much that purchase would have cost in 2018, you can simply calculate: <br> `2018CarCost = 2010CarCost * (2010CPI / 2018CPI)`</p></li>
+<li><p>This means the raw inflation adjusted difference in car price between 2010 and 2018 is: <br><br>
+`RawChange = 2018CarCost / (2010CarCost * (2010CPI / 2018CPI))`</p></li>
+<li><p>And the percentage inflation adjusted difference in car price is: <br><br>
+`PercentageChange = (2018CarCost / (2010CarCost * (2010CPI / 2018CPI)) - 1) * 100`</p></li>
+</ul>
+<p><br></p>
+<p><u>Where can you I get the numbers for the CPI?</u></p>
+<ul>
+<li><p>Click here - <a href="https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf" class="uri">https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf</a>.
+This will take you to a pdf document with the US Department of Labor’s CPI for every month and year from 1977-2019.</p></li>
+<li><p>As an example of reading the table, the average CPI for 1979 is 114.3.</p></li>
+</ul>
+<div class="float">
+<img src="CPI%20statistics.png" alt="(more details here - https://www.bls.gov/cpi/ )"><div class="figcaption"><em>(more details here - <a href="https://www.bls.gov/cpi/" class="uri">https://www.bls.gov/cpi/</a> )</em></div>
+</div>
+<p><br></p>
+</details><p><br></p>
+<ul>
+<li>
+<strong>[9A] We are going to create a new variable that contains the difference between 2010 and 2018 for <em>all</em> the variables in your original table</strong> (in part so I can show you how the code looks in the three cases above). <br><ul>
+<li>Copy the entire code chunk below into your report, under a new relevant subheading. If your datasets are named differently, adjust the dataset names of <code>ChicagoTracts_2018</code>, <code>ChicagoTracts_2010</code> and <code>ChicagoTracts_Change</code> to match your system DO NOT RUN IT YET!</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>My code uses all three methods I described above to calculate the change in <em>all</em> the variables, saving the result as a variable called <code>ChicagoTracts_Change</code>. Even though you are only looking at one variable, I suggest keeping all of this code. It’s good practice to do it this way because then <code>ChicagoTracts_2010</code> , <code>ChicagoTracts_2018</code> and <code>ChicagoTracts_Change</code> match exactly, other than their suffix, which gives you full freedom to check any aspect of your patterns against any supporting variable.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>So.. there is only one part of the code you need to fix before it will run with out errors.</strong> I have not entered the CPI 2010 and CPI 2018 numbers, instead writing “ANS”. Until you enter the correct numbers, the code will crash. Using the explanations in the three drop downs above, replace ANS with the correct numbers, then run the code. <em>(not sure what CPI is? Read the explanations above!)</em>
+</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Get the Consumer price index in 2010 and 2018</span></span>
+<span><span class="co"># THIS WILL BREAK UNTIL YOU REPLACE ANS WITH ACTUAL NUMBERS.</span></span>
+<span><span class="va">cpi_2010</span> <span class="op">&lt;-</span> <span class="va">ANS</span></span>
+<span><span class="va">cpi_2018</span> <span class="op">&lt;-</span> <span class="va">ANS</span> </span>
+<span></span>
+<span><span class="va">inflation_adjustment</span> <span class="op">&lt;-</span> <span class="va">cpi_2010</span><span class="op">/</span><span class="va">cpi_2018</span></span>
+<span></span>
+<span></span>
+<span><span class="va">ChicagoTracts_Change</span> <span class="op">&lt;-</span> <span class="va">ChicagoTracts_2018</span> <span class="op">|&gt;</span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_drop_geometry</a></span><span class="op">(</span><span class="va">ChicagoTracts_2010</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">arealand_sqmiles</span><span class="op">)</span>,</span>
+<span>             by <span class="op">=</span> <span class="st">"GEOID"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>      <span class="co">#--- Percentages: 2018 minus 2010, in percentage points</span></span>
+<span>      <span class="co"># canopy is a percentage, its just not in the variable name</span></span>
+<span>      chg_canopy      <span class="op">=</span> <span class="va">canopy_2018</span>       <span class="op">-</span> <span class="va">canopy_2010</span>,</span>
+<span>      chg_poverty     <span class="op">=</span> <span class="va">pct_poverty_2018</span>  <span class="op">-</span> <span class="va">pct_poverty_2010</span>,</span>
+<span>      chg_vacant      <span class="op">=</span> <span class="va">pct_vacant_2018</span>   <span class="op">-</span> <span class="va">pct_vacant_2010</span>,</span>
+<span>      chg_white       <span class="op">=</span> <span class="va">pct_white_2018</span>    <span class="op">-</span> <span class="va">pct_white_2010</span>,</span>
+<span>      chg_black       <span class="op">=</span> <span class="va">pct_black_2018</span>    <span class="op">-</span> <span class="va">pct_black_2010</span>,</span>
+<span>      chg_hispanic    <span class="op">=</span> <span class="va">pct_hispanic_2018</span> <span class="op">-</span> <span class="va">pct_hispanic_2010</span>,</span>
+<span>      chg_degree      <span class="op">=</span> <span class="va">pct_degree_2018</span>   <span class="op">-</span> <span class="va">pct_degree_2010</span>,</span>
+<span>      </span>
+<span>      <span class="co">#--- Counts: percent change</span></span>
+<span>      chg_population  <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">population_2018</span> <span class="op">-</span> <span class="va">population_2010</span><span class="op">)</span> <span class="op">/</span> <span class="va">population_2010</span>,</span>
+<span>      </span>
+<span>      <span class="co">#--- Dollars: percent change after adjusting for inflation</span></span>
+<span>      chg_income      <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">med_income_2018</span> <span class="op">/</span> <span class="op">(</span><span class="va">med_income_2010</span> <span class="op">*</span> <span class="va">inflation_adjustment</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>      chg_rent        <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">med_rent_2018</span>   <span class="op">/</span> <span class="op">(</span><span class="va">med_rent_2010</span>   <span class="op">*</span> <span class="va">inflation_adjustment</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>      chg_value       <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="op">(</span><span class="va">med_value_2018</span>  <span class="op">/</span> <span class="op">(</span><span class="va">med_value_2010</span>  <span class="op">*</span> <span class="va">inflation_adjustment</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>   <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>   <span class="co">#--- Keep just the ID, land area and the change columns</span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">arealand_sqmiles</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"chg_"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[9B]</strong> <strong>Check you understand what you did.</strong></p>
+<ul>
+<li>[1] Look at the code above. To make your life easy, make sure you understand
+<ul>
+<li>The name of your new dataset,</li>
+<li>The name of the change column for your main variable and your new units (pct points? Pct change, raw change, inflation adjusted?),</li>
+<li>AND what a positive or negative value means in terms of your variable.
+<ul>
+<li><em>For example, if before I was mapping <code>ChicagoTracts_2018$pct_degree_2018</code>, then, my new dataset is <code>ChicagoTracts_Change</code>, my new variable is <code>chg_degree</code> in units of percentage points.</em></li>
+<li>
+<em>The calculation is <code>chg_degree = pct_degree_2018 - pct_degree_2010</code>, so a result of +1.02 indicate the percentage of adults with a degree has increased by 1.02 percentage points from 2010 to 2018</em>.</li>
+<li><em>AKA The percentage of adults with a degree in this tract has increased from 20% in 2010, to 21.02% in 2018.</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+</li>
+<li>
+<p><strong>[9C] Copy/paste your map code from earlier in your report and adjust so you are mapping the <u>change</u> in your main variable.</strong></p>
+<ul>
+<li>One big difference from before is that your change variable may contain both positive and negative values. A diverging colour palette centred on zero is normally appropriate for showing increases and decreases.
+<ul>
+<li><em>Not sure how? See the code comment in [6B.ix] or go to the maps tutorial, or ask google/AI.</em></li>
+</ul>
+</li>
+<li>Advanced: You could use tmap_arrange to map the 2010, 2018 and change side by side for your variable to make life easier.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>[9D] In your report, describe the magnitude and spatial pattern of change. E.g.</strong></p>
+<ul>
+<li>Is there an overall trend? <em>E.g. most of the map is red.. things are getting more expensive.. rich places are getting richer, poor places are getting poorer..</em><br>
+</li>
+<li>Whats the spatial pattern of the changes? Compare this with the original maps, and come up with at least one idea to explain why your “change pattern” looks different. <em>i.e. Are neighbouring tracts experiencing similar changes (positive spatial autocorrelation), or are increases and decreases occurring next to one another (suggesting negative spatial autocorrelation)?</em><br>
+</li>
+<li>As a hint, consider the magnitude of the changes in context of what you are studying. <em>Does your change map show substantial differences in how people live in 2018 compared to 2010 (gentrification? preferential treatment? an Obama library announcement?), or are tiny differences being exaggerated by the map’s colour scale?</em>
+</li>
+</ul>
+</li>
+</ul>
+<details><summary>
+Expand to see more info about understanding the magnitude of a change
+</summary><p><br></p>
+<p>Are your changes actually meaningful compared to the baseline?
+e.g. losing 0.00001lb of weight on a new weight-loss drug wouldn’t really impact me, even though technically the TV commercial could say I “lost weight”.</p>
+<table style="width:99%;" class="table table-sm">
+<caption><br></caption>
+<colgroup>
+<col width="22%">
+<col width="10%">
+<col width="10%">
+<col width="55%">
+</colgroup>
+<thead><tr class="header">
+<th>2010 Values</th>
+<th>2018 Values</th>
+<th>Difference/change</th>
+<th></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>tract 1 = 20%<br>
+tract 2 = 20%<br>
+[overall range across all tracts ~ 10-30%]</td>
+<td>tract 1 = 20.01%<br>
+tract 2 = 19.99%</td>
+<td>tract 1: +0.01 pp<br>
+tract 2: -0.01 pp</td>
+<td>Even if these show up on the color scale of your map, they aren’t really meaningful differences in poverty levels</td>
+</tr>
+<tr class="even">
+<td>tract 1 = 20%<br>
+tract 2 = 20%<br>
+[overall range across all tracts ~ 10-30%]</td>
+<td>tract 1 = 30%<br>
+tract 2 = 10%</td>
+<td>tract 1: +10 pp<br>
+tract 2: -10 pp</td>
+<td>Meaningful changes in poverty, especially compared to the current level. A policy maker would care about this!</td>
+</tr>
+</tbody>
+</table></details><ul>
+<li>
+<strong>[9E] Make quick maps for 2 other variables.</strong> Now copy the map code, and simply change the variable name to look at variables in the dataset.
+If possible, choose variables where you <em>expect</em> to see a spatial pattern in the changes, or see if you can find patterns that are either very similar or very different to your main variable.
+Write a few sentences describing any differences you see.</li>
+</ul>
+<p><br><br></p>
+<ol start="10" style="list-style-type: decimal">
+<li>Calculating the 2018 Moran’s I and LISA</li>
+</ol>
+<ul>
+<li>
+<p><strong>For the 2018 data and your chosen variable, use your previous code or/and</strong> <a href="T15_Autocorrelation.html#T15_AutocorrelationCode">Tutorial - “Dr G’s Autocorrelation tutorial”</a> <strong>to calculate and interpret the following.</strong></p>
+<ul>
+<li><p>Calculate the spatial weights (Queens 1st order)</p></li>
+<li><p>Calculate global Moran’s I</p></li>
+<li><p>Check its effect size and significance using a hypothesis test</p></li>
+<li><p>Calculate a LISA map</p></li>
+<li><p>Interpret the LISA map.</p></li>
+</ul>
+</li>
+<li><p><strong>Interpret the results in your report text. You can see an example of how to do this in my tutorial or in Dr Giramond’s one.</strong></p></li>
+</ul>
+<p>To make your life easier, here’s one shortcut for getting the code running:</p>
+<ul>
+<li><p><em>Go to the very end of my new tutorial <a href="T15_Autocorrelation.html#T15_AutocorrelationCode">Tutorial - “Dr G’s Autocorrelation tutorial”</a> (if the link doesn’t work, tutorial 15), You will see a single code chunk with all the code you need.</em></p></li>
+<li><p><em>Copy all the code into a code chunk, edit the dataset name and variable name to match yours throughout, This will then run all the code needed to make the maps in my tutorial, so you can then write about them below the code chunk.</em></p></li>
+</ul>
+<p><br><br></p>
+<ol start="11" style="list-style-type: decimal">
+<li>Calculating Moran’s I and LISA for your change variable.</li>
+</ol>
+<ul>
+<li><p><strong>Repeat step 10, but for the CHANGE in your specific variable.</strong></p></li>
+<li><p>To make your life easy for the code part, simply copy/paste what you did in step 10 into a new code chunk, then simply change all the 2018s to change, alongside axis/title labels as appropriate.</p></li>
+<li><p>Then you can spend your time interpreting the results and comparing them with what you saw for the variable itself.</p></li>
+</ul>
+<p><br><br></p>
+<ol start="12" style="list-style-type: decimal">
+<li>Reflection (~200 words)</li>
+</ol>
+<p>Finally, reflect on what you discoveries and summarise the report for your reader.
+E.g. talk about the autocorrelation in your 2018 variable, the autocorrelation in the CHANGE in that variable and any processes you think might have caused it (including the likelyhood that this was all caused by random chance).</p>
+<p><br><br></p>
+</div>
+<div id="congrats-finished-3" class="section level3 unnumbered">
+<h3>
+<strong>Congrats! Finished!</strong><a class="anchor" aria-label="anchor" href="#congrats-finished-3"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="what-to-submit-6" class="section level2 unnumbered">
+<h2>WHAT TO SUBMIT<a class="anchor" aria-label="anchor" href="#what-to-submit-6"><i class="fas fa-link"></i></a>
+</h2>
+<p><br></p>
+<div id="if-you-are-using-your-own-computer-6" class="section level3 unnumbered">
+<h3>If you are using your own computer<a class="anchor" aria-label="anchor" href="#if-you-are-using-your-own-computer-6"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Press knit one final time.
+You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
+<li><p>Find the html and RmD files in your Project 2 folder on your computer.
+Double click the html file to open it in your browser and check it’s the one you want to submit.</p></li>
+<li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="if-you-are-using-posit-cloud-online-6" class="section level3 unnumbered">
+<h3>If you are using Posit Cloud online<a class="anchor" aria-label="anchor" href="#if-you-are-using-posit-cloud-online-6"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Press knit one final time.You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
+<li><p>Go to the files tab an click on the little check-box by the RmD file.
+Then click the blue “more button” and press export.
+Save onto your computer.</p></li>
+<li><p>Uncheck the .RmD box and click the box by the html file.
+Then click the blue “more button” and press export.
+Save onto your computer.</p></li>
+<li><p><strong>You need to submit BOTH of these files on the relevant Canvas assignment page.</strong></p></li>
+</ul>
+<p><br><br></p>
+</div>
+</div>
+<div id="CheckGradeP2" class="section level2 unnumbered">
+<h2>CHECK YOUR GRADE!<a class="anchor" aria-label="anchor" href="#CheckGradeP2"><i class="fas fa-link"></i></a>
+</h2>
+<div id="rubric-5" class="section level3 unnumbered">
+<h3>RUBRIC<a class="anchor" aria-label="anchor" href="#rubric-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>See canvas</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="Project2.html">Project 2</a></div>
+<div class="next"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#project-2---improved-instructions">Project 2 - IMPROVED INSTRUCTIONS</a></li>
+<li><a class="nav-link" href="#about-the-lab">About the lab</a></li>
+<li><a class="nav-link" href="#part-a-lab-setup">PART A: LAB-SETUP</a></li>
+<li><a class="nav-link" href="#part-b-notes-and-tutorials">PART B: NOTES AND TUTORIALS</a></li>
+<li>
+<a class="nav-link" href="#part-c-main-project">PART C: MAIN PROJECT</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#P2_Background">Background/introduction</a></li>
+<li><a class="nav-link" href="#P2_Background">Exploratory data analysis</a></li>
+<li><a class="nav-link" href="#week-2-1">WEEK 2</a></li>
+<li><a class="nav-link" href="#congrats-finished-3">Congrats! Finished!</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#what-to-submit-6">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#if-you-are-using-your-own-computer-6">If you are using your own computer</a></li>
+<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online-6">If you are using Posit Cloud online</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#CheckGradeP2">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric-5">RUBRIC</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R code example</strong>" was written by Dr Helen Greatrex. It was last built on 2026-11-09.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

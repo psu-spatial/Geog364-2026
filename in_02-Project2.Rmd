@@ -18,9 +18,9 @@ library(sfdep)
 
 ### Aim {.unnumbered}
 
-Welcome to Project-2. This is worth 100 points! You can drop your lowest score out of the three projects.
+Welcome to Project-2. This is worth 100 points and you can drop your lowest score out of the three projects.
 
-YOU HAVE TWO WEEKS! The maximum time it should take is about 4-6 hrs of your time, plus both lab times.
+YOU HAVE THREE WEEKS (until the start of Lab 6) The maximum time it should take is about 4-6 hrs of your time, plus both lab times.
 
 The aim of this lab is to showcase your ability to think about spatial EDA, distance/neighbourhood and autocorrelation. <br> <br>
 
