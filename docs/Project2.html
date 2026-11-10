@@ -438,56 +438,35 @@ Figure 0.17: For a more detailed explanation, see <a href="https://www.explainxk
 <p><br></p>
 <ul>
 <li>
-<p><strong>For monetary variables, such as income, rent or housing value, you must also take inflation into account</strong> (temporal autocorrelation!). If not, all you’ll see on the map is that life “became more expensive”, which would likely swamp any spatial pattern. A simple method to achieve this is to convert the 2010 values into 2018 dollars using an inflation adjustment factor, the ratio of a price index.</p>
+<p><strong>For monetary variables, such as income, rent or housing value, you must also take inflation into account</strong> Inflation tends to mean that things get more expensive over time. If we don’t take this into account, all you see on a map of differences is that life “became more expensive”, which would likely swamp any spatial pattern.</p>
 <ul>
-<li>A price index tracks the cost of a typical “basket” of goods and services over time. The most common one in the US is the Consumer Price Index (CPI), published by the Bureau of Labor Statistics (BLS).</li>
-<li>In the ACS 5-year estimates, every dollar value is already adjusted to the LAST year of the survey period. So the 2006-2010 data are in 2010 dollars, and the 2014-2018 data are in 2018 dollars.</li>
-<li>To put 2010 dollars into 2018 dollars, we multiply the 2010 values by the ratio of the two index values:</li>
+<li>
+<p>A simple method to achieve this is to convert the 2010 values into 2018 dollars using an inflation adjustment factor (more details here - <a href="https://www.bls.gov/cpi/" class="uri">https://www.bls.gov/cpi/</a>).</p>
+<ul>
+<li><p>Take the 2018 Consumer Price Index (the cost of a standardised “basket” of goods and services e.g. a bottle of milk, a gallon of fuel), and divide it by the 2010 CPI (the cost of the same “basket” of goods and services in 2010)</p></li>
+<li><p>So the Inflation adjustment factor for 2010-2018 is `2018CPI / 2010CPI`</p></li>
 </ul>
-<p>2010ValueIn2018Dollars = 2010Value/2018Value</p>
+</li>
+<li>
+<p>Example: If you bought a car in 2010 and want to express its price in 2018 dollars: <br><code>CarCost2010_adj = CarCost2010 * (CPI2018 / CPI2010)</code></p>
+<ul>
+<li><p>You can then compare this with what the car actually cost in 2018. The inflation-adjusted ratio is: <br><code>PriceRatio = CarCost2018 / CarCost2010_adj</code></p></li>
+<li><p>The inflation-adjusted difference in dollars (in 2018 dollars) is: <br><code>PriceDiff = CarCost2018 - CarCost2010_adj</code></p></li>
+<li><p>And the inflation-adjusted percentage change is: <br><code>PercentageChange = (CarCost2018 / CarCost2010_adj - 1) * 100</code>
+<br></p></li>
+</ul>
 </li>
 </ul>
-<p>$$
-= </p>
-<p>$$
-* The Census Bureau recommends the “R-CPI-U-RS” index for this (the CPI for all urban consumers, research series), where <span class="math inline">\(\text{CPI}_{2010}\)</span> is the annual average for 2010 and <span class="math inline">\(\text{CPI}_{2018}\)</span> is the annual average for 2018. You can find those numbers here <a href="https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf" class="uri">https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf</a> (or by googling the R-CPI-U-RS annual average for a specific year)</p>
-<p>Given all that, here’s the summary for our dataset</p>
-<div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">Variable type</th>
-<th align="left">Our variables</th>
-<th align="left">Change to calculate</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">Percentages</td>
-<td align="left">canopy, pct_poverty, pct_vacant, pct_white, pct_black, pct_hispanic, pct_degree</td>
-<td align="left">2018 - 2010, in percentage points</td>
-</tr>
-<tr class="even">
-<td align="left">Counts</td>
-<td align="left">population (pop_density gives the same percentage change, as the tract area is fixed)</td>
-<td align="left">raw change, or percentage change</td>
-</tr>
-<tr class="odd">
-<td align="left">Money</td>
-<td align="left">med_income, med_rent, med_value</td>
-<td align="left">adjust 2010 to 2018 dollars, then percentage change</td>
-</tr>
-</tbody>
-</table></div>
+</li>
+</ul>
+<p><u>Where can you I get the numbers for the CPI?</u></p>
+<ul>
+<li>Click here - <a href="https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf" class="uri">https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf</a>. This will take you to a pdf document with the US Department of Labor’s CPI for every month and year from 1977-2019.</li>
+</ul>
 <p><br></p>
 <ul>
 <li>
-<strong>[7A]</strong> Copy the code below into your report, but BEFORE YOU RUN IT, find the correct values for cpi_2010 and cpi_2018 from the resources you just read about, and add them in the appropriate spot. <br><br>
-E.g. replace ANS at the top of the code chunk with the actual numbers from your reading
-<br><br>
-You might also need to replace ChicagoTracts_2010 and ChicagoTracts_2018 with whatever you called them.</li>
+<strong>[7A]</strong> Copy the code below into your report, but BEFORE YOU RUN IT, find the correct values for cpi_2010 and cpi_2018 from the resources you just read about, and add them in the appropriate spot. <br><br> E.g. replace ANS at the top of the code chunk with the actual numbers from your reading <br><br> You might also need to replace ChicagoTracts_2010 and ChicagoTracts_2018 with whatever you called them.</li>
 </ul>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get the Consumer price index in 2010 and 2018</span></span>
@@ -553,15 +532,13 @@ You might also need to replace ChicagoTracts_2010 and ChicagoTracts_2018 with wh
 <li><p>Copy all the code into a code chunk and follow the instructions to edit and run</p></li>
 <li><p>Interpret the results in the text below. You can see an example of how to do this in my tutorial or in Dr Giramond’s one that you worked through earlier in the lab.</p></li>
 </ol>
-<p>OR
-1. You are welcome to use your own tutorial code from earlier in the lab and edit.</p>
+<p>OR 1. You are welcome to use your own tutorial code from earlier in the lab and edit.</p>
 <p><br><br></p>
 </div>
 <div id="step-9-calculating-the-change-autocorrelation" class="section level3 unnumbered">
 <h3>STEP 9: Calculating the change autocorrelation<a class="anchor" aria-label="anchor" href="#step-9-calculating-the-change-autocorrelation"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now repeat step 8, but for the CHANGE in your specific variable. e.g. for the code you can copy/paste what you did in step 8, but change ChicagoTracts_2018 to ChicagoTracts_Change
-and change the axis labels/interpretation</p>
+<p>Now repeat step 8, but for the CHANGE in your specific variable. e.g. for the code you can copy/paste what you did in step 8, but change ChicagoTracts_2018 to ChicagoTracts_Change and change the axis labels/interpretation</p>
 <p><br><br></p>
 </div>
 <div id="step-10-reflection" class="section level3 unnumbered">

@@ -167,7 +167,7 @@ You have been given census tract data for **2010 and 2018**. Your task is to use
 The dataset contains the following variables:
 
 | Variable | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | `GEOID` | Unique census tract identifier |
 | `arealand_sqmiles` | Land area of the tract (square miles) |
 | `canopy_2018` | Percentage of the tract covered by tree canopy |
@@ -246,7 +246,6 @@ tmap_arrange(treemap_2010,treemap_2018)
 
 <br><br>
 
-
 ### STEP 7: Calculate the change in your variables {.unnumbered}
 
 We now want to calculate the difference between 2010 and 2018, as that might help with visualising any changes. This is more complex than it might first appear!
@@ -256,10 +255,9 @@ We now want to calculate the difference between 2010 and 2018, as that might hel
 <br>
 
 - **Use 'percentage points' when comparing percentages** (e.g. percentage tree cover, percent of people in poverty). This becomes an issue when we try to calculate differences, because it's easy to end up with a percentage of a percentage and a lot of confusion (see the cartoon below!). Instead, we tend to use "percentage points".
-  - A percentage point the simple arithmetic difference between two percentage values. \
+  - A percentage point the simple arithmetic difference between two percentage values.\
     Value1(%) - Value2(%). E.g. if your index of 20% decreases by a percentage point, it means it goes from 20% to 19%.
   - If you calculated the percentage change (19-20)/20 you would have to say your value fell by 5%. What you *mean* is 5% of the previous percentage of 20% (so 1% overall), but people will have already tuned out.
-  
 
 ```{r, P2-XKCD, echo=FALSE, fig.cap="For a more detailed explanation, see https://www.explainxkcd.com/wiki/index.php/985:_Percentage_Points", out.width="60%"}
 knitr::include_graphics('./index_images/im_P2_XKCD985.png')
@@ -271,40 +269,37 @@ knitr::include_graphics('./index_images/im_P2_XKCD985.png')
 
   - Calculate at the raw change (1502 - 1249 = 253 more people), which is simple to understand, but over a whole map, areas where the population was high to start with might swamp any view of what's happening
   - OR.. we calculate the percentage change. (1502 - 1249)/1249 = 0.203. So the population went up in my made up example by 20%. This is not a percentage point!
-  
-<br>  
-
-- **For monetary variables, such as income, rent or housing value, you must also take inflation into account** (temporal autocorrelation!). If not, all you'll see on the map is that life "became more expensive", which would likely swamp any spatial pattern.  A simple method to achieve this is to convert the 2010 values into 2018 dollars using an inflation adjustment factor, the ratio of a price index. 
-
-   * A price index tracks the cost of a typical "basket" of goods and services over time. The most common one in the US is the Consumer Price Index (CPI), published by the Bureau of Labor Statistics (BLS).
-   * In the ACS 5-year estimates, every dollar value is already adjusted to the LAST year of the survey period. So the 2006-2010 data are in 2010 dollars, and the 2014-2018 data are in 2018 dollars.
-   * To put 2010 dollars into 2018 dollars, we multiply the 2010 values by the ratio of the two index values:
-   
-   2010ValueIn2018Dollars = 2010Value/2018Value
- 
-$$
-      \text{2010 value in "2018 dollars"} = \text{2010 value} \times \frac{\text{CPI}_{2018}}{\text{CPI}_{2010}}
-      
-$$
-   * The Census Bureau recommends the "R-CPI-U-RS" index for this (the CPI for all urban consumers, research series), where $\text{CPI}_{2010}$ is the annual average for 2010 and $\text{CPI}_{2018}$ is the annual average for 2018. You can find those numbers here https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf (or by googling the R-CPI-U-RS annual average for a specific year)
-   
-Given all that, here's the summary for our dataset
-
-| Variable type | Our variables | Change to calculate |
-|:--|:--|:--|
-| Percentages | canopy, pct_poverty, pct_vacant, pct_white, pct_black, pct_hispanic, pct_degree | 2018 - 2010, in percentage points |
-| Counts | population (pop_density gives the same percentage change, as the tract area is fixed) | raw change, or percentage change |
-| Money | med_income, med_rent, med_value | adjust 2010 to 2018 dollars, then percentage change |
-
 
 <br>
 
-- **[7A]** Copy the code below into your report, but BEFORE YOU RUN IT, find the correct values for cpi_2010 and cpi_2018 from the resources you just read about, and add them in the appropriate spot. <br><br>
-E.g. replace ANS at the top of the code chunk with the actual numbers from your reading
-<br><br>
-You might also need to replace ChicagoTracts_2010 and ChicagoTracts_2018 with whatever you called them.
+- **For monetary variables, such as income, rent or housing value, you must also take inflation into account** Inflation tends to mean that things get more expensive over time. If we don't take this into account, all you see on a map of differences is that life "became more expensive", which would likely swamp any spatial pattern.
 
+  - A simple method to achieve this is to convert the 2010 values into 2018 dollars using an inflation adjustment factor (more details here - <https://www.bls.gov/cpi/>).
 
+    - Take the 2018 Consumer Price Index (the cost of a standardised "basket" of goods and services e.g. a bottle of milk, a gallon of fuel), and divide it by the 2010 CPI (the cost of the same "basket" of goods and services in 2010)
+
+    - So the Inflation adjustment factor for 2010-2018 is \`2018CPI / 2010CPI\`
+
+  - Example: If you bought a car in 2010 and want to express its price in 2018 dollars: <br>
+  `CarCost2010_adj = CarCost2010 * (CPI2018 / CPI2010)`
+
+    - You can then compare this with what the car actually cost in 2018. The inflation-adjusted ratio is: <br>
+  `PriceRatio = CarCost2018 / CarCost2010_adj`
+
+    - The inflation-adjusted difference in dollars (in 2018 dollars) is: <br>
+  `PriceDiff = CarCost2018 - CarCost2010_adj`
+
+    - And the inflation-adjusted percentage change is: <br>
+  `PercentageChange = (CarCost2018 / CarCost2010_adj - 1) * 100`
+<br>
+
+[Where can you I get the numbers for the CPI?]{.underline}
+
+- Click here - <https://www.bls.gov/cpi/research-series/r-cpi-u-rs-allitems.pdf>. This will take you to a pdf document with the US Department of Labor's CPI for every month and year from 1977-2019.
+
+<br>
+
+- **[7A]** Copy the code below into your report, but BEFORE YOU RUN IT, find the correct values for cpi_2010 and cpi_2018 from the resources you just read about, and add them in the appropriate spot. <br><br> E.g. replace ANS at the top of the code chunk with the actual numbers from your reading <br><br> You might also need to replace ChicagoTracts_2010 and ChicagoTracts_2018 with whatever you called them.
 
 ```{r, eval=FALSE}
 
@@ -348,8 +343,6 @@ ChicagoTracts_Change <- ChicagoTracts_2018 |>
 
 ```
 
-
-
 <br>
 
 - **[7B]** Once you have the numbers and this is up and running. Take a look at some of the spatial patterns of the changes from 2010-2018 for at least 3 variables (including your chosen variable) and comment on any differences,
@@ -360,51 +353,43 @@ ChicagoTracts_Change <- ChicagoTracts_2018 |>
 
 So now you have three variables (yours might be named differently)
 
- - ChicagoTracts_2010: The 2010 data
- - ChicagoTracts_2018: The 2018 data
- - ChicagoTracts_Change: The difference between them.
- 
- 
-**USE THE 2018 DATA**.  
+- ChicagoTracts_2010: The 2010 data
+- ChicagoTracts_2018: The 2018 data
+- ChicagoTracts_Change: The difference between them.
+
+**USE THE 2018 DATA**.
 
 FOR YOUR SPECIFIC VARIABLE: I would like you to:
 
- - Calculate the spatial weights (Queens 1st order)
- - Calculate global Moran's I 
- - Check its effect size and significance using a hypothesis test
- - Calculate a LISA map 
- - Interpret
- 
-The EASIEST way to do this is to 
+- Calculate the spatial weights (Queens 1st order)
+- Calculate global Moran's I
+- Check its effect size and significance using a hypothesis test
+- Calculate a LISA map
+- Interpret
 
-1. go to the end of my new tutorial [Tutorial - "Dr G's Autocorrelation tutorial"](#T15_AutocorrelationCode) (if the link doesn't work, tutorial 15 at the end)
+The EASIEST way to do this is to
 
-2. Copy all the code into a code chunk and follow the instructions to edit and run
+1.  go to the end of my new tutorial [Tutorial - "Dr G's Autocorrelation tutorial"](#T15_AutocorrelationCode) (if the link doesn't work, tutorial 15 at the end)
 
-3. Interpret the results in the text below. You can see an example of how to do this in my tutorial or in Dr Giramond's one that you worked through earlier in the lab.
+2.  Copy all the code into a code chunk and follow the instructions to edit and run
 
-OR
-1. You are welcome to use your own tutorial code from earlier in the lab and edit.
+3.  Interpret the results in the text below. You can see an example of how to do this in my tutorial or in Dr Giramond's one that you worked through earlier in the lab.
 
+OR 1. You are welcome to use your own tutorial code from earlier in the lab and edit.
 
 <br><br>
-
 
 ### STEP 9: Calculating the change autocorrelation {.unnumbered}
 
-Now repeat step 8, but for the CHANGE in your specific variable. e.g. for the code you can copy/paste what you did in step 8, but change ChicagoTracts_2018 to ChicagoTracts_Change
-and change the axis labels/interpretation
+Now repeat step 8, but for the CHANGE in your specific variable. e.g. for the code you can copy/paste what you did in step 8, but change ChicagoTracts_2018 to ChicagoTracts_Change and change the axis labels/interpretation
 
 <br><br>
-
 
 ### STEP 10: Reflection {.unnumbered}
 
 Finally, talk in at least 200 words about the autocorrelation in your 2018 variable, the autocorrelation in the CHANGE in that variable and any processes you think might have caused it (including the likelyhood that this was all caused by random chance).
 
 <br><br>
-
-
 
 ### **Congrats! Finished!** {.unnumbered}
 
