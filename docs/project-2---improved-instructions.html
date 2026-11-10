@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Project 2 - IMPROVED INSTRUCTIONS | R code example</title>
 <meta name="author" content="Dr Helen Greatrex">
-<meta name="description" content="This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So...">
+<meta name="description" content="/* ── Smaller code font─────────────────────────────── */ code {  font-size: 0.95em; /* inline code */ } pre code {  font-size: 0.9em; /* block code chunks */ } /* ── Default accordion (blue)...">
 <meta name="generator" content="bookdown 0.47 with bs4_book()">
 <meta property="og:title" content="Project 2 - IMPROVED INSTRUCTIONS | R code example">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psu-spatial.github.io/Geog364-2026/project-2---improved-instructions.html">
-<meta property="og:description" content="This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So...">
+<meta property="og:description" content="/* ── Smaller code font─────────────────────────────── */ code {  font-size: 0.95em; /* inline code */ } pre code {  font-size: 0.9em; /* block code chunks */ } /* ── Default accordion (blue)...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Project 2 - IMPROVED INSTRUCTIONS | R code example">
-<meta name="twitter:description" content="This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So...">
+<meta name="twitter:description" content="/* ── Smaller code font─────────────────────────────── */ code {  font-size: 0.95em; /* inline code */ } pre code {  font-size: 0.9em; /* block code chunks */ } /* ── Default accordion (blue)...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -65,8 +65,8 @@
 <li><a class="" href="Project1.html">Project 1</a></li>
 <li><a class="" href="Lab_4B.html">Homework 4</a></li>
 <li><a class="" href="Lab_5.html">Homework 5</a></li>
-<li><a class="" href="Project2.html">Project 2</a></li>
 <li><a class="active" href="project-2---improved-instructions.html">Project 2 - IMPROVED INSTRUCTIONS</a></li>
+<li><a class="" href="Project2.html">Project 2</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></li>
@@ -94,15 +94,267 @@
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="project-2---improved-instructions" class="section level1 unnumbered">
 <h1>Project 2 - IMPROVED INSTRUCTIONS<a class="anchor" aria-label="anchor" href="#project-2---improved-instructions"><i class="fas fa-link"></i></a>
 </h1>
-<p>This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. So you don’t <em>have</em> to use it, but I hope it is helpful.</p>
-<ul>
-<li><p>If you have already completed the lab, you could read through this and use it as a check-list, adding/tweaking the odd paragraph.</p></li>
-<li><p>If you haven’t started or you’re only partway through the lab, these instructions might be easier to follow.</p></li>
-</ul>
-<p><br><br></p>
+<style type="text/css">
+/* ── Smaller code font─────────────────────────────── */
+
+code {
+  font-size: 0.95em; /* inline code */
+}
+pre code {
+  font-size: 0.9em; /* block code chunks */
+}
+
+/* ── Default accordion (blue) ─────────────────────────────── */
+body {
+  counter-reset: li; /* initialize counter named li */
+}
+
+h1 {
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+h2 {
+  font-family:Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+}
+
+h3 {
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+
+/* ── Default accordion (blue) ─────────────────────────────── */
+details {
+  border: 1px solid #1d91c0;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAFAFA;
+  padding: 0;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+}
+
+summary {
+  display: block;
+  padding: 7px 10px;
+  font-size: .95em;
+  color: #0f2c4d;
+  background: rgba(34,94,168,0.1);
+  border-bottom: 2px solid #225ea8;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+summary:hover {
+  background-color: rgba(34,94,168,0.2);
+}
+
+summary:focus-visible {
+  outline: 2px solid #1d91c0;
+  outline-offset: 2px;
+}
+
+/* ── Help accordion (amber variant) ─────────────────────────────── */
+/* ── Help accordion (purple variant) ─────────────────────────────── */
+details.help {
+  border: 1px solid #6A4C93; /* violet border */
+}
+
+details.help summary {
+  color: #36264B;                           /* darker violet text */
+  background: rgba(138,109,181,0.35);       /* violet background */
+  border-bottom: 2px solid #6A4C93;
+  font-size: .95em;
+}
+
+details.help summary:hover {
+  background-color: rgba(138,109,181,0.5);  /* stronger violet on hover */
+}
+
+details.help summary:focus-visible {
+  outline: 2px solid #6A4C93;
+  outline-offset: 2px;
+}
+
+/* Body wrapper (shared by all accordions) */
+.details-body {
+  padding: 12px 16px;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+}
+
+.details-body > :first-child { margin-top: 0; }
+.details-body > :last-child  { margin-bottom: 0; }
+
+.details-body p { margin: 0.5em 0 0.25em; }
+.details-body p + ul { margin-top: 0; }
+
+.details-body ul {
+  padding-left: 1.5em;
+  margin: 0 0 0.5em;
+  list-style-position: outside;
+}
+
+.details-body ul li { margin-bottom: 0.3em; }
+
+
+/* ── Section heading ─────────────────────────────────────────────── */
+
+.help-heading {
+  border-bottom:2px solid #000;
+  background:rgba(138, 109, 181, 0.35);
+  color: #000  ;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-top: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+.lab-section-heading {
+  border-bottom:2px solid #317EAC;
+  background:rgba(49, 126, 172, 0.1);
+  color: #000  ;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-top: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Exercise format ─────────────────────────────────────────────── */
+
+ol {
+  margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+}
+ol > li {
+  position:relative; /* Create a positioning context */
+    margin:0 0 10px 2em; /* Give each list item a left margin to make room for the numbers */
+    padding:10px 80px; /* Add some spacing around the content */
+    list-style:none; /* Disable the normal item numbering */
+    border-top:2px solid #317EAC;
+  background:rgba(49, 126, 172, 0.1);
+}
+ol > li:before {
+  content:"Exercise " counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+  top:-2px;
+  left:-2em;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  width:7em;
+  /* Some space between the number and the content in browsers that support
+  generated content but not positioning it (Camino 2 is one example) */
+    margin-right:8px;
+  padding:4px;
+  border-top:2px solid #317EAC;
+  color:#fff;
+    background:#317EAC;
+    font-weight:bold;
+  font-family:"Helvetica Neue", Arial, sans-serif;
+  text-align:center;
+}
+li ol,
+li ul {margin-top:6px;}
+ol ol li:last-child {margin-bottom:0;}
+
+.oyo ul {
+  list-style-type:decimal;
+}
+
+hr {
+  border: 1px solid #357FAA;
+}
+
+
+/* ── Boxes and colors ─────────────────────────────────────────────── */
+
+
+div#boxedtext {
+background-color: rgba(86, 155, 189, 0.2);
+padding: 20px;
+margin-bottom: 20px;
+}
+
+
+div#boxgreen {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #000; /* darker, but still in the a1dab4 hue family */
+  border: 2px solid #3B7F5B;
+  padding: 10px 10px;
+  background-color: rgba(161, 218, 180, 0.35);
+  border-radius: 5px;
+}
+
+div#boxteal {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #1B6E77; /* deeper tone of #41b6c4 */
+  border: 1px solid #1B6E77;
+  padding: 10px 10px;
+  background-color: rgba(65, 182, 196, 0.35);
+  border-radius: 5px;
+}
+
+div#boxblue {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #225ea8;
+  border: 1px solid #225ea8;
+  padding: 10px 10px;
+  background-color: rgba(34, 94, 168, 0.2);
+  border-radius: 5px;
+}
+
+div#boxviolet {
+  margin-bottom: 30px;
+  color: #6A4C93; /* terracotta */
+  border: 1px solid #6A4C93;
+  padding: 10px 10px;
+  background-color: rgba(138, 109, 181, 0.1); /* softer fill */
+  border-radius: 5px;
+  font-size: .95em;
+}
+
+div#boxamber {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #A66A1F; /* darker amber for text + border */
+  border: 1px solid #A66A1F;
+  padding: 10px 10px;
+  background-color: rgba(217, 145, 39, 0.25); /* deeper but balanced fill */
+  border-radius: 5px;
+  font-size: .95em;
+}
+
+
+</style>
 <div id="about-the-lab" class="section level2 unnumbered">
 <h2>About the lab<a class="anchor" aria-label="anchor" href="#about-the-lab"><i class="fas fa-link"></i></a>
 </h2>
+<div id="important" class="section level3 unnumbered">
+<h3>IMPORTANT!<a class="anchor" aria-label="anchor" href="#important"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is a rewrite of the project 2 instructions. I’m asking you to do exactly the same thing as before, but I have included a lot more detail about what I mean by terms like “explore the data”. To do this, I broke up Step 6 into 3 parts (introduction/background, then making the maps &amp; statistics, then writing up your interpretation)</p>
+<p>So the overall instructions and what I’m asking is the same, but I hope this would let you see what I mean by the original instructions, e.g. length/style/a few worked examples.</p>
+<p>So you don’t <em>have</em> to use this, but I hope it is helpful.</p>
+<ul>
+<li><p><strong>If you haven’t started or you’re only partway through the lab,</strong> I suggest using these new instructions</p></li>
+<li><p><strong>If you’ve completed the lab,</strong> I suggest looking at STEP 6C especially just to check your answers and add anything that you missed that might lead to a higher grade. STEP 6B also includes improved code for comparing across different timescales (e.g. the maps will now have the same color scale &amp; zoom in sync)**</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="lab-aim-1" class="section level3 unnumbered">
+<h3>Lab aim<a class="anchor" aria-label="anchor" href="#lab-aim-1"><i class="fas fa-link"></i></a>
+</h3>
 <p>The aim of this lab is to showcase your ability to think about spatial EDA, distance/neighbourhood and autocorrelation.</p>
 <p>This is worth 100 points and you can drop your lowest score out of the three projects.</p>
 <p>Because this is worth 100 points, I expect it to take more time than a standard lab.
@@ -130,13 +382,14 @@ This is the easiest way to get help!</p></li>
 <hr>
 <p><br><br></p>
 </div>
+</div>
 <div id="part-a-lab-setup" class="section level2 unnumbered">
 <h2>PART A: LAB-SETUP<a class="anchor" aria-label="anchor" href="#part-a-lab-setup"><i class="fas fa-link"></i></a>
 </h2>
 <p><br></p>
-<ol style="list-style-type: decimal">
-<li>Create your project &amp; download data/reports</li>
-</ol>
+<div id="step-1-create-your-project-download-datareports-2" class="section level3 unnumbered">
+<h3>STEP 1: Create your project &amp; download data/reports<a class="anchor" aria-label="anchor" href="#step-1-create-your-project-download-datareports-2"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>
 <strong>[1A] Make a Project 2 folder</strong>
@@ -179,9 +432,10 @@ This is the easiest way to get help!</p></li>
 </li>
 </ul>
 <p><br><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Adjust your theme and knit options</li>
-</ol>
+</div>
+<div id="step-2-adjust-your-theme-and-knit-options" class="section level3 unnumbered">
+<h3>STEP 2: Adjust your theme and knit options<a class="anchor" aria-label="anchor" href="#step-2-adjust-your-theme-and-knit-options"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>
 <p><strong>[2A] Adjust the knit options</strong> <br><em>Your top code chunk allows you to set general options for all the code in your final report. echo=TRUE means show all your code, cache = FALSE tells the computer to freshly download the data when it knits,message=FALSE, warning=FALSE stop the library loading text and any warnings.</em></p>
@@ -207,9 +461,10 @@ For example, your line might look like <code>rmdformats::robobook:</code>, <code
 </li>
 </ul>
 <p><br></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Try to knit, check libraries</li>
-</ol>
+</div>
+<div id="step-3-try-to-knit-check-libraries-are-installed" class="section level3 unnumbered">
+<h3>STEP 3: Try to knit &amp; check libraries are installed<a class="anchor" aria-label="anchor" href="#step-3-try-to-knit-check-libraries-are-installed"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>
 <p><strong>[3A] Press save and try to knit.</strong></p>
@@ -225,12 +480,13 @@ In this case, you go to the “app store” and download the missing package (<a
 <hr>
 <p><br><br></p>
 </div>
+</div>
 <div id="part-b-notes-and-tutorials" class="section level2 unnumbered">
 <h2>PART B: NOTES AND TUTORIALS<a class="anchor" aria-label="anchor" href="#part-b-notes-and-tutorials"><i class="fas fa-link"></i></a>
 </h2>
-<ol start="4" style="list-style-type: decimal">
-<li>Summarise your notes</li>
-</ol>
+<div id="step-4-summarise-your-notes" class="section level3 unnumbered">
+<h3>STEP 4: summarise your notes<a class="anchor" aria-label="anchor" href="#step-4-summarise-your-notes"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>
 <p><strong>[4A] Read this chapter:</strong> Chapter 13 of Dr Girmond’s Spatial Data Science: <a href="https://mgimond.github.io/Spatial/13_autocorrelation.html" class="uri">https://mgimond.github.io/Spatial/13_autocorrelation.html</a>, from the start until until 13.4.1.
@@ -255,9 +511,10 @@ In this case, you go to the “app store” and download the missing package (<a
 </li>
 </ul>
 <p><br></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Make yourself a mini tutorial about Moran’s I</li>
-</ol>
+</div>
+<div id="step-5-morans-i-mini-tutorial" class="section level3 unnumbered">
+<h3>STEP 5: Morans I mini tutorial<a class="anchor" aria-label="anchor" href="#step-5-morans-i-mini-tutorial"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li><p><strong>[5A] Create a new sub-heading called “Tutorial”.</strong></p></li>
 <li>
@@ -273,11 +530,12 @@ Demonstrate a deeper understanding by linking the your tutorial to concepts from
 <hr>
 <p><br><br></p>
 </div>
+</div>
 <div id="part-c-main-project" class="section level2 unnumbered">
 <h2>PART C: MAIN PROJECT<a class="anchor" aria-label="anchor" href="#part-c-main-project"><i class="fas fa-link"></i></a>
 </h2>
-<div id="P2_Background" class="section level3 unnumbered">
-<h3>Background/introduction<a class="anchor" aria-label="anchor" href="#P2_Background"><i class="fas fa-link"></i></a>
+<div id="P2b_Background" class="section level3 unnumbered">
+<h3>Background/introduction<a class="anchor" aria-label="anchor" href="#P2b_Background"><i class="fas fa-link"></i></a>
 </h3>
 <p>You are an urban planner working for the City of Chicago, tasked with helping decide where to prioritise future investment in urban development, green spaces and tree planting.</p>
 <p>Your office is concerned about geographical inequalities across the city.
@@ -366,18 +624,19 @@ Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detect
 </tbody>
 </table></div>
 <p><br></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Project introduction</li>
-</ol>
+</div>
+<div id="step-6.-a-write-up-background" class="section level3 unnumbered">
+<h3>STEP 6. A) Write up background<a class="anchor" aria-label="anchor" href="#step-6.-a-write-up-background"><i class="fas fa-link"></i></a>
+</h3>
 <p>Before getting started with data analysis, it’s important to understand the context of the study, or you might miss interesting nuances in the data.</p>
 <ul>
 <li>
-<strong>[6A] Set up your report.</strong> Create a new heading called “Chicago Project”, and underneath, create a new sub-heading called “Study aim and background”.</li>
+<strong>[6Ai] Set up your report.</strong> Create a new heading called “Chicago Project”, and underneath, create a new sub-heading called “Study aim and background”.</li>
 </ul>
 <p><br></p>
 <ul>
 <li>
-<p><strong>[6B] Read the following three resources:</strong></p>
+<p><strong>[6Aii] Read the following three resources:</strong></p>
 <ul>
 <li><p><strong>BBC Future:</strong> <a href="https://www.bbc.com/future/article/20240613-how-to-cool-down-urban-heat-islands-in-americas-heatwaves">How to cool down urban heat islands</a></p></li>
 <li><p><strong>The New York Times:</strong> <a href="https://www.nytimes.com/interactive/2020/08/24/climate/racism-redlining-cities-global-warming.html">How decades of racist housing policy left neighbourhoods sweltering</a> (you can log in by clicking institutional log in then using your PSU address).</p></li>
@@ -388,9 +647,9 @@ Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detect
 <p><br></p>
 <ul>
 <li>
-<strong>[6C] Explain the study aim &amp; why your planning office cares. (100-300 words).</strong> <br> It doesn’t need to follow this structure exactly, but an excellent answer would include
+<strong>[6Aiii] Explain the study aim &amp; why your planning office cares. (100-300 words).</strong> <br> It doesn’t need to follow this structure exactly, but an excellent answer would include
 <ul>
-<li>A summary of the report aim from the <a href="project-2---improved-instructions.html#P2_Background">Lab Background</a>
+<li>A summary of the report aim from the <a href="project-2---improved-instructions.html#P2b_Background">Lab Background</a>
 </li>
 <li>An explanation of why your planning office would be interested in the geographical distribution of wealth, poverty and tree cover across Chicago, that refers to the three articles above for specific points.</li>
 <li>An explanation of how how historical inequalities might affect present-day living conditions, why tree cover matters for urban communities, and how organisations such as the Morton Arboretum are using geographical data to inform decisions.</li>
@@ -400,7 +659,7 @@ Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detect
 <p><br></p>
 <ul>
 <li>
-<strong>[6D] Explain the link to spatial statistics (100-300 words)</strong>. <br> In the next paragraph, explain these two points:
+<strong>[6Aiv] Explain the link to spatial statistics (100-300 words)</strong>. <br> In the next paragraph, explain these two points:
 <ul>
 <li>Why it might be useful to know whether these geographical patterns are changing over time, rather than simply examining the situation in 2018.</li>
 <li>An explanation of what spatial autocorrelation is (including what positive, negative and zero autocorrelation means) and why your planning office would be interested in this to achieve their goals. e.g. how does understanding spatial autocorrelation help officials to describe patterns and understand the processes that cause them.</li>
@@ -410,23 +669,19 @@ Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detect
 <p><br></p>
 <ul>
 <li>
-<strong>[6E] Set up the report.</strong> Create a new sub-heading called “Initial Data Analysis”.</li>
+<strong>[6Av] Set up the report.</strong> Create a new sub-heading called “Initial Data Analysis”.</li>
 </ul>
 <p><br><br></p>
 </div>
-<div id="P2_Background" class="section level3 unnumbered">
-<h3>Exploratory data analysis<a class="anchor" aria-label="anchor" href="#P2_Background"><i class="fas fa-link"></i></a>
+<div id="step-6.-b-create-maps-summary-statistics" class="section level3 unnumbered">
+<h3>STEP 6. B) Create maps &amp; summary statistics<a class="anchor" aria-label="anchor" href="#step-6.-b-create-maps-summary-statistics"><i class="fas fa-link"></i></a>
 </h3>
-<p>This was previously “step 6”, I have tried to give much more guidance.</p>
-<ol start="7" style="list-style-type: decimal">
-<li>Exploratory data analysis Activity</li>
-</ol>
-<p><strong>This step is exploration only. Your code and maps can stay in your report, but you don’t need to write about them until step 8</strong> Keep notes as you go, because in Step 8 you will turn them into your write-up. If it helps, read step 8 first, so you know what to look out for.</p>
+<p><strong>This step is exploration only. Your code and maps can stay in your report, but you don’t need to write about them until step 6C</strong> Keep notes as you go, because in Step 6C you will turn them into your write-up. If it helps, read step 6C first, so you know what to look out for.</p>
 <p>In this step you will get to know the 2018 data, choose one variable to focus on, and look closely at how it varies across Chicago.</p>
 <p><br></p>
 <ul>
 <li>
-<strong>[7A] Read in the data.</strong> Read in both the 2010 and 2018 datasets using st_read (<a href="T5_Summarising.html#T5_Summarising">Reminder here</a><a href="T4_ReadingData.html#T4_ReadingData">: Loading Data Tutorial</a>).
+<strong>[6Bi] Read in the data.</strong> Read in both the 2010 and 2018 datasets using st_read (<a href="T4_ReadingData.html#T4_ReadingData">Reminder here: Loading Data Tutorial</a>).
 <ul>
 <li><em>Side note: For most of this step we will only work with <code>ChicagoTracts_2018</code>, but if you do want to look at the 2010 version, remember it’s easy to adjust the code; simply copy/paste the code and change the 2018s to 2010s (this is why I standardise file/column names.)</em></li>
 </ul>
@@ -435,13 +690,13 @@ Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detect
 <p><br></p>
 <ul>
 <li>
-<strong>[7B] Get to know the 2018 dataset.</strong>
+<strong>[6Bii] Get to know the 2018 dataset.</strong>
 <ul>
 <li>Look at the spreadsheet itself and calculate summary statistics for the 2018 data (<a href="T5_Summarising.html#T5_Summarising">Reminder here: Summary Tutorial</a> ).</li>
-<li>Take 5 minutes to make sure you understand the following. You will write it up in step 8.
+<li>Take 5 minutes to make sure you understand the following. You will write it up in step 6C.
 <ul>
 <li>The object of analysis (what one row represents) and how many objects/tracts there are</li>
-<li>What each column represents and its units. Compare your data to the list of variables in the <a href="project-2---improved-instructions.html#P2_Background">Lab Background</a> so that you understand what each column contains and can interpret the numbers.</li>
+<li>What each column represents and its units. Compare your data to the list of variables in the <a href="project-2---improved-instructions.html#P2b_Background">Lab Background</a> so that you understand what each column contains and can interpret the numbers.</li>
 <li>Whether there’s anything that might cause problems. For example, missing values, or if values that appear clearly wrong or unrealistic (e.g. a negative number of people, or a rainfall of 999)
 <ul>
 <li>There shouldn’t be any problems in this lab, but in general, this is a good point to fix those issues, using the dplyr::filter command to make a new dataset for the rest of the lab.</li>
@@ -457,18 +712,18 @@ Tree canopy coverage was calculated separately using <strong>LiDAR (Light Detect
 <p><br></p>
 <ul>
 <li>
-<strong>[7C] Make a variable shortlist.</strong> Think about the study aim from your introduction and the <a href="project-2---improved-instructions.html#P2_Background">Lab Background</a>. Choose 3–4 variables you think matter for the planning office or that you are interested in investigating (i.e. you don’t need to look at every variable in the dataset).</li>
+<strong>[6Biii] Make a variable shortlist.</strong> Think about the study aim from your introduction and the <a href="project-2---improved-instructions.html#P2b_Background">Lab Background</a>. Choose 3–4 variables you think matter for the planning office or that you are interested in investigating (i.e. you don’t need to look at every variable in the dataset).</li>
 </ul>
 <p><br></p>
 <ul>
 <li>
-<p><strong>[7D] Start making some maps &amp; choose your primary variable.</strong> The aim of this is to choose a single variable that supports the needs of the planning office and whose spatial pattern interests you most.</p>
+<p><strong>[6Biv] Start making some maps &amp; choose your primary variable.</strong> The aim of this is to choose a single variable that supports the needs of the planning office and whose spatial pattern interests you most.</p>
 <ul>
 <li>
 <p>Make an interactive map of your shortlisted variables and look at the patterns.
 To make maps quickly, you could adjust the code below, or use code from your previous labs.
 (there’s also more examples of Tmap code lower down)</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Make the map interactive</span></span>
 <span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_mode.html">tmap_mode</a></span><span class="op">(</span><span class="st">"view"</span><span class="op">)</span></span>
 <span></span>
@@ -483,17 +738,17 @@ To make maps quickly, you could adjust the code below, or use code from your pre
 <p><br></p>
 <ul>
 <li>
-<strong>[7E] Make a histogram of your primary variable.</strong>
+<strong>[6Bv] Make a histogram of your primary variable.</strong>
 <ul>
 <li>Tutorial here if you can’t remember: T7_Histograms</li>
-<li>Look at the result and note if it’s skewed or contains unusual values (not sure what I mean? click here: <a href="https://statisticsbyjim.com/basics/skewed-distribution/" class="uri">https://statisticsbyjim.com/basics/skewed-distribution/</a>). You will write this up in step 8.</li>
+<li>Look at the result and note if it’s skewed or contains unusual values (not sure what I mean? click here: <a href="https://statisticsbyjim.com/basics/skewed-distribution/" class="uri">https://statisticsbyjim.com/basics/skewed-distribution/</a>). You will write this up in step 6C.</li>
 </ul>
 </li>
 </ul>
 <p><br></p>
 <ul>
 <li>
-<strong>[7F] Look closely at the map of your primary variable,</strong> You will write this up step 8. <br><ul>
+<strong>[6Bvi] Look closely at the map of your primary variable,</strong> You will write this up in step 6C. <br><ul>
 <li>If you haven’t already, zoom in and out of the map you made above Imagine you had to describe this map to someone on the phone or to someone who is blind. Think about how you could you describe it so that their drawing of the map looks like yours.</li>
 <li>To help with this:
 <ul>
@@ -516,14 +771,14 @@ To make maps quickly, you could adjust the code below, or use code from your pre
 <p><br></p>
 <ul>
 <li>
-<p><strong>[7G] Map your variable in 2010 and 2018 and consider about how the pattern changes.</strong></p>
+<p><strong>[6Bvii] Map your variable in 2010 and 2018 and consider about how the pattern changes.</strong></p>
 <ul>
 <li><p>Make maps of your variable in 2010 and 2018.
 You can use your own code or edit my code below (copy the whole code chunk)</p></li>
 <li>
 <p>Look for any changes.
 <em>i.e. has your variable increased/decreased? Has the pattern changed? e.g. poor areas moved north? tree cover got more/less fractured?</em></p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## TWO MAPS WITH THE SAME COLOR SCALE</span></span>
 <span><span class="co">## (you don't need to use this, you can use your own code/existing maps). </span></span>
 <span></span>
@@ -580,7 +835,7 @@ You can use your own code or edit my code below (copy the whole code chunk)</p><
 <p><br></p>
 <ul>
 <li>
-<strong>[7H] Consider process and find out what is already known about it</strong> (you will write this up in step 8)
+<strong>[6Bviii] Consider process and find out what is already known about it</strong> (you will write this up in step 6C)
 <ul>
 <li>Now you have some initial ideas, search online for existing maps or reports of your variable in Chicago. Lots of people are interested in this topic, and many others have mapped these variables and talk about the processes causing the patterns (even if they use slightly different terminology).
 <ul>
@@ -625,25 +880,26 @@ You can use your own code or edit my code below (copy the whole code chunk)</p><
 <li><p>A histogram of your primary variable,</p></li>
 <li><p>The side-by-side 2010/2018 maps.
 It’s also fine to keep your earlier exploratory maps, especially if you want to talk about them in the report.</p></li>
-<li><p>You should also have a good idea about what your data shows, ready to write it up in step 8.
+<li><p>You should also have a good idea about what your data shows, ready to write it up in step 6C.
 If you wrote notes in your report, you can incorporate those into your answers.</p></li>
 </ul>
 </div>
 <p><br><br></p>
-<ol start="8" style="list-style-type: decimal">
-<li>Write up your Exploratory Data Analysis</li>
-</ol>
+</div>
+<div id="step-6.-c-write-up-your-maps-exploratory-data-analysis" class="section level3 unnumbered">
+<h3>STEP 6. C) Write up your maps &amp; exploratory data analysis<a class="anchor" aria-label="anchor" href="#step-6.-c-write-up-your-maps-exploratory-data-analysis"><i class="fas fa-link"></i></a>
+</h3>
 <div>
 <p><strong>Style Guide</strong></p>
 <p>The word counts here are approximate, it’s fine if some are slightly longer and others slightly shorter.</p>
-<p>Its fine if you keep your maps maps/plots/code from step 7 at the start of Exploratory Data Analysis and refer to them in the text, or if you decide to reorder things and merge step 7 &amp; 8</p>
+<p>Its fine if you keep your maps maps/plots/code from step 6B at the start of Exploratory Data Analysis and refer to them in the text, or if you decide to reorder things and merge steps 6B &amp; 6C</p>
 <p>Please use sub-headings to make it easy for the reader to follow your writing.
 .e.g. “About the data”, “Spatial Description”</p>
 </div>
 <p><br></p>
 <ul>
 <li>
-<p><strong>[8A] Write your aim and introduce the data (100+ words).</strong> An excellent answer would include:</p>
+<p><strong>[6Ci] Write your aim and introduce the data (100+ words).</strong> An excellent answer would include:</p>
 <ul>
 <li>The source of the data,</li>
 <li>The object of analysis and how many objects there are,</li>
@@ -656,7 +912,7 @@ If you wrote notes in your report, you can incorporate those into your answers.<
 <p><br></p>
 <ul>
 <li>
-<strong>[8B] Describe the numeric distribution of your primary variable, referring back to the histogram and your summary statistics. (100 words).</strong> An excellent answer would include
+<strong>[6Cii] Describe the numeric distribution of your primary variable, referring back to the histogram and your summary statistics. (100 words).</strong> An excellent answer would include
 <ul>
 <li>A description of the “central value” (e.g. mean/median), and whether the values vary widely (standard deviation, IQR, range, minimum/maximum). You can choose the exact statistics you refer to.</li>
 <li>Put the numbers in context for the planning office. i.e. how does a typical tract compare with the US as a whole?</li>
@@ -668,7 +924,7 @@ If you wrote notes in your report, you can incorporate those into your answers.<
 <p><br></p>
 <ul>
 <li>
-<strong>[8C] Referring to your maps from 7, describe the spatial pattern in the 2018 data (100-200 words).</strong> Focus on what is interesting and relevant to your aim. You do not need to describe every pattern. An excellent answer should
+<strong>[6Ciii] Referring to your maps from 6B, describe the spatial pattern in the 2018 data (100-200 words).</strong> Focus on what is interesting and relevant to your aim. You do not need to describe every pattern. An excellent answer should
 <ul>
 <li>Describe the pattern in enough detail that someone who cannot see your map could draw a rough version of it from your words.</li>
 <li>Describe the shape, scale and location of the spatial features. Throughout, link what you describe to real places in Chicago: neighbourhoods, downtown, the lakefront, rivers, parks, rail lines or expressways. A planner reading your report should be able to work out where each aspect of the pattern is.</li>
@@ -703,16 +959,16 @@ The tracts following the rivers tend to correspond to public parks.</p>
 </details><p><br></p>
 <ul>
 <li>
-<strong>[8D] Describe the trend over time (100+ words).</strong>
+<strong>[6Civ] Describe the trend over time (100+ words).</strong>
 <ul>
-<li>Describe any changes you can see between 2010 and 2018, referring to your maps from 7. Differentiate between general changes (<em>it gets richer</em>) and changes in the spatial pattern (<em>the poor areas expand</em>, <em>the tree cover becomes more fractured..</em>).</li>
+<li>Describe any changes you can see between 2010 and 2018, referring to your maps from 6B. Differentiate between general changes (<em>it gets richer</em>) and changes in the spatial pattern (<em>the poor areas expand</em>, <em>the tree cover becomes more fractured..</em>).</li>
 </ul>
 </li>
 </ul>
 <p><br></p>
 <ul>
 <li>
-<strong>[8E] Suggest processes (150+ words).</strong>
+<strong>[6Cv] Suggest processes (150+ words).</strong>
 <ul>
 <li>Suggest at least TWO processes that might explain the patterns you described above. Cite at least one source to support your discussion.</li>
 <li>Some hints:
@@ -733,7 +989,7 @@ The tracts following the rivers tend to correspond to public parks.</p>
 <p><br></p>
 <ul>
 <li>
-<p><strong>[8F] Summarise and predict (2–3 sentences).</strong></p>
+<p><strong>[6Cvi] Summarise and predict (2–3 sentences).</strong></p>
 <ul>
 <li>Briefly summarise what you found in a sentence or two,</li>
 <li>Then explain if in your opinion, your 2018 variable looks positively autocorrelated (similar values next to each other), negatively autocorrelated (a chessboard of high and low values), or not autocorrelated at all. You will test your prediction with Moran’s I and LISA later.</li>
@@ -742,17 +998,14 @@ The tracts following the rivers tend to correspond to public parks.</p>
 </li>
 </ul>
 </div>
-<div id="week-2-1" class="section level3 unnumbered">
-<h3>WEEK 2<a class="anchor" aria-label="anchor" href="#week-2-1"><i class="fas fa-link"></i></a>
+<div id="week-2" class="section level3 unnumbered">
+<h3>WEEK 2<a class="anchor" aria-label="anchor" href="#week-2"><i class="fas fa-link"></i></a>
 </h3>
-<ol start="9" style="list-style-type: decimal">
-<li>Calculate the change in your variables (previously step 7) {.unnumbered}</li>
-</ol>
-<div>
-<p><strong>Side note, why am I doing this after I wrote up my EDA?</strong></p>
-<p>You’re right to be confused! If you were doing this analysis for real, this code would have appeared somewhere in step 7, before you wrote up your EDA. Its here to try and balance the workload across the lab but I know it will feel slightly out of sync in terms of the data analysis process</p>
 </div>
-<p>We now want to formally calculate the difference between 2010 and 2018. Calculating differences is however, slightly more complex than it might first appear. Expand each of these to read the rules for different data types (you will need this info in step 9A):</p>
+<div id="step-7.-calculate-the-change-in-your-variables" class="section level3 unnumbered">
+<h3>STEP 7. Calculate the change in your variables<a class="anchor" aria-label="anchor" href="#step-7.-calculate-the-change-in-your-variables"><i class="fas fa-link"></i></a>
+</h3>
+<p>At this point, it would be useful to formally calculate and map the difference between 2010 and 2018. Calculating such differences is more complex than it might first appear. Expand each of these to read the rules for different data types (you will need this info in step 7A):</p>
 <p><u>Firstly, always start with the later time-stamp (e.g. 2018 - 2010)</u>.
 You want increases to be positive and decreases negative</p>
 <details><summary><u>Use ‘percentage points’ when comparing percentages. Expand to read more</u>
@@ -803,7 +1056,7 @@ This will take you to a pdf document with the US Department of Labor’s CPI for
 </details><p><br></p>
 <ul>
 <li>
-<strong>[9A] We are going to create a new variable that contains the difference between 2010 and 2018 for <em>all</em> the variables in your original table</strong> (in part so I can show you how the code looks in the three cases above). <br><ul>
+<strong>[7A] We are going to create a new variable that contains the difference between 2010 and 2018 for <em>all</em> the variables in your original table</strong> (in part so I can show you how the code looks in the three cases above). <br><ul>
 <li>Copy the entire code chunk below into your report, under a new relevant subheading. If your datasets are named differently, adjust the dataset names of <code>ChicagoTracts_2018</code>, <code>ChicagoTracts_2010</code> and <code>ChicagoTracts_Change</code> to match your system DO NOT RUN IT YET!</li>
 </ul>
 </li>
@@ -818,7 +1071,7 @@ This will take you to a pdf document with the US Department of Labor’s CPI for
 <strong>So.. there is only one part of the code you need to fix before it will run with out errors.</strong> I have not entered the CPI 2010 and CPI 2018 numbers, instead writing “ANS”. Until you enter the correct numbers, the code will crash. Using the explanations in the three drop downs above, replace ANS with the correct numbers, then run the code. <em>(not sure what CPI is? Read the explanations above!)</em>
 </li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get the Consumer price index in 2010 and 2018</span></span>
 <span><span class="co"># THIS WILL BREAK UNTIL YOU REPLACE ANS WITH ACTUAL NUMBERS.</span></span>
 <span><span class="va">cpi_2010</span> <span class="op">&lt;-</span> <span class="va">ANS</span></span>
@@ -854,7 +1107,7 @@ This will take you to a pdf document with the US Department of Labor’s CPI for
 <p><br></p>
 <ul>
 <li>
-<p><strong>[9B]</strong> <strong>Check you understand what you did.</strong></p>
+<p><strong>[7B]</strong> <strong>Check you understand what you did.</strong></p>
 <ul>
 <li>[1] Look at the code above. To make your life easy, make sure you understand
 <ul>
@@ -874,11 +1127,11 @@ This will take you to a pdf document with the US Department of Labor’s CPI for
 <p><br></p>
 </li>
 <li>
-<p><strong>[9C] Copy/paste your map code from earlier in your report and adjust so you are mapping the <u>change</u> in your main variable.</strong></p>
+<p><strong>[7C] Copy/paste your map code from earlier in your report and adjust so you are mapping the <u>change</u> in your main variable.</strong></p>
 <ul>
 <li>One big difference from before is that your change variable may contain both positive and negative values. A diverging colour palette centred on zero is normally appropriate for showing increases and decreases.
 <ul>
-<li><em>Not sure how? See the code comment in [6B.ix] or go to the maps tutorial, or ask google/AI.</em></li>
+<li><em>Not sure how? See the code comment in [6Bvii] or go to the maps tutorial, or ask google/AI.</em></li>
 </ul>
 </li>
 <li>Advanced: You could use tmap_arrange to map the 2010, 2018 and change side by side for your variable to make life easier.</li>
@@ -888,7 +1141,7 @@ This will take you to a pdf document with the US Department of Labor’s CPI for
 <p><br></p>
 <ul>
 <li>
-<p><strong>[9D] In your report, describe the magnitude and spatial pattern of change. E.g.</strong></p>
+<p><strong>[7D] In your report, describe the magnitude and spatial pattern of change. E.g.</strong></p>
 <ul>
 <li>Is there an overall trend? <em>E.g. most of the map is red.. things are getting more expensive.. rich places are getting richer, poor places are getting poorer..</em><br>
 </li>
@@ -942,14 +1195,15 @@ tract 2: -10 pp</td>
 </tbody>
 </table></details><ul>
 <li>
-<strong>[9E] Make quick maps for 2 other variables.</strong> Now copy the map code, and simply change the variable name to look at variables in the dataset.
+<strong>[7E] Make quick maps for 2 other variables.</strong> Now copy the map code, and simply change the variable name to look at variables in the dataset.
 If possible, choose variables where you <em>expect</em> to see a spatial pattern in the changes, or see if you can find patterns that are either very similar or very different to your main variable.
 Write a few sentences describing any differences you see.</li>
 </ul>
 <p><br><br></p>
-<ol start="10" style="list-style-type: decimal">
-<li>Calculating the 2018 Moran’s I and LISA</li>
-</ol>
+</div>
+<div id="step-8.-morans-i-lisa-main-variable" class="section level3 unnumbered">
+<h3>STEP 8. Moran’s I &amp; LISA: Main variable<a class="anchor" aria-label="anchor" href="#step-8.-morans-i-lisa-main-variable"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>
 <p><strong>For the 2018 data and your chosen variable, use your previous code or/and</strong> <a href="T15_Autocorrelation.html#T15_AutocorrelationCode">Tutorial - “Dr G’s Autocorrelation tutorial”</a> <strong>to calculate and interpret the following.</strong></p>
@@ -969,34 +1223,36 @@ Write a few sentences describing any differences you see.</li>
 <li><p><em>Copy all the code into a code chunk, edit the dataset name and variable name to match yours throughout, This will then run all the code needed to make the maps in my tutorial, so you can then write about them below the code chunk.</em></p></li>
 </ul>
 <p><br><br></p>
-<ol start="11" style="list-style-type: decimal">
-<li>Calculating Moran’s I and LISA for your change variable.</li>
-</ol>
+</div>
+<div id="step-9.-morans-i-lisa-change-in-your-variable" class="section level3 unnumbered">
+<h3>STEP 9. Moran’s I &amp; LISA: Change in your variable<a class="anchor" aria-label="anchor" href="#step-9.-morans-i-lisa-change-in-your-variable"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
-<li><p><strong>Repeat step 10, but for the CHANGE in your specific variable.</strong></p></li>
-<li><p>To make your life easy for the code part, simply copy/paste what you did in step 10 into a new code chunk, then simply change all the 2018s to change, alongside axis/title labels as appropriate.</p></li>
+<li><p><strong>Repeat step 8, but for the CHANGE in your specific variable.</strong></p></li>
+<li><p>To make your life easy for the code part, simply copy/paste what you did in step 8 into a new code chunk, then simply change all the 2018s to change, alongside axis/title labels as appropriate.</p></li>
 <li><p>Then you can spend your time interpreting the results and comparing them with what you saw for the variable itself.</p></li>
 </ul>
 <p><br><br></p>
-<ol start="12" style="list-style-type: decimal">
-<li>Reflection (~200 words)</li>
-</ol>
+</div>
+<div id="step-10.-reflection" class="section level3 unnumbered">
+<h3>STEP 10. Reflection<a class="anchor" aria-label="anchor" href="#step-10.-reflection"><i class="fas fa-link"></i></a>
+</h3>
 <p>Finally, reflect on what you discoveries and summarise the report for your reader.
 E.g. talk about the autocorrelation in your 2018 variable, the autocorrelation in the CHANGE in that variable and any processes you think might have caused it (including the likelyhood that this was all caused by random chance).</p>
 <p><br><br></p>
 </div>
-<div id="congrats-finished-3" class="section level3 unnumbered">
+<div id="congrats-finished-2" class="section level3 unnumbered">
 <h3>
-<strong>Congrats! Finished!</strong><a class="anchor" aria-label="anchor" href="#congrats-finished-3"><i class="fas fa-link"></i></a>
+<strong>Congrats! Finished!</strong><a class="anchor" aria-label="anchor" href="#congrats-finished-2"><i class="fas fa-link"></i></a>
 </h3>
 </div>
 </div>
-<div id="what-to-submit-6" class="section level2 unnumbered">
-<h2>WHAT TO SUBMIT<a class="anchor" aria-label="anchor" href="#what-to-submit-6"><i class="fas fa-link"></i></a>
+<div id="what-to-submit-5" class="section level2 unnumbered">
+<h2>WHAT TO SUBMIT<a class="anchor" aria-label="anchor" href="#what-to-submit-5"><i class="fas fa-link"></i></a>
 </h2>
 <p><br></p>
-<div id="if-you-are-using-your-own-computer-6" class="section level3 unnumbered">
-<h3>If you are using your own computer<a class="anchor" aria-label="anchor" href="#if-you-are-using-your-own-computer-6"><i class="fas fa-link"></i></a>
+<div id="if-you-are-using-your-own-computer-5" class="section level3 unnumbered">
+<h3>If you are using your own computer<a class="anchor" aria-label="anchor" href="#if-you-are-using-your-own-computer-5"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li><p>Press knit one final time.
@@ -1007,8 +1263,8 @@ Double click the html file to open it in your browser and check it’s the one y
 </ul>
 <p><br></p>
 </div>
-<div id="if-you-are-using-posit-cloud-online-6" class="section level3 unnumbered">
-<h3>If you are using Posit Cloud online<a class="anchor" aria-label="anchor" href="#if-you-are-using-posit-cloud-online-6"><i class="fas fa-link"></i></a>
+<div id="if-you-are-using-posit-cloud-online-5" class="section level3 unnumbered">
+<h3>If you are using Posit Cloud online<a class="anchor" aria-label="anchor" href="#if-you-are-using-posit-cloud-online-5"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li><p>Press knit one final time.You will have created two files; a <code>.Rmd</code> file containing your code and a <code>.html</code> file for viewing your finished document.</p></li>
@@ -1023,49 +1279,65 @@ Save onto your computer.</p></li>
 <p><br><br></p>
 </div>
 </div>
-<div id="CheckGradeP2" class="section level2 unnumbered">
-<h2>CHECK YOUR GRADE!<a class="anchor" aria-label="anchor" href="#CheckGradeP2"><i class="fas fa-link"></i></a>
+<div id="CheckGradeP2b" class="section level2 unnumbered">
+<h2>CHECK YOUR GRADE!<a class="anchor" aria-label="anchor" href="#CheckGradeP2b"><i class="fas fa-link"></i></a>
 </h2>
-<div id="rubric-5" class="section level3 unnumbered">
-<h3>RUBRIC<a class="anchor" aria-label="anchor" href="#rubric-5"><i class="fas fa-link"></i></a>
+<div id="rubric-4" class="section level3 unnumbered">
+<h3>RUBRIC<a class="anchor" aria-label="anchor" href="#rubric-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>See canvas</p>
 
 </div>
 </div>
 </div>
-
-
-
-
-
-
   <div class="chapter-nav">
-<div class="prev"><a href="Project2.html">Project 2</a></div>
-<div class="next"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting each lab</a></div>
+<div class="prev"><a href="Lab_5.html">Homework 5</a></div>
+<div class="next"><a href="Project2.html">Project 2</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#project-2---improved-instructions">Project 2 - IMPROVED INSTRUCTIONS</a></li>
-<li><a class="nav-link" href="#about-the-lab">About the lab</a></li>
-<li><a class="nav-link" href="#part-a-lab-setup">PART A: LAB-SETUP</a></li>
-<li><a class="nav-link" href="#part-b-notes-and-tutorials">PART B: NOTES AND TUTORIALS</a></li>
+<li>
+<a class="nav-link" href="#about-the-lab">About the lab</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#important">IMPORTANT!</a></li>
+<li><a class="nav-link" href="#lab-aim-1">Lab aim</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#part-a-lab-setup">PART A: LAB-SETUP</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1-create-your-project-download-datareports-2">STEP 1: Create your project &amp; download data/reports</a></li>
+<li><a class="nav-link" href="#step-2-adjust-your-theme-and-knit-options">STEP 2: Adjust your theme and knit options</a></li>
+<li><a class="nav-link" href="#step-3-try-to-knit-check-libraries-are-installed">STEP 3: Try to knit &amp; check libraries are installed</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#part-b-notes-and-tutorials">PART B: NOTES AND TUTORIALS</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-4-summarise-your-notes">STEP 4: summarise your notes</a></li>
+<li><a class="nav-link" href="#step-5-morans-i-mini-tutorial">STEP 5: Morans I mini tutorial</a></li>
+</ul>
+</li>
 <li>
 <a class="nav-link" href="#part-c-main-project">PART C: MAIN PROJECT</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#P2_Background">Background/introduction</a></li>
-<li><a class="nav-link" href="#P2_Background">Exploratory data analysis</a></li>
-<li><a class="nav-link" href="#week-2-1">WEEK 2</a></li>
-<li><a class="nav-link" href="#congrats-finished-3">Congrats! Finished!</a></li>
+<li><a class="nav-link" href="#P2b_Background">Background/introduction</a></li>
+<li><a class="nav-link" href="#step-6.-a-write-up-background">STEP 6. A) Write up background</a></li>
+<li><a class="nav-link" href="#step-6.-b-create-maps-summary-statistics">STEP 6. B) Create maps &amp; summary statistics</a></li>
+<li><a class="nav-link" href="#step-6.-c-write-up-your-maps-exploratory-data-analysis">STEP 6. C) Write up your maps &amp; exploratory data analysis</a></li>
+<li><a class="nav-link" href="#week-2">WEEK 2</a></li>
+<li><a class="nav-link" href="#step-7.-calculate-the-change-in-your-variables">STEP 7. Calculate the change in your variables</a></li>
+<li><a class="nav-link" href="#step-8.-morans-i-lisa-main-variable">STEP 8. Moran’s I &amp; LISA: Main variable</a></li>
+<li><a class="nav-link" href="#step-9.-morans-i-lisa-change-in-your-variable">STEP 9. Moran’s I &amp; LISA: Change in your variable</a></li>
+<li><a class="nav-link" href="#step-10.-reflection">STEP 10. Reflection</a></li>
+<li><a class="nav-link" href="#congrats-finished-2">Congrats! Finished!</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#what-to-submit-6">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#if-you-are-using-your-own-computer-6">If you are using your own computer</a></li>
-<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online-6">If you are using Posit Cloud online</a></li>
+<a class="nav-link" href="#what-to-submit-5">WHAT TO SUBMIT</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#if-you-are-using-your-own-computer-5">If you are using your own computer</a></li>
+<li><a class="nav-link" href="#if-you-are-using-posit-cloud-online-5">If you are using Posit Cloud online</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#CheckGradeP2">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric-5">RUBRIC</a></li></ul>
+<a class="nav-link" href="#CheckGradeP2b">CHECK YOUR GRADE!</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#rubric-4">RUBRIC</a></li></ul>
 </li>
 </ul>
 
@@ -1083,7 +1355,7 @@ Save onto your computer.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R code example</strong>" was written by Dr Helen Greatrex. It was last built on 2026-11-09.</p>
+    <p>"<strong>R code example</strong>" was written by Dr Helen Greatrex. It was last built on 2026-11-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

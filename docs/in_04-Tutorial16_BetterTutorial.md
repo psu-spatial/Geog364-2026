@@ -1,6 +1,6 @@
 ---
 title: "R code example"
-date: "2026-11-09"
+date: "2026-11-10"
 output:
   rmdformats::robobook:
     highlight: kate
